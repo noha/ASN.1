@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "BERStreamTest",
+	"category" : "ASN1-Tests-Codec",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "BERTLVStreamTest",
+	"type" : "normal"
+}
