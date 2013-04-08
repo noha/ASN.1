@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1TLVEncoding",
+	"category" : "ASN1-Codec",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"collection"
+	],
+	"name" : "ASN1ConstructedEncoding",
+	"type" : "normal"
+}

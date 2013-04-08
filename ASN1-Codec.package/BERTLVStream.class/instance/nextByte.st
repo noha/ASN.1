@@ -1,0 +1,3 @@
+accessing
+nextByte
+	^ stream next

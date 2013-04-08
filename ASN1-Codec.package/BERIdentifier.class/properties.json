@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "BERStreamFormat",
+	"category" : "ASN1-Codec-BER",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"tag",
+		"constructed"
+	],
+	"name" : "BERIdentifier",
+	"type" : "normal"
+}

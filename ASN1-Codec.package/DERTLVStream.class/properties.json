@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "BERTLVStream",
+	"category" : "ASN1-Codec-DER",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "DERTLVStream",
+	"type" : "normal"
+}

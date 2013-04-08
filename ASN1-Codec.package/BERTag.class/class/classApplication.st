@@ -1,0 +1,3 @@
+class
+classApplication
+        ^ 1

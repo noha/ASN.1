@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "PPCompositeParser",
+	"category" : "ASN1-Codec",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"utctime",
+		"year",
+		"month",
+		"day",
+		"hour",
+		"minute",
+		"second",
+		"offset"
+	],
+	"name" : "ASN1UTCTimeParser",
+	"type" : "normal"
+}

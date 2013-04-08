@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "ASN1-Codec",
+	"classinstvars" : [
+		"utcTimeParser"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1PrimitiveCodec",
+	"type" : "normal"
+}

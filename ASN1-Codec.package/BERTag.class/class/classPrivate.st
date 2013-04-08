@@ -1,0 +1,3 @@
+class
+classPrivate
+        ^ 3

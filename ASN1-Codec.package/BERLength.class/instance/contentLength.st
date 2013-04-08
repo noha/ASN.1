@@ -1,0 +1,3 @@
+accessing
+contentLength
+	^ contentLength
