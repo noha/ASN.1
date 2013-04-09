@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ExampleGrammarTest",
+	"category" : "ASN1-Tests-Builder",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1ModelTest",
+	"type" : "normal"
+}
