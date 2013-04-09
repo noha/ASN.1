@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1Test",
+	"category" : "ASN1-Tests-Syntax",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1CustomSyntaxTest",
+	"type" : "normal"
+}

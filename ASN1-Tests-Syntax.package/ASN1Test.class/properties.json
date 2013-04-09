@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "PPCompositeParserTest",
+	"category" : "ASN1-Tests-Syntax",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1Test",
+	"type" : "normal"
+}
