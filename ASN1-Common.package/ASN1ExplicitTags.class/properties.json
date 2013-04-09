@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1TagEnvironment",
+	"category" : "ASN1-Common",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1ExplicitTags",
+	"type" : "normal"
+}
