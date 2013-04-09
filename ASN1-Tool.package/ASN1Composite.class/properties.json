@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1Value",
+	"category" : "ASN1-Tool-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1Composite",
+	"type" : "normal"
+}

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "ASN1-Tool-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"decoded",
+		"encoded",
+		"oid"
+	],
+	"name" : "ASN1ValueProxy",
+	"type" : "normal"
+}

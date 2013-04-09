@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1Composite",
+	"category" : "ASN1-Tool-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"keys",
+		"values"
+	],
+	"name" : "ASN1Dictionary",
+	"type" : "normal"
+}

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1Value",
+	"category" : "ASN1-Tool-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"module"
+	],
+	"name" : "ASN1ExternalValueObject",
+	"type" : "normal"
+}
