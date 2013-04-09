@@ -1,0 +1,3 @@
+accessing
+upperValue
+	^ upperValue

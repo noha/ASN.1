@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1RewriteVisitor",
+	"category" : "ASN1-AST-Visitor",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"root",
+		"module"
+	],
+	"name" : "ASN1AmbiguitySolvingVisitor",
+	"type" : "normal"
+}

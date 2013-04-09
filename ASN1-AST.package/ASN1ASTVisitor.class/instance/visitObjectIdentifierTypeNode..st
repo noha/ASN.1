@@ -1,0 +1,3 @@
+visiting
+visitObjectIdentifierTypeNode: anObjectIdentifier
+	^ anObjectIdentifier 

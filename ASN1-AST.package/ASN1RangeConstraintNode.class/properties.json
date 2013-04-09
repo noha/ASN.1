@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ConstraintNode",
+	"category" : "ASN1-AST-Nodes",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"lowerValue",
+		"upperValue",
+		"lowerExcluded",
+		"upperExcluded"
+	],
+	"name" : "ASN1RangeConstraintNode",
+	"type" : "normal"
+}

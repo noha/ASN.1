@@ -1,0 +1,3 @@
+visiting
+visitValueFromObjectNode: aValueFromObjectNode
+	self visit: aValueFromObjectNode object

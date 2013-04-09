@@ -1,0 +1,3 @@
+visiting
+visitNullTypeNode: aNullType 
+	^ aNullType

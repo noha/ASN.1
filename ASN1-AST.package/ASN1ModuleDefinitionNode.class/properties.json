@@ -1,0 +1,20 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ScopeNode",
+	"category" : "ASN1-AST-Nodes",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"identifier",
+		"encodingReferenceDefault",
+		"tagDefault",
+		"extensionDefault",
+		"exports",
+		"imports",
+		"assignments",
+		"encodingControlSections"
+	],
+	"name" : "ASN1ModuleDefinitionNode",
+	"type" : "normal"
+}

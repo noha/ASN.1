@@ -1,0 +1,3 @@
+visiting
+visitCustomStringNode: aCustomString 
+	^ aCustomString 

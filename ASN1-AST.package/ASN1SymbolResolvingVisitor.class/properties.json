@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1EnvironmentVisitor",
+	"category" : "ASN1-AST-Visitor",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1SymbolResolvingVisitor",
+	"type" : "normal"
+}

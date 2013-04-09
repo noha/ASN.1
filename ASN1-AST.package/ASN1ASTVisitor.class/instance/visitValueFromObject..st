@@ -1,0 +1,3 @@
+visiting
+visitValueFromObject: anASN1ValueFromObject 
+	self shouldBeImplemented.

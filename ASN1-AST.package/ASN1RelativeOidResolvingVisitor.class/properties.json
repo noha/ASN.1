@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1RewriteVisitor",
+	"category" : "ASN1-AST-Visitor",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"module"
+	],
+	"name" : "ASN1RelativeOidResolvingVisitor",
+	"type" : "normal"
+}

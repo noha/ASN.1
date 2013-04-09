@@ -1,0 +1,3 @@
+testing
+isTypeNode
+	^ false

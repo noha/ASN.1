@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ValueNode",
+	"category" : "ASN1-AST-Nodes",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"object",
+		"fields"
+	],
+	"name" : "ASN1ValueFromObjectNode",
+	"type" : "normal"
+}

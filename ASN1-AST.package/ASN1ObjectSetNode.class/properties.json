@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ElementSpecNode",
+	"category" : "ASN1-AST-Nodes",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1ObjectSetNode",
+	"type" : "normal"
+}

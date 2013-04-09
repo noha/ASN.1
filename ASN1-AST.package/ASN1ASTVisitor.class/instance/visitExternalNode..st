@@ -1,0 +1,3 @@
+visiting
+visitExternalNode: aNode 
+	^ aNode

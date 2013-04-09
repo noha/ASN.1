@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ScopeNode",
+	"category" : "ASN1-AST-Nodes",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"left",
+		"right"
+	],
+	"name" : "ASN1AssignmentNode",
+	"type" : "normal"
+}

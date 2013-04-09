@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "NorbertHartl 2/23/2012 19:20",
+	"super" : "ASN1ASTVisitor",
+	"category" : "ASN1-AST-Visitor",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"root"
+	],
+	"name" : "ASN1ImportSymbolVisitor",
+	"type" : "normal"
+}

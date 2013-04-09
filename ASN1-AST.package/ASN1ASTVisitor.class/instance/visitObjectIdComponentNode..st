@@ -1,0 +1,3 @@
+visiting
+visitObjectIdComponentNode: anObjectIdComponent 
+	^ anObjectIdComponent 

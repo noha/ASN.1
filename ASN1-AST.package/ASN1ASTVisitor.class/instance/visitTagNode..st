@@ -1,0 +1,3 @@
+visiting
+visitTagNode: aTag
+	^ aTag

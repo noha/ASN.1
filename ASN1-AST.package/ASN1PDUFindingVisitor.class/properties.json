@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ASTVisitor",
+	"category" : "ASN1-AST-Visitor",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"candidates"
+	],
+	"name" : "ASN1PDUFindingVisitor",
+	"type" : "normal"
+}
