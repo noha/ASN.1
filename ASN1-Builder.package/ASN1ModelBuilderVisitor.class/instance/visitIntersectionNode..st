@@ -1,0 +1,3 @@
+visiting
+visitIntersectionNode: aNode
+	

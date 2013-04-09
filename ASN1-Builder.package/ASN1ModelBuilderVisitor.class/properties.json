@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1RewriteVisitor",
+	"category" : "ASN1-Builder",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"module",
+		"objects",
+		"hits"
+	],
+	"name" : "ASN1ModelBuilderVisitor",
+	"type" : "normal"
+}
