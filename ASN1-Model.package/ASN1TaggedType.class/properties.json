@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1EncodedType",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"type"
+	],
+	"name" : "ASN1TaggedType",
+	"type" : "normal"
+}

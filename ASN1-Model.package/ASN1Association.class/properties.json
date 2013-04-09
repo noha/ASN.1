@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1BasicObject",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"key",
+		"value"
+	],
+	"name" : "ASN1Association",
+	"type" : "normal"
+}

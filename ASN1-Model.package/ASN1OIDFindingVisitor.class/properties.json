@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ModelVisitor",
+	"category" : "ASN1-Model-Visitor",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"oid",
+		"module",
+		"result"
+	],
+	"name" : "ASN1OIDFindingVisitor",
+	"type" : "normal"
+}

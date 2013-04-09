@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1BasicObject",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"elementSpec",
+		"exclusions"
+	],
+	"name" : "ASN1Elements",
+	"type" : "normal"
+}

@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ModelVisitor",
+	"category" : "ASN1-Model-Visitor",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"tagClass",
+		"tagNumber",
+		"object"
+	],
+	"name" : "ASN1TagFindingVisitor",
+	"type" : "normal"
+}
