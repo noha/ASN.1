@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "PPTokenParser",
+	"category" : "ASN1-Syntax",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"SeparatorPredicate"
+	],
+	"instvars" : [ ],
+	"name" : "ASN1TokenParser",
+	"type" : "normal"
+}

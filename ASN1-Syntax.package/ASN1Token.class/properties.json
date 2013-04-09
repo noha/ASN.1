@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "PPToken",
+	"category" : "ASN1-Syntax",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"comments"
+	],
+	"name" : "ASN1Token",
+	"type" : "normal"
+}

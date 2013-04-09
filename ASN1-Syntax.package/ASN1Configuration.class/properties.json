@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "ASN1-Syntax",
+	"classinstvars" : [
+		"default"
+	],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"failOnReservedWords"
+	],
+	"name" : "ASN1Configuration",
+	"type" : "normal"
+}
