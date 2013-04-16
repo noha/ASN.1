@@ -1,3 +1,3 @@
 accessing
 readEncodedFrom: anObject
-	^ self asn1 model readEncodedFrom: anObject 
+	^ self model readEncodedFrom: anObject 

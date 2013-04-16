@@ -1,9 +1,9 @@
 as yet unclassified
 roundTripTestFor: anObject
 	| object data  |
-	self asn1 model beContextDuring: [
-		object := self readEncodedFrom: anObject.
+	self model beContextDuring: [
+		object := self readEncodedResolvedFrom: anObject.
 		data := ASN1
 			encodeToByteArray: object
-			usingModule: self asn1 model modules first ].
+			usingModule: self model modules first ].
 	self assert: data = anObject
