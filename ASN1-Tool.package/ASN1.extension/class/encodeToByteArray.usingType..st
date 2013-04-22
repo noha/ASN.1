@@ -2,6 +2,6 @@
 encodeToByteArray: anEncodedObject usingType: aType
 	^ ByteArray streamContents: [:stream|
 		self 
-			writeEncoded: anEncodedObject 
+			write: anEncodedObject 
 			on: stream
 			usingType: aType]

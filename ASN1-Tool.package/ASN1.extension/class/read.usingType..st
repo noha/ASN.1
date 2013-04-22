@@ -1,4 +1,4 @@
 *asn1-tool
-read: anEncodedObject usingType: aType
+read: aTaggedValue usingType: aType
 	^ ASN1ReadVisitor new
-		read: anEncodedObject using: aType.
+		read: aTaggedValue using: aType.

@@ -1,4 +1,4 @@
 *asn1-tool
 readEncodedResolvedFrom: anObject usingModuleNamed: aString
-	^ self readResolvedWith: [
-		(self moduleNamed: aString) readEncodedFrom: anObject readStream ]
+	^ self resolveOidsWhile: [
+		(self moduleNamed: aString) readFrom: anObject readStream ]

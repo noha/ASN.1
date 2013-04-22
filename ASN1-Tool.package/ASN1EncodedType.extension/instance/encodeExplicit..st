@@ -2,7 +2,7 @@
 encodeExplicit: anObject
 	^ self isExplicitlyTagged 
 		ifTrue: [
-			ASN1ConstructedEncoding new
+			ASN1ConstructedTaggedValue new
 				add: anObject;
 				tag: self explicitTag;
 				yourself ]

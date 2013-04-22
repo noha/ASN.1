@@ -1,7 +1,7 @@
 as yet unclassified
 visitTypedSequence: aTypedSequence 
 	|  encoded |
-	encoded := ASN1ConstructedEncoding new.
+	encoded := ASN1ConstructedTaggedValue new.
 	stack top elements do: [:assoc|
 		self 
 			push: assoc value

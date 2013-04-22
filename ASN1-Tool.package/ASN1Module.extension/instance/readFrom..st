@@ -1,5 +1,5 @@
 *asn1-tool
-read: aTaggedValue
+readFrom: aStream
 	^ ASN1
-		read: aTaggedValue
+		readFrom: aStream
 		usingType:  self pdu

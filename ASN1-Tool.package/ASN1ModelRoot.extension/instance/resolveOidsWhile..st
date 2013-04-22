@@ -1,5 +1,5 @@
 *asn1-tool
-readResolvedWith: aBlock
+resolveOidsWhile: aBlock
 	^ aBlock
 		on: ASN1UnresolvedOid 
 		do: [:err| 
