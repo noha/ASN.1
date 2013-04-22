@@ -1,13 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1TLVEncoding",
+	"super" : "Object",
 	"category" : "ASN1-Codec",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"contents"
+		"tag"
 	],
-	"name" : "ASN1PrimitiveEncoding",
+	"name" : "ASN1TaggedValue",
 	"type" : "normal"
 }

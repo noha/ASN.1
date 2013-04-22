@@ -5,8 +5,8 @@ next
 	length := self readLength.
 	
 	clazz := identifier isConstructed 
-		ifTrue: [ ASN1ConstructedEncoding ]
-		ifFalse: [ ASN1PrimitiveEncoding ].
+		ifTrue: [ ASN1ConstructedTaggedValue ]
+		ifFalse: [ ASN1PrimitiveTaggedValue ].
 
 	^ (clazz newFrom: (length hasDefiniteForm 
 		ifTrue: [ length readFrom: stream ]

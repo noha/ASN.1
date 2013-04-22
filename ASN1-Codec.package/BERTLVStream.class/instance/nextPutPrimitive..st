@@ -1,4 +1,4 @@
 accessing
-nextPutPrimitive: anEncodedPrimitive
-	anEncodedPrimitive hasContent ifTrue: [
-		stream nextPutAll: anEncodedPrimitive contents asByteArray ]
+nextPutPrimitive: aPrimitiveTaggedValue
+	aPrimitiveTaggedValue hasContent ifTrue: [
+		stream nextPutAll: aPrimitiveTaggedValue contents asByteArray ]

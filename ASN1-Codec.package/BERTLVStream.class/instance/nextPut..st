@@ -6,7 +6,7 @@ nextPut: anEncodedType
 		constructed: anEncodedType isConstructed)
 			writeOn: stream.
 	array := ByteArray streamContents: [:str|
-		anEncodedType writeEncodedOn: (BERTLVStream on: str).
+		anEncodedType writeOn: (BERTLVStream on: str).
 		definiteForm ifFalse: [
 			str nextPutAll: #[ 0 0 ] ] ].
 	(BERLength new

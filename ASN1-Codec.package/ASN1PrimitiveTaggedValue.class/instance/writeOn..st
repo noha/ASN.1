@@ -1,3 +1,3 @@
 as yet unclassified
-writeEncodedOn: aStream
+writeOn: aStream
 	aStream nextPutPrimitive: self
