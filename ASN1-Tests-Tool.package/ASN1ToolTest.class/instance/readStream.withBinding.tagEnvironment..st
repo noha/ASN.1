@@ -7,5 +7,5 @@ readStream: aStream withBinding: aString tagEnvironment: aTagEnvironment
 		for: binding 
 		during: [
 			^ ASN1
-				readEncodedFrom:  aStream 
+				readFrom:  aStream 
 				usingType: binding ]
