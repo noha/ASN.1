@@ -1,7 +1,7 @@
 as yet unclassified
 roundTripTestFor: anObject
 	| object data  |
-	self model beContextDuring: [
+	self model resolveOidsWhile: [
 		object := self readEncodedResolvedFrom: anObject.
 		data := ASN1
 			encodeToByteArray: object
