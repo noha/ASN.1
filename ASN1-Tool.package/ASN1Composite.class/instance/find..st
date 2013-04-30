@@ -1,3 +1,3 @@
 as yet unclassified
 find: aKey
-	^ self basicFind: (self normalized: aKey)
+	^ self basicFind: aKey

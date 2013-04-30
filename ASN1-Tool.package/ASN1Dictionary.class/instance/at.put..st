@@ -3,8 +3,8 @@ at: aKey put: anObject
 	(keys includes: aKey)
 		ifTrue: [ 
 			values 
-				at: (keys indexOf: aKey asn1Normalized ) 
+				at: (keys indexOf: aKey ) 
 				put: anObject ]
 		ifFalse: [
-			keys add: aKey asn1Normalized.
+			keys add: aKey.
 			values add: anObject ]
