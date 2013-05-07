@@ -4,13 +4,14 @@ version077: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.6 : Added selector includeType:for checking for types in nested constructs. Especially for unions, intersections, exclusions and element specs'.
+		spec description: '0.7.6 : Added selector includeType:for checking for types in nested constructs. Especially for unions, intersections, exclusions and element specs
+0.7.8 : combined two production rules into one so that one instVar can be removed. Now we can upgrade to the latest petit parser which introduces a new instVar'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '5/7/2013 14:42'.
+		spec timestamp: '5/7/2013 14:55'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.4';
-			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.4';
+			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.5';
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
 			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.56';
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.5';
