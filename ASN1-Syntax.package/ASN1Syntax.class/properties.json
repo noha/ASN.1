@@ -83,7 +83,6 @@
 		"valueSetFromObjects",
 		"constraint",
 		"typeWithConstraint",
-		"constraintSpec",
 		"generalConstraint",
 		"includes",
 		"containedSubtype",
