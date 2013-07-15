@@ -1,7 +1,6 @@
 actions
 annotateAsts
 	self
-		importAllModules;
 		resolveImportSymbols;
 		resolveAmbiguities;
 		resolveAllSymbols;

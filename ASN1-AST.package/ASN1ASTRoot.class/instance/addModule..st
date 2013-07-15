@@ -1,3 +1,3 @@
 accessing
 addModule: aModule
-	self modules add: aModule
+	^ self modules add: aModule
