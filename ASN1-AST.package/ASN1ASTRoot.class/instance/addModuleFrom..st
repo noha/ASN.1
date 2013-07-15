@@ -6,4 +6,4 @@ addModuleFrom: aString
 	module := self parseModuleFrom: aString.
 	module isPetitFailure
 		ifFalse: [ self addModule: module ]
-		ifTrue: [ Transcript show: 'failed to parse module from file named ', aString asString; cr ]
+		ifTrue: [ Transcript show: 'failed to parse module from string: ', aString asString; cr ]

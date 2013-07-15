@@ -6,7 +6,9 @@ importAllModules
 	list := LinkedList withAll: self modules.
 	[ list notEmpty ] whileTrue: [ |module|
 		module := list removeFirst. 
-		(self importsOfModule: module identifier) do: [:identifier|
+		(self importsOfModule: module identifier) do: [:identifier| | mod |
 			(self moduleWithIdentifier: identifier) ifNil: [ 
 				self addModuleFrom: (ASN1MissingModule new identifier: identifier; signal).
-				list addLast: (self moduleWithIdentifier: identifier) ]]]
+				mod := self moduleWithIdentifier: identifier.
+				mod ifNil: [^self error: 'Failed to resolve identifier to module'].
+				list addLast: mod]]]
