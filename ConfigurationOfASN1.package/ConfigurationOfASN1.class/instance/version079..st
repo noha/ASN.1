@@ -4,9 +4,10 @@ version079: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.8 : changed loading behaviour. Resolved ambiguous module resolution between AST and model. Module loading is now done completely in the AST module. Restriction are more tight now meaning on parse error exceptions are thrown early.'.
+		spec description: '0.7.8 : changed loading behaviour. Resolved ambiguous module resolution between AST and model. Module loading is now done completely in the AST module. Restriction are more tight now meaning on parse error exceptions are thrown early.
+0.7.9 : added new baseline with dependency to ASN1-Tests-Builder. ASN1ExampleTestResource has weird dependencies making it hard to package properly. Needs rework'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '7/15/2013 14:45'.
+		spec timestamp: '7/15/2013 16:41'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.4';
