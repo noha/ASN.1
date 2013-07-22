@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "Object",
+	"category" : "ASN1-Common",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"clazz",
+		"number"
+	],
+	"name" : "ASN1Tag",
+	"type" : "normal"
+}
