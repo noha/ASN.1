@@ -4,12 +4,13 @@ version0711: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.10 : moved byte value calculation from BER stream to the tag itself'.
+		spec description: '0.7.10 : moved byte value calculation from BER stream to the tag itself
+0.7.11 : resurrect common package. My image deleted all methods of the package.'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '7/22/2013 17:23'.
+		spec timestamp: '7/22/2013 17:36'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
-			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.5';
+			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
 			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.5';
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
 			package: 'ASN1-AST' with: 'ASN1-AST-HolgerHansPeterFreyther.59';
