@@ -5,9 +5,10 @@ version0711: spec
 	spec for: #'common' do: [
 		spec blessing: #'development'.
 		spec description: '0.7.10 : moved byte value calculation from BER stream to the tag itself
-0.7.11 : resurrect common package. My image deleted all methods of the package.'.
+0.7.11 : resurrect common package. My image deleted all methods of the package.
+0.7.11 : refactored elements set into own class hierarchie. Now it should be possible to traverse the sets in a proper way'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '7/22/2013 17:36'.
+		spec timestamp: '7/23/2013 16:59'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -15,9 +16,9 @@ version0711: spec
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
 			package: 'ASN1-AST' with: 'ASN1-AST-HolgerHansPeterFreyther.59';
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.7';
-			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.49';
+			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.50';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
-			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.7';
+			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.8';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
 			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.18';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.1';
