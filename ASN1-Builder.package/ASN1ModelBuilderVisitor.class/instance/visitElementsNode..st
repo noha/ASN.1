@@ -1,6 +1,6 @@
 visiting
 visitElementsNode: aNode
-	^ ASN1Elements new
-		elementSpec: (self visit: aNode entity);
-		exclusions: (self visitAll: aNode exclusions)
+	^ ASN1ElementComplement new
+		included: (self visit: aNode entity);
+		excluded: (self visitAll: aNode exclusions)
 		
