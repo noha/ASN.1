@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-	self module printOn: aStream.
+	self moduleIdentifier printOn: aStream.
 	aStream nextPut: Character cr.
 	self symbols isEmpty ifFalse: [ aStream nextPut: Character tab ].
 	self symbols 

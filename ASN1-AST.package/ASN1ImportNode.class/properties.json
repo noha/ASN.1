@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"module",
+		"moduleIdentifier",
 		"symbols"
 	],
 	"name" : "ASN1ImportNode",

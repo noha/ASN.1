@@ -1,5 +1,5 @@
 visiting
 visitImportNode: anImport
-	self visit: anImport module.
+	self visit: anImport moduleIdentifier.
 	self visitAll: anImport symbols.
 	^ anImport

@@ -8,5 +8,5 @@ addImportedModules
 		module := list removeFirst. 
 		(seen includes: module) ifFalse:[
 			seen add: module.
-			(self importsOfModule: module identifier) do: [:identifier|
+			module importIdentifiers do: [:identifier|
 				list addLast: (self moduleWithIdentifier: identifier) ]]]

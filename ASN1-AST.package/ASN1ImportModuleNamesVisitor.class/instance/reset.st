@@ -1,3 +1,0 @@
-positioning
-reset
-	identifiers := nil.

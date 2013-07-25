@@ -3,4 +3,4 @@ symbolsFromModule
 	^ super symbolsFromModule ==> [:nodes| 
 		ASN1ImportNode new
 			symbols: nodes first;
-			module: nodes second ]
+			moduleIdentifier: nodes second ]
