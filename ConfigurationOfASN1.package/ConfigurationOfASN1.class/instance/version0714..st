@@ -4,9 +4,10 @@ version0714: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.13 : version bump to hopefully fix versioning again'.
+		spec description: '0.7.13 : version bump to hopefully fix versioning again
+0.7.14 : test commit'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '7/24/2013 17:03'.
+		spec timestamp: '7/25/2013 09:00'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
