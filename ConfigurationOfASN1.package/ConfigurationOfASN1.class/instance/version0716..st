@@ -4,9 +4,10 @@ version0716: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.15 : forgot to change one selector in last refactoring'.
+		spec description: '0.7.15 : forgot to change one selector in last refactoring
+0.7.16 : fixed problem with multiple instances of the same object when doing recursive resolving'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '7/25/2013 09:59'.
+		spec timestamp: '8/20/2013 16:34'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -16,7 +17,7 @@ version0716: spec
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.7';
 			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.52';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
-			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.8';
+			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.9';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
 			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.18';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.1';
