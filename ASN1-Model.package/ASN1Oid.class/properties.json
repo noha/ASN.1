@@ -8,6 +8,6 @@
 	"instvars" : [
 		"string"
 	],
-	"name" : "ASN1ObjectIdentifierValue",
+	"name" : "ASN1Oid",
 	"type" : "normal"
 }
