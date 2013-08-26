@@ -1,4 +1,4 @@
 visiting
 visitObjectIdentifierNode: anObjectId
-	^ ASN1ObjectIdentifierValue new 
+	^ ASN1Oid new 
 		string: anObjectId oidString
