@@ -6,10 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"oid",
-		"module",
-		"result"
+		"key",
+		"objects"
 	],
-	"name" : "ASN1OIDFindingVisitor",
+	"name" : "ASN1FindByKeyVisitor",
 	"type" : "normal"
 }
