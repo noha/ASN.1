@@ -1,5 +1,5 @@
 *asn1-tool
-readFrom: anObject
+readFrom: anObject inContext: aContext
 	^ self modules first 
 		readFrom: anObject readStream
-		inContext: self 
+		inContext: aContext
