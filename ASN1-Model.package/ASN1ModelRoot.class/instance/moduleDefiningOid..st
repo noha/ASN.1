@@ -1,5 +1,5 @@
 as yet unclassified
-moduleDefiningOid: aString
+moduleDefiningOid: anOidOrString
 	^ self modules
-		detect: [:each| each definesOid: aString ]
+		detect: [:each| each definesOid: anOidOrString value]
 		ifNone: [ nil ]
