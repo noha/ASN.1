@@ -1,5 +1,6 @@
 *asn1-tool
 readFrom: aStream usingType: aType 
-	^ self 
-		read: (self readTaggedValuesFrom: aStream)
+	^ self  
+		readFrom: aStream
 		usingType: aType
+		inContext: nil
