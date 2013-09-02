@@ -4,9 +4,10 @@ version0720: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.19 : cleanup ASN1 facade reading selectors. Added additional argument context for resolving modules. Now it shouldn''t emit exceptions but fallback to defaults. That is not resolving without context and resolving with context.'.
+		spec description: '0.7.19 : cleanup ASN1 facade reading selectors. Added additional argument context for resolving modules. Now it shouldn''t emit exceptions but fallback to defaults. That is not resolving without context and resolving with context.
+0.7.20 : Forgot to add to defaults to reader methods for last refactoring'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '9/2/2013 11:16'.
+		spec timestamp: '9/2/2013 11:22'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -20,5 +21,5 @@ version0720: spec
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
 			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.19';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.1';
-			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.38';
+			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.39';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.5'. ].
