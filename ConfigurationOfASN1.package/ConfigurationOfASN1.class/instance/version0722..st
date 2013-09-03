@@ -4,9 +4,10 @@ version0722: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.21 : added more places for handling of string or oid'.
+		spec description: '0.7.21 : added more places for handling of string or oid
+0.7.22 : added size calculation for tagged values. Added convenient selector asAsn1Dictionary to Collection. Add fail early guard for stack based visitors that try to put nil onto the stack'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '9/2/2013 17:47'.
+		spec timestamp: '9/3/2013 13:55'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -18,7 +19,7 @@ version0722: spec
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
-			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.20';
+			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.21';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.1';
-			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.39';
+			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.40';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.5'. ].
