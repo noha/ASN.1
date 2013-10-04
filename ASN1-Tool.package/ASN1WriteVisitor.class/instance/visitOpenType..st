@@ -1,6 +1,7 @@
 as yet unclassified
 visitOpenType: anOpenType
-	| oid |
 	self flag: #hack.
 	"oid := ASN1OpenTypeDefinition signal."
-	^ stack top
+	^ stack top isAsn1TaggedValue 
+		ifTrue: [ stack top ]
+		ifFalse: [ self visit: stack top type ]
