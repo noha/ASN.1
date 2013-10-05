@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testDecodeOctetString
 	| data decoded |
 	data := #[222 173 190 239].

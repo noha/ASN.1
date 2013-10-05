@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testEncodeOidSpec
 	| oid octets |
 	oid := '2.100.3'.

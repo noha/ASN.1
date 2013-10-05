@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testEncodeOctetString
 	| data |
 	self assert: (self codec encodeOctetString: 'DEADBEEF') = #[222 173 190 239].
