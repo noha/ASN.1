@@ -1,5 +1,6 @@
 initialize-release
 readFrom: aStream
+	"Who is using that? There is BERLength>>#parseFrom:?"
 	^ self hasDefiniteForm 
 		ifTrue: [ 
 			((aStream size - aStream position) >=  self contentLength) ifFalse: [ self halt ]. 
