@@ -1,5 +1,6 @@
 decoding
 parseFrom: aStream
+	"create a BERLength instance by reading its values from a stream"
 	| berLength octet number |
 	berLength := self new.
 	octet := aStream next asInteger.

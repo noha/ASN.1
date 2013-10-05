@@ -1,6 +1,7 @@
 initialize-release
 readFrom: aStream
-	"Who is using that? There is BERLength>>#parseFrom:?"
+	"we are an instance of a length specification. This method reads the computate length
+	of bytes from a stream and returns them"
 	^ self hasDefiniteForm 
 		ifTrue: [ 
 			((aStream size - aStream position) >=  self contentLength) ifFalse: [ self halt ]. 
