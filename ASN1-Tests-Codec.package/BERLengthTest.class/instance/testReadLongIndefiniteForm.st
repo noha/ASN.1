@@ -1,4 +1,4 @@
-tests
+as yet unclassified
 testReadLongIndefiniteForm
 	| length |
 	length := (BERLength parseFrom: { 128 } readStream).

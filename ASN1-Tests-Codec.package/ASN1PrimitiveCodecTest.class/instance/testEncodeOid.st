@@ -1,4 +1,4 @@
-tests
+as yet unclassified
 testEncodeOid
 	| oid data |
 	oid := '0.0.17.773.1.1.1'.
