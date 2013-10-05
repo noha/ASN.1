@@ -4,9 +4,10 @@ version0726: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.25 : fixed wrong implementation of reading ber lengths with long definite form'.
+		spec description: '0.7.25 : fixed wrong implementation of reading ber lengths with long definite form
+0.7.26 : exchanged my ber length definition long form implementation with Holgers. I misread the spec and my implementation was wrong'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '10/5/2013 15:46'.
+		spec timestamp: '10/5/2013 18:10'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -18,7 +19,7 @@ version0726: spec
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
-			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.25';
-			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.2';
+			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.26';
+			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.3';
 			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.42';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.5'. ].
