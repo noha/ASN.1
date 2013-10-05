@@ -3,5 +3,5 @@ writeOn: aStream
 	(self hasDefiniteForm) 
 		ifTrue: [(self contentLength < 16r7f)
 			ifTrue:[ aStream nextPut: self contentLength ]
-			ifFalse: [ self halt ]]
+			ifFalse: [ self writeLongDefiniteFormOn: aStream ]]
 		ifFalse: [ aStream nextPut: 128 ]
