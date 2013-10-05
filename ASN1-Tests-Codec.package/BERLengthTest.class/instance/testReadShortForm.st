@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testReadShortForm
 	| length |
 	length := (BERLength parseFrom: { 38 } readStream).

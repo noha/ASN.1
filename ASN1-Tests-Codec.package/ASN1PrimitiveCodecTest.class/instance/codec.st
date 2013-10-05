@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 codec
 	^ ASN1PrimitiveCodec

@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testReadMultipleOctetsWithHighBitSet
 	| array result |
 	array := ByteArray streamContents: [:stream|
