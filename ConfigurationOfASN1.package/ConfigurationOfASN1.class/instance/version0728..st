@@ -4,9 +4,10 @@ version0728: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.27 : reverted wrong old implementation of octet string. The old implementation swallowed the last nibble of an octet string if that nibble is zeo'.
+		spec description: '0.7.27 : reverted wrong old implementation of octet string. The old implementation swallowed the last nibble of an octet string if that nibble is zeo
+0.7.28 : exchanging impementation for reading long definite form of a BER tagged value again. Didn''t work the last time'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '10/8/2013 10:26'.
+		spec timestamp: '10/8/2013 11:10'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -18,7 +19,7 @@ version0728: spec
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
-			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.27';
+			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.28';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.3';
 			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.42';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.5'. ].
