@@ -4,9 +4,10 @@ version0730: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.29 : added missing tag assignment for typed sequences'.
+		spec description: '0.7.29 : added missing tag assignment for typed sequences
+0.7.30 : need to apply last test codec package again'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '10/8/2013 12:06'.
+		spec timestamp: '10/9/2013 16:51'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -19,6 +20,6 @@ version0730: spec
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
 			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.28';
-			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.3';
+			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.4';
 			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.43';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.5'. ].
