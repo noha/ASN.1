@@ -1,6 +1,6 @@
 versions
-version0731: spec
-	<version: '0.7.31' imports: #('0.7.5-baseline' )>
+version0732: spec
+	<version: '0.7.32' imports: #('0.7.5-baseline' )>
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
@@ -20,5 +20,5 @@ version0731: spec
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
 			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.28';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.4';
-			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.43';
+			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.44';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.5'. ].
