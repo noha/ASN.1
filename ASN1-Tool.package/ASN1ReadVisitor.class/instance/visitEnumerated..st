@@ -11,5 +11,6 @@ visitEnumerated: anEnumerated
 				during: [ self visitPrimitive: anEnumerated]]
 		ifFalse: [ self visitPrimitive: anEnumerated ].
 	namedNumber := anEnumerated atNumber: number.
-	namedNumber ifNil: [ ASN1ElementNotFound signal: 'no entry for number ', number asString, ' found' ].
-	^ namedNumber number -> namedNumber name	
+	^ namedNumber 
+		ifNotNil: [ namedNumber number -> namedNumber name ]
+		ifNil: [ ASN1ElementNotFound signal: 'no entry for number ', number asString, ' found' ]
