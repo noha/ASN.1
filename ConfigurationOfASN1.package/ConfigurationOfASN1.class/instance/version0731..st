@@ -4,10 +4,9 @@ version0731: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.30 : need to apply last test codec package again
-0.7.31 : reading of an enumerated value throws an exception that is resumable to ignore the value.'.
+		spec description: '0.7.31 : try once more committing.'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '10/15/2013 15:13'.
+		spec timestamp: '10/15/2013 15:15'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
