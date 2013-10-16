@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"module"
+		"value"
 	],
-	"name" : "ASN1ExternalValueObject",
+	"name" : "ASN1ValueHolder",
 	"type" : "normal"
 }
