@@ -4,9 +4,9 @@ version0736: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: ''.
+		spec description: '0.7.36 : Switched role of Oid. Internally objects should now be treated as Oid values. On public API methods where strings can be passed they should be automatically be converted to Oids'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '10/16/2013 15:12'.
+		spec timestamp: '10/16/2013 15:14'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -14,7 +14,7 @@ version0736: spec
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
 			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.61';
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.7';
-			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.58';
+			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.59';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
