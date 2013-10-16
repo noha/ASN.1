@@ -1,6 +1,6 @@
 accessing
-bindingNameOfOid: aString 
+bindingNameOfOid: anOidOrString
 	self modules do: [:each|
-		(each definesOid: aString) ifTrue: [
-			^ each bindingNameOfOid: aString ] ].
+		(each definesOid: anOidOrString asAsn1Oid) ifTrue: [
+			^ each bindingNameOfOid: anOidOrString asAsn1Oid ] ].
 	^ nil

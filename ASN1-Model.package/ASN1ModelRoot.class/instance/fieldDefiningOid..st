@@ -1,4 +1,4 @@
 as yet unclassified
-fieldDefiningOid: aString
-	^ (self moduleDefiningOid: aString)
-	fieldDefiningOid: aString
+fieldDefiningOid: anOid
+	^ (self moduleDefiningOid: anOid)
+		fieldDefiningOid: anOid

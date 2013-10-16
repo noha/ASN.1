@@ -1,5 +1,5 @@
 accessing
-fieldDefiningOid: aString 
+fieldDefiningOid: anOid
 	^ self fields associations
-			detect: [:each| each value definesOid: aString ]
+			detect: [:each| each value = anOid ]
 			ifNone: [ nil ]

@@ -1,3 +1,3 @@
 testing
-definesOid: aString 
-	^ (self fieldDefiningOid: aString) notNil
+definesOid: anOid
+	^ (self fieldDefiningOid: anOid) notNil
