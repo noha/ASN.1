@@ -6,5 +6,5 @@ testOctetStringShort
 	data := self codec encodeOctetString: '01'.
 	self assert: (data last bitAnd: 240) = 0.
 	
-	self assert: (self codec decodeOctetString: #[1]) = '01'
+	self assert: (self codec decodeOctetString: #[1]) = '1'
 	
