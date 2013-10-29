@@ -4,9 +4,10 @@ version0739: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.38 : adjustment for tests to different octet string semantics'.
+		spec description: '0.7.38 : adjustment for tests to different octet string semantics
+0.7.39 : encode empty octet string bytes to empty sring'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '10/17/2013 16:07'.
+		spec timestamp: '10/29/2013 14:25'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -18,7 +19,7 @@ version0739: spec
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.2';
-			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.29';
+			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.30';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.6';
 			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.45';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.5'. ].
