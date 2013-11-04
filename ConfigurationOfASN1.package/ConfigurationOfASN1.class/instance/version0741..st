@@ -4,9 +4,10 @@ version0741: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.40 : fixed a bug with encoding tags for nested choices in implicit tagging environment. Removed some old and obsolete stuff and made it work the right way via tagged type'.
+		spec description: '0.7.40 : fixed a bug with encoding tags for nested choices in implicit tagging environment. Removed some old and obsolete stuff and made it work the right way via tagged type
+0.7.41 : last fix introduced a problem because ASN1Choice was still implemented as if it would own a tag. Removed check in choice tag'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/4/2013 16:20'.
+		spec timestamp: '11/4/2013 17:19'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -14,7 +15,7 @@ version0741: spec
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
 			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.61';
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-HolgerHansPeterFreyther.8';
-			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.60';
+			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.61';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.4';
