@@ -1,3 +1,6 @@
 visiting
 visitTaggedType: aTaggedType 
-	^ self visitDecoded: aTaggedType type
+	^ (self tagEnvironmentOf: aTaggedType) 
+		encode: (self visit: aTaggedType type) 
+		using: aTaggedType type
+		outerTag: aTaggedType tag

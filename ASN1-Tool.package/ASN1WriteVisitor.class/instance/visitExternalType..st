@@ -1,4 +1,4 @@
-as yet unclassified
+visiting
 visitExternalType: anExternalType
 	| encoded module root external |
 	encoded := ASN1ConstructedTaggedValue new

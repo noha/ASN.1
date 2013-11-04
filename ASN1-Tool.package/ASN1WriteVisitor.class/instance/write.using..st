@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 write: anObject using: anAsn1Type
 	stack push: anObject.
-	^ self visitDecoded: anAsn1Type
+	^ self visit: anAsn1Type

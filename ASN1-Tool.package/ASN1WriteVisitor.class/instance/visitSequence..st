@@ -1,4 +1,4 @@
-as yet unclassified
+visiting
 visitSequence: aSequence 
 	|  encoded |
 	encoded := ASN1ConstructedTaggedValue new
@@ -6,5 +6,5 @@ visitSequence: aSequence
 	stack top keysAndValuesDo: [:key :value|
 		self 
 			push: value
-			during: [ encoded elements add: (self visitDecoded: (aSequence elementAt: key) value) ]].
+			during: [ encoded elements add: (self visit: (aSequence elementAt: key) value) ]].
 	^ encoded

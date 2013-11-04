@@ -1,4 +1,4 @@
-as yet unclassified
+visiting
 visitOpenType: anOpenType
 	self flag: #hack.
 	"oid := ASN1OpenTypeDefinition signal."

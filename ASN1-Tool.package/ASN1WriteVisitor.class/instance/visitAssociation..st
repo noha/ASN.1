@@ -1,3 +1,3 @@
-as yet unclassified
+visiting
 visitAssociation: anAssociation
 	^ self visit: anAssociation value

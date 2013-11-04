@@ -1,4 +1,4 @@
-as yet unclassified
+visiting
 visitTypedSequence: aTypedSequence 
 	"All elements that are on the top of the stack are encoded with the type
 	of the typed sequence"
@@ -8,5 +8,5 @@ visitTypedSequence: aTypedSequence
 	stack top elements do: [:assoc|
 		self 
 			push: assoc value
-			during: [ encoded elements add: (self visitDecoded: aTypedSequence type) ]].
+			during: [ encoded elements add: (self visit: aTypedSequence type) ]].
 	^ encoded
