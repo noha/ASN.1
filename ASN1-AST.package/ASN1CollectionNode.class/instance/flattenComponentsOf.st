@@ -1,5 +1,6 @@
 converting
 flattenComponentsOf
+	elements ifNil: [ ^ self ].
 	elements := elements 
 		inject: OrderedCollection new
 		into: [:col :elem| 
