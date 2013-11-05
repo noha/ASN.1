@@ -6,4 +6,4 @@ testEmptySequence
 		encodeToByteArray: data
 		withBinding:  'EmptySequence'
 		tagEnvironment: ASN1ImplicitTags. 
-	self assert: (array = #[163 0]).
+	self assert: (array = #[48 0]).
