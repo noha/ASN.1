@@ -1,3 +1,3 @@
 actions
-leaveScope
+popScope
 	scope := scope parent 
