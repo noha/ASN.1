@@ -25,7 +25,7 @@ baseline080: spec
 					spec
 						className: 'ConfigurationOfPetitParser';
 						loads:  #( 'Core' );
-						versionString: '1.5-baseline';
+						versionString: '1.6-baseline';
 						file: 'ConfigurationOfPetitParser';
 						repository: 'http://smalltalkhub.com/mc/Moose/PetitParser/main' ].
 					spec

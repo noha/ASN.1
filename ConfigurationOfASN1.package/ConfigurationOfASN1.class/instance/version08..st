@@ -4,9 +4,10 @@ version08: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.44 : new baseline because changing the repository for petit parser'.
+		spec description: '0.7.44 : new baseline because changing the repository for petit parser
+0.8 : version bump for petit parser'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/7/2013 11:45'.
+		spec timestamp: '11/7/2013 11:51'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
