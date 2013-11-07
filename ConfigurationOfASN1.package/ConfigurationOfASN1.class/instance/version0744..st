@@ -4,9 +4,10 @@ version0744: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.43 : Changed semantics of errors happening while reading tagged values from a stream. Instead of just throwing an exception the errornous part in the stream emits an error object. This way the structure of the read stays intact only it contains errors. The visitor that converts the tagged values to the key-value structure has gotten a flag skipErrors where it just jumps over an error when detected. This way we can do a recovery read where we try to read as much information as possible to initiate further actions'.
+		spec description: '0.7.43 : Changed semantics of errors happening while reading tagged values from a stream. Instead of just throwing an exception the errornous part in the stream emits an error object. This way the structure of the read stays intact only it contains errors. The visitor that converts the tagged values to the key-value structure has gotten a flag skipErrors where it just jumps over an error when detected. This way we can do a recovery read where we try to read as much information as possible to initiate further actions
+0.7.44 : new baseline because changing the repository for petit parser'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/7/2013 10:03'.
+		spec timestamp: '11/7/2013 11:45'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
