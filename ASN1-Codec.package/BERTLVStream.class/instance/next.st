@@ -1,6 +1,6 @@
 accessing
 next
-	| identifier length clazz |
+	| identifier length clazz source |
 	identifier := self readIdentifier.
 	length := self readLength.
 	
@@ -8,7 +8,12 @@ next
 		ifTrue: [ ASN1ConstructedTaggedValue ]
 		ifFalse: [ ASN1PrimitiveTaggedValue ].
 
-	^ (clazz newFrom: (length hasDefiniteForm 
-		ifTrue: [ length readFrom: stream ]
-		ifFalse: [ stream ]))
-				tag: identifier tag
+	source := length hasDefiniteForm 
+		ifTrue: [ | value |
+			value := length readFrom: stream.
+			value isCollection
+				ifTrue: [ value ]
+				ifFalse: [ ^ value ] ]
+		ifFalse: [  stream  ].
+	^ (clazz newFrom: source)
+		tag: identifier tag

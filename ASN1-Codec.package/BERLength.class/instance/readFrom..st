@@ -4,7 +4,7 @@ readFrom: aStream
 	of bytes from a stream and returns them"
 	^ self hasDefiniteForm 
 		ifTrue: [ 
-			((aStream size - aStream position) >=  self contentLength) ifFalse: [ Error signal: 'premature end of stream' ]. 
+			((aStream size - aStream position) >=  self contentLength) ifFalse: [ ^ ASN1StreamError  new ]. 
 			aStream next: self contentLength ]
 		ifFalse: [ 
 			ByteArray streamContents: [:writeStream| | byte |
