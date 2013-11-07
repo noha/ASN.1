@@ -7,7 +7,7 @@ version081: spec
 		spec description: '0.8 : version bump for petit parser'.
 		spec author: 'NorbertHartl'.
 		spec timestamp: '11/7/2013 11:51'.
-		spec project: 'PetitParser' with: '1.5'.
+		spec project: 'PetitParser' with: '1.6'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
 			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.6';
