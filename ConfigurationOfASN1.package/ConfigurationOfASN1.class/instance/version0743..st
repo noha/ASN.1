@@ -4,9 +4,10 @@ version0743: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.7.42 : fix for empty sequences. Cleanups and documentation'.
+		spec description: '0.7.42 : fix for empty sequences. Cleanups and documentation
+0.7.43 : Changed semantics of errors happening while reading tagged values from a stream. Instead of just throwing an exception the errornous part in the stream emits an error object. This way the structure of the read stays intact only it contains errors. The visitor that converts the tagged values to the key-value structure has gotten a flag skipErrors where it just jumps over an error when detected. This way we can do a recovery read where we try to read as much information as possible to initiate further actions'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/5/2013 12:36'.
+		spec timestamp: '11/7/2013 10:03'.
 		spec project: 'PetitParser' with: '1.5'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
@@ -18,7 +19,7 @@ version0743: spec
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.10';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.4';
-			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.31';
+			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.32';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.6';
-			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.47';
+			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.48';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.8'. ].
