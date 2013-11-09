@@ -1,3 +1,5 @@
 encoding
 encodeBoolean: aBoolean
-	^ #[ 16rff ]
+	^ aBoolean
+		ifTrue: #[ 16rff ]
+		ifFalse: #[ 16r00 ]

@@ -1,3 +1,3 @@
 decoding
-decodeBoolean: aString 
-	^ aString first asciiValue > 0
+decodeBoolean: aByteArray
+	^ aByteArray first ~= 0
