@@ -1,7 +1,7 @@
 *asn1-tool
-encodeExplicit: anObject outerTag: aTag
+encodeTaggedValue: aTaggedValue outerTag: aTag 
 	"in explicit mode we add another tag around the current tagged value"
 	^ ASN1ConstructedTaggedValue new
-		add: anObject;
+		add: aTaggedValue;
 		tag: aTag;
 		yourself

@@ -19,5 +19,5 @@ visitCollection: aCollection
 		] whileFalse.
 		self 
 			push: content
-			during: [ collection at: element key put:  (self visitEncoded: element value) ]].
+			during: [ collection at: element key put:  (self visit: element value) ]].
 	^ collection
