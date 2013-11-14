@@ -1,3 +1,0 @@
-testing
-isTyped
-	 ^ true
