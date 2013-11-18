@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "ASN1StreamError",
+	"name" : "ASN1TaggedError",
 	"type" : "normal"
 }

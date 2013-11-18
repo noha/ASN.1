@@ -5,5 +5,5 @@ readTaggedValuesFrom: aStream
 		readTaggedValuesFrom: aStream 
 		usingCodecStream: self codecStreamClass.
 	taggedValue hasError ifTrue: [ 
-		ASN1SyntaxError new taggedValues: taggedValue; signal  ].
+		ASN1TaggedValueError new taggedValues: taggedValue; signal  ].
 	^ taggedValue

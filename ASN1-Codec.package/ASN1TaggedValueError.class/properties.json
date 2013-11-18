@@ -9,6 +9,6 @@
 		"taggedValues",
 		"content"
 	],
-	"name" : "ASN1SyntaxError",
+	"name" : "ASN1TaggedValueError",
 	"type" : "normal"
 }
