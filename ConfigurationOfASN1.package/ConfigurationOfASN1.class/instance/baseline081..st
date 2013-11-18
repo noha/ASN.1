@@ -32,7 +32,7 @@ baseline081: spec
 						group: 'builder' with: #('ASN1-AST' 'ASN1-Model');
 						group: 'builder-tests' with: #( 'ASN1-Tests-Syntax' 'ASN1-Tests-AST' 'ASN1-Tests-Model' 'ASN1-Tests-Builder');
 						group: 'tool' with: #('ASN1-Tool');
-						group: 'tool-tests' with: #('ASN1-Tests-Tool ASN1-Tests-Codec');
+						group: 'tool-tests' with: #('ASN1-Tests-Tool' 'ASN1-Tests-Codec');
 						group: 'tests' with: #('builder-tests' 'tool-tests');
 						group: 'default' with: #('builder' 'tool');
 						group: 'all' with: #('default' 'builder-tests' 'tool-tests')]. 
