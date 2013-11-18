@@ -4,9 +4,10 @@ version087: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.6 : new baseline to include all test packages'.
+		spec description: '0.8.6 : new baseline to include all test packages
+0.8.7 : Yet another baseline to get in petit parser tests as a dependency'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/18/2013 18:33'.
+		spec timestamp: '11/18/2013 19:04'.
 		spec project: 'PetitParser' with: '1.8-snapshot'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
