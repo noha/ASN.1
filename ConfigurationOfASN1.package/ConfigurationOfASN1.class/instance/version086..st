@@ -4,9 +4,10 @@ version086: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.5 : Extended support for reading partial structures on error. '.
+		spec description: '0.8.5 : Extended support for reading partial structures on error. 
+0.8.6 : new baseline to include all test packages'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/18/2013 17:58'.
+		spec timestamp: '11/18/2013 18:33'.
 		spec project: 'PetitParser' with: '1.8-snapshot'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
