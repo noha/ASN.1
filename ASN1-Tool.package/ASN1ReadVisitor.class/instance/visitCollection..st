@@ -14,7 +14,11 @@ visitCollection: aCollection
 			(element includesTag: content tag)
 				ifTrue: [ true ]
 				ifFalse: [
-					element isOptional ifFalse: [ NotFound signal: 'cannot find element with tag' ].
+					element isOptional ifFalse: [ 
+						skipErrors
+							ifTrue: [  ^ collection ]
+							ifFalse: [
+								ASN1MandatoryElementNotFound signal: 'cannot find element with tag ', content tag printString ]].
 					false]
 		] whileFalse.
 		self 

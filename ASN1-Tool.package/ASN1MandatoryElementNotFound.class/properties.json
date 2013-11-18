@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "ASN1UnexpectedType",
+	"name" : "ASN1MandatoryElementNotFound",
 	"type" : "normal"
 }

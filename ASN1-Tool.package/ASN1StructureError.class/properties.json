@@ -1,11 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1StructureError",
+	"super" : "Error",
 	"category" : "ASN1-Tool-Exception",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "ASN1UnexpectedType",
+	"name" : "ASN1StructureError",
 	"type" : "normal"
 }
