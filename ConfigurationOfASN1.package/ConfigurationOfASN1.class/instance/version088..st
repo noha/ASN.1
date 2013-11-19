@@ -4,9 +4,10 @@ version088: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.7 : Yet another baseline to get in petit parser tests as a dependency'.
+		spec description: '0.8.7 : Yet another baseline to get in petit parser tests as a dependency
+0.8.8 : better support for skipErrors in read visitor'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/18/2013 19:04'.
+		spec timestamp: '11/19/2013 16:10'.
 		spec 
 			project: 'PetitParser' with: '1.8-snapshot';
 			project: 'PetitParser Tests' with: '1.8-snapshot'.
@@ -22,5 +23,5 @@ version088: spec
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.4';
 			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.34';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-HolgerHansPeterFreyther.8';
-			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.50';
+			package: 'ASN1-Tool' with: 'ASN1-Tool-NorbertHartl.51';
 			package: 'ASN1-Tests-Tool' with: 'ASN1-Tests-Tool-NorbertHartl.11'. ].
