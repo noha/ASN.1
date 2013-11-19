@@ -9,16 +9,18 @@ visitCollection: aCollection
 		"if skip errors is true we just ignore the part to parse and proceed. This is needed
 		if you need to parse as much as possible"
 		(content isError & skipErrors) ifTrue: [  ^ collection  ].
-		stream atEnd ifTrue: [ Error signal: 'premature end of sequence' ].
-		[ element := stream next. 
+		[ stream atEnd ifTrue: [ 
+			^ self 
+				error: (ASN1ElementNotFound new messageText: 'premature end of sequence while looking for tag ', content tag printString)
+				on: collection ].
+		element := stream next. 
 			(element includesTag: content tag)
 				ifTrue: [ true ]
 				ifFalse: [
 					element isOptional ifFalse: [ 
-						skipErrors
-							ifTrue: [  ^ collection ]
-							ifFalse: [
-								ASN1MandatoryElementNotFound signal: 'cannot find element with tag ', content tag printString ]].
+						^ self 
+							error: (ASN1MandatoryElementNotFound new messageText: 'cannot find element with tag ', content tag printString)
+							on: collection ].
 					false]
 		] whileFalse.
 		self 

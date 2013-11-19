@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "Error",
+	"super" : "ASN1StructureError",
 	"category" : "ASN1-Tool-Exception",
 	"classinstvars" : [ ],
 	"pools" : [ ],
