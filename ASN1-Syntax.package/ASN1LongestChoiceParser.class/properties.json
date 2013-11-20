@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "PPListParser",
+	"category" : "ASN1-Syntax",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1LongestChoiceParser",
+	"type" : "normal"
+}

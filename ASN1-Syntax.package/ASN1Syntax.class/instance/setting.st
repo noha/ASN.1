@@ -1,4 +1,4 @@
-X.681 grammar
+grammar
 setting
 	"Spec:
 		Setting ::= 

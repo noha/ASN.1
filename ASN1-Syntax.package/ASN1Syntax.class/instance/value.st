@@ -7,4 +7,7 @@ value
    			ObjectClassFieldValue"
 	"Spec: ObjectClassFieldValue ::= OpenTypeFieldVal | FixedTypeFieldVal"
 	"Spec: FixedTypeFieldVal ::= BuiltinValue | ReferencedValue"
-	^   openTypeFieldVal / builtinValue  / referencedValue 
+	"using longest match parser because builtinValue and referencedValue are ambiguous. At least the
+	integerValue in builtValue can resolve to identifier preventing extended value formats like
+	parameterizedValue to be parsed"
+	^   openTypeFieldVal /  builtinValue /> referencedValue
