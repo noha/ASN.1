@@ -4,15 +4,16 @@ version0810: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.9 : added a few convenience methods for usage and writing tests'.
+		spec description: '0.8.9 : added a few convenience methods for usage and writing tests
+0.8.10 : Introduced longest match parser to mitigate the problem of the ambiguous value production rule '.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/19/2013 20:43'.
+		spec timestamp: '11/20/2013 11:55'.
 		spec 
 			project: 'PetitParser' with: '1.8-snapshot';
 			project: 'PetitParser Tests' with: '1.8-snapshot'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
-			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.6';
+			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.7';
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
 			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.65';
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-HolgerHansPeterFreyther.9';
