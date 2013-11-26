@@ -14,6 +14,6 @@ subTypeElements
 	"Spec: TimePointRange ::= ValueRange"
 	"Spec: TypeConstraint ::= Type"
 	"Spec: SingleValue ::= Value"
-	^ containedSubtype / valueRange / permittedAlphabet / sizeConstraint /
+	^ valueRange / containedSubtype / permittedAlphabet / sizeConstraint /
 		 innerTypeConstraints / patternConstraint / propertySettings /
 		valueRange "durationRange" / valueRange "timePointRange" / valueRange "recurrenceRange"  /  value "singleValue" / type "typeConstraint"
