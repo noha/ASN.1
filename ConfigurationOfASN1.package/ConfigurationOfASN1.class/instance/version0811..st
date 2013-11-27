@@ -4,18 +4,19 @@ version0811: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.10 : Introduced longest match parser to mitigate the problem of the ambiguous value production rule '.
+		spec description: '0.8.10 : Introduced longest match parser to mitigate the problem of the ambiguous value production rule 
+0.8.11 : Changed handling of assignments an scope chains. An assignment is now resolved on the left side (reference and type) first. The result is put onto the scope chain because for things like typed references or if paramters exist they need to be resolvable when dealing with value definitions. This fixes a bug where a defined syntax object used an enum case of the assigned type of the assignment'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/20/2013 11:55'.
+		spec timestamp: '11/27/2013 13:27'.
 		spec 
 			project: 'PetitParser' with: '1.8-snapshot';
 			project: 'PetitParser Tests' with: '1.8-snapshot'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
-			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.7';
+			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.9';
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
-			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.65';
-			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-HolgerHansPeterFreyther.9';
+			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.66';
+			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.10';
 			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.64';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.11';
