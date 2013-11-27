@@ -1,12 +1,13 @@
 visiting
 visitAssignmentNode: anAssignmentNode
-	| depth |
-	depth := 0.
-	(anAssignmentNode left isScopeNode) ifTrue: [
-		self pushScope: anAssignmentNode left.
-		depth := 1 ].
-	(anAssignmentNode right isScopeNode) ifTrue: [
-		self pushScope: anAssignmentNode right.
-		depth := depth + 1 ].
-	super visitAssignmentNode: anAssignmentNode.
-	depth timesRepeat: [ self popScope ]
+	"resolve left side of assignment and its type to add the left side type as scope 
+	object when resolving the right side of the assignment. A right side value
+	assignment could refer to the type of the assignment which is specified oon
+	the left side"
+	anAssignmentNode left hasType ifTrue: [ 
+		 self visit: anAssignmentNode left type ].
+	self visit: anAssignmentNode left.
+	
+	anAssignmentNode left providesScope ifTrue: [ 
+		 self pushScope: anAssignmentNode left ].
+	self visit: anAssignmentNode right

@@ -1,3 +1,0 @@
-testing
-isScopeNode
-	^ self hasParameters 

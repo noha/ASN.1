@@ -1,7 +1,10 @@
 binding
 bindingOf: aString
-	self hasParameters ifFalse: [ ^ nil ].
-	self parameters do: [:each| 
-		(each bindingOf: aString)
-			ifNotNil: [:val| ^ val ]].
+	self hasParameters ifTrue: [ 
+		self parameters do: [:each| 
+			(each bindingOf: aString)
+				ifNotNil: [:val| ^ val ]]].
+	self hasType ifTrue: [ 
+		(self type definition bindingOf: aString) ifNotNil: [ :val |
+					^ val  ] ].
 	^ nil

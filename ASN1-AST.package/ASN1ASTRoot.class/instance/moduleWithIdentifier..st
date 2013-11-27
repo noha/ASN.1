@@ -9,7 +9,7 @@ moduleWithIdentifier: aModuleIdentifier
 			(self moduleWithName: aModuleIdentifier name label) 
 				ifNotNil: [:module|
 					Transcript 
-						show: 'WARNING: did not find module by OID ', aModuleIdentifier oid oidString, 
+						show: 'WARNING: did not find module by OID ', aModuleIdentifier oid printString, 
 								' only by name ', aModuleIdentifier name printString; 
 						cr.
 					module]
