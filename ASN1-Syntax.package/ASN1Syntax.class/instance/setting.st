@@ -3,4 +3,4 @@ setting
 	"Spec:
 		Setting ::= 
 			Type | Value | ValueSet | Object | ObjectSet"
-	^  type / value / valueSet / object / objectSet
+	^  type / valueSet / objectSet  / value / object
