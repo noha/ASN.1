@@ -7,9 +7,9 @@ visitDefinedSyntaxObjectNode: aDefinedSyntaxObjectNode
 	| dict |
 	dict := aDefinedSyntaxObjectNode parseSyntax.
 	dict associations collect: [ :assoc | | field |
-		field := self resolve: assoc key.
+		field := (aDefinedSyntaxObjectNode type definition bindingOf: assoc key) definition.
 		field type ifNotNil: [
-			self 
-				pushScope: field type definition 
-				during: [  self visit: assoc value ] ] ]. 
+		self 
+			pushScope: field type definition 
+			during: [  self visit: assoc value ] ] ]. 
 	^  aDefinedSyntaxObjectNode  
