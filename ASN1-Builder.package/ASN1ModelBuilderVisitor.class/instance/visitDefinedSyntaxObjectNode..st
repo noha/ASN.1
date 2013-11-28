@@ -7,7 +7,7 @@ visitDefinedSyntaxObjectNode: aNode
 			ifTrue: [ val := assoc value ]
 			ifFalse: [
 				val := aNode type dereferenced
-					instantiateFieldAt: assoc key value: assoc value].
+					instantiateFieldAt: assoc key value: assoc value dereferenced].
 		assoc value: (self visit: val)
 		].
 	^ ASN1Object new
