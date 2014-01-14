@@ -4,9 +4,10 @@ version0813: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.12 : Some fixes for the handling of defined syntax objects and resolving of values with the scope of their types. '.
+		spec description: '0.8.12 : Some fixes for the handling of defined syntax objects and resolving of values with the scope of their types. 
+0.8.13 : fixed Issue #1086 : dialogue portions should only be sent in initiation received state and only for continue and end. Fix and tests added'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '11/28/2013 17:21'.
+		spec timestamp: '1/14/2014 15:01'.
 		spec 
 			project: 'PetitParser' with: '1.8-snapshot';
 			project: 'PetitParser Tests' with: '1.8-snapshot'.
@@ -14,7 +15,7 @@ version0813: spec
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
 			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.10';
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.2';
-			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.69';
+			package: 'ASN1-AST' with: 'ASN1-AST-HolgerHansPeterFreyther.70';
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.10';
 			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.64';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
