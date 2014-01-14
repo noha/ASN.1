@@ -1,3 +1,3 @@
 *asn1-model
-definesOid: aString
-	^ value definesOid: aString
+definesOid: anOid
+	^ value definesOid: anOid
