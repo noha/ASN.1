@@ -1,14 +1,15 @@
 visiting
 visitModuleDefinitionNode: aModuleDefinition 
-	module := ASN1Module new
+	| m |
+	m := ASN1Module new
 		name: aModuleDefinition identifier name.
-	objects at: aModuleDefinition put: module.
+	objects at: aModuleDefinition put: m.
 	self
-		useModule: module
+		useModule: m
 		during:[	
 			module addFields: (self visitAll: aModuleDefinition assignments) asDictionary.
 			aModuleDefinition identifier ifNotNil: [
-				module oid: aModuleDefinition identifier oid oidString].
+				module oid: aModuleDefinition identifier oid oidString asAsn1Oid ].
 			(aModuleDefinition assignments 
 				detect: [:each| each hasProperty: #PDU ]
 				ifNone: [nil])
