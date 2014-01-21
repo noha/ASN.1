@@ -1,3 +1,3 @@
 testing
 definesOid: aString
-	^ string = aString
+	^ value = aString

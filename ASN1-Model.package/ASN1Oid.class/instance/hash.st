@@ -1,3 +1,3 @@
 comparing
 hash
-	^ string hash
+	^ value hash
