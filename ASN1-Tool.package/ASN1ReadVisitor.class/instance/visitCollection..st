@@ -14,13 +14,15 @@ visitCollection: aCollection
 				error: (ASN1ElementNotFound new messageText: 'premature end of sequence while looking for tag ', content tag printString)
 				on: collection ].
 		element := stream next. 
-			(element includesTag: content tag)
+			(element value includesTag: content tag)
 				ifTrue: [ true ]
 				ifFalse: [
-					element isOptional ifFalse: [ 
+					element value isOptional ifFalse: [ 
 						^ self 
 							error: (ASN1MandatoryElementNotFound new messageText: 'cannot find element with tag ', content tag printString)
 							on: collection ].
+					element value hasDefaultValue ifTrue: [  
+						collection at: element key put: element value defaultValue ]. 
 					false]
 		] whileFalse.
 		self 
