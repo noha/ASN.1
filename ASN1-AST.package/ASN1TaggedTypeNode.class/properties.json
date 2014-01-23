@@ -6,8 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"modifier",
-		"type"
+		"tag",
+		"type",
+		"tagEnvironment"
 	],
 	"name" : "ASN1TaggedTypeNode",
 	"type" : "normal"

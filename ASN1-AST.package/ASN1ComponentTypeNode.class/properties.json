@@ -1,13 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1ASTNode",
+	"super" : "ASN1NamedTypeNode",
 	"category" : "ASN1-AST-Nodes",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"value"
+		"modifiers"
 	],
-	"name" : "ASN1DefaultValue",
+	"name" : "ASN1ComponentTypeNode",
 	"type" : "normal"
 }
