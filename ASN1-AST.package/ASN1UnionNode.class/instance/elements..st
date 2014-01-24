@@ -1,3 +1,3 @@
 accessing
 elements: anObject
-	elements := anObject
+	elements := anObject asOrderedCollection 

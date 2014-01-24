@@ -1,13 +1,11 @@
 X.680 grammar
 componentTypeLists 
+	" there can be quite a few combinations of components, extensions and extensionadditions.
+	Extension comes as string and the others as collection"
 	^ super componentTypeLists ==> [:nodes| | col |
 		col := OrderedCollection new. 
-		(nodes reject: [:each| each isNil]) do: [:each|
-			(each isCollection & each isString not) 
-				ifTrue: [ col addAll: each]
-				ifFalse: [
-					each isTypeNode ifTrue: [
-						col add: each ]. 
-					(each class = ASN1ExtensionAdditionsNode) ifTrue: [
-						col addAll: each content ]]].
-		col]
+		(nodes reject: #isNil) do: [ :each |
+			(each isCollection and: [ each isString not ])
+				ifTrue: [ col addAll: each  ]
+				ifFalse: [  col add: each ]].
+			col ]

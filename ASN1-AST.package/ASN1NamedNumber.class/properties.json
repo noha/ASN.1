@@ -1,13 +1,14 @@
 {
 	"commentStamp" : "",
 	"super" : "ASN1ASTNode",
-	"category" : "ASN1-AST-Nodes",
+	"category" : "ASN1-AST-Visitor",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"content"
+		"name",
+		"number"
 	],
-	"name" : "ASN1ExtensionAdditionsNode",
+	"name" : "ASN1NamedNumber",
 	"type" : "normal"
 }
