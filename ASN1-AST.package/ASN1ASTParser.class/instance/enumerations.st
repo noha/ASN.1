@@ -4,6 +4,6 @@ enumerations
 		enum := nodes first asOrderedCollection.
 		nodes second ifNotNil: [ :ext |
 			 enum add: ASN1ExtensionNode new.
-			 ext second ifNotNil: [
-				enum addAll: ext second ]].
+			 ext third ifNotNil: [
+				enum addAll: ext third ]].
 		enum ]
