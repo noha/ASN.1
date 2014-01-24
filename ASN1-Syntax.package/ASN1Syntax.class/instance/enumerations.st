@@ -8,5 +8,9 @@ enumerations
 	"Spec: AdditionalEnumeration ::= Enumeration"
 	"Spec: RootEnumeration ::= Enumeration"
 	^ enumeration,
-		($, asParser trim, '...' asParser trim, exceptionSpec, ($, asParser trim,  enumeration) optional) optional  
+		($, asParser trim, 
+			'...' asParser trim, 
+			"exceptionSpec, "
+			(($, asParser trim,  enumeration) optional  ==> [ :n | n ifNotNil: [ n second ]])
+			) optional
 		
