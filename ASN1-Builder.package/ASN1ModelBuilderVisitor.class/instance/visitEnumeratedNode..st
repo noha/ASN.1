@@ -1,4 +1,4 @@
 visiting
 visitEnumeratedNode: aNode
 	^ ASN1EnumeratedType new
-		elements: aNode elements
+		elements: (self visitAll: aNode elements)
