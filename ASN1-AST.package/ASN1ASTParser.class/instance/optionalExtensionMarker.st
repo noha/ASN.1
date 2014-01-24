@@ -1,4 +1,5 @@
 X.681 grammar
 optionalExtensionMarker
 	^ super optionalExtensionMarker ==> [:nodes|
-		ASN1ExtensionNode new ]
+		nodes ifNotNil: [  
+			ASN1ExtensionNode new  ]]
