@@ -14,6 +14,8 @@ visitCollection: aCollection
 				error: (ASN1ElementNotFound new messageText: 'premature end of sequence while looking for tag ', content tag printString)
 				on: collection ].
 		element := stream next. 
+		"hack to treat extensions somehow. Processing is aborted as soon as an extension is discovered"
+		(element isKindOf: ASN1Extension) ifTrue: [  ^ collection ].
 			(element value includesTag: content tag)
 				ifTrue: [ true ]
 				ifFalse: [
