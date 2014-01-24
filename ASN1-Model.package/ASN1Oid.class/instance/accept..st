@@ -1,3 +1,3 @@
 visiting
 accept: aVisitor 
-	aVisitor visitObjectIdentifier: self
+	^ aVisitor visitObjectIdentifier: self

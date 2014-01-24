@@ -5,9 +5,7 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"string"
-	],
+	"instvars" : [ ],
 	"name" : "ASN1Oid",
 	"type" : "normal"
 }
