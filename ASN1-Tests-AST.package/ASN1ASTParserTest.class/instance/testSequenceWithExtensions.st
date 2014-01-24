@@ -26,4 +26,4 @@ testSequenceWithExtensions
 	mo-lrShortCircuit	[19]	NULL				OPTIONAL,
 	ganssAssistanceData	[20] GANSSAssistanceData	OPTIONAL,
 	multiplePositioningProtocolPDUs	[21] MultiplePositioningProtocolPDUs	OPTIONAL }' rule: #sequenceType.
-	self assert: nodes size = 22
+	self assert: nodes size = 23
