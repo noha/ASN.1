@@ -4,30 +4,28 @@ visitCollection: aCollection
 	collection := ASN1Dictionary new
 		type: aCollection.
 	stream := aCollection elements readStream.
+	
+	"for each decoded value find the type definition"
 	stack top do: [:content| | element |
-		self flag: #needsRedesign.
-		"if skip errors is true we just ignore the part to parse and proceed. This is needed
-		if you need to parse as much as possible"
 		(content isError & skipErrors) ifTrue: [  ^ collection  ].
-		[ stream atEnd ifTrue: [ 
-			^ self 
-				error: (ASN1ElementNotFound new messageText: 'premature end of sequence while looking for tag ', content tag printString)
-				on: collection ].
-		element := stream next. 
-		"hack to treat extensions somehow. Processing is aborted as soon as an extension is discovered"
-		(element isKindOf: ASN1Extension) ifTrue: [  ^ collection ].
-			(element value includesTag: content tag)
-				ifTrue: [ true ]
-				ifFalse: [
-					element value isOptional ifFalse: [ 
-						^ self 
-							error: (ASN1MandatoryElementNotFound new messageText: 'cannot find element with tag ', content tag printString)
-							on: collection ].
-					element value hasDefaultValue ifTrue: [  
-						collection at: element key put: element value defaultValue ]. 
-					false]
-		] whileFalse.
-		self 
-			push: content
-			during: [ collection at: element key put:  (self visit: element value) ]].
-	^ collection
+		
+		"try to find the type for the next tagged value"
+		[ element := self nextTagged: content tag on: stream with: collection ]
+			on: ASN1MandatoryElementNotFound, ASN1ElementNotFound  
+			do: [ :error | 
+				skipErrors 
+					ifTrue: [  ^ collection ]
+					ifFalse: [ error pass ] ].
+				
+		"add the value to the resulting dictionary"
+		element ifNotNil: [  
+			self 
+				push: content
+				during: [ collection at: element key put:  (self visit: element value) ]]].
+	
+	"if the sequence is longer than the decoded values there could still be mandatory slots
+	left that have default values we need to add to the collection"
+	[ stream atEnd ] whileFalse: [ 
+		self checkOptionalAndDefault: stream next with: collection ] .
+	
+	^ collection   
