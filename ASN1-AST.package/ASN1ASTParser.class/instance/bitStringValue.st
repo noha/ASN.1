@@ -6,7 +6,7 @@ bitStringValue
 			parsed isAsn1Node 
 				ifTrue: [ parsed ]
 				ifFalse: [ | alt |
-					alt := (#( bitStringValuePlain valueSet objectSet )
+					alt := (#( valueSet objectSet bitStringValuePlain)
 							collect: [:each| self class parse: contents startingAt: each ])
 								select: [:each| each isPetitFailure not ].
 					alt ifEmpty: [ self halt ].

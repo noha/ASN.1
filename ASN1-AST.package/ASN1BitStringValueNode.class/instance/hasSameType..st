@@ -1,3 +1,3 @@
 testing
 hasSameType: aTypeInstance
-	^ self type = aTypeInstance class
+	^ self type class = aTypeInstance class 

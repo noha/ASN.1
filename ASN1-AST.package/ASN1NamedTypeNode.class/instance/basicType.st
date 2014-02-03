@@ -1,0 +1,3 @@
+accessing
+basicType
+	^ type basicType
