@@ -1,4 +1,6 @@
 visiting
 visitModuleDefinitionNode: aModuleDefinition
 	module := aModuleDefinition.
-	^ super visitModuleDefinitionNode: aModuleDefinition  
+	^ self 
+		provideType: aModuleDefinition  
+		during: [ super visitModuleDefinitionNode: aModuleDefinition  ]

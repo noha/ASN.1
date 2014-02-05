@@ -7,4 +7,3 @@ visitAmbiguousNode: anAmbiguousType
 	type := ASN1ClosestTypeDefinition value.
 	^ anAmbiguousType alternatives 
 		detect: [:each| each canBeAssignedTo: type ]
-	

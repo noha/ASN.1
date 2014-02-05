@@ -4,7 +4,11 @@ bindingOf: aString
 		self parameters do: [:each| 
 			(each bindingOf: aString)
 				ifNotNil: [:val| ^ val ]]].
-	self hasType ifTrue: [ 
-		(self type definition bindingOf: aString) ifNotNil: [ :val |
-					^ val  ] ].
-	^ nil
+	self definition 
+		ifNotNil: [ (self definition bindingOf: aString) ifNotNil: [:val |
+				^ val ]]
+		ifNil: [ 
+			self hasType ifTrue: [ 
+				(self type definition bindingOf: aString) ifNotNil: [ :val |
+					^ val  ] ] ].
+	^ nil 
