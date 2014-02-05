@@ -8,9 +8,10 @@ version0820: spec
 * Improvement of type matching capabilities in nodes. 
 * Improvement in symbol resolving. Scope chains were rather huge due to the fact that a traversal can cross multiple modules. Now each module isolates the scope chain making it much more right and short
 * Added BitString and NamedValue (for named bits) to ASN1 model
-'.
+
+0.8.20 : added support for SequenceValue and for use of it in DEFAULT sections. '.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '2/3/2014 14:51'.
+		spec timestamp: '2/5/2014 16:53'.
 		spec 
 			project: 'PetitParser' with: '1.8-snapshot';
 			project: 'PetitParser Tests' with: '1.8-snapshot'.
@@ -18,11 +19,11 @@ version0820: spec
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
 			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.11';
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.3';
-			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.76';
-			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.13';
-			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.71';
+			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.80';
+			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.15';
+			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.73';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.4';
-			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.19';
+			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.21';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.7';
 			package: 'ASN1-Codec' with: 'ASN1-Codec-NorbertHartl.37';
 			package: 'ASN1-Tests-Codec' with: 'ASN1-Tests-Codec-NorbertHartl.9';
