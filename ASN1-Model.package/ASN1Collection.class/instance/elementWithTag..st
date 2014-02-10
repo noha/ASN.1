@@ -1,4 +1,4 @@
 as yet unclassified
 elementWithTag: aTag
-	^ self  elements 
+	^ (self  elements reject: #isExtension)
 		detect: [:each| each value tag = aTag ]
