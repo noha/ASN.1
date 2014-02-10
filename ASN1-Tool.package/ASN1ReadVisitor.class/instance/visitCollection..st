@@ -1,31 +1,60 @@
 visiting
 visitCollection: aCollection
-	| collection  stream |
+	| collection  contentStream elementStream isExtended |
+	isExtended := false.
 	collection := ASN1Dictionary new
 		type: aCollection.
-	stream := aCollection elements readStream.
+	contentStream := stack top contents readStream.
+	elementStream := aCollection elements readStream.
+	[[ elementStream atEnd or: [ contentStream atEnd ] ] whileFalse: [  | element content |
+		[ :continue | 
+			element := elementStream peek.
+			"if next element ist an extension element,mark this sequence as extensible
+			and proceed with the next element"
+			element isExtension ifTrue: [ 
+				isExtended := true.
+				elementStream next.
+				continue value ].
+			
+			content := contentStream peek.
+			content isError ifTrue: [  ASN1MandatoryElementNotFound signal  ].
+			
+			(element value includesTag: content tag) 
+				ifTrue: [
+					"we have a match so we assign the value"
+					self 
+						push: content
+						during: [ collection at: element key put:  (self visit: element value) ].
+					elementStream next.
+					contentStream next ]
+				ifFalse: [ 
+					element value isOptional  
+						ifTrue: [
+							element value hasDefaultValue ifTrue: [ 
+								"write the default value in the result"
+								collection at: element key put: element value defaultValue value ].
+							elementStream next  ]						
+						ifFalse: [ isExtended ifTrue: [ 
+							(aCollection hasElementWithTag: content tag) ifFalse: [
+								"if the sequence is extensible and the current content tag is not
+								found in the sequence we assume this is an extension value" 
+								contentStream next. 
+								continue value] ].
+							"no escape from checking happened throw error"
+							ASN1MandatoryElementNotFound signal ] ]
+		] valueWithExit ].
+
+	"after the matching elements phaset here might be still more elements to check.
+	These should be optional and/or provide default values"
+	[ elementStream atEnd ] whileFalse: [ 
+		self checkOptionalAndDefault: elementStream next with: collection ] .
 	
-	"for each decoded value find the type definition"
-	stack top do: [:content| | element |
-		(content isError & skipErrors) ifTrue: [  ^ collection  ].
-		
-		"try to find the type for the next tagged value"
-		[ element := self nextTagged: content tag on: stream with: collection ]
-			on: ASN1MandatoryElementNotFound, ASN1ElementNotFound  
-			do: [ :error | 
-				skipErrors 
-					ifTrue: [  ^ collection ]
-					ifFalse: [ error pass ] ].
-				
-		"add the value to the resulting dictionary"
-		element ifNotNil: [  
-			self 
-				push: content
-				during: [ collection at: element key put:  (self visit: element value) ]]].
-	
-	"if the sequence is longer than the decoded values there could still be mandatory slots
-	left that have default values we need to add to the collection"
-	[ stream atEnd ] whileFalse: [ 
-		self checkOptionalAndDefault: stream next with: collection ] .
-	
-	^ collection   
+	"if there are still values left these can only be extensions"
+	[ contentStream atEnd ] whileFalse: [ 
+		isExtended ifFalse:[ ASN1MandatoryElementNotFound signal] .
+		contentStream next.
+		 ]] 
+	on: ASN1MandatoryElementNotFound 
+	do: [ :err | skipErrors ifFalse: [ err pass ] ].
+	 
+	^ collection
