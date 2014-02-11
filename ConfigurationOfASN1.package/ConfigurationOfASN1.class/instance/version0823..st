@@ -4,9 +4,10 @@ version0823: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.22 : revised implementation for sequences. Sequences are now extensible as soon as an extension marker appears. '.
+		spec description: '0.8.22 : revised implementation for sequences. Sequences are now extensible as soon as an extension marker appears. 
+0.8.23 : changed accessor for OIDs in visitor'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '2/10/2014 18:05'.
+		spec timestamp: '2/11/2014 17:59'.
 		spec 
 			project: 'PetitParser' with: '1.8-snapshot';
 			project: 'PetitParser Tests' with: '1.8-snapshot'.
