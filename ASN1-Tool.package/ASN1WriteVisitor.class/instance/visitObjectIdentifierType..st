@@ -1,3 +1,3 @@
 accessing
 visitObjectIdentifierType: anObjectIdentifier 	
-	^ anObjectIdentifier encodedValue: stack top contents.
+	^ anObjectIdentifier encodedValue: stack top value.
