@@ -8,6 +8,6 @@
 	"instvars" : [
 		"string"
 	],
-	"name" : "ASN1Literal",
+	"name" : "ASN1LiteralNode",
 	"type" : "normal"
 }

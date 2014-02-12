@@ -5,4 +5,6 @@ annotateAsts
 		resolveAmbiguities;
 		resolveAllSymbols;
 		resolveRelativeOids;
+		resolveInconsistencies;
+		resolveAllSymbols;
 		detectPDUs
