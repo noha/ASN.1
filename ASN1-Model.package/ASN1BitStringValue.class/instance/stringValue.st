@@ -4,4 +4,4 @@ stringValue
 	number := 0.
 	self bits do: [ :each|
 		number := number bitOr: (1 bitShift: (self type bitIndexOf: each)) ].
-	^ number print
+	^ number printStringBase: 2
