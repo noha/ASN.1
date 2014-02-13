@@ -32,7 +32,7 @@ visitCollection: aCollection
 						ifTrue: [
 							element value hasDefaultValue ifTrue: [ 
 								"write the default value in the result"
-								collection at: element key put: element value defaultValue value ].
+								collection at: element key put: element value defaultValue ].
 							elementStream next  ]						
 						ifFalse: [ isExtended ifTrue: [ 
 							(aCollection hasElementWithTag: content tag) ifFalse: [
