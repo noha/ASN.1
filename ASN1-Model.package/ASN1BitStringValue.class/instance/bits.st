@@ -1,3 +1,4 @@
 accessing
 bits
-	^ bits
+	^ bits ifNil: [ 
+		bits := OrderedCollection new ]
