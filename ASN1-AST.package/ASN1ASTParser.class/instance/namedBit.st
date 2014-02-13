@@ -3,4 +3,4 @@ namedBit
 	^ super namedBit ==> [:nodes|
 		ASN1NamedBitNode new
 			name: nodes first;
-			value: nodes second]
+			value: nodes second ] 

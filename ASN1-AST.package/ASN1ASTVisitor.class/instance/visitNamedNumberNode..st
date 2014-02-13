@@ -1,5 +1,5 @@
 visiting
 visitNamedNumberNode: aNamedNumberNode 
-	^ ASN1NamedNumber new
+	^ ASN1NamedNumberNode new
 		name: aNamedNumberNode name;
 		number: aNamedNumberNode number

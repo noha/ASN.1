@@ -1,3 +1,3 @@
 as yet unclassified
 accept: aVisitor
-	aVisitor visitNamedNumberNode: self 
+	^ aVisitor visitNamedNumberNode: self 

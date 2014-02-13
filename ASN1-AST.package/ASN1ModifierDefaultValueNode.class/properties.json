@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"value"
+		"value",
+		"type"
 	],
 	"name" : "ASN1ModifierDefaultValueNode",
 	"type" : "normal"
