@@ -1,5 +1,5 @@
 visiting
 visitBitStringValueNode: aBitStringValueNode 
-	^ ASN1PrimitiveValue new
+	^ ASN1BitStringValue new
 		type: (self visit: aBitStringValueNode type);
-		value: aBitStringValueNode resolvedValue
+		bits: aBitStringValueNode value
