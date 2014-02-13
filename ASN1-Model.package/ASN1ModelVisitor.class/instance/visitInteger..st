@@ -1,0 +1,3 @@
+visting
+visitInteger: anInteger 
+	^ anInteger

@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1Primitive",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"namedNumbers"
+	],
+	"name" : "ASN1Integer",
+	"type" : "normal"
+}

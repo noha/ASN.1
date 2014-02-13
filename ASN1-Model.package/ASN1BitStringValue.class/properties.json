@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1TypedValueObject",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"bits"
+	],
+	"name" : "ASN1BitStringValue",
+	"type" : "normal"
+}
