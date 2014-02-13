@@ -4,9 +4,10 @@ version0827: spec
 
 	spec for: #'common' do: [
 		spec blessing: #'development'.
-		spec description: '0.8.26 : enhanced usage of bit strings and integers. Both are now dedicated classes instead of generic ones.'.
+		spec description: '0.8.26 : enhanced usage of bit strings and integers. Both are now dedicated classes instead of generic ones.
+0.8.27 : bit string usage improvements'.
 		spec author: 'NorbertHartl'.
-		spec timestamp: '2/13/2014 13:22'.
+		spec timestamp: '2/13/2014 14:17'.
 		spec 
 			project: 'PetitParser' with: '1.8-snapshot';
 			project: 'PetitParser Tests' with: '1.8-snapshot'.
@@ -14,9 +15,9 @@ version0827: spec
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.6';
 			package: 'ASN1-Syntax' with: 'ASN1-Syntax-NorbertHartl.11';
 			package: 'ASN1-Tests-Syntax' with: 'ASN1-Tests-Syntax-NorbertHartl.3';
-			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.82';
+			package: 'ASN1-AST' with: 'ASN1-AST-NorbertHartl.83';
 			package: 'ASN1-Tests-AST' with: 'ASN1-Tests-AST-NorbertHartl.15';
-			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.77';
+			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.78';
 			package: 'ASN1-Tests-Model' with: 'ASN1-Tests-Model-NorbertHartl.6';
 			package: 'ASN1-Builder' with: 'ASN1-Builder-NorbertHartl.23';
 			package: 'ASN1-Tests-Builder' with: 'ASN1-Tests-Builder-NorbertHartl.7';
