@@ -2,4 +2,4 @@ as yet unclassified
 development: spec
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '0.8.26'.
+	spec for: #'common' version: '0.8.27'.
