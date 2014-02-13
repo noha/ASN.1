@@ -1,1 +1,0 @@
-I test DER encoding to some degree
