@@ -1,4 +1,4 @@
 visiting
 visitBitStringNode: aBitString 
-	^ ASN1BitString new
+	^ ASN1BitStringType new
 		bits: (self visitAll: aBitString bits)

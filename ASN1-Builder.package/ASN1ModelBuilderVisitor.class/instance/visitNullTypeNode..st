@@ -1,4 +1,4 @@
 visiting
 visitNullTypeNode: aNode
-	^ ASN1GenericPrimitive new
+	^ ASN1GenericPrimitiveType new
 		type: 'NULL'

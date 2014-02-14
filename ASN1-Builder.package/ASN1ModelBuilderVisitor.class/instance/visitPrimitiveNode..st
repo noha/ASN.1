@@ -1,5 +1,5 @@
 visiting
 visitPrimitiveNode: aNode
-	^ ASN1GenericPrimitive new
+	^ ASN1GenericPrimitiveType new
 		definingModule: module;
 		type: aNode name

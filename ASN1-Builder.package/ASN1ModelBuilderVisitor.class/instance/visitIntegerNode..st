@@ -1,4 +1,4 @@
 visiting
 visitIntegerNode: aNode
- 	^ ASN1Integer new
+ 	^ ASN1IntegerType new
 		namedNumbers: (self visitAll: aNode namedNumbers)
