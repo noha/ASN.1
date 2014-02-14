@@ -8,6 +8,6 @@
 	"instvars" : [
 		"bits"
 	],
-	"name" : "ASN1BitString",
+	"name" : "ASN1BitStringType",
 	"type" : "normal"
 }

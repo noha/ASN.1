@@ -8,6 +8,6 @@
 	"instvars" : [
 		"elements"
 	],
-	"name" : "ASN1Collection",
+	"name" : "ASN1CollectionType",
 	"type" : "normal"
 }

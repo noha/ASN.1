@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1Collection",
+	"super" : "ASN1CollectionType",
 	"category" : "ASN1-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],

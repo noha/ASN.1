@@ -8,6 +8,6 @@
 	"instvars" : [
 		"type"
 	],
-	"name" : "ASN1GenericPrimitive",
+	"name" : "ASN1GenericPrimitiveType",
 	"type" : "normal"
 }

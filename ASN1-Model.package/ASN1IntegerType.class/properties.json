@@ -8,6 +8,6 @@
 	"instvars" : [
 		"namedNumbers"
 	],
-	"name" : "ASN1Integer",
+	"name" : "ASN1IntegerType",
 	"type" : "normal"
 }
