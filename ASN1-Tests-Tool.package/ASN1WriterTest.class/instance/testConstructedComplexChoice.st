@@ -10,4 +10,4 @@ testConstructedComplexChoice
 		encodeToByteArray: data
 		withBinding:  'SequenceWithConstruction'
 		tagEnvironment: ASN1ImplicitTags. 
-	self assert: (array = #[164 5 165 3 131 1 17]).
+	self assert: (array = #[164 6 165 4 131 2 49 49]).

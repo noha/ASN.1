@@ -1,6 +1,6 @@
 as yet unclassified
 testSimpleSequence
-	| data array encoded model |
+	| data array  model |
 	model := self modelBindingValue: 'SimpleSequence'.
 	data := ASN1Dictionary new
 			at: 'first' put: 13;
@@ -10,4 +10,4 @@ testSimpleSequence
 		encodeToByteArray: data
 		withBinding:  'SimpleSequence'
 		tagEnvironment: ASN1ImplicitTags. 
-	self assert: (array = #[48 9 2 1 13 4 4 222 173 190 239]).
+	self assert: (array = #[48 13 2 1 13 4 8 68 69 65 68 66 69 69 70]).

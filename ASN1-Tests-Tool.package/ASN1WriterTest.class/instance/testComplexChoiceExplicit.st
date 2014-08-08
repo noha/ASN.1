@@ -11,4 +11,4 @@ testComplexChoiceExplicit
 		encodeToByteArray: data
 		withBinding:  'ComplexChoice'
 		tagEnvironment: ASN1ExplicitTags. 
-	self assert: (array = #[97 11 48 9 2 1 13 4 4 222 173 190 239]).
+	self assert: (array = #[97 15 48 13 2 1 13 4 8 68 69 65 68 66 69 69 70]).
