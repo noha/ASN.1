@@ -6,4 +6,4 @@ testConstructedComplexChoiceImplicit
 		withBinding: 'SequenceWithConstruction'
 		tagEnvironment: ASN1ImplicitTags.
 		
-	self assert: result basicService ext_Teleservice = '11'.
+	self assert: result basicService ext_Teleservice asString = '11'.
