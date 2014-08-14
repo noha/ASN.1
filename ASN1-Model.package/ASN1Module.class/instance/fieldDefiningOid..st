@@ -1,5 +1,6 @@
 accessing
 fieldDefiningOid: anOid
-	^ self fields associations
-			detect: [:each| each value = anOid ]
-			ifNone: [ nil ]
+	self fields associationsDo: [:each |
+			each value = anOid
+				ifTrue: [^each]].
+	^nil	

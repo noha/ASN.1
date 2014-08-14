@@ -2,4 +2,6 @@ accessing
 value: aString
 	aString withIndexDo: [ :char :index |
 		(char = $1) ifTrue: [  
-		 	self bits add: (self type bitAtIndex: (aString size - index)) ]]
+			| bit |
+			bit := self type bitAtIndex: index - 1.
+			bit ifNotNil: [self bits add: bit]]]
