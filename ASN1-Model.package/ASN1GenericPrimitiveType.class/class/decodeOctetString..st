@@ -1,0 +1,3 @@
+codec
+decodeOctetString: aCollection
+	^ aCollection 

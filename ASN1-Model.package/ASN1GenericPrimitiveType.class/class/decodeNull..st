@@ -1,0 +1,3 @@
+codec
+decodeNull: anArray 
+	^ #null
