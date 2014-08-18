@@ -6,6 +6,10 @@ decode: aCollection
 	"first octet contains number of unused bits"
 	unusedBits := aCollection first  asInteger .
 	
+	"if the bitstring is empty there is only a zero octet"
+	((unusedBits = 0) & (aCollection size = 1)) ifTrue: [ 
+		^ '' ].
+	
 	"alloc the complete write buffer for the stream. A bit string is 8 times a byte. The
 	first octet is skipped"
 	stream := WriteStream on: ( String new: (( aCollection size - 1) *8 )  - unusedBits ).
