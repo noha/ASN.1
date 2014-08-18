@@ -1,3 +1,0 @@
-decoding
-decodeOctetString: aCollection
-	^ aCollection 
