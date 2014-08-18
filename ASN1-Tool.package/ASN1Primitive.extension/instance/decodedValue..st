@@ -1,5 +1,3 @@
 *asn1-tool
-decodedValue: anObject
-	^ ASN1PrimitiveCodec 
-		perform: self selectorForDecoding
-		with: anObject
+decodedValue: aByteArray
+	^ self class decode: aByteArray 

@@ -7,7 +7,7 @@ visitExternalType: anExternalType
 		during: [
 			((stack top tag clazz = 'UNIVERSAL') & (stack top tag number = 6)) ifFalse: [ 
 				ASN1UnexpectedType signal: 'expected external value' ]. 
-			ASN1PrimitiveCodec decodeObjectIdentifier: stack top contents ].
+			ASN1ObjectIdentifierType decode: stack top contents ].
 	value oid: oid.
 	
 	self 
