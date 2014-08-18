@@ -2,7 +2,7 @@ codec
 encode: anInteger
 	"integers are encoded as 2-complement value. All octets form a bit pattern which resolves the numerical value. Leftmost bit denotes the
 	2-complement"
-	| value |
+	| value | 
 	"if the integer is zero we do not need to calculate"
 	anInteger = 0 ifTrue: [ ^ #[ 0 ] ].
 	anInteger < 0 
