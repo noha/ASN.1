@@ -1,5 +1,7 @@
 as yet unclassified
 moduleDefiningOid: anOidOrString
+	| oid |
+	oid := anOidOrString asAsn1Oid.
 	^ self modules
-		detect: [:each| each definesOid: anOidOrString asAsn1Oid ]
+		detect: [:each| each definesOid: oid ]
 		ifNone: [ nil ]
