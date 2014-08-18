@@ -1,4 +1,4 @@
 tests
 testEncodeBoolean
-	self assert: (ASN1PrimitiveCodec encodeBoolean: true) = #[16rFF].
-	self assert: (ASN1PrimitiveCodec encodeBoolean: false) = #[16r0].
+	self assert: (ASN1GenericPrimitiveType encodeBoolean: true) = #[16rFF].
+	self assert: (ASN1GenericPrimitiveType encodeBoolean: false) = #[16r0].

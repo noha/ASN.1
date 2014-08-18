@@ -1,3 +1,3 @@
 accessing
 codec
-	^ ASN1PrimitiveCodec
+	^ ASN1GenericPrimitiveType 
