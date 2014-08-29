@@ -1,5 +1,6 @@
 visiting
 visitPrimitiveNode: aNode
-	^ ASN1GenericPrimitiveType new
-		definingModule: module;
-		type: aNode name
+	"resolve the name of the node to a implementation class
+	of the primitive"
+	^ (ASN1Primitive withUniversalType: aNode name) new
+		definingModule: module
