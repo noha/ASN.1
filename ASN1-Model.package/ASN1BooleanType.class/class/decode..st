@@ -1,3 +1,3 @@
 codec
-decodeBoolean: aByteArray
+decode: aByteArray
 	^ aByteArray first ~= 0

@@ -18,7 +18,6 @@ decode: aCollection
 	be handled different"
 	aCollection allButFirst allButLast do: [:each|
 		stream nextPutAll: ((each asInteger printStringBase: 2) forceTo: 8 paddingStartWith: $0)  ].
-		
 	stream nextPutAll: ((
 		(aCollection last asInteger bitShift: unusedBits negated) 
 			printStringBase: 2)

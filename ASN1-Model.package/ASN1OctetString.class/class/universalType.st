@@ -1,0 +1,3 @@
+accessing
+universalType
+	^ 'OCTET STRING'

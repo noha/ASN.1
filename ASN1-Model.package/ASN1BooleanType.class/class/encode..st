@@ -1,5 +1,5 @@
 codec
-encodeBoolean: aBoolean
+encode: aBoolean
 	^ aBoolean
 		ifTrue: #[ 16rff ]
 		ifFalse: #[ 16r00 ]

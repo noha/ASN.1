@@ -1,3 +1,0 @@
-codec
-decodeNull: anArray 
-	^ #null

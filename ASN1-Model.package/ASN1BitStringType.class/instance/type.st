@@ -1,3 +1,0 @@
-accessing
-type
-	^ 'BIT STRING'
