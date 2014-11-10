@@ -1,6 +1,6 @@
 *asn1-tool
 read: aTaggedValue usingType: aType inContext: aContext skipErrors: aBoolean
-	^ [ ASN1ReadVisitor new
+	^ [ self readVisitorClass new
 			skipErrors: (aBoolean ifNil: [ false ]);
 			read: aTaggedValue using: aType ]
 				on: ASN1UnresolvedOid 

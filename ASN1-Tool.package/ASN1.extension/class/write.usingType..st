@@ -1,4 +1,4 @@
 *asn1-tool
 write: anObject usingType: aType
-	^ ASN1WriteVisitor new
+	^ self writeVisitorClass new
 		write: anObject using: aType.
