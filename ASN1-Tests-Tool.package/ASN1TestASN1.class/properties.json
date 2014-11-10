@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1",
+	"category" : "ASN1-Tests-Tool",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1TestASN1",
+	"type" : "normal"
+}
