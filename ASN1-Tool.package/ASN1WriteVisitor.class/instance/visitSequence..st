@@ -3,6 +3,7 @@ visitSequence: aSequence
 	|  encoded dict |
 	encoded := ASN1ConstructedTaggedValue new
 		tag: aSequence universalTag.
+	aSequence hasElements ifFalse: [ ^ encoded ].
 	dict := stack top.
 	aSequence elements do:  [ :each |
 		(each class = ASN1Extension) ifFalse: [   
