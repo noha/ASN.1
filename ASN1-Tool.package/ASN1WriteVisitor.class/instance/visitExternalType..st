@@ -1,6 +1,6 @@
 visiting
 visitExternalType: anExternalType
-	| encoded module root external |
+	| encoded module   |
 	encoded := ASN1ConstructedTaggedValue new
 		tag: anExternalType universalTag.
 		
@@ -10,7 +10,7 @@ visitExternalType: anExternalType
 	encoded add:  (ASN1ConstructedTaggedValue new
 		tag: (ASN1Tag new number: 0);
 		add: (self class new
-		write: stack top
+		write: stack top externalValue
 		usingModule: module)) .
 		
 	^ encoded

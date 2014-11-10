@@ -7,6 +7,6 @@ visitTypedSequence: aTypedSequence
 		tag: aTypedSequence universalTag.
 	stack top elements do: [:assoc|
 		self 
-			push: assoc value
+			push: assoc
 			during: [ encoded elements add: (self visit: aTypedSequence type) ]].
 	^ encoded

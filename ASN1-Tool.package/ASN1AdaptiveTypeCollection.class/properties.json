@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1AdaptiveTypeValue",
+	"category" : "ASN1-Tool-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"elements"
+	],
+	"name" : "ASN1AdaptiveTypeCollection",
+	"type" : "normal"
+}
