@@ -1,7 +1,7 @@
 tests
 testGlobalDeclarations
 	| parsed |
-	parsed := self parse: ASN1ASTRoot globalDeclarations rule: #assignmentList.
+	parsed := self parse: ASN1DefaultModuleLibrary globalDeclarations rule: #assignmentList.
 	self assert: parsed first left label = 'itu-t'.
 	self assert: parsed first right components first name = 'itu-t'.
 	self assert: parsed first right components first number = 0.

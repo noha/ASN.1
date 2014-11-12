@@ -1,6 +1,7 @@
 as yet unclassified
 prepareAst
-	(self  ast modules size = 1) ifTrue: [
+	self  ast modules ifEmpty: [
+		self ast addModule: (ASN1DefaultModuleLibrary new moduleNamed: 'default').
 		self  ast 
 			addModule: (self parseGrammar: #example);
 			addModule: (self parseGrammar: #referenced).
