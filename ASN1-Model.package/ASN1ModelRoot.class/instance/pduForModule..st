@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 pduForModule: aModule
 	| visitor  pdu |
 	visitor := ASN1PDUFindingVisitor new.

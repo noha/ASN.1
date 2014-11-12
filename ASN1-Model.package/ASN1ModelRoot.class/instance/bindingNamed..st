@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 bindingNamed: aString
 	self modules do:[:module|
 		module fields associationsDo: [:field|

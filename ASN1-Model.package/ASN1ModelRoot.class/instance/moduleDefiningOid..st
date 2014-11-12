@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 moduleDefiningOid: anOidOrString
 	| oid |
 	oid := anOidOrString asAsn1Oid.

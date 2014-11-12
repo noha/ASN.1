@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 fieldDefiningOid: anOid
 	^ (self moduleDefiningOid: anOid)
 		fieldDefiningOid: anOid
