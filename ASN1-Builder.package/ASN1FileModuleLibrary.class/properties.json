@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ModuleLibrary",
+	"category" : "ASN1-Builder",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"path",
+		"manifest"
+	],
+	"name" : "ASN1FileModuleLibrary",
+	"type" : "normal"
+}
