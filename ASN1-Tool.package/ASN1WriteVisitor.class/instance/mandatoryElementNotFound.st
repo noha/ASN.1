@@ -1,3 +1,3 @@
-as yet unclassified
+exceptions
 mandatoryElementNotFound
 	ASN1MandatoryElementNotFound signal

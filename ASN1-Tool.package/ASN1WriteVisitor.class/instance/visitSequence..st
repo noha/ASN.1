@@ -15,7 +15,6 @@ visitSequence: aSequence
 				ifFalse: [
 					each value isOptional
 						ifTrue: [ each value hasDefaultValue ifTrue: [ 
-							(each value defaultValue = '') ifTrue: [  self halt  ].
 							self 
 								push: each value defaultValue 
 								during: [ encoded elements add: (self visit: (aSequence elementAt: each key) value) ] ] ]

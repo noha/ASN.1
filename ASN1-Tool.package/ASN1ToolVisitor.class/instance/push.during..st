@@ -1,4 +1,4 @@
-as yet unclassified
+visiting
 push: anObject during: aBlock
 	| result |
 	anObject ifNil: [  Error signal: 'cannot push nil onto stack' ].
