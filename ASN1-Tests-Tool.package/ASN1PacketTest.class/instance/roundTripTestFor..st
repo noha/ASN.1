@@ -1,9 +1,9 @@
 as yet unclassified
 roundTripTestFor: anObject
 	| object data  |
-	self model resolveOidsWhile: [
+	self asn1Model resolveOidsWhile: [
 		object := self readResolvedFrom: anObject.
 		data := ASN1
 			encodeToByteArray: object
-			usingModule: self tcapModel ].
+			usingModule: self tcapModule ].
 	self assert: data = anObject

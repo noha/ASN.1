@@ -1,3 +1,3 @@
 accessing
 readResolvedFrom: anObject
-	^ self tcapModel readFrom: anObject readStream inContext: self model
+	^ self tcapModule readFrom: anObject readStream inContext: self asn1Model
