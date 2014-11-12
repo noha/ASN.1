@@ -1,3 +1,3 @@
 accessing
 model
-	^ TCAP current model
+	^ self asn1Model

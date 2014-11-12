@@ -1,3 +1,3 @@
 accessing
 readFrom: anObject
-	^ self model readFrom: anObject 
+	^ self tcapModel readFrom: anObject readStream inContext: self model

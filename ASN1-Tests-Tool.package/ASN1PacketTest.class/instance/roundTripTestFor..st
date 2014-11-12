@@ -5,5 +5,5 @@ roundTripTestFor: anObject
 		object := self readResolvedFrom: anObject.
 		data := ASN1
 			encodeToByteArray: object
-			usingModule: self model modules first ].
+			usingModule: self tcapModel ].
 	self assert: data = anObject
