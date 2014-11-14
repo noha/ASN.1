@@ -1,4 +1,4 @@
-accessing
+*asn1-tests-syntax
 parse: aString ruleSelector: aSymbol
 	| production |
 	production := self parserInstance.
