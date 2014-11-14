@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1Test",
+	"super" : "PPCompositeParserTest",
 	"category" : "ASN1-Tests-AST",
 	"classinstvars" : [ ],
 	"pools" : [ ],
