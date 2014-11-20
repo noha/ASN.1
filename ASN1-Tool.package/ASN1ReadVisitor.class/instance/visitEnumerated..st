@@ -4,10 +4,10 @@ visitEnumerated: anEnumerated
 	self flag: #hack.
 	"this is an ugly hack for enumerated values that are encoded explicitly while being 
 	in a implicit tag environment"
-	number := stack top isConstructed 
+	number := currentTaggedValue isConstructed 
 		ifTrue: [
 			self 
-				push: stack top contents first
+				push: currentTaggedValue contents first
 				during: [ self visitPrimitive: anEnumerated]]
 		ifFalse: [ self visitPrimitive: anEnumerated ].
 	namedNumber := anEnumerated atNumber: number.

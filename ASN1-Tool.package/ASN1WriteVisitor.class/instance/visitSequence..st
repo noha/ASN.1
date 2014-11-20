@@ -4,7 +4,7 @@ visitSequence: aSequence
 	encoded := ASN1ConstructedTaggedValue new
 		tag: aSequence universalTag.
 	aSequence hasElements ifFalse: [ ^ encoded ].
-	dict := stack top.
+	dict := currentValue.
 	aSequence elements do:  [ :each |
 		(each class = ASN1Extension) ifFalse: [   
 			(dict includesKey: each key) 

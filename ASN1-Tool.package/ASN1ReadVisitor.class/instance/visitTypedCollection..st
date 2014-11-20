@@ -1,9 +1,9 @@
 visiting
 visitTypedCollection: aCollection
 	| seq  |
-	seq := ASN1Array new
+	seq := self collectionClass new
 		type: aCollection.
-	stack top elements do: [:content| 
+	currentTaggedValue elements do: [:content| 
 		self 
 			push: content
 			during: [

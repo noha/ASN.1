@@ -1,8 +1,8 @@
 visiting
 visitChoice: aChoice
 	| key type  |
-	key := stack top keys first.
+	key := currentValue keys first.
 	type := (aChoice elements detect: [:each| each key = key asn1Denormalized ]) value.
 	^ self
-		push: (stack top at: key)
+		push: (currentValue at: key)
 		during: [ self visit: type ].

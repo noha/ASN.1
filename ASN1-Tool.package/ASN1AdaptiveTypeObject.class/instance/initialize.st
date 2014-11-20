@@ -1,4 +1,5 @@
 initialization
 initialize
 	super initialize.
-	map := SmallDictionary new
+	map := SmallDictionary new.
+	selfExpanding := false

@@ -1,12 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1AdaptiveTypeObject",
+	"super" : "ASN1AdaptiveTypeValue",
 	"category" : "ASN1-Tool-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"oid"
+		"oid",
+		"value"
 	],
 	"name" : "ASN1AdaptiveTypeExternal",
 	"type" : "normal"

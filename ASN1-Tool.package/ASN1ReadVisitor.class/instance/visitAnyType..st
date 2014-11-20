@@ -1,3 +1,3 @@
 visiting
 visitAnyType: anAnyType 
-	^ stack top contents
+	^ currentTaggedValue contents

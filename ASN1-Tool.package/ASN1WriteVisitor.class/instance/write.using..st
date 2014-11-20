@@ -1,4 +1,4 @@
 writing
 write: anObject using: anAsn1Type
-	stack push: anObject.
+	currentValue := anObject.
 	^ self visit: anAsn1Type

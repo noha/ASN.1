@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"map"
+		"map",
+		"selfExpanding"
 	],
 	"name" : "ASN1AdaptiveTypeObject",
 	"type" : "normal"

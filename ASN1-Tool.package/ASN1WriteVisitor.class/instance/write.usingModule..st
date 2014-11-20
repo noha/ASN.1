@@ -1,5 +1,5 @@
 writing
 write: anObject usingModule: aModule
-	stack push: anObject.
+	currentValue := anObject.
 	^ self visit: aModule pdu
 	

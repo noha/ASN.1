@@ -5,7 +5,7 @@ visitTypedSequence: aTypedSequence
 	|  encoded |
 	encoded := ASN1ConstructedTaggedValue new
 		tag: aTypedSequence universalTag.
-	stack top elements do: [:assoc|
+	currentValue elements do: [:assoc|
 		self 
 			push: assoc
 			during: [ encoded elements add: (self visit: aTypedSequence type) ]].

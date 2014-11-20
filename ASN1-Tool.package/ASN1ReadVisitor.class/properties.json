@@ -6,8 +6,9 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"model",
-		"skipErrors"
+		"skipErrors",
+		"typeMap",
+		"currentTaggedValue"
 	],
 	"name" : "ASN1ReadVisitor",
 	"type" : "normal"

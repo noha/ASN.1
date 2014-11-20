@@ -5,5 +5,5 @@ visitTaggedType: aTaggedType
 	module. Delegate the decoding to the type of the tagged type so that types can alter the tagging 
 	environment themselves (e.g. choicces are always explicit)"
 	^ self 
-		push: (aTaggedType decodeTaggedValue: stack top) 
+		push: (aTaggedType decodeTaggedValue: currentTaggedValue) 
 		during: [ self visit: aTaggedType type ]

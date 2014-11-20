@@ -2,9 +2,9 @@ visiting
 visitCollection: aCollection
 	| collection  contentStream elementStream isExtended |
 	isExtended := false.
-	collection := ASN1Dictionary new
+	collection := (self objectFor: aCollection)
 		type: aCollection.
-	contentStream := stack top contents readStream.
+	contentStream := currentTaggedValue contents readStream.
 	elementStream := aCollection elements readStream.
 	[[ elementStream atEnd or: [ contentStream atEnd ] ] whileFalse: [  | element content |
 		[ :continue | 

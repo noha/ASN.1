@@ -1,0 +1,3 @@
+accessing
+beStrict
+	selfExpanding := false

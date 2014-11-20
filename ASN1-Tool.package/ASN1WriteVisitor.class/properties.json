@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"model"
+		"currentValue"
 	],
 	"name" : "ASN1WriteVisitor",
 	"type" : "normal"

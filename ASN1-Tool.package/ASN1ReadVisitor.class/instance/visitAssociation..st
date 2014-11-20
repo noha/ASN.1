@@ -5,7 +5,7 @@ visitAssociation: anAssociation
 	^ anAssociation  key -> (
 		(result class = Association)
 			ifTrue: [
-				ASN1Dictionary new
+				self objectClass new
 					at: result key put: result value;
 					yourself]
 			ifFalse: [ result ])
