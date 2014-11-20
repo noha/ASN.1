@@ -2,6 +2,6 @@ accessing
 moduleDefiningOid: anOidOrString
 	| oid |
 	oid := anOidOrString asAsn1Oid.
-	^ self modules
+	^ modules
 		detect: [:each| each definesOid: oid ]
 		ifNone: [ nil ]
