@@ -19,5 +19,5 @@ visitExternalType: anExternalType
 					value decoded: (self class new 
 						read: currentTaggedValue elements first 
 						usingModule: module) ]
-				ifNil:  [ self halt. value encoded: currentTaggedValue elements first ]].
+				ifNil:  [ value encoded: currentTaggedValue elements first ]].
 	^ value
