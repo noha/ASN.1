@@ -1,7 +1,9 @@
 as yet unclassified
 doesNotUnderstand: aMessage
 	(aMessage arguments size = 0) ifTrue: [ 
-		^ self at: (self mapKeyForMessage: aMessage) ].
+		^ self 
+			at: (self mapKeyForMessage: aMessage) 
+			ifAbsent: [ nil ] ].
 	(aMessage arguments size = 1) ifTrue: [ 
 		^ self 
 			at: (self mapKeyForMessage: aMessage) allButLast 
