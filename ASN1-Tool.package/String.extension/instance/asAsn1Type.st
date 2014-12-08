@@ -1,3 +1,3 @@
 *asn1-tool
 asAsn1Type
-	^ (ASN1CurrentModel value bindingNamed: self) value
+	^ self asAsn1TypeIn: ASN1CurrentModel value

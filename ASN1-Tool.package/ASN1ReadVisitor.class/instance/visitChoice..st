@@ -8,7 +8,7 @@ visitChoice: aChoice
 			on:  value ].
 	
 	(self objectFor: slot key type: slot value basicType in: value) ifNotNil: [ :fieldValue |
-		typeMap at: slot value basicType put: fieldValue ].
+		valueMap at: slot value basicType put: fieldValue ].
 	result := self 
 		push: currentTaggedValue
 		during: [ self visit: slot value ].

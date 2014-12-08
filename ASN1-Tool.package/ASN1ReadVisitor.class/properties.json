@@ -7,8 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"skipErrors",
-		"typeMap",
-		"currentTaggedValue"
+		"currentTaggedValue",
+		"valueMap"
 	],
 	"name" : "ASN1ReadVisitor",
 	"type" : "normal"
