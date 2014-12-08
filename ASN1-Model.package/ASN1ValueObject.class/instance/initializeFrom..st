@@ -1,0 +1,3 @@
+initialize
+initializeFrom: anObject 
+	
