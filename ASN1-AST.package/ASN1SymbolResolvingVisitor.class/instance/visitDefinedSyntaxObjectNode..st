@@ -8,8 +8,12 @@ visitDefinedSyntaxObjectNode: aDefinedSyntaxObjectNode
 	dict := aDefinedSyntaxObjectNode parseSyntax.
 	dict associations collect: [ :assoc | | field |
 		field := (aDefinedSyntaxObjectNode type definition bindingOf: assoc key) definition.
-		field type ifNotNil: [
-		self 
-			pushScope: field type definition 
-			during: [  self visit: assoc value ] ] ]. 
+		"grammar that resolves to a reference is likely not resolved to its definition. 
+		We try this manually to bridge the gap here"
+		field type ifNotNil: [  
+			field type definition ifNil: [ 
+				field type definition: (self resolveLabel: field type label) ].
+			self 
+				pushScope: field type definition 
+				during: [  self visit: assoc value ] ] ]. 
 	^  aDefinedSyntaxObjectNode  
