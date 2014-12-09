@@ -1,3 +1,0 @@
-accessing
-objectMap
-	^ Dictionary new

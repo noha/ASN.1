@@ -1,3 +1,0 @@
-accessing
-first
-	^ elements first
