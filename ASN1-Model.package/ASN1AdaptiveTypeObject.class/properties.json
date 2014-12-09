@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1AdaptiveTypeValue",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"map",
+		"selfExpanding"
+	],
+	"name" : "ASN1AdaptiveTypeObject",
+	"type" : "normal"
+}
