@@ -1,7 +1,7 @@
 {
 	"commentStamp" : "",
 	"super" : "Exception",
-	"category" : "ASN1-Tool-Exception",
+	"category" : "ASN1-Model-Exception",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
