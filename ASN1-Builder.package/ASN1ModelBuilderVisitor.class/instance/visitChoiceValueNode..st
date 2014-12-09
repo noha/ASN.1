@@ -1,5 +1,5 @@
 visiting
 visitChoiceValueNode: aChoiceValueNode 
 	^ ASN1ChoiceValue new
-		choice: aChoiceValueNode choice;
+		type: aChoiceValueNode choice;
 		value: aChoiceValueNode value
