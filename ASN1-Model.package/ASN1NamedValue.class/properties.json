@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"name"
+		"name",
+		"value"
 	],
 	"name" : "ASN1NamedValue",
 	"type" : "normal"

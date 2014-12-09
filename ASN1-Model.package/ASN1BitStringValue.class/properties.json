@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1TypedValueObject",
+	"super" : "ASN1ValueObject",
 	"category" : "ASN1-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],

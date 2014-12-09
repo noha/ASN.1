@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"choice"
+		"value"
 	],
 	"name" : "ASN1ChoiceValue",
 	"type" : "normal"

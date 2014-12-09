@@ -2,4 +2,4 @@ printing
 printOn: aStream
 	aStream
 		nextPutAll: 'oid '; 
-		nextPutAll: value
+		nextPutAll: value asString
