@@ -10,7 +10,7 @@ visitExternalType: anExternalType
 	encoded add:  (ASN1ConstructedTaggedValue new
 		tag: (ASN1Tag new number: 0);
 		add: (self class new
-		write: currentValue value
+		write: currentValue externalValue
 		usingModule: module)) .
 		
 	^ encoded
