@@ -1,3 +1,3 @@
 converting
 asDictionary
-	^ map
+	^ map copy
