@@ -3,7 +3,7 @@ checkOptionalAndDefault: anElement with: aCollection
 	"check if the element is optional and add default value if available"
 	anElement value isOptional ifFalse: [ 
 		(ASN1MandatoryElementNotFound new 
-			messageText: 'cannot find element with tag ',  anElement tag printString) signal ].
+			messageText: 'cannot find element with tag ',  anElement printString) signal ].
 	self flag: #needsRedesign.
 	"here we get an ugly sequene 'value defaultValue value'. This is because an element is
 	a key-value object. The value of the element can be a component type that can have a

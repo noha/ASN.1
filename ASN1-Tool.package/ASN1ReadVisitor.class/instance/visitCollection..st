@@ -1,8 +1,8 @@
 visiting
 visitCollection: aCollection
-	| collection  contentStream elementStream isExtended |
+	| value  contentStream elementStream isExtended |
 	isExtended := false.
-	collection := (self objectFor: aCollection)
+	value := (self objectFor: aCollection)
 		type: aCollection.
 	contentStream := currentTaggedValue contents readStream.
 	elementStream := aCollection elements readStream.
@@ -21,10 +21,11 @@ visitCollection: aCollection
 			
 			(element value includesTag: content tag) 
 				ifTrue: [
+					self addToMapKey: element key type: element value basicType value: value. 
 					"we have a match so we assign the value"
 					self 
 						push: content
-						during: [ collection at: element key put:  (self visit: element value) ].
+						during: [ value at: element key put:  (self visit: element value) ].
 					elementStream next.
 					contentStream next ]
 				ifFalse: [ 
@@ -32,7 +33,7 @@ visitCollection: aCollection
 						ifTrue: [
 							element value hasDefaultValue ifTrue: [ 
 								"write the default value in the result"
-								collection at: element key put: element value defaultValue ].
+								value at: element key put: element value defaultValue ].
 							elementStream next  ]						
 						ifFalse: [ isExtended ifTrue: [ 
 							(aCollection hasElementWithTag: content tag) ifFalse: [
@@ -47,7 +48,7 @@ visitCollection: aCollection
 	"after the matching elements phaset here might be still more elements to check.
 	These should be optional and/or provide default values"
 	[ elementStream atEnd ] whileFalse: [ 
-		self checkOptionalAndDefault: elementStream next with: collection ] .
+		self checkOptionalAndDefault: elementStream next with: value ] .
 	
 	"if there are still values left these can only be extensions"
 	[ contentStream atEnd ] whileFalse: [ 
@@ -57,4 +58,4 @@ visitCollection: aCollection
 	on: ASN1MandatoryElementNotFound 
 	do: [ :err | skipErrors ifFalse: [ err pass ] ].
 	 
-	^ collection
+	^ value

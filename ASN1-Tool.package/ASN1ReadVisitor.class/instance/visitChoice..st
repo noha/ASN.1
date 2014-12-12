@@ -7,9 +7,8 @@ visitChoice: aChoice
 			error: (ASN1ElementNotFound new messageText: 'cannot find element for tag ', currentTaggedValue tag printString)
 			on:  value ].
 	
-	(self objectFor: slot key type: slot value basicType in: value) ifNotNil: [ :fieldValue |
-		valueMap at: slot value basicType put: fieldValue ].
-	result := self 
+	self addToMapKey: slot key type: slot value basicType value: value.
+	result :=self 
 		push: currentTaggedValue
 		during: [ self visit: slot value ].
 	^ value
