@@ -1,4 +1,4 @@
 accessing
 value: aDictionary
-	aDictionary asDictionary ifNil: [ Error signal: 'cannot use nil as map' ].
+	aDictionary ifNil: [ ^ self ].
 	map := aDictionary asDictionary

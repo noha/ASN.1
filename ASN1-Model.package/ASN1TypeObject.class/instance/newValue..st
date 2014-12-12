@@ -1,4 +1,4 @@
 instance creation
-newValue: aString 
+newValue: anObject 
 	^ self newValue
-		value: aString
+		value: anObject

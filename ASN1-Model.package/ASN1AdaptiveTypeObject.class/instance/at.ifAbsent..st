@@ -6,8 +6,7 @@ at: aKey ifAbsent: aBlock
 	fieldType := self basicTypeAt: aKey.
 	
 	^ selfExpanding 
-		ifTrue: [ | object | 
+		ifTrue: [ 
 			(fieldType isAsn1Primitive and: [ fieldType isAsn1ExternalType not ]) ifTrue: [ ^ nil ].
-			object := self objectFor: aKey type: fieldType.
-			map at: aKey put: object ] 
+			self expandKey: aKey ] 
 		ifFalse: [ aBlock value] 

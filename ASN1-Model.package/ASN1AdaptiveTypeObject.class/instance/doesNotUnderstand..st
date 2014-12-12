@@ -5,7 +5,8 @@ doesNotUnderstand: aMessage
 			at: (self mapKeyForMessage: aMessage) 
 			ifAbsent: [ nil ] ].
 	(aMessage arguments size = 1) ifTrue: [ 
-		^ self 
+		self 
 			at: (self mapKeyForMessage: aMessage) allButLast 
-			put: aMessage arguments first  ].
+			put: aMessage arguments first.
+		^ self  ].
 	^ super doesNotUnderstand: aMessage
