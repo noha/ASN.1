@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1ToolVisitor",
+	"super" : "ASN1ModelVisitor",
 	"category" : "ASN1-Tool-Visitor",
 	"classinstvars" : [ ],
 	"pools" : [ ],
