@@ -1,3 +1,0 @@
-validating
-validateValue: anObject
-	

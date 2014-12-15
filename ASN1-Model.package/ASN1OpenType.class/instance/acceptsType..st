@@ -1,0 +1,3 @@
+validating
+acceptsType: aType
+	^ true
