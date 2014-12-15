@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "ASN1ModelTests",
+	"name" : "ASN1ModelTest",
 	"type" : "normal"
 }
