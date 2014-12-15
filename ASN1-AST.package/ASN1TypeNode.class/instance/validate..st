@@ -1,5 +1,5 @@
 as yet unclassified
-validateValue: aValueNode
+validate: aValueNode
 	aValueNode isValueNode ifFalse: [
 		Error signal: 'is not a value node'].
 	^ aValueNode hasSameType: self 

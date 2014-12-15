@@ -5,5 +5,5 @@ validateFields: aDictionary
 			(field isOptional or: [ field hasDefaultValue ]) ifFalse: [ 
 				Error signal: 'missing field ', field name printString  ].
 			(field type notNil and: [ field hasDefaultValue ]) ifTrue: [
-				(field type validateValue: field defaultValue) ifFalse: [
+				(field type validate: field defaultValue) ifFalse: [
 					Error signal: 'field default value type does not conform to field type'] ]]]
