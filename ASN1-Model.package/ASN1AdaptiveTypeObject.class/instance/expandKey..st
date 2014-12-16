@@ -9,4 +9,4 @@ expandKey: aKey
 			map
 				at: aKey
 				put: (fieldType asAsn1Value parent: self) ])
-		selfExpanding: selfExpanding 
+		initializeFrom: self

@@ -1,5 +1,5 @@
 converting
-asExternalMap: anOid
+asExternalValue: anOid
 	^ ASN1AdaptiveTypeExternal new
 		oid: anOid;
-		setMap: map
+		value: self
