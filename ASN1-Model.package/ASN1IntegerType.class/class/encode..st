@@ -16,5 +16,5 @@ encode: anInteger
 		[ value > 16rff ] whileTrue: [
 			stream nextPut: (value bitAnd: 16rff).
 			value := value bitShift: -8 ].
-		stream nextPut: value]).
+		stream nextPut: value]) reversed.
 	
