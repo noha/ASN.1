@@ -1,15 +1,14 @@
 tests
 testRoundtripInteger
-	self rountTrip: #Integer value: 0.
-	self rountTrip: #Integer value: 1.
-	self rountTrip: #Integer value: -1.
-	self rountTrip: #Integer value: 127.
-	self rountTrip: #Integer value: -128.
-	self rountTrip: #Integer value: 16r7fff.
-	self rountTrip: #Integer value: -16r8000.
-	self rountTrip: #Integer value: 16r7fffffff.
-	self rountTrip: #Integer value: -16r80000000.
-
-
+	self roundTrip: #Integer value: 0.
+	self roundTrip: #Integer value: 1.
+	self roundTrip: #Integer value: -1.
+	self roundTrip: #Integer value: 127.
+	self roundTrip: #Integer value: -128.
+	self roundTrip: #Integer value: 32767.
+	self roundTrip: #Integer value: 16r7fff.
+	self roundTrip: #Integer value: -16r8000.
+	self roundTrip: #Integer value: 16r7fffffff.
+	self roundTrip: #Integer value: -16r80000000.
 
 	
