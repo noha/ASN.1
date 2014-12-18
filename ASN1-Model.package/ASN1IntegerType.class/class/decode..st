@@ -1,17 +1,18 @@
 codec
 decode: aCollection
-	"integers are encoded as 2-complement value. All octets form a bit pattern which resolves the numerical value. 
-	Leftmost bit denotes the 2-complement"
-	| integer |
-	integer := 0.
-	"add the last (MSB) octet without the highest bit which denotes negative sign"
-	integer := integer bitOr: (aCollection first bitAnd: 127).
-	"for the rest of the collection add them byte by byte in order to the number"
-	aCollection allButFirst do: [ :octet |
-		 integer := (integer bitShift: 8 ) bitOr: octet ].
-	"on negative number we need to subtract the number with the highest bit set to value
-	to get the result. E.g. 127 - 128 = -1"
-	(aCollection first > 127)
+	| value  |
+	value := 0.
+	((aCollection first bitAnd: 16r80) > 0)
 		ifTrue: [ 
-			integer := integer - (2 raisedTo: (aCollection size * 8) -1 )].
-	^ integer
+			"copy bytes into integer. MSB is first in collection"
+			value := aCollection asByteArray asInteger.
+			"calculate negative 2s complement to positive value by subtracting
+			1 and then ..."
+			value := value - 1.
+			"... invert all bits.  "
+			value := value bitXor:  (2 raisedTo: (aCollection size * 8)) - 1.
+			"negate it back as we calculated with positive numbers"
+			^ value negated   ]
+		ifFalse: [ 
+			"just copy bytes to integer"
+			^ aCollection asByteArray asInteger ]
