@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testReadExistingFieldWithValue
 	| object |
 	object := self object.

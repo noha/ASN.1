@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testWriteNonExistingField
 	| object |
 	object := self object.

@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 object 
-	^ ASN1AdaptiveTypeObject type: type
+	^ ASN1AdaptiveTypeObject type: (self bindingAt: 'ComplexSequence')
 		

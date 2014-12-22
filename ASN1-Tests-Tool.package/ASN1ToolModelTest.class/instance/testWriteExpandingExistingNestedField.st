@@ -1,4 +1,4 @@
-as yet unclassified
+tests
 testWriteExpandingExistingNestedField
 	| object |
 	object := self object.
