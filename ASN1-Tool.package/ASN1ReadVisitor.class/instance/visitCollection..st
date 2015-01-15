@@ -2,7 +2,7 @@ visiting
 visitCollection: aCollection
 	| value  contentStream elementStream isExtended |
 	isExtended := false.
-	value := (self objectFor: aCollection)
+	value := (self valueForType: aCollection)
 		type: aCollection.
 	contentStream := currentTaggedValue contents readStream.
 	elementStream := aCollection elements readStream.
@@ -21,7 +21,7 @@ visitCollection: aCollection
 			
 			(element value includesTag: content tag) 
 				ifTrue: [
-					self addToMapKey: element key type: element value basicType value: value. 
+					self addFactoryForFieldNamed: element key type: element value basicType value: value. 
 					"we have a match so we assign the value"
 					self 
 						push: content

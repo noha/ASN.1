@@ -1,3 +1,3 @@
 accessing
-objectClass
+defaultValueClass
 	^ ASN1AdaptiveTypeObject 

@@ -5,7 +5,7 @@ visitAssociation: anAssociation
 	^ anAssociation  key -> (
 		(result class = Association)
 			ifTrue: [
-				self objectClass new
+				self defaultValueClass new
 					at: result key put: result value;
 					yourself]
 			ifFalse: [ result ])
