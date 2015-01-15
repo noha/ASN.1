@@ -1,3 +1,3 @@
 accessing
-objectMap
+fieldFactories
 	^ Dictionary new

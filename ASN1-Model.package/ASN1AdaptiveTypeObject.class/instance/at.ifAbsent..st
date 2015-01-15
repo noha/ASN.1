@@ -8,5 +8,5 @@ at: aKey ifAbsent: aBlock
 	^ selfExpanding 
 		ifTrue: [ 
 			(fieldType isAsn1Primitive and: [ fieldType isAsn1ExternalType not ]) ifTrue: [ ^ nil ].
-			self expandKey: aKey ] 
+			self expandFieldNamed: aKey ] 
 		ifFalse: [ aBlock value] 
