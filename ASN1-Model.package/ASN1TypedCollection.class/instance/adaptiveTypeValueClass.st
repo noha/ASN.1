@@ -1,3 +1,0 @@
-accessing
-adaptiveTypeValueClass
-	^ ASN1AdaptiveTypeCollection

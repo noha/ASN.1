@@ -1,3 +1,3 @@
 accessing
-adaptiveTypeValueClass
+asn1ValueClass
 	^ ASN1AdaptiveTypeExternal 
