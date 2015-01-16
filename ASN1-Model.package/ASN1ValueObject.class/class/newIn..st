@@ -1,4 +1,3 @@
-initailize-release
+instance creation
 newIn: aContext
-	^ self new
-		type: (aContext bindingNamed: self asn1TypeName) value basicType
+	^ self type: (aContext bindingNamed: self asn1TypeName) value
