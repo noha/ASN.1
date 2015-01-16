@@ -1,7 +1,7 @@
 visiting
 visitExternalType: anExternalType
 	| oid  value |
-	value := self externalClass new.
+	value := self valueForType: anExternalType.
 	oid := self 
 		push: currentTaggedValue elements first
 		during: [
@@ -9,7 +9,7 @@ visitExternalType: anExternalType
 				ASN1UnexpectedType signal: 'expected external value' ]. 
 			ASN1ObjectIdentifierType decode: currentTaggedValue contents ].
 	value oid: oid.
-	
+
 	self 
 		push: currentTaggedValue elements second
 		during: [
@@ -17,7 +17,9 @@ visitExternalType: anExternalType
 				ifNotNil: [:module|
 					(currentTaggedValue tag number = 0) ifFalse: [ Error signal: 'unexpected tag number' ].
 					value decoded: (self class new 
+						factories: factories;
 						read: currentTaggedValue elements first 
-						usingModule: module) ]
+						usingModule: module
+						as: value valueClass) ]
 				ifNil:  [ value encoded: currentTaggedValue elements first ]].
 	^ value
