@@ -8,7 +8,8 @@
 	"instvars" : [
 		"skipErrors",
 		"currentTaggedValue",
-		"valueMap"
+		"valueMap",
+		"factories"
 	],
 	"name" : "ASN1ReadVisitor",
 	"type" : "normal"

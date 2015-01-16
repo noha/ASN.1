@@ -3,5 +3,5 @@ addFactoryForFieldNamed: aFieldName type: aType value: aValue
 
 	(aValue fieldFactoryAt: aFieldName) ifNotNil: [ :factory |
 		factories 
-			at:  aType singularType
+			at:  aType basicType singularType 
 			put: factory  ]

@@ -21,7 +21,7 @@ visitCollection: aCollection
 			
 			(element value includesTag: content tag) 
 				ifTrue: [
-					self addFactoryForFieldNamed: element key type: element value basicType value: value. 
+					self addFactoryForFieldNamed: element key type: element value value: value. 
 					"we have a match so we assign the value"
 					self 
 						push: content

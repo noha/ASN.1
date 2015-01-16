@@ -7,7 +7,7 @@ visitChoice: aChoice
 			error: (ASN1ElementNotFound new messageText: 'cannot find element for tag ', currentTaggedValue tag printString)
 			on:  value ].
 	
-	self addFactoryForFieldNamed: slot key type: slot value basicType value: value.
+	self addFactoryForFieldNamed: slot key type: slot value value: value.
 	result :=self 
 		push: currentTaggedValue
 		during: [ self visit: slot value ].
