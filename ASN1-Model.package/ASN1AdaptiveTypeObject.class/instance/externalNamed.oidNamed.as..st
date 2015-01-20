@@ -1,4 +1,4 @@
 accessing
 externalNamed: aString oidNamed: oidName as: aClass
-	^ (aClass type: (type bindingNamed: aString) value parent: self)
-		oid: (type bindingNamed: oidName)
+	^ (aClass type: (self asn1TypeNamed: aString) parent: self)
+		oid: (self asn1TypeNamed: oidName)
