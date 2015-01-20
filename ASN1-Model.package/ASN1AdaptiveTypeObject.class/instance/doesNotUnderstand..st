@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 doesNotUnderstand: aMessage
 	(aMessage arguments size = 0) ifTrue: [ 
 		^ self 

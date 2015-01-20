@@ -1,3 +1,3 @@
-as yet unclassified
+accessing
 basicAt: aKey 
 	^ map at: aKey

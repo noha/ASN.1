@@ -1,4 +1,4 @@
-as yet unclassified
+accessing
 basicTypeAt: aKey
 	^ self 
 		basicTypeAt: aKey

@@ -1,5 +1,5 @@
-as yet unclassified
+accessing
 basicTypeAt: aKey ifAbsent: aBlock
 	^ (type 
 		elementAt: aKey 
-		ifNone: aBlock) value basicType
+		ifNone: aBlock) value

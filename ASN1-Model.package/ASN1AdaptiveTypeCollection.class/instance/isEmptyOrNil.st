@@ -1,0 +1,3 @@
+testing
+isEmptyOrNil
+	^ elements isEmptyOrNil 
