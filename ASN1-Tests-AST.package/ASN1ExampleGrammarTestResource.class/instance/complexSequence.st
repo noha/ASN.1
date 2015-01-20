@@ -9,4 +9,4 @@ complexSequence
 		sub1 INTEGER, 
 		sub2 OCTET STRING, 
 		sub3 SimpleSequence}
-	TypedComplexSequence ::= SEQUENCE SIZE (1..MAX) OF ComplexSequence'
+	TypedComplexSequence ::= SEQUENCE SIZE (1..MAX) OF ComplexSequence '
