@@ -2,4 +2,4 @@ initialize-release
 initialize 
 	super initialize.
 	skipErrors := false.
-	factories := SmallDictionary new
+	fieldFactories := SmallDictionary new

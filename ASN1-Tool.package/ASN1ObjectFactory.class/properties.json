@@ -1,16 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1ModelVisitor",
+	"super" : "Object",
 	"category" : "ASN1-Tool-Visitor",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"skipErrors",
-		"currentTaggedValue",
-		"fieldFactories",
-		"objectFactory"
+		"asn1Model"
 	],
-	"name" : "ASN1ReadVisitor",
+	"name" : "ASN1ObjectFactory",
 	"type" : "normal"
 }

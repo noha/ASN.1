@@ -1,6 +1,6 @@
 accessing
 valueForType: aType
-	factories 
+	fieldFactories 
 		at: aType 
-		ifPresent: [ :val | ^ val asAsn1ValueTyped: aType ].
+		ifPresent: [ :val | ^ self objectFactory new: val "self halt. ^ val asAsn1ValueTyped: aType" ].
 	^ aType newValue

@@ -17,7 +17,8 @@ visitExternalType: anExternalType
 				ifNotNil: [:module|
 					(currentTaggedValue tag number = 0) ifFalse: [ Error signal: 'unexpected tag number' ].
 					value decoded: (self class new 
-						factories: factories;
+						objectFactory: objectFactory;
+						factories: fieldFactories;
 						read: currentTaggedValue elements first 
 						usingModule: module
 						as: value valueClass) ]

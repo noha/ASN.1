@@ -1,3 +1,3 @@
 accessing
 factories: aCollection
-	factories := aCollection
+	fieldFactories := aCollection
