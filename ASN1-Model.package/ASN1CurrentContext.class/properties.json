@@ -8,6 +8,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "ASN1CurrentModel",
+	"name" : "ASN1CurrentContext",
 	"type" : "normal"
 }

@@ -1,4 +1,4 @@
 *asn1-model
 asAsn1TypeIn: aContext
-	^ (aContext bindingNamed: self) value 
+	^ (aContext typeNamed: self) 
 		ifNil: [ NotFound signal: 'cannot find type ', self ]
