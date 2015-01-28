@@ -3,7 +3,7 @@ buildModel
 	| visitor |
 	self annotateAsts.
 	visitor := ASN1ModelBuilderVisitor new.
-	^ ASN1ModelRoot new 
+	^ self newModelRoot
 		in: [ :root |
 			( self accept: visitor) do: [ :module |
 				root addModule: module ] ];
