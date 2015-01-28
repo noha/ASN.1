@@ -1,5 +1,5 @@
 creating
-new: anObject
+newInstance: anObject
 	anObject isBlock ifTrue: [ 
 		^ anObject cull: self  ].
 	^anObject  dispatchInstanceCreationOn: self
