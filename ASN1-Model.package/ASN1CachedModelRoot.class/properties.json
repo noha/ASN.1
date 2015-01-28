@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1ModelRoot",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"types",
+		"modulesByOid",
+		"moduleByName"
+	],
+	"name" : "ASN1CachedModelRoot",
+	"type" : "normal"
+}
