@@ -1,3 +1,3 @@
 as yet unclassified
 selectorNameFrom: aString
-	^ ( aString copyWithout: $-  ) withFirstCharacterDownshifted asSymbol
+	^ ( aString copyWithout: $-  ) uncapitalized asSymbol
