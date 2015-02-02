@@ -6,4 +6,4 @@ encode: aString
 			(asciiValue > 16rFFFF) ifTrue: [ Error signal: 'cannot encode ', aString, ' to 16-bit' ].
 			(asciiValue < 256) ifTrue: [ 
 				stream nextPut: 0 ].
-			stream nextPut: asciiValue ]]
+			stream nextPutAll: asciiValue asByteArray ]]
