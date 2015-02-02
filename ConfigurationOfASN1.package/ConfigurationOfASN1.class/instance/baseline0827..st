@@ -45,7 +45,7 @@ baseline0827: spec
 			package: 'ASN1-Tests-Tool' with: [
 				spec requires: #('ASN1-Builder' 'ASN1-Tool' 'ASN1-Tests-Model' 'ASN1-Tests-Codec' 'ASN1-Tests-AST' 'ASN1-Tests-Builder' ). ].
 		spec 
-			group: 'builder' with: #('ASN1-AST' 'ASN1-Model' );
+			group: 'builder' with: #('ASN1-AST' 'ASN1-Model' 'ASN1-Builder' );
 			group: 'builder-tests' with: #('ASN1-Tests-Syntax' 'ASN1-Tests-AST' 'ASN1-Tests-Model' 'ASN1-Tests-Builder' );
 			group: 'tool' with: #('ASN1-Tool' );
 			group: 'tool-tests' with: #('ASN1-Tests-Tool' 'ASN1-Tests-Codec' );
