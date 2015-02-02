@@ -1,3 +1,3 @@
 testing
 matchesType: anASN1Object 
-	^ true
+	^ self definition matchesType: anASN1Object 

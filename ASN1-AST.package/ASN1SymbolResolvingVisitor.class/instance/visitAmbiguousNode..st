@@ -1,3 +1,3 @@
 visiting
-visitAmbiguousNode: aNode
-	self halt
+visitAmbiguousNode: anAmbiguousNode
+	^ anAmbiguousNode

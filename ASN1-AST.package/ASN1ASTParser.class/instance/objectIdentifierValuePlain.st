@@ -8,5 +8,5 @@ objectIdentifierValuePlain
 					nodes second isCollection 
 						ifTrue: [ nodes first 
 							ifNotNil: [ nodes second copyWithFirst: nodes first ]
-							ifNil: [ self halt. nodes second ] ]
+							ifNil: [ nodes second ] ]
 						ifFalse: [  nodes ]] )  ]

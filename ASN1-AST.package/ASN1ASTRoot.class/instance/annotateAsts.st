@@ -2,6 +2,7 @@ actions
 annotateAsts
 	self
 		resolveImportSymbols;
+		resolveAllSymbols;
 		resolveAmbiguities;
 		resolveAllSymbols;
 		resolveRelativeOids;

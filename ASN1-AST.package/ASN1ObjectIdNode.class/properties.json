@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1ASTNode",
+	"super" : "ASN1ValueNode",
 	"category" : "ASN1-AST-Nodes",
 	"classinstvars" : [ ],
 	"pools" : [ ],
