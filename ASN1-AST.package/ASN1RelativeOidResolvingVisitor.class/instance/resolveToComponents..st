@@ -4,6 +4,6 @@ resolveToComponents: aNode
 	components := aNode components.
 	leadingComponent := components first.
 	[ leadingComponent class = ASN1ObjectIdComponentNode ] whileFalse: [
-		components := leadingComponent definition value components asOrderedCollection addAll: components allButFirst; yourself.
+		components := (OrderedCollection withAll: leadingComponent definition value components)  addAll: components allButFirst; yourself.
 		leadingComponent := components first ].
 	^ components
