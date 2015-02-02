@@ -1,4 +1,4 @@
 as yet unclassified
 path: aString
 	^ self new 
-		path: aString asFileReference
+		path: aString asFileReference asAbsolute
