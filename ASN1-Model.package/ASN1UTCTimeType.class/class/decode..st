@@ -1,12 +1,15 @@
 codec
 decode: anObject
-	| stream |
-	stream := anObject readStream.
+	| stream year |
+	stream := anObject asString readStream.
+	year := self readNumberDigits: 2 from: stream.
+	(year < 70)
+		ifTrue: [ year := year + 100  ].
 	^ DateAndTime 
-		year: (stream next: 2) asInteger + 1900
-		month: (stream next: 2) asInteger  
-		day: (stream next: 2) asInteger  
-		hour: (stream next: 2) asInteger  
-		minute: (stream next: 2) asInteger  
-		second: (stream next: 2) asInteger 
+		year: year + 1900
+		month: (self readNumberDigits: 2 from: stream) asInteger  
+		day: (self readNumberDigits: 2 from: stream) asInteger  
+		hour: (self readNumberDigits: 2 from: stream) asInteger  
+		minute: (self readNumberDigits: 2 from: stream) asInteger  
+		second: (self readNumberDigits: 2 from: stream) asInteger 
 		offset: 0 asDuration
