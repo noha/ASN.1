@@ -1,3 +1,3 @@
 accessing
 propertyAt: aString 
-	^ self properties at: aString ifAbsent: [ nil ]
+	^ self properties at: aString asSymbol ifAbsent: [ nil ]

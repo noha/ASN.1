@@ -1,3 +1,3 @@
 accessing
 tag
-	^ self propertyAt: #tag
+	^ tag
