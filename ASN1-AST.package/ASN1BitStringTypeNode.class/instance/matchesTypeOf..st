@@ -1,3 +1,3 @@
 testing
-matchesType: aTypeNodeClass 
+matchesTypeOf: aTypeNodeClass 
 	^ self class = aTypeNodeClass 

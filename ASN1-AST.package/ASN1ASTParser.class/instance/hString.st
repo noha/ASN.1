@@ -2,5 +2,5 @@ X.681 grammar
 hString
 	^ super hString ==> [:nodes|
 		ASN1PrimitiveValueNode new
-			type: (ASN1PrimitiveNode name: 'hstring');
+			type: (ASN1PrimitiveTypeNode name: 'hstring');
 			value: nodes ]

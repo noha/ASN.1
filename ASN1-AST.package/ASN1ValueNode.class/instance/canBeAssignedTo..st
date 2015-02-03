@@ -1,3 +1,3 @@
 testing
-canBeAssignedTo: aTypeNode 
-	^ aTypeNode matchesType: self class
+canBeAssignedTo: aType
+	^ aType matchesTypeOf: self

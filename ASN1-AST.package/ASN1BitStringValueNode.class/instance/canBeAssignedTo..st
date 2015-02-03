@@ -1,3 +1,3 @@
 testing
 canBeAssignedTo: aTypeNode 
-	^ aTypeNode matchesType: ASN1BitStringNode 
+	^ aTypeNode matchesTypeOf: ASN1BitStringTypeNode 

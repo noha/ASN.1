@@ -1,3 +1,3 @@
 testing
 canBeAssignedTo: aTypeNode 
-	^ aTypeNode matchesType: self type
+	^ aTypeNode matchesTypeOf: self type

@@ -1,5 +1,5 @@
 X.680 grammar
 restrictedCharacterStringType
 	^ super restrictedCharacterStringType ==> [:node|
-		ASN1PrimitiveNode new 
+		ASN1PrimitiveTypeNode new 
 			name: node ]

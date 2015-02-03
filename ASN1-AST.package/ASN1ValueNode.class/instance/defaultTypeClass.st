@@ -1,0 +1,3 @@
+accessing
+defaultTypeClass
+	self shouldBeImplemented 
