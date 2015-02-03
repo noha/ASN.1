@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"type",
-		"tag"
+		"type"
 	],
 	"name" : "ASN1TaggedType",
 	"type" : "normal"

@@ -1,3 +1,3 @@
 accessing
 tag: anObject
-	tag := anObject 
+	self propertyAt: #tag put: anObject 

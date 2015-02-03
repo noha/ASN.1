@@ -1,3 +1,3 @@
 accessing
 propertyAt: aString put: anObject
-	self properties at: aString asSymbol put: anObject
+	properties at: aString asSymbol put: anObject
