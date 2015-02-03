@@ -1,3 +1,4 @@
 accessing
 tag
-	^ self universalTag
+	^ tag ifNil: [
+		tag := self universalTag ]

@@ -5,7 +5,9 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"tag"
+	],
 	"name" : "ASN1Primitive",
 	"type" : "normal"
 }
