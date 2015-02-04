@@ -1,7 +1,7 @@
 visiting
 visitExternalType: anExternalType
 	| oid  value |
-	value := self valueForType: anExternalType.
+	value := anExternalType newValue.
 	oid := self 
 		push: currentTaggedValue elements first
 		during: [
@@ -18,7 +18,6 @@ visitExternalType: anExternalType
 					(currentTaggedValue tag number = 0) ifFalse: [ Error signal: 'unexpected tag number' ].
 					value decoded: (self class new 
 						objectFactory: objectFactory;
-						factories: fieldFactories;
 						read: currentTaggedValue elements first 
 						usingModule: module
 						as: value valueClass) ]

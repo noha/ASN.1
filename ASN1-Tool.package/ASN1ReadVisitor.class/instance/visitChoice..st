@@ -1,13 +1,12 @@
 visiting
 visitChoice: aChoice
 	| slot result value |
-	value := self valueForType: aChoice.
+	value := aChoice newValue.
 	slot := aChoice elementWithTag: currentTaggedValue tag ifNone: [
 		^ self 
 			error: (ASN1ElementNotFound new messageText: 'cannot find element for tag ', currentTaggedValue tag printString)
 			on:  value ].
 	
-	self addFactoryForFieldNamed: slot key type: slot value value: value.
 	result :=self 
 		push: currentTaggedValue
 		during: [ self visit: slot value ].
