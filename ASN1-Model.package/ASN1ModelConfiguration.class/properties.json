@@ -1,13 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1BasicObject",
+	"super" : "Object",
 	"category" : "ASN1-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"valueFactory"
-	],
-	"name" : "ASN1TypeObject",
+	"instvars" : [ ],
+	"name" : "ASN1ModelConfiguration",
 	"type" : "normal"
 }
