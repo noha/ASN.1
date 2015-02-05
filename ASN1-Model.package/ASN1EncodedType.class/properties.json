@@ -7,7 +7,9 @@
 	"classvars" : [
 		"tagNumbers"
 	],
-	"instvars" : [ ],
+	"instvars" : [
+		"tagEnvironment"
+	],
 	"name" : "ASN1EncodedType",
 	"type" : "normal"
 }

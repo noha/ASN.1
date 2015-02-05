@@ -1,4 +1,4 @@
 accessing
 tagEnvironment
-	^ (self propertyAt: #tagEnvironment) ifNil: [
-		self definingModule tagEnvironment ]
+	^ tagEnvironment ifNil: [
+		tagEnvironment := self definingModule tagEnvironment ]

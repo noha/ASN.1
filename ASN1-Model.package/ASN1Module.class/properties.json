@@ -8,7 +8,8 @@
 	"instvars" : [
 		"name",
 		"oid",
-		"fields"
+		"fields",
+		"tagEnvironment"
 	],
 	"name" : "ASN1Module",
 	"type" : "normal"
