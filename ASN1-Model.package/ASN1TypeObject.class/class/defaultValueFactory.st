@@ -1,3 +1,3 @@
 as yet unclassified
-defaultValueBlock
+defaultValueFactory
 	^ [ :type | type asn1ValueClass new ]
