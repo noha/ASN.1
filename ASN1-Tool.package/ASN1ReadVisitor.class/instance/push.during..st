@@ -1,7 +1,9 @@
 visiting
 push: taggedValue during: aBlock
-	|  formerTaggedValue |
-	taggedValue ifNil: [  Error signal: 'cannot push nil onto stack' ].
+	| formerTaggedValue result |
+	taggedValue ifNil: [  Error signal: 'cannot use nil as taggedValue' ].
 	formerTaggedValue := currentTaggedValue.
 	currentTaggedValue := taggedValue.
-	^ aBlock ensure: [ currentTaggedValue := formerTaggedValue ]
+	result := aBlock ifCurtailed: [ currentTaggedValue := formerTaggedValue ].
+	currentTaggedValue := formerTaggedValue.
+	^ result
