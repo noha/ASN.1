@@ -1,6 +1,6 @@
 validating
 validate: anObject
-	elements do: [ :binding | | fieldType |
+	elements associations do: [ :binding | | fieldType |
 		binding isExtension ifFalse: [  
 			fieldType := binding value.
 			fieldType isOptional ifFalse: [ 

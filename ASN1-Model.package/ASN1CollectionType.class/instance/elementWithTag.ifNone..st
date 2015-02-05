@@ -1,5 +1,5 @@
 as yet unclassified
 elementWithTag: aTag ifNone: aBlock
-	^ self  elements 
-		detect: [:each| each value tag = aTag ]
-		ifNone: aBlock
+	elements associationsDo: [ :each | 
+		(each value tag = aTag) ifTrue: [ ^ each ]  ].
+	aBlock value
