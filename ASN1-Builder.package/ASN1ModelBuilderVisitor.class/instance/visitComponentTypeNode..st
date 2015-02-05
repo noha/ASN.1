@@ -7,7 +7,7 @@ visitComponentTypeNode: aComponentTypeNode
 	(aComponentTypeNode modifiers notNil and: [ aComponentTypeNode modifiers isDefaultValue ]) ifTrue: [ 
 		aComponentTypeNode modifiers type: aComponentTypeNode type ].
 	type := (self visit: aComponentTypeNode type). 
-	^ ASN1Association new
+	^ Association new
 		key: type key;
 		value: (ASN1ComponentType new
 			definingModule: module;
