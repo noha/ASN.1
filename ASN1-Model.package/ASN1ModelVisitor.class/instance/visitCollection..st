@@ -2,4 +2,4 @@ visiting
 visitCollection: aCollection 
 	self visitObject: aCollection.
 	^ aCollection elements collect: [:each|
-		self visit: each ]
+		self visit: each]
