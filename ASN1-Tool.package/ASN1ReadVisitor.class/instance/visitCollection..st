@@ -4,13 +4,13 @@ visitCollection: aCollection
 	isExtended := false.
 	value := aCollection newValue.
 	contentStream := currentTaggedValue contents readStream.
-	elementStream := aCollection elements readStream.
+	elementStream := aCollection elements associations readStream.
 	[[ elementStream atEnd or: [ contentStream atEnd ] ] whileFalse: [  | element content |
 		[ :continue | 
 			element := elementStream peek.
 			"if next element ist an extension element,mark this sequence as extensible
 			and proceed with the next element"
-			element isExtension ifTrue: [ 
+			element value isExtension ifTrue: [ 
 				isExtended := true.
 				elementStream next.
 				continue value ].

@@ -5,8 +5,8 @@ visitSequence: aSequence
 		tag: aSequence universalTag.
 	aSequence hasElements ifFalse: [ ^ encoded ].
 	dict := currentValue.
-	aSequence elements do:  [ :each |
-		(each class = ASN1Extension) ifFalse: [   
+	aSequence elements associations do:  [ :each |
+		(each value class = ASN1Extension) ifFalse: [   
 			(dict includesKey: each key) 
 				ifTrue: [ 
 					self 
