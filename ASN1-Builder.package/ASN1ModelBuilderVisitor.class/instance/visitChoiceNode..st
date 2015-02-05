@@ -5,7 +5,7 @@ visitChoiceNode: aNode
 	| elements |
 	elements := (self visitAll: aNode elements).
 	elements := elements
-		inject: OrderedCollection new
+		inject: SmallDictionary new
 		into: [:col :elem| 
 		(elem value class = ASN1Choice) 
 			ifTrue: [ col addAll: elem value elements ]
