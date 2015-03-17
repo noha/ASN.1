@@ -8,7 +8,6 @@
 	"instvars" : [
 		"skipErrors",
 		"currentTaggedValue",
-		"fieldFactories",
 		"objectFactory"
 	],
 	"name" : "ASN1ReadVisitor",
