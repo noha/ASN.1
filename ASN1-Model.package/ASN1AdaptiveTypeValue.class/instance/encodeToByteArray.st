@@ -1,4 +1,4 @@
 converting
 encodeToByteArray
-	^ ByteArray streamContents: [ :stream | 
-		self writeTaggedValuesOn: stream ]
+	^ self modelRoot resolveOidsWhile: [ 
+		self basicEncodeToByteArray ]
