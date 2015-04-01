@@ -12,4 +12,5 @@ visitDefinedSyntaxObjectNode: aNode
 		].
 	^ ASN1Object new
 		clazz: aNode type label;
+		definingModule: module;
 		initializeFromDict: dict

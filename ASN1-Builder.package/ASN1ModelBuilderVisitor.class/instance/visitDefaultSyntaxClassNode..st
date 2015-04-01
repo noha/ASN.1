@@ -1,3 +1,4 @@
 visiting
 visitDefaultSyntaxClassNode: aNode 
-	^ ASN1Class new 
+	^ ASN1Class new
+		definingModule: module

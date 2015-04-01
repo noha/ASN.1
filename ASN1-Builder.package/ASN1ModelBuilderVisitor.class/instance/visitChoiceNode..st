@@ -12,4 +12,5 @@ visitChoiceNode: aNode
 			ifFalse: [ col add: elem ].
 			col ].
 	^ ASN1Choice new
-		elements: elements
+		elements: elements;
+		definingModule: module

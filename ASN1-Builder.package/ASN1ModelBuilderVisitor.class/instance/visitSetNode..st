@@ -3,4 +3,5 @@ visitSetNode: aNode
 	| node |
 	node := aNode normalized.
 	^ ASN1Set new
-		elements: (self visitAll: node elements)
+		elements: (self visitAll: node elements);
+		definingModule: module

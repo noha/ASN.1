@@ -5,5 +5,5 @@ visitReferenceNode: aReferenceNode
 		ifTrue: [ super visitReferenceNode: aReferenceNode ]
 		ifFalse: [ 
 			self 
-				useModule: (self visit: aReferenceNode module) 
+				useModule: (self visit: (aReferenceNode definition propertyAt: #definingModule)) 
 				during: [ self visit: aReferenceNode definition ] ]

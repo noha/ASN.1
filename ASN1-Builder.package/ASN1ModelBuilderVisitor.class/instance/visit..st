@@ -11,6 +11,4 @@ visit: aNode
 	objects at: aNode ifPresent: [ :o|  ^ o  ].
 	aNode isAssigned ifTrue: [
 		objects at: aNode put:  object ].
-	 (object isAsn1Type and: [ aNode isAsn1ReferenceNode not ]) ifTrue: [
-		object definingModule:module ].
 	^ object
