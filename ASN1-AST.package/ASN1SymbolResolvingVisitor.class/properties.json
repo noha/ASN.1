@@ -5,7 +5,9 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [ ],
+	"instvars" : [
+		"module"
+	],
 	"name" : "ASN1SymbolResolvingVisitor",
 	"type" : "normal"
 }
