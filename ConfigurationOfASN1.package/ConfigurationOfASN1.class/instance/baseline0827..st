@@ -9,13 +9,13 @@ baseline0827: spec
 			project: 'PetitParser' with: [
 				spec
 					className: #ConfigurationOfPetitParser;
-					versionString: '1.8-snapshot';
+					versionString: '1.9';
 					loads: #('Core' );
 					repository: 'http://smalltalkhub.com/mc/Moose/PetitParser/main' ];
 			project: 'PetitParser Tests' with: [
 				spec
 					className: #ConfigurationOfPetitParser;
-					versionString: '1.8-snapshot';
+					versionString: '1.9';
 					loads: #('Tests' );
 					repository: 'http://smalltalkhub.com/mc/Moose/PetitParser/main' ].
 		spec 

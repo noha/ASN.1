@@ -8,8 +8,8 @@ version0833: spec
 		spec author: 'NorbertHartl'.
 		spec timestamp: '1/16/2015 13:43'.
 		spec 
-			project: 'PetitParser' with: '1.8-snapshot';
-			project: 'PetitParser Tests' with: '1.8-snapshot'.
+			project: 'PetitParser' with: '1.9';
+			project: 'PetitParser Tests' with: '1.9'.
 		spec 
 			package: 'ASN1-Common' with: 'ASN1-Common-NorbertHartl.7';
 			package: 'ASN1-Model' with: 'ASN1-Model-NorbertHartl.114';
