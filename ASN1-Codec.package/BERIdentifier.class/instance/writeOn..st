@@ -1,3 +1,3 @@
 as yet unclassified
 writeOn: aStream
-	aStream nextPut: (self tag byteValue: constructed)
+	self tag writeOn: aStream constructed: constructed
