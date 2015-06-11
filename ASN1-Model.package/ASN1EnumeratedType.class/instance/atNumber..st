@@ -1,5 +1,6 @@
 as yet unclassified
 atNumber: aNumber
 	^ elements
-		detect: [:each| each number = aNumber ]
+		detect: [:each| 
+			each isAsn1Node and: [ each number = aNumber ]]
 		ifNone: [ nil ]
