@@ -1,7 +1,7 @@
 as yet unclassified
 parseFrom: aStream
 	| octet |
-	octet := aStream next asInteger.
+	octet := (self nextFrom: aStream) asInteger.
 	^ self new
 		tag: (ASN1Tag 
 			clazz: (ASN1Tag classLabelOf: (octet bitShift: -6))
