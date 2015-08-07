@@ -1,3 +1,3 @@
 accessing
 typeNamed: aString 
-	^ factory typeNamed: aString
+	^ self factory typeNamed: aString
