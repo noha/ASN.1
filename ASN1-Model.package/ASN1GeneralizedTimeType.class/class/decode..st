@@ -17,9 +17,9 @@ decode: anObject
 	stream next ifNotNil: [ :offsetChar |
 		offsetChar = $Z ifTrue: [ offset := 0 hours ].
 		(offsetChar = $+) ifTrue: [
-			offset := Duration days: 0 hours: (stream next: 2) minutes: (stream next: 2) seconds: 0 ].
+			offset := Duration days: 0 hours: (stream next: 2) asNumber minutes: (stream next: 2) asNumber seconds: 0 ].
 		(offsetChar = $-) ifTrue: [ 
-			offset := (Duration days: 0 hours: (stream next: 2) minutes: (stream next: 2) seconds: 0) negated ]]
+			offset := (Duration days: 0 hours: (stream next: 2) asNumber minutes: (stream next: 2) asNumber seconds: 0) negated ]]
 		ifNil: [ offset := DateAndTime localOffset ].
 		
 	^ DateAndTime 
