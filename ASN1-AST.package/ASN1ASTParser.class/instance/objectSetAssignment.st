@@ -5,4 +5,4 @@ objectSetAssignment
 			left: (nodes first
 				type: nodes second;
 				declaration: true);
-			right: nodes third]
+			right: (nodes third type: nodes second) ]
