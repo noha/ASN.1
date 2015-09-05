@@ -6,4 +6,9 @@ visitTaggedType: aTaggedType
 	environment themselves (e.g. choicces are always explicit)"
 	^ self 
 		push: (aTaggedType decodeTaggedValue: currentTaggedValue) 
-		during: [ self visit: aTaggedType type ]
+		during: [
+			| val |
+			"Put the right type on it"
+			val := self visit: aTaggedType type.
+			val isAsn1Value ifTrue: [val type: aTaggedType].
+			val]
