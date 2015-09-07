@@ -1,3 +1,3 @@
 as yet unclassified
-basicType
+basicTypeLabel
 	^ #object

@@ -1,3 +1,3 @@
 accessing
-basicType
+basicTypeLabel
 	^ #value
