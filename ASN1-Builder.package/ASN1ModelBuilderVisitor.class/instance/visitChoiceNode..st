@@ -7,10 +7,10 @@ visitChoiceNode: aNode
 	elements := elements
 		inject: SmallDictionary new
 		into: [:col :elem| 
-		(elem value class = ASN1Choice) 
+		(elem value class = ASN1ChoiceType) 
 			ifTrue: [ col addAll: elem value elements ]
 			ifFalse: [ col add: elem ].
 			col ].
-	^ ASN1Choice new
+	^ ASN1ChoiceType new
 		elements: elements;
 		definingModule: module

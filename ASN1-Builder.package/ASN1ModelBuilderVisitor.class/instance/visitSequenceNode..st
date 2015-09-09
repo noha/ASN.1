@@ -2,7 +2,7 @@ visiting
 visitSequenceNode: aNode
 	| node |
 	node := aNode normalized.
-	^ ASN1Sequence new
+	^ ASN1SequenceType new
 		definingModule: module;
 		elements: ((self visitAll: node elements) ifNotNil: [ :col |
 			col inject: SmallDictionary new into: [ :dict :elem |

@@ -10,7 +10,7 @@ visitDefinedSyntaxObjectNode: aNode
 					instantiateFieldAt: assoc key value: assoc value dereferenced].
 		assoc value: (self visit: val)
 		].
-	^ ASN1Object new
+	^ ASN1ObjectType new
 		clazz: aNode type label;
 		definingModule: module;
 		initializeFromDict: dict

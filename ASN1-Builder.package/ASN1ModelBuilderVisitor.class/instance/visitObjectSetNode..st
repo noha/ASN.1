@@ -1,5 +1,5 @@
 visiting
 visitObjectSetNode: anObjectSetNode
-	^ ASN1Set new
+	^ ASN1SetType new
 		elements: (self visit: anObjectSetNode elementsSpec);
 		definingModule: module
