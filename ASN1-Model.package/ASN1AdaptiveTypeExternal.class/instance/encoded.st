@@ -1,3 +1,3 @@
 accessing
 encoded
-	^ self propertyAt: #encoded
+	^ encoded

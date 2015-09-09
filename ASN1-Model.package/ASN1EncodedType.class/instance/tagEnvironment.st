@@ -1,4 +1,4 @@
 accessing
 tagEnvironment
 	^ tagEnvironment ifNil: [
-		tagEnvironment := self definingModule tagEnvironment ]
+		tagEnvironment := self module tagEnvironment ]

@@ -1,3 +1,3 @@
 accessing
 modelRoot
-	^ self definingModule modelRoot
+	^ self module modelRoot

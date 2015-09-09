@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"properties"
+		"module"
 	],
 	"name" : "ASN1BasicObject",
 	"type" : "normal"

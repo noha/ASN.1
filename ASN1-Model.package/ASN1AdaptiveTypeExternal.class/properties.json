@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"oid",
-		"value"
+		"value",
+		"encoded"
 	],
 	"name" : "ASN1AdaptiveTypeExternal",
 	"type" : "normal"
