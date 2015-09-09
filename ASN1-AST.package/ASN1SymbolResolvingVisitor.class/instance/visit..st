@@ -7,4 +7,4 @@ visit: anObject
 	separate modules so we don't treat them. The defintion of a
 	reference will be treated in their respective module anyway"
 	(anObject notNil & anObject isAsn1ReferenceNode not) ifTrue: [
-			anObject propertyAt: #definingModule put: module ]
+			anObject propertyAt: #module put: module ]
