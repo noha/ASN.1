@@ -13,6 +13,6 @@ visitModuleDefinitionNode: aModuleDefinition
 			(aModuleDefinition assignments 
 				detect: [:each| each hasProperty: #PDU ]
 				ifNone: [nil])
-					ifNotNil: [:assignment| module propertyAt: #PDU put: assignment left label ].
+					ifNotNil: [:assignment| module pduLabel: assignment left label ].
 			module tagEnvironment: aModuleDefinition tagDefault.
 			^ module ]	

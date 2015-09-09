@@ -10,7 +10,7 @@ visitComponentTypeNode: aComponentTypeNode
 	^ Association new
 		key: type key;
 		value: (ASN1ComponentType new
-			definingModule: module;
+			module: module;
 			type: type value;
 			modifier:  (self visit: aComponentTypeNode modifiers);
 			yourself)

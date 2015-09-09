@@ -13,4 +13,4 @@ visitChoiceNode: aNode
 			col ].
 	^ ASN1ChoiceType new
 		elements: elements;
-		definingModule: module
+		module: module

@@ -4,4 +4,4 @@ visitDefinedSyntaxClassNode: aNode
 	instantiating objects"
 	"returning dummy class for debugging purpose"
 	^ ASN1ClassType new
-		definingModule: module
+		module: module

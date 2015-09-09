@@ -3,7 +3,7 @@ visitSequenceNode: aNode
 	| node |
 	node := aNode normalized.
 	^ ASN1SequenceType new
-		definingModule: module;
+		module: module;
 		elements: ((self visitAll: node elements) ifNotNil: [ :col |
 			col inject: SmallDictionary new into: [ :dict :elem |
 				elem value isExtension 

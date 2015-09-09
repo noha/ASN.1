@@ -3,4 +3,4 @@ visitPrimitiveValueNode: aPrimitiveValueNode
 	^ ASN1PrimitiveValue new
 		type: aPrimitiveValueNode type;
 		value: aPrimitiveValueNode value;
-		definingModule: module
+		module: module
