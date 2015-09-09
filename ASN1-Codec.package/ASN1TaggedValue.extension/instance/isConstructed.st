@@ -1,0 +1,3 @@
+testing
+isConstructed
+	self subclassResponsibility 

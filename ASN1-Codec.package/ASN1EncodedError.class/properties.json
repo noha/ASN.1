@@ -1,13 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1TaggedValue",
+	"super" : "ASN1StreamValue",
 	"category" : "ASN1-Codec",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"collection"
-	],
-	"name" : "ASN1ConstructedTaggedValue",
+	"instvars" : [ ],
+	"name" : "ASN1EncodedError",
 	"type" : "normal"
 }

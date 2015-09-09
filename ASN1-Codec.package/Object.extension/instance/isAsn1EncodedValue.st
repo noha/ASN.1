@@ -1,3 +1,3 @@
 *asn1-codec
-isAsn1TaggedValue
+isAsn1EncodedValue
 	^ false

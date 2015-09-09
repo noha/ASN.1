@@ -5,8 +5,8 @@ nextTaggedValue
 	length := self readLength.
 	
 	clazz := identifier isConstructed 
-		ifTrue: [ ASN1ConstructedTaggedValue ]
-		ifFalse: [ ASN1PrimitiveTaggedValue ].
+		ifTrue: [ ASN1EncodedConstructedValue ]
+		ifFalse: [ ASN1EncodedPrimitiveValue ].
 
 	source := length hasDefiniteForm 
 		ifTrue: [ | value |
