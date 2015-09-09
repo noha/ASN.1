@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "ASN1BasicObject",
+	"super" : "ASN1DefinitionObject",
 	"category" : "ASN1-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],

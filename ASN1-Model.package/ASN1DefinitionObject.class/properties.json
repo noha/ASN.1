@@ -1,15 +1,13 @@
 {
 	"commentStamp" : "",
-	"super" : "Object",
+	"super" : "ASN1BasicObject",
 	"category" : "ASN1-Model",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"decoded",
-		"encoded",
-		"oid"
+		"module"
 	],
-	"name" : "ASN1ValueProxy",
+	"name" : "ASN1DefinitionObject",
 	"type" : "normal"
 }
