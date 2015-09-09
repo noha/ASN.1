@@ -2,4 +2,4 @@
 octetStringFrom: aTaggedValue withTagNumber: aNumber
 	^ (aTaggedValue valueWithTag: (
 		ASN1Tag clazz: 'APPLICATION' number: aNumber))
-			ifNotNil: [ :value | ASN1OctetString decode: value contents ]
+			ifNotNil: [ :value | ASN1OctetStringType decode: value contents ]
