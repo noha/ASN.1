@@ -4,7 +4,7 @@ testEnumeratedWithExtension
 	skip the extension "
 	| result |
 	result := ASN1 
-		read: (ASN1PrimitiveTaggedValue new
+		read: (ASN1EncodedPrimitiveValue new
 			contents: #[ 3 ];
 			tag: (ASN1Tag clazz: 'CONTEXT' number: 3 ))
 		usingType: (ASN1EnumeratedType new 
