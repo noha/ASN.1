@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1CollectionType",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1SequenceType",
+	"type" : "normal"
+}

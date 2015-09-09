@@ -1,3 +1,3 @@
 initailize-release
 typedCollection
-	^ ASN1TypedCollection type: self
+	^ ASN1TypedCollectionType type: self

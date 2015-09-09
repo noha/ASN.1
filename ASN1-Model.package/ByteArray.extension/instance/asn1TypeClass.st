@@ -1,3 +1,3 @@
 *asn1-model
 asn1TypeClass
-	^ ASN1OctetString 
+	^ ASN1OctetStringType 
