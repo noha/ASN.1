@@ -2,6 +2,6 @@ visiting
 visitOpenType: anOpenType
 	self flag: #hack.
 	"oid := ASN1OpenTypeDefinition signal."
-	^ currentValue isAsn1TaggedValue 
+	^ currentValue isAsn1EncodedValue 
 		ifTrue: [ currentValue ]
 		ifFalse: [ self visit: currentValue type ]

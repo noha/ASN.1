@@ -3,7 +3,7 @@ visitTypedSequence: aTypedSequence
 	"All elements that are on the top of the stack are encoded with the type
 	of the typed sequence"
 	|  encoded |
-	encoded := ASN1ConstructedTaggedValue new
+	encoded := ASN1EncodedConstructedValue new
 		tag: aTypedSequence universalTag.
 	currentValue elements do: [:assoc|
 		self 

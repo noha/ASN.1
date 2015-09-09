@@ -1,7 +1,7 @@
 visiting
 visitSequence: aSequence 
 	|  encoded dict |
-	encoded := ASN1ConstructedTaggedValue new
+	encoded := ASN1EncodedConstructedValue new
 		tag: aSequence universalTag.
 	aSequence hasElements ifFalse: [ ^ encoded ].
 	dict := currentValue.
