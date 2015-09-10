@@ -1,3 +1,0 @@
-testing
-isConstructed
-	self subclassResponsibility 
