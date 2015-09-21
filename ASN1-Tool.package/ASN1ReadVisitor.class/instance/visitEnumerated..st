@@ -10,7 +10,6 @@ visitEnumerated: anEnumerated
 				push: currentTaggedValue contents first
 				during: [ self visitPrimitive: anEnumerated]]
 		ifFalse: [ self visitPrimitive: anEnumerated ].
-	namedNumber := anEnumerated atNumber: number.
-	^ namedNumber 
-		ifNotNil: [ namedNumber name ]
-		ifNil: [ ASN1ElementNotFound signal: 'no entry for number ', number asString, ' found' ]
+	namedNumber := anEnumerated atNumber: number value.
+	^ ASN1EnumeratedValue new 
+		name: namedNumber name 

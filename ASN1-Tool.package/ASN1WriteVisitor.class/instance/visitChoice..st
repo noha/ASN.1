@@ -4,5 +4,5 @@ visitChoice: aChoice
 	key := currentValue keys first.
 	type := (aChoice elements associations detect: [:each| each key = key asn1Denormalized ]) value.
 	^ self
-		push: (currentValue at: key)
+		push: (currentValue basicAt: key)
 		during: [ self visit: type ].

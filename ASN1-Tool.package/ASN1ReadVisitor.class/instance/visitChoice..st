@@ -12,5 +12,5 @@ visitChoice: aChoice
 		during: [ self visit: slot value ].
 	^ value
 		type: aChoice;
-		at: slot key put: result;
+		basicAt: slot key put: result;
 		yourself

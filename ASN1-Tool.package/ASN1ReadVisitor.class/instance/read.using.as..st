@@ -1,6 +1,6 @@
 as yet unclassified
-read: anEncodedType using: aType as: aClass
+read: anEncodedValue using: aType as: aClass
 
 	^ self 
-		push: anEncodedType
+		push: anEncodedValue
 		during: [ self visit: aType ]

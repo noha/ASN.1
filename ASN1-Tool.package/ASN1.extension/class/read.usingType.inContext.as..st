@@ -1,7 +1,7 @@
 *asn1-tool
-read: aTaggedValue usingType: aType inContext: aContext as: aClass
+read: anEncodedValue usingType: aType inContext: aContext as: aClass
 	^self 
-		read: aTaggedValue 
+		read: anEncodedValue 
 		usingType: aType 
 		inContext: aContext 
 		skipErrors: false 

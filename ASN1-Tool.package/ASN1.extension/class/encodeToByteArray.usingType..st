@@ -1,7 +1,7 @@
 *asn1-tool
-encodeToByteArray: anEncodedObject usingType: aType
+encodeToByteArray: aValue usingType: aType
 	^ ByteArray streamContents: [:stream|
 		self 
-			write: anEncodedObject 
+			write: aValue 
 			on: stream
 			usingType: aType]

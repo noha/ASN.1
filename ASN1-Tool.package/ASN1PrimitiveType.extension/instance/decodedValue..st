@@ -1,3 +1,3 @@
 *asn1-tool
 decodedValue: aByteArray
-	^ self class decode: aByteArray 
+	^ self newValue: ( self class decode: aByteArray ) 

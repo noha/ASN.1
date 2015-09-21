@@ -1,17 +1,17 @@
 visiting
 visitSequence: aSequence 
-	|  encoded dict |
+	|  encoded object |
 	encoded := ASN1EncodedConstructedValue new
 		tag: aSequence universalTag.
 	aSequence hasElements ifFalse: [ ^ encoded ].
-	dict := currentValue.
+	object := currentValue basicValue.
 	aSequence elements associations do:  [ :each |
 		(each value class = ASN1Extension) ifFalse: [   
-			(dict includesKey: each key) 
+			(object includesKey: each key) 
 				ifTrue: [ 
 					self 
-						push: (dict at: each key)
-						during: [ encoded elements add: (self visit: (aSequence elementAt: each key) value) ]]
+						push: (object basicAt: each key)
+						during: [ encoded elements add: (self visit: (aSequence elementAt: each key)) ]]
 				ifFalse: [
 					each value isOptional
 						ifTrue: [ each value hasDefaultValue ifTrue: [ 
