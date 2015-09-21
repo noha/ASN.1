@@ -1,3 +1,3 @@
 accessing
 asn1ValueClass
-	^ ASN1TaggedValue 
+	^ ASN1ObjectIdentifier

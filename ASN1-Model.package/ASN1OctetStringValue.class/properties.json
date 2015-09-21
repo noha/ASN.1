@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1PrimitiveValue",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1OctetStringValue",
+	"type" : "normal"
+}
