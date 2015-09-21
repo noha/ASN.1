@@ -1,3 +1,3 @@
 accessing
 value: aCollection
-	elements := aCollection elements
+	elements := aCollection asOrderedCollection

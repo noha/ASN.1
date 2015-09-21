@@ -1,5 +1,4 @@
 instance creation
 newValue: anObject
-self halt. 
-	^ self newValue
+	^ super newValue 
 		value: anObject

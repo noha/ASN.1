@@ -1,5 +1,5 @@
 accessing
 basicTypeAt: aKey ifAbsent: aBlock
-	^ (type 
+	^ type 
 		elementAt: aKey 
-		ifNone: aBlock) value
+		ifNone: aBlock

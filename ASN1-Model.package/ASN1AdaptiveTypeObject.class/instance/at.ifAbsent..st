@@ -1,7 +1,7 @@
 accessing
 at: aKey ifAbsent: aBlock
 	| fieldType  |
-	map at: aKey ifPresent: [ : value |  ^ value ].  
+	map at: aKey ifPresent: [ : value |  ^ value basicValue ].  
 	
 	"lookup field type to trigger an early exception if a field is not defined
 	for this type"

@@ -1,3 +1,3 @@
 accessing
-value
-	^ self stringValue
+value 
+	self halt.
