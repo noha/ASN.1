@@ -10,5 +10,5 @@ testExtensionFirstMandatory
 	self assert: result first = 45.
 	self assert: result second = 2.
 	self assert: result fifth = 5.
-	self assert: result sixth = 6.
+	self assert: result sixth basicValue = 6.
 	self assert: result keys size = 4

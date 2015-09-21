@@ -1,8 +1,9 @@
 as yet unclassified
 testExplicitModeChoiceWithCustomTags
-	| array |
+	| array data |
+	data := (self bindingAt: 'SimpleChoice') newValue.
 	array := self 
-		encodeToByteArray: (ASN1Dictionary new
+		encodeToByteArray: (data
 				at: 'number' put: 24;
 				yourself)
 		withBinding:  'SimpleChoice'

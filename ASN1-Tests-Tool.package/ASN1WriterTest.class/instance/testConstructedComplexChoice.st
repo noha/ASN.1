@@ -1,11 +1,10 @@
 as yet unclassified
 testConstructedComplexChoice
 	| data array |
-	data := ASN1Dictionary new
-		at: 'basicService' put: (ASN1Dictionary new
-			at: 'ext-Teleservice' put: '11';
-			yourself);
-		yourself.
+	data := (self bindingAt: 'SequenceWithConstruction') newValue.
+	data beSelfExpanding basicService
+		at: 'ext-Teleservice' put: '11'.
+
 	array := self 
 		encodeToByteArray: data
 		withBinding:  'SequenceWithConstruction'

@@ -6,4 +6,4 @@ testImplicitModeSequenceWithCustomTags
 		withBinding: 'ImplicitTaggedSequence'
 		tagEnvironment: ASN1ImplicitTags.
 	self assert: result number = 24.
-	self assert: result othernumber = 34
+	self assert: result othernumber basicValue = 34

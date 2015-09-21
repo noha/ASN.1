@@ -1,9 +1,8 @@
 as yet unclassified
 testEmptySequence
-	| data array  |
-	data := ASN1Dictionary new.
+	|  array  |
 	array := self 
-		encodeToByteArray: data
+		encodeToByteArray: (self valueFor: 'EmptySequence')
 		withBinding:  'EmptySequence'
 		tagEnvironment: ASN1ImplicitTags. 
 	self assert: (array = #[48 0]).

@@ -1,11 +1,10 @@
 as yet unclassified
 testSimpleSequence
-	| data array  model |
-	model := self modelBindingValue: 'SimpleSequence'.
-	data := ASN1Dictionary new
-			at: 'first' put: 13;
-			at: 'second' put:  'DEADBEEF';
-			yourself.
+	| data array   |
+	data := (self bindingAt: 'SimpleSequence') newValue.
+	data
+		at: 'first' put: 13;
+		at: 'second' put:  'DEADBEEF'.
 	array := self 
 		encodeToByteArray: data
 		withBinding:  'SimpleSequence'

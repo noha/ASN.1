@@ -1,12 +1,10 @@
 as yet unclassified
 testComplexChoiceImplicit
 	| data array |
-	data := ASN1Dictionary new
-		at: 'one' put: (ASN1Dictionary new
-			at: 'first' put: 13;
-			at: 'second' put: 'DEADBEEF';
-			yourself);
-		yourself.
+	data := (self bindingAt: 'ComplexChoice') newValue beSelfExpanding.
+	data one
+		first: 13;
+		second: 'DEADBEEF'.
 	array := self 
 		encodeToByteArray: data
 		withBinding:  'ComplexChoice'
