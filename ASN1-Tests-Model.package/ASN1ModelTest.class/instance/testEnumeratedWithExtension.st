@@ -12,4 +12,4 @@ testEnumeratedWithExtension
 				ASN1NamedNumber new name: 'foo';  number: 1.
 				ASN1Extension new.
 				ASN1NamedNumber new name: 'bar'; number: 3 }).
-	self assert: result equals: 'bar'
+	self assert: result name equals: 'bar'
