@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "Phexample",
+	"category" : "ASN1-Tests-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1AdaptiveModelTest",
+	"type" : "normal"
+}
