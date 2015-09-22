@@ -1,6 +1,6 @@
 *asn1-tool
-read: aTaggedValue usingType: aType
+read: anEncodedValue usingType: aType
 	^ self 
-		read: aTaggedValue 
+		read: anEncodedValue 
 		usingType: aType
 		inContext: nil
