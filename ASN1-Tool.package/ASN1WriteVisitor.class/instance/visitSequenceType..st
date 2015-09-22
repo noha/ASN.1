@@ -1,5 +1,5 @@
 visiting
-visitSequence: aSequence 
+visitSequenceType: aSequence 
 	|  encoded object |
 	encoded := ASN1EncodedConstructedValue new
 		tag: aSequence universalTag.

@@ -1,5 +1,5 @@
 visiting
-visitChoice: aChoice
+visitChoiceType: aChoice
 	| key type  |
 	key := currentValue keys first.
 	type := (aChoice elements associations detect: [:each| each key = key asn1Denormalized ]) value.

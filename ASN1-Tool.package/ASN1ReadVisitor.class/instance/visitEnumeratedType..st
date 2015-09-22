@@ -1,5 +1,5 @@
 visiting
-visitEnumerated: anEnumerated
+visitEnumeratedType: anEnumerated
 	| number namedNumber |
 	self flag: #hack.
 	"this is an ugly hack for enumerated values that are encoded explicitly while being 
@@ -8,8 +8,8 @@ visitEnumerated: anEnumerated
 		ifTrue: [
 			self 
 				push: currentTaggedValue contents first
-				during: [ self visitPrimitive: anEnumerated]]
-		ifFalse: [ self visitPrimitive: anEnumerated ].
+				during: [ self visitPrimitiveType: anEnumerated]]
+		ifFalse: [ self visitPrimitiveType: anEnumerated ].
 	namedNumber := anEnumerated atNumber: number value.
 	^ ASN1EnumeratedValue new 
-		name: namedNumber name 
+		value: namedNumber name 

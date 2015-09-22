@@ -1,3 +1,3 @@
 visiting
 visitObjectIdentifierType: anObjectIdentifier 	
-	^ self visitPrimitive: anObjectIdentifier 
+	^ self visitPrimitiveType: anObjectIdentifier 

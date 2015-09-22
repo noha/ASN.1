@@ -1,5 +1,5 @@
 visiting
-visitChoice: aChoice
+visitChoiceType: aChoice
 	| slot result value |
 	value := aChoice newValue.
 	slot := aChoice elementWithTag: currentTaggedValue tag ifNone: [
