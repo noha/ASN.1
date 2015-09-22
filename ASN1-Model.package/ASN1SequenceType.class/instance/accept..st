@@ -1,3 +1,3 @@
 visiting
 accept: aVisitor 
-	^ aVisitor visitSequence: self
+	^ aVisitor visitSequenceType: self

@@ -1,3 +1,3 @@
 visiting
-visitPrimitive: aPrimitive 
+visitPrimitiveType: aPrimitive 
 	^ self visitObject: aPrimitive 

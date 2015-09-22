@@ -1,3 +1,3 @@
 visiting
 visitNumericString: anOctetString
-	^ self visitPrimitive: anOctetString 
+	^ self visitPrimitiveType: anOctetString 

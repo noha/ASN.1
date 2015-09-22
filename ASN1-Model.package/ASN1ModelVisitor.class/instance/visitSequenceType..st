@@ -1,3 +1,3 @@
 visiting
-visitSequence: aSequence 
+visitSequenceType: aSequence 
 	^ self visitCollection: aSequence

@@ -1,3 +1,0 @@
-visiting
-visitEnumerated: aEnumerated 
-	^ aEnumerated 

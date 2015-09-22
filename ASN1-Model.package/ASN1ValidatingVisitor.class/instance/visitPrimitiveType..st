@@ -1,3 +1,3 @@
 visiting
-visitPrimitive: aPrimitive
+visitPrimitiveType: aPrimitive
 	aPrimitive validate: value

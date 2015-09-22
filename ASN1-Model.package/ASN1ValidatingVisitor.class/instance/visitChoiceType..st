@@ -1,5 +1,5 @@
 visiting
-visitChoice: aChoice
+visitChoiceType: aChoice
 	
 	(value size = 1) ifFalse: [ 
 		Error signal: 'object contains more than one key which is not valid for a choice type' ].

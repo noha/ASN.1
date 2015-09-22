@@ -1,3 +1,3 @@
 visiting
 accept: aVisitor 
-	^ aVisitor visitPrimitive: self
+	^ aVisitor visitPrimitiveType: self

@@ -1,3 +1,3 @@
 visiting
 visitNullType: aNullType 
-	^ self visitPrimitive: aNullType
+	^ self visitPrimitiveType: aNullType

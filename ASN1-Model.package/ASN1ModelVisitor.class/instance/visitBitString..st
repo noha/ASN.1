@@ -1,3 +1,3 @@
 visiting
 visitBitString: aBitStringType
-	^ self visitPrimitive: aBitStringType
+	^ self visitPrimitiveType: aBitStringType

@@ -1,3 +1,3 @@
 visiting
 visitBooleanType: aBooleanType 
-	^ self visitPrimitive: aBooleanType 
+	^ self visitPrimitiveType: aBooleanType 

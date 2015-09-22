@@ -1,5 +1,5 @@
 visiting
-visitSequence: aSequence
+visitSequenceType: aSequence
 	aSequence elements do: [ :binding | | fieldType |
 		binding isExtension ifFalse: [  
 			fieldType := binding value.

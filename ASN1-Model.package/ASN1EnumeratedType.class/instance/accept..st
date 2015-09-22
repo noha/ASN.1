@@ -1,3 +1,3 @@
 visiting
 accept: aVisitor 
-	^ aVisitor visitEnumerated: self
+	^ aVisitor visitEnumeratedType: self

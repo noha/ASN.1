@@ -1,3 +1,3 @@
 visiting
-visitChoice: aChoice 
+visitChoiceType: aChoice 
 	^ self visitCollection: aChoice

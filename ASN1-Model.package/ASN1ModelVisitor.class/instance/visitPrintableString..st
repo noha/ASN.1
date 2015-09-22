@@ -1,3 +1,3 @@
 visiting
 visitPrintableString: aPrintableString
-	^ self visitPrimitive: aPrintableString 
+	^ self visitPrimitiveType: aPrintableString 
