@@ -1,5 +1,5 @@
 accessing
-stringValue
+binaryStringValue
 	| number |
 	number := 0.
 	self bits do: [ :each|

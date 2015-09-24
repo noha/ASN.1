@@ -1,3 +1,3 @@
 accessing
-externalValue
+contents
 	^ contents

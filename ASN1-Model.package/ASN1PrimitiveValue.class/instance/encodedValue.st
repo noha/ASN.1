@@ -1,3 +1,3 @@
 converting
 encodedValue
-	^ type encodedValue: value
+	^ type encodedValue: contents

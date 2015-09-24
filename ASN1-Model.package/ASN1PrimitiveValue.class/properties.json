@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"value"
+		"contents"
 	],
 	"name" : "ASN1PrimitiveValue",
 	"type" : "normal"

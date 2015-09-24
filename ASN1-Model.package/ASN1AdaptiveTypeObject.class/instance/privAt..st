@@ -1,3 +1,3 @@
 accessing
-basicAt: aKey 
+privAt: aKey 
 	^ map at: aKey

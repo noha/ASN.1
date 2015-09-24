@@ -1,3 +1,3 @@
 comparing
 hasSameValue: aPrimitiveValue
-	^ value = aPrimitiveValue basicValue
+	^ contents = aPrimitiveValue contents

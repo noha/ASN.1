@@ -1,3 +1,3 @@
 comparing
 hash
-	^ type hash bitXor: value hash
+	^ type hash bitXor: contents hash

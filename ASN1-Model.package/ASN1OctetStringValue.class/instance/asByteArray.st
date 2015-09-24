@@ -1,3 +1,3 @@
 converting
 asByteArray
-	^ value asByteArray
+	^ contents asByteArray

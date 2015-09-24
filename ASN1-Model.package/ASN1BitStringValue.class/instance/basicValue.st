@@ -1,3 +1,0 @@
-accessing
-basicValue
-	^ self stringValue

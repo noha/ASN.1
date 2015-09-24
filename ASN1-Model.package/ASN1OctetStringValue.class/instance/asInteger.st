@@ -1,3 +1,3 @@
 converting
 asInteger
-	^ value asInteger
+	^ contents asInteger

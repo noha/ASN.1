@@ -1,3 +1,3 @@
 testing
 hasSameValue: anObject
-	^ value = anObject
+	^ contents = anObject

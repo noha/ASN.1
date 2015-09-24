@@ -1,3 +1,3 @@
 accessing
 stringValue
-	^ value
+	^ contents

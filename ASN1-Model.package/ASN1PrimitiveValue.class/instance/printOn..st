@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-	value printOn: aStream.
+	contents printOn: aStream.
 	aStream nextPutAll: ' ['.
 	type printOn: aStream.
 	aStream nextPutAll: ']'

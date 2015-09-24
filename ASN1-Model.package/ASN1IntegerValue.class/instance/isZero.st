@@ -1,3 +1,3 @@
 testing
 isZero
-	^ value isZero
+	^ contents isZero

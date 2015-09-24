@@ -1,3 +1,3 @@
 comparing
 hash
-	^ value hash
+	^ contents hash

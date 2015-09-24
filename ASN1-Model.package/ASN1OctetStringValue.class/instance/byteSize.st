@@ -1,3 +1,3 @@
 accessing
 byteSize
-	^ value size
+	^ contents size

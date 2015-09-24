@@ -1,3 +1,3 @@
 converting
 encodedValue
-	^ type encodedValue: self stringValue
+	^ type encodedValue: self binaryStringValue

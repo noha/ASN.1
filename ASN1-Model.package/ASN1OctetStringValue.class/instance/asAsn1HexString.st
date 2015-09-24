@@ -1,3 +1,3 @@
 converting
 asAsn1HexString
-	^ value asAsn1HexString
+	^ contents asAsn1HexString

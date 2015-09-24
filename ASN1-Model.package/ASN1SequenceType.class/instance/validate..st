@@ -6,5 +6,5 @@ validate: anObject
 			fieldType isOptional ifFalse: [ 
 				(anObject includesKey: binding key) ifFalse: [ ASN1MandatoryElementNotFound signal: binding key, ' not found' ] ].
 			(anObject includesKey: binding key) ifTrue: [ | val |
-				val := (anObject basicAt: binding key).
+				val := (anObject privAt: binding key).
 				self validateType: fieldType value: val ] ] ]

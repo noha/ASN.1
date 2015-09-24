@@ -1,3 +1,3 @@
 converting
 hex
-	^ value hex
+	^ contents hex
