@@ -10,7 +10,7 @@ testEnumeratedValue
 			}.
 	
 	value := type newValue.
-	value basicValue: 'two'.
+	value contents: 'two'.
 	encoded := ASN1 write: value usingType: type.
 	self assert: encoded contents = #[2].
 	self assert: encoded tag number = 10
