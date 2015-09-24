@@ -5,5 +5,5 @@ visitOpenType: anOpenType
 	^ currentValue isAsn1EncodedValue 
 		ifTrue: [ currentValue ]
 		ifFalse: [ 
-			self push: currentValue value 
+			self push: currentValue contents 
 			during: [self visit: currentValue type ] ]

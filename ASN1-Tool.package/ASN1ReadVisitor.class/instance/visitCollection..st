@@ -3,7 +3,7 @@ visitCollection: aCollection
 	| value  contentStream elementStream isExtended |
 	isExtended := false.
 	value := aCollection newValue.
-	contentStream := currentTaggedValue contents readStream.
+	contentStream := currentTaggedValue elements readStream.
 	elementStream := aCollection elements associations readStream.
 	[[ elementStream atEnd or: [ contentStream atEnd ] ] whileFalse: [  | element content |
 		[ :continue | 
@@ -23,7 +23,7 @@ visitCollection: aCollection
 					"we have a match so we assign the value"
 					self 
 						push: content
-						during: [ value at: element key put:  (self visit: element value) ].
+						during: [ value privAt: element key put:  (self visit: element value) ].
 					elementStream next.
 					contentStream next ]
 				ifFalse: [ 
@@ -31,7 +31,9 @@ visitCollection: aCollection
 						ifTrue: [
 							element value hasDefaultValue ifTrue: [ 
 								"write the default value in the result"
-								value basicAt: element key put: element value defaultValue ].
+								element value defaultValue isAsn1 
+									ifTrue: [ value privAt: element key put: element value defaultValue ]
+									ifFalse: [ value at: element key put: element value defaultValue ] ].
 							elementStream next  ]						
 						ifFalse: [ isExtended ifTrue: [ 
 							(aCollection hasElementWithTag: content tag) ifFalse: [

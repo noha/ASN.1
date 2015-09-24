@@ -10,6 +10,5 @@ visitEnumeratedType: anEnumerated
 				push: currentTaggedValue contents first
 				during: [ self visitPrimitiveType: anEnumerated]]
 		ifFalse: [ self visitPrimitiveType: anEnumerated ].
-	namedNumber := anEnumerated atNumber: number value.
-	^ ASN1EnumeratedValue new 
-		value: namedNumber name 
+	namedNumber := anEnumerated atNumber: number contents.
+	^ anEnumerated newValue contents: namedNumber name

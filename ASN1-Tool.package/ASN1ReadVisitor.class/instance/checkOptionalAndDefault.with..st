@@ -10,4 +10,4 @@ checkOptionalAndDefault: anElement with: aCollection
 	default value. FInally the defaultValue ist a primitive value and we are only interested in
 	the value inside the wrapped primitive value"
 	anElement value hasDefaultValue ifTrue: [ 
-		aCollection at: anElement key put: anElement value defaultValue value ] 
+		aCollection privAt: anElement key put: anElement value defaultValue value ] 
