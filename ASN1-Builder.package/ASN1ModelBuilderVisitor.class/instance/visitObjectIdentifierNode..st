@@ -1,4 +1,4 @@
 visiting
 visitObjectIdentifierNode: anObjectId
-	^ (ASN1ObjectIdentifier value: anObjectId oidString)
+	^ (ASN1ObjectIdentifier contents: anObjectId oidString)
 		module: module
