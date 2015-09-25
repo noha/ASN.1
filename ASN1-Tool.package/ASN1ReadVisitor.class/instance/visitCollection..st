@@ -32,7 +32,7 @@ visitCollection: aCollection
 							element value hasDefaultValue ifTrue: [ 
 								"write the default value in the result"
 								element value defaultValue isAsn1 
-									ifTrue: [ value privAt: element key put: element value defaultValue ]
+									ifTrue: [ value baseValueAt: element key put: element value defaultValue ]
 									ifFalse: [ value at: element key put: element value defaultValue ] ].
 							elementStream next  ]						
 						ifFalse: [ isExtended ifTrue: [ 
