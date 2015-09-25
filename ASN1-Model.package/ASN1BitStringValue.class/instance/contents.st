@@ -1,3 +1,3 @@
 accessing
 contents
-	^ self binaryStringValue
+	^ self bits
