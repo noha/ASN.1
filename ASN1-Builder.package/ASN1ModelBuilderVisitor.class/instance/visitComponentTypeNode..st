@@ -5,7 +5,7 @@ visitComponentTypeNode: aComponentTypeNode
 	component type"
 	| type |
 	(aComponentTypeNode modifiers notNil and: [ aComponentTypeNode modifiers isDefaultValue ]) ifTrue: [ 
-		aComponentTypeNode modifiers type: aComponentTypeNode type ].
+		aComponentTypeNode modifiers type: aComponentTypeNode basicType ].
 	type := (self visit: aComponentTypeNode type). 
 	^ Association new
 		key: type key;
