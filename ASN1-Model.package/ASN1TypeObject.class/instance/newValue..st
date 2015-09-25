@@ -1,4 +1,5 @@
 instance creation
 newValue: anObject 
+self halt.
 	^ self newValue
-		contents: anObject
+		value: anObject

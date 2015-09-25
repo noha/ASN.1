@@ -1,3 +1,3 @@
 accessing
 baseValue
-	^ value baseValue
+	^ self
