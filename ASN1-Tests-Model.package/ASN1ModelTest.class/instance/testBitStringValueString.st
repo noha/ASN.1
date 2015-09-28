@@ -3,7 +3,7 @@ testBitStringValueString
 	|  bitStringValue |
 	
 	bitStringValue := self bitStringType newValue.
-	bitStringValue contents: '1'.
-	self assert: (bitStringValue bits includes: 'one').	
-	self assert: bitStringValue binaryStringValue = '1'.
+	bitStringValue contents: '0010'.
+	self assert: (bitStringValue bits includes: 'two').	
+	self assert: bitStringValue binaryStringValue = '0010'.
 	
