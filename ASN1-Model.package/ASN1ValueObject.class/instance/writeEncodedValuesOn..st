@@ -1,5 +1,5 @@
 converting
-writeTaggedValuesOn: aStream
+writeEncodedValuesOn: aStream
 	^ ASN1
 		write: self 
 		on: aStream
