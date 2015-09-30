@@ -1,8 +1,9 @@
 *asn1-tool
 encodeTaggedValue: aTaggedValue 
-	"encode the type with an explicit tag if present conditionally based
-	on the tag environment of the receiver. "
-	^ self type 
+	"a tagged type consists of an inner tag and an outer tag. While encoding
+	the tag environment indicates if both tags are encoded (explicit) or if 
+	the outer tag overwrites the inner tag (implicit)"
+	^ type 
 		encodeTaggedValue: aTaggedValue 
 		tagEnvironment: self tagEnvironment 
-		outerTag: self tag
+		outerTag: tag

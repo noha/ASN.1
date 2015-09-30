@@ -6,7 +6,7 @@ visitTaggedType: aTaggedType
 	environment themselves (e.g. choicces are always explicit)"
 	| basicValue |
 	basicValue := self 
-		push: (aTaggedType decodeTaggedValue: currentTaggedValue) 
+		push: (aTaggedType readEncodedValue: currentTaggedValue) 
 		during: [ self visit: aTaggedType type ].
 	basicValue type: aTaggedType type.
 	^ ASN1TaggedValue new

@@ -1,5 +1,5 @@
 *asn1-tool
-decodeTaggedValue: aTaggedValue 
+readEncodedValue: aTaggedValue 
 	^ self type 
 		decodeTaggedValue: aTaggedValue 
 		tagEnvironment: self tagEnvironment  
