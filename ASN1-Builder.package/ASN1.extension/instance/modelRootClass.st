@@ -1,5 +1,5 @@
 *asn1-builder
 modelRootClass
-	self properties 
+	^ self properties 
 		at:#modelRootClass 
 		ifAbsentPut:[ self defaultModelRootClass ]
