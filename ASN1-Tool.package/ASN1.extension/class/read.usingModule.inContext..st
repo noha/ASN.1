@@ -1,3 +1,3 @@
 *asn1-tool
-read: aTaggedValue usingModule: aModule inContext: aContext 
-	^ aModule read: aTaggedValue inContext: aContext
+read: anEncodedValue usingModule: aModule inContext: aContext 
+	^ aModule read: anEncodedValue inContext: aContext

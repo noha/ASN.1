@@ -1,5 +1,5 @@
 *asn1-tool
-octetStringFrom: aTaggedValue withTagNumber: aNumber
-	^ (aTaggedValue valueWithTag: (
+octetStringFrom: anEncodedValue withTagNumber: aNumber
+	^ (anEncodedValue valueWithTag: (
 		ASN1Tag clazz: 'APPLICATION' number: aNumber))
 			ifNotNil: [ :value | ASN1OctetStringType decode: value contents ]

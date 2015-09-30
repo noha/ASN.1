@@ -1,5 +1,5 @@
 *asn1-tool
-read: aTaggedValue
+read: anEncodedValue
 	^ ASN1 
-		read: aTaggedValue
+		read: anEncodedValue
 		usingType:  self

@@ -1,7 +1,7 @@
 *asn1-tool
-read: aTaggedValue as: aClass
+read: anEncodedValue as: aClass
 	^ ASN1 
-		read: aTaggedValue
+		read: anEncodedValue
 		usingType:  self
 		inContext: self modelRoot
 		as: aClass
