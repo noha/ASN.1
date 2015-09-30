@@ -1,9 +1,0 @@
-*asn1-codec
-readTaggedValuesFrom: aStream
-	| taggedValue |
-	taggedValue := self 
-		readTaggedValuesFrom: aStream 
-		usingCodecStream: self codecStreamClass.
-	taggedValue hasError ifTrue: [ 
-		ASN1EncodedValueError new taggedValues: taggedValue; signal  ].
-	^ taggedValue

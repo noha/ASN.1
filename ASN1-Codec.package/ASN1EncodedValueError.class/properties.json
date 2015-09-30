@@ -6,8 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"taggedValues",
-		"content"
+		"content",
+		"encodedValue"
 	],
 	"name" : "ASN1EncodedValueError",
 	"type" : "normal"
