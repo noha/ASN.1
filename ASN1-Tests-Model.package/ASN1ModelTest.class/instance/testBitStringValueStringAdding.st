@@ -7,5 +7,5 @@ testBitStringValueStringAdding
 	bitStringValue contents: '0010'.
 	self deny: (bitStringValue bits includes: 'two').	
 	self assert: (bitStringValue bits includes: 'three').	
-	self assert: bitStringValue binaryStringValue = '001'.
+	self assert: bitStringValue binaryStringValue equals: '0010'.
 	
