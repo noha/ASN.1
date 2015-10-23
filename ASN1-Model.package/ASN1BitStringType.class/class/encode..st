@@ -5,7 +5,8 @@ encode: anObject
 	| binaryString unusedBits octets stream octet |
 	octets := OrderedCollection new.
 	"remove zeros on the right because the count into unused bits and are just ignored"
-	binaryString := anObject trimRight: [ :c | c = $0 ].
+	self flag:#todo. "The above ignores the minimum size of a bit string value!"
+	binaryString := anObject "trimRight: [ :c | c = $0 ]".
 	unusedBits := (8 - (binaryString size \\ 8) \\ 8).
 	octets add: unusedBits.
 	stream := binaryString readStream.
