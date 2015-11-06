@@ -1,6 +1,6 @@
 visiting
 visitIntegerValueNode: aIntegerValueNode 
-	"^ ASN1PrimitiveValue new
-		type: ASN1IntegerNode;
-		value: aIntegerValueNode value"
-	^ aIntegerValueNode value
+
+	^ ASN1IntegerValue new
+		type: ASN1IntegerType new;
+		contents: aIntegerValueNode value
