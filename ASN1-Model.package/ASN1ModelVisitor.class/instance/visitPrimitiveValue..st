@@ -1,0 +1,3 @@
+visiting
+visitPrimitiveValue: anIntegerValue 
+	^ anIntegerValue

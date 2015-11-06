@@ -1,0 +1,3 @@
+visiting
+visitExtension: anExtension 
+	^ anExtension
