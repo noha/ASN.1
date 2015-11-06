@@ -3,4 +3,4 @@ testDefinedObjectFromDefinedSyntax
 	| object |
 	object:= self modelBindingValue: 'purgeMS' .
 	self assert: object isAsn1Node not.
-	self assert: (object attributeAt: 'operationCode') = 67
+	self assert: (object attributeAt: 'operationCode') contents = 67
