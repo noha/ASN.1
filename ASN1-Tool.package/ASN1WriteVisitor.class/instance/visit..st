@@ -1,6 +1,6 @@
 visiting
 visit: aType
-	(aType isNil ifTrue: [ self halt ]).
+	(aType isNil ifTrue: [ Error signal: 'type cannot be nil' ]).
 	"we need either a ASN.1 value object or an already encoded value"
 	(currentValue isAsn1Value or: [ currentValue isAsn1EncodedValue ]) ifFalse: [ 
 		Error signal: 'currentValue is not an ASN.1 value' ].
