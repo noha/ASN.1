@@ -13,7 +13,7 @@ ambiguousMatch: aProductionSymbol withAlternatives: aCollection
 					alt := (aCollection
 							collect: [:each| self class parse: contents startingAt: each ])
 								select: [:each| each isPetitFailure not ].
-					alt ifEmpty: [ self halt ].
+					alt ifEmpty: [ Error signal: 'could not find alternative for ambiguous node' ].
 					"alternative types do not parse equally under all cicrumstances. Regarding 
 					the matched pattern only one type could match. In that case we try to look
 					like a normal production rule and return a single value"

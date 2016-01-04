@@ -12,6 +12,3 @@ printOn: aStream
 		aStream
 			nextPut: $:;
 			nextPutAll: modifier printString ].
-	aStream
-		nextPutAll: 'TAG-';
-		nextPutAll: self tag printString
