@@ -1,5 +1,4 @@
 accessing
 value: anObject
-	anObject ifNil: [  self halt ].
-	anObject isAsn1 ifFalse: [ self halt ].
+	anObject ifNil: [ Error signal: 'cannot use nil as value' ].
 	value := anObject
