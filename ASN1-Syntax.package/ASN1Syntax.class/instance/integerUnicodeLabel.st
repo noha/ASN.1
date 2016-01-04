@@ -2,4 +2,4 @@ X.680 grammar
 integerUnicodeLabel
 	self flag: #incomplete.
 	self flag: #nottested.
-	^ #digit asParser optional ==> [:n| self halt  ]
+	^ #digit asParser optional ==> [:n| self notYetImplemented  ]
