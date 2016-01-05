@@ -1,3 +1,3 @@
 visiting
-visitInteger: anInteger 
+visitIntegerType: anInteger 
 	^ self visitPrimitiveType: anInteger

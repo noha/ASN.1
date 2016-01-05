@@ -1,3 +1,3 @@
 visiting
 accept: aVisitor 
-	^ aVisitor visitBitString: self 
+	^ aVisitor visitBitStringType: self 

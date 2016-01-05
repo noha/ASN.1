@@ -1,3 +1,3 @@
 visiting
-visitUTCTime: anUTCTimeType 
+visitUTCTimeType: anUTCTimeType 
 	^ self visitPrimitiveType: anUTCTimeType 

@@ -1,3 +1,0 @@
-accessing
-universalType
-	^ 'GENERIC PRIMITIVE'

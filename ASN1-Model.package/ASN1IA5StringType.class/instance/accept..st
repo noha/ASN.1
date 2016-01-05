@@ -1,3 +1,3 @@
 as yet unclassified
 accept: aVisitor
-	^ aVisitor visitIA5String: self
+	^ aVisitor visitIA5StringType: self

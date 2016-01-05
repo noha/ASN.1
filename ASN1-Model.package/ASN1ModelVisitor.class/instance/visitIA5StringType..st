@@ -1,3 +1,3 @@
 visiting
-visitIA5String: anInteger 
+visitIA5StringType: anInteger 
 	^ self visitPrimitiveType: anInteger
