@@ -3,5 +3,5 @@ shouldAddBottomPrimitiveString
 	| val |
 	val := self given: #shouldAddTopPrimitive.
 	val beSelfExpanding.
-	val firstElement firstElement: 'bottom primitive'.
+	val firstElement firstElement: 'bottom primitive' asByteArray.
 	^ val
