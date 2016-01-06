@@ -3,7 +3,7 @@ testConstructedComplexChoice
 	| data array |
 	data := (self bindingAt: 'SequenceWithConstruction') newValue.
 	data beSelfExpanding basicService
-		at: 'ext-Teleservice' put: '11'.
+		at: 'ext-Teleservice' put: '11' asByteArray.
 
 	array := self 
 		encodeToByteArray: data

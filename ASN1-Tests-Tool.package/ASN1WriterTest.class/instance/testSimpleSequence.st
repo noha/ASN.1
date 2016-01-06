@@ -4,7 +4,7 @@ testSimpleSequence
 	data := (self bindingAt: 'SimpleSequence') newValue.
 	data
 		at: 'first' put: 13;
-		at: 'second' put:  'DEADBEEF'.
+		at: 'second' put:  'DEADBEEF' asByteArray.
 	array := self 
 		encodeToByteArray: data
 		withBinding:  'SimpleSequence'

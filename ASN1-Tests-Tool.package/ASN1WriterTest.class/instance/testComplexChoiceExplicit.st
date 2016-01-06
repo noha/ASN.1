@@ -4,7 +4,7 @@ testComplexChoiceExplicit
 	data := (self bindingAt: 'ComplexChoice') newValue beSelfExpanding.
 	data one
 		first: 13;
-		second: 'DEADBEEF'.
+		second: 'DEADBEEF' asByteArray .
 	array := self 
 		encodeToByteArray: data
 		withBinding:  'ComplexChoice'
