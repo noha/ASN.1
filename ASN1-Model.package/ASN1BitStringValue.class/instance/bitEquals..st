@@ -1,3 +1,3 @@
 testing
 bitEquals: anArray 
-	^ (self bits difference: anArray) isEmpty
+	^ (self namedBits difference: anArray) isEmpty

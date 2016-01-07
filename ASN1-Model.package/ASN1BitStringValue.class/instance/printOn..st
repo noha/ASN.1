@@ -1,6 +1,6 @@
 printing
 printOn: aStream
-	self bits 
+	self namedBits 
 		do: [ :each | aStream nextPutAll: each ]
 		separatedBy: [ aStream nextPut: $, ].
 	aStream nextPutAll: ' ['.

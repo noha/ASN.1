@@ -1,3 +1,3 @@
 accessing
-bitIndexOf: aByteString 
+indexOfBitNamed: aByteString 
 	self shouldBeImplemented.

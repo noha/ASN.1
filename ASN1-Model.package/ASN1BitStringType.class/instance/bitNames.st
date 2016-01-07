@@ -1,3 +1,3 @@
 accessing
 bitNames
-	^ self bits collect: #name
+	^ self namedBits collect: #name

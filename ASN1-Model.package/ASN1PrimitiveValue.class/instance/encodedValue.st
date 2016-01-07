@@ -1,3 +1,3 @@
 converting
 encodedValue
-	^ type encodedValue: contents
+	^ type encodedValue: self contents

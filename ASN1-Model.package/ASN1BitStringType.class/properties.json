@@ -6,7 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"bits"
+		"namedBits"
 	],
 	"name" : "ASN1BitStringType",
 	"type" : "normal"

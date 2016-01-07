@@ -1,3 +1,3 @@
 accessing
 numberOfBits
-	^ self bits size
+	^ self namedBits size

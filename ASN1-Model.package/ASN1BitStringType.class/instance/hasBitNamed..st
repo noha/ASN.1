@@ -1,5 +1,5 @@
 testing
 hasBitNamed: aString 
-	^ (self bits
+	^ (self namedBits
 		detect: [ :each | each name = aString ]
 		ifNone: [  nil  ]) notNil

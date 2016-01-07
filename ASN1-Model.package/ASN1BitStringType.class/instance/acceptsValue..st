@@ -1,3 +1,3 @@
 validating
-acceptsValue: aString 
-	^ aString isString
+acceptsValue: aByteArray
+	^ aByteArray class == ByteArray

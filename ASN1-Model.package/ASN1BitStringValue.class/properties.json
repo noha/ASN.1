@@ -5,9 +5,7 @@
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
-	"instvars" : [
-		"bits"
-	],
+	"instvars" : [ ],
 	"name" : "ASN1BitStringValue",
 	"type" : "normal"
 }

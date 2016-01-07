@@ -1,3 +1,4 @@
 accessing
 contents
-	^ self bits
+	^ contents ifNil: [ 
+		contents := '' ]

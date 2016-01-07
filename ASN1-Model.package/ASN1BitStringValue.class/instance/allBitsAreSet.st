@@ -1,3 +1,3 @@
 testing
 allBitsAreSet
-	^ (self bits difference: self type bitNames ) isEmpty
+	^ (self namedBits difference: self type bitNames ) isEmpty
