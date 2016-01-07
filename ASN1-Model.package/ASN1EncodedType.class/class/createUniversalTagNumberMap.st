@@ -1,6 +1,6 @@
 as yet unclassified
 createUniversalTagNumberMap
-	^ (Dictionary new: 8)
+	^ (Dictionary new)
 		at: 'BOOLEAN' put: 1;
 		at: 'INTEGER' put: 2;
 		at: 'BIT STRING' put: 3;
@@ -8,7 +8,8 @@ createUniversalTagNumberMap
 		at: 'NULL' put: 5;
 		at: 'OBJECT IDENTIFIER' put: 6;
 
-		at: 'EXTERNAL' put: 8;
+		at: 'OPEN TYPE' put: 8;
+		at: 'EXTERNAL TYPE' put: 8;
 		at: 'ENUMERATED' put: 10;
 		at: 'SEQUENCE' put: 16;
 		at: 'PrintableString' put: 19;

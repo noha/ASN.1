@@ -2,7 +2,9 @@
 	"commentStamp" : "",
 	"super" : "ASN1TypeObject",
 	"category" : "ASN1-Model",
-	"classinstvars" : [ ],
+	"classinstvars" : [
+		"universalTag"
+	],
 	"pools" : [ ],
 	"classvars" : [
 		"tagNumbers"
