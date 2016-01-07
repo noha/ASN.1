@@ -2,9 +2,9 @@ as yet unclassified
 testBitStringValueCollection
 	|  bitStringValue |
 	
-	bitStringValue := self bitStringType newValue.
-	bitStringValue contents: #( one three ).
-	self assert: (bitStringValue bits includes: 'one').	
-	self assert: (bitStringValue bits includes: 'three').	
-	self assert: bitStringValue binaryStringValue equals: '1010'.
+	bitStringValue := self bitStringTypeWithNamedBits newValue.
+	bitStringValue namedBits: #( one three ).
+	self assert: (bitStringValue namedBits includes: 'one').	
+	self assert: (bitStringValue namedBits includes: 'three').	
+	self assert: bitStringValue contents equals: '1010'.
 	

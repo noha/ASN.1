@@ -1,9 +1,10 @@
 as yet unclassified
-testBitStringValueString
+testBitStringAddNamedBitNoContents
 	|  bitStringValue |
-	
+
 	bitStringValue := self bitStringTypeWithNamedBits newValue.
-	bitStringValue contents: '0100'.
+	bitStringValue addNamedBit: 'two'.
 	self assert: (bitStringValue namedBits includes: 'two').	
+	self deny: (bitStringValue namedBits includes: 'three').	
 	self assert: bitStringValue contents equals: '0100'.
 	
