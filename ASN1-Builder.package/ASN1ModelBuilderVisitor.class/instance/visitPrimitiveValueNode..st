@@ -1,6 +1,7 @@
 visiting
 visitPrimitiveValueNode: aPrimitiveValueNode 
+
 	^ ASN1PrimitiveValue new
-		type: aPrimitiveValueNode type;
+		type: (self visit: aPrimitiveValueNode type);
 		contents: aPrimitiveValueNode value;
 		module: module
