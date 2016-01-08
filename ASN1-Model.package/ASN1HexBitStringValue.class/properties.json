@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ASN1BitStringValue",
+	"category" : "ASN1-Model",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ASN1HexBitStringValue",
+	"type" : "normal"
+}

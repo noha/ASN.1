@@ -1,4 +1,4 @@
-as yet unclassified
+converting
 adjustContentsSize
 	"adjust the size of the binary string representation to the amount of named
 	bits available"
