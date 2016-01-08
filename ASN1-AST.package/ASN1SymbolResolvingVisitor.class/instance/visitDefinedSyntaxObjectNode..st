@@ -1,4 +1,4 @@
-as yet unclassified
+visiting
 visitDefinedSyntaxObjectNode: aDefinedSyntaxObjectNode 
 	"parse defined syntax and build map from field references to values. Resolve field 
 	type references and value references like any other object.

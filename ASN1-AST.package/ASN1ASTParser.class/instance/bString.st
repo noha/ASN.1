@@ -1,6 +1,6 @@
 X.680 grammar
 bString 
 	^ super bString ==> [:nodes| 
-		ASN1PrimitiveValueNode new
-			type: (ASN1PrimitiveTypeNode name: 'BIT STRING'); 
+		ASN1BinaryBitStringValueNode new
+			type: (ASN1BitStringTypeNode new); 
 			value: nodes ]
