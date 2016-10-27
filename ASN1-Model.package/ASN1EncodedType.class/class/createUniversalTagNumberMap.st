@@ -12,6 +12,7 @@ createUniversalTagNumberMap
 		at: 'EXTERNAL TYPE' put: 8;
 		at: 'ENUMERATED' put: 10;
 		at: 'SEQUENCE' put: 16;
+		at: 'SET' put: 17;
 		at: 'PrintableString' put: 19;
 		at: 'TeletexString' put: 20;
 		at: 'UTCTime' put: 23;
