@@ -1,5 +1,5 @@
 visiting
-visitTypedSequence: aTypedSequence 
+visitTypedCollection: aTypedSequence 
 	"All elements that are on the top of the stack are encoded with the type
 	of the typed sequence"
 	|  encoded |
