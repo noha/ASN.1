@@ -21,7 +21,7 @@ baseline12: spec
 			project: 'Phexample' with: [
 				spec
 					className: #ConfigurationOfPhexample;
-					versionString: #'3.1';
+					versionString: '3.1';
 					repository: 'http://smalltalkhub.com/mc/Phexample/Phexample/main/' ].
 		spec 
 			package: 'ASN1-Common';
