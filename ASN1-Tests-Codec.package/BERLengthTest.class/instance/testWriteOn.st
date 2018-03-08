@@ -8,7 +8,20 @@ testWriteOn
 		definiteForm: true;
 		contentLength: 16r23;
 		writeOn: stream.
-	self assert: stream contents = #(16r23) asByteArray.
+	self assert: stream contents = #(16r23) asByteArray.                                                
+	stream := WriteStream on: ByteArray new.
+	BERLength new
+		definiteForm: true;
+		contentLength: 127;
+		writeOn: stream.
+	self assert: stream contents = #(16r7f) asByteArray.
+
+	stream := WriteStream on: ByteArray new.
+	BERLength new
+		definiteForm: true;
+		contentLength: 128;
+		writeOn: stream.
+	self assert: stream contents = #(16r81 16r80) asByteArray.  
 
 	stream := WriteStream on: ByteArray new.
 	BERLength new
