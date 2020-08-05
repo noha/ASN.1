@@ -3,23 +3,15 @@ baseline: spec
 	<baseline>
 	spec for: #'common' do: [
 		spec 
-			project: 'PetitParser' with: [
+			baseline: 'PetitParser' with: [
 				spec
-					className: #ConfigurationOfPetitParser;
-					versionString: '1.9';
-					loads: #('Core' );
-					repository: 'http://smalltalkhub.com/mc/Moose/PetitParser/main' ];
-			project: 'PetitParser Tests' with: [
+					repository: 'github://moosetechnology/PetitParser:v1.9.2/src';
+					loads: #( 'Core' ) ];
+			project: 'PetitParser Tests' copyFrom: 'PetitParser' with: [
+				spec loads: #('Tests' ) ];
+			baseline: 'Phexample' with: [
 				spec
-					className: #ConfigurationOfPetitParser;
-					versionString: '1.9';
-					loads: #('Tests' );
-					repository: 'http://smalltalkhub.com/mc/Moose/PetitParser/main' ];
-			project: 'Phexample' with: [
-				spec
-					className: #ConfigurationOfPhexample;
-					versionString: '3.2';
-					repository: 'http://smalltalkhub.com/mc/Phexample/Phexample/main/' ].
+					repository: 'github://jecisc/Phexample:v1.0.1/src' ].
 
 		spec 
 			package: 'ASN1-Common';
