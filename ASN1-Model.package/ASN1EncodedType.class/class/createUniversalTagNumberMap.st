@@ -13,7 +13,9 @@ createUniversalTagNumberMap
 		at: 'ENUMERATED' put: 10;
 		at: 'SEQUENCE' put: 16;
 		at: 'SET' put: 17;
+		at: 'NumericString' put: 18;
 		at: 'PrintableString' put: 19;
 		at: 'TeletexString' put: 20;
 		at: 'UTCTime' put: 23;
+		at: 'IA5String' put: 27;
 		yourself.
