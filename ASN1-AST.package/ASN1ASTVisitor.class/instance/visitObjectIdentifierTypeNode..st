@@ -1,3 +1,0 @@
-visiting
-visitObjectIdentifierTypeNode: anObjectIdentifier
-	^ anObjectIdentifier 

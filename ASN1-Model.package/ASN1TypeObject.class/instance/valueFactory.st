@@ -1,3 +1,0 @@
-accessing
-valueFactory
-	^ valueFactory

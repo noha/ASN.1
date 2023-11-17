@@ -1,3 +1,0 @@
-testing
-hasDefaultValue
-	^ false

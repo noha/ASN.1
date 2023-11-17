@@ -1,3 +1,0 @@
-accessing
-baseValue
-	^ value baseValue

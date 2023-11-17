@@ -1,3 +1,0 @@
-validating
-acceptsType: aType
-	^ true

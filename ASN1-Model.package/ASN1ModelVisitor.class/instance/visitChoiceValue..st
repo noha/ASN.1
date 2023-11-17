@@ -1,3 +1,0 @@
-visiting
-visitChoiceValue: aChoiceValue 
-	^ aChoiceValue

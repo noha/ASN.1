@@ -1,3 +1,0 @@
-visiting
-visitBooleanValueNode: aBooleanValueNode 
-	^ aBooleanValueNode 

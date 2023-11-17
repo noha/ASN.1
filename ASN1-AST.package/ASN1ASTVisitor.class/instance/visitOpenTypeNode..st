@@ -1,3 +1,0 @@
-visiting
-visitOpenTypeNode: anOpenTypeNode 
-	^ anOpenTypeNode

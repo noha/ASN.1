@@ -1,3 +1,0 @@
-accessing
-newTypedCollection
-	^ ASN1AdaptiveTypeCollection new

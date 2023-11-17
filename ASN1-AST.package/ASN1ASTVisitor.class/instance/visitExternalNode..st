@@ -1,3 +1,0 @@
-visiting
-visitExternalNode: aNode 
-	^ aNode

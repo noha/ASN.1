@@ -1,3 +1,0 @@
-visiting
-visitNullTypeNode: aNullType 
-	^ aNullType

@@ -1,1 +1,0 @@
-I'm a visitor that annotates all tokens of an import statement with their definition modules and assignments.   

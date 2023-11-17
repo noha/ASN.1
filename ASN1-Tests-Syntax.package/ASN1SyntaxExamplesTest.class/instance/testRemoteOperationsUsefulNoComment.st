@@ -1,3 +1,0 @@
-tests
-testRemoteOperationsUsefulNoComment
-	self parse: self class remoteOperationsUsefulExample rule: #moduleDefinition

@@ -1,3 +1,0 @@
-testing
-isEmptyOrNil
-	^ elements isEmptyOrNil 

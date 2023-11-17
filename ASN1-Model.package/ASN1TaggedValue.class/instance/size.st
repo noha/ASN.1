@@ -1,3 +1,0 @@
-accessing
-size
-	^ value size

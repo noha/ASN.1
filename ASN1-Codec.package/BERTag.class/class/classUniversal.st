@@ -1,3 +1,0 @@
-class
-classUniversal
-        ^ 0

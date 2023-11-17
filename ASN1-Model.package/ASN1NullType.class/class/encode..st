@@ -1,3 +1,0 @@
-codec
-encode: aSymbol 
-	^ nil

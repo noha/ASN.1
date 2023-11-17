@@ -1,3 +1,0 @@
-accessing
-universalType
-	^ 'UTCTime'
