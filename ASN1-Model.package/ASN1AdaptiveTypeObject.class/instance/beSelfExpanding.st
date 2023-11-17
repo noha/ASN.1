@@ -1,3 +1,0 @@
-accessing
-beSelfExpanding
-	selfExpanding := true

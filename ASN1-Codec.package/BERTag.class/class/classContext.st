@@ -1,3 +1,0 @@
-class
-classContext
-        ^ 2

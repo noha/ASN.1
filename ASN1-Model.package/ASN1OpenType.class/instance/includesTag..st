@@ -1,3 +1,0 @@
-testing
-includesTag: aTag
-	^ true

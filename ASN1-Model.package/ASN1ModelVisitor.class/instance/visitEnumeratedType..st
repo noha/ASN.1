@@ -1,3 +1,0 @@
-visiting
-visitEnumeratedType: aEnumerated 
-	^ aEnumerated 

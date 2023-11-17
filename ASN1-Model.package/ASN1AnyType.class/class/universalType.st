@@ -1,3 +1,0 @@
-accessing
-universalType
-	^ 'ANY TYPE'

@@ -1,3 +1,0 @@
-accessing
-defaultTypeClass
-	self shouldBeImplemented 

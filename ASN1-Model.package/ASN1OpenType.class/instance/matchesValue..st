@@ -1,3 +1,0 @@
-testing
-matchesValue: aValue
-	^ true

@@ -1,3 +1,0 @@
-accessing
-namedBits
-	^ namedBits

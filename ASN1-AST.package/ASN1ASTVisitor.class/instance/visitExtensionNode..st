@@ -1,3 +1,0 @@
-visiting
-visitExtensionNode: aNode 
-	^ aNode

@@ -1,3 +1,0 @@
-visiting
-visitObjectIdComponentNode: anObjectIdComponent 
-	^ anObjectIdComponent 

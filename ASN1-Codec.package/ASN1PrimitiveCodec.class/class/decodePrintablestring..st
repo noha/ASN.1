@@ -1,3 +1,0 @@
-decoding
-decodePrintablestring: anOrderedCollection 
-	self shouldBeImplemented.

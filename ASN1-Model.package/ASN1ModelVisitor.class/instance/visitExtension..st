@@ -1,3 +1,0 @@
-visiting
-visitExtension: anExtension 
-	^ anExtension

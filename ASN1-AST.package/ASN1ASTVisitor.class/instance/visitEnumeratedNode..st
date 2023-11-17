@@ -1,3 +1,0 @@
-visiting
-visitEnumeratedNode: anEnumerated 
-	^  anEnumerated 
