@@ -1,17 +1,17 @@
 Class {
 	#name : #ASN1UTF8StringType,
 	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#category : #'ASN1-Model'
 }
 
 { #category : #codec }
 ASN1UTF8StringType class >> decode: aByteArray [
-	^aByteArray asString convertFromEncoding: 'utf-8'
+	^aByteArray utf8Decoded
 ]
 
 { #category : #codec }
 ASN1UTF8StringType class >> encode: aString [
-	^(aString convertToEncoding: 'utf-8') asByteArray 
+	^ aString utf8Encoded
 ]
 
 { #category : #accessing }
