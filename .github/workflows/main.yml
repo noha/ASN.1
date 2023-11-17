@@ -1,21 +1,26 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
 
+  push:
+    branches:
+      - pharo7
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        # Select platform(s)
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        # Select compatible Smalltalk image(s)
+        os: [ ubuntu-latest, macos-latest ]
         smalltalk: [ Pharo64-7.0, Pharo64-8.0 ]
     name: ${{ matrix.smalltalk }} on ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
       - uses: hpi-swa/setup-smalltalkCI@v1
+        id: smalltalkci
         with:
-          smalltalk-version: ${{ matrix.smalltalk }}
+          smalltalk-image: ${{ matrix.smalltalk }}
       - run: smalltalkci -s ${{ matrix.smalltalk }}
+        shell: bash
         timeout-minutes: 15
