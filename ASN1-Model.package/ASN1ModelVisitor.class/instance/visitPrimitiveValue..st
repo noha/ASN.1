@@ -1,3 +1,0 @@
-visiting
-visitPrimitiveValue: anIntegerValue 
-	^ anIntegerValue

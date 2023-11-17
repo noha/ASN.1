@@ -1,3 +1,0 @@
-visiting
-visitClass: aClass 
-	^ aClass

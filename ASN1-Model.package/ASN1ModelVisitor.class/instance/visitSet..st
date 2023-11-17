@@ -1,3 +1,0 @@
-visiting
-visitSet: aSet
-	^ aSet

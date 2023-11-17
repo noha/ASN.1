@@ -1,3 +1,0 @@
-accessing
-size
-	^ elements size

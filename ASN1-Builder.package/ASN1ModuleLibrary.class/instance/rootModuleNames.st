@@ -1,3 +1,0 @@
-accessing
-rootModuleNames
-	^ self rootModules 

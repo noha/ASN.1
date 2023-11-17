@@ -1,3 +1,0 @@
-converting
-asOrderedCollection
-	^ collection asOrderedCollection

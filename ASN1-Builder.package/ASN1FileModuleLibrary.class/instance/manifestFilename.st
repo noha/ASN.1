@@ -1,3 +1,0 @@
-accessing
-manifestFilename
-	^ 'manifest.json'

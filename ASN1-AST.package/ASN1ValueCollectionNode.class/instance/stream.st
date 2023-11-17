@@ -1,3 +1,0 @@
-accessing
-stream
-	^ elements readStream 

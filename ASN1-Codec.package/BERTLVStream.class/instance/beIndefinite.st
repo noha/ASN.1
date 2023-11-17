@@ -1,3 +1,0 @@
-accessing
-beIndefinite
-	definiteForm := false

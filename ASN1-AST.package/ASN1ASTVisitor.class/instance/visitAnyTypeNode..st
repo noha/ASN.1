@@ -1,3 +1,0 @@
-visiting
-visitAnyTypeNode: anAnyNode 
-	^ anAnyNode 

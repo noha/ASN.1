@@ -1,3 +1,0 @@
-accessing
-start
-	^ moduleDefinition end
