@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'properties'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : #'ASN1-AST-Nodes'
 }
 
 { #category : #'as yet unclassified' }
@@ -16,6 +16,11 @@ ASN1ASTNode >> addModifier: aModifier [
 { #category : #accessing }
 ASN1ASTNode >> beAssigned [
 	self propertyAt: #assigned put: true
+]
+
+{ #category : #binding }
+ASN1ASTNode >> bindingOf: aString [ 
+	^ nil 
 ]
 
 { #category : #accessing }
