@@ -1,21 +1,26 @@
 name: CI
 
-on: [push, pull_request]
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+on:
+  pull_request:
+    types: [assigned, opened, synchronize, reopened]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        # Select platform(s)
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-        # Select compatible Smalltalk image(s)
-        smalltalk: [ Pharo64-10 , Pharo64-11 ]
-    name: ${{ matrix.smalltalk }} on ${{ matrix.os }}
+        pharoversion: [ Pharo64-alpha, Pharo64-13, Pharo64-12, Pharo64-11, Pharo64-10 ]
+    name: ${{ matrix.pharoversion }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: hpi-swa/setup-smalltalkCI@v1
+        id: smalltalkci
         with:
-          smalltalk-version: ${{ matrix.smalltalk }}
-      - run: smalltalkci -s ${{ matrix.smalltalk }}
+          smalltalk-version: ${{ matrix.pharoversion }}
+      - run: smalltalkci -s ${{ steps.smalltalkci.outputs.smalltalk-version }}
+        shell: bash
         timeout-minutes: 15
