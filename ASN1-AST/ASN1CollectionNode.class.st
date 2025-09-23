@@ -1,29 +1,31 @@
 Class {
-	#name : #ASN1CollectionNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1CollectionNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1CollectionNode >> contains: aString [
 	^ self elements 
 		anySatisfy: [:each| each notNil and: [ each contains: aString ]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1CollectionNode >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1CollectionNode >> elements: anObject [
 	elements := anObject
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 ASN1CollectionNode >> flattenComponentsOf [
 	elements ifNil: [ ^ self ].
 	elements := elements 
@@ -35,13 +37,13 @@ ASN1CollectionNode >> flattenComponentsOf [
 				col ]
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 ASN1CollectionNode >> normalized [
 	^ self copy 
 		flattenComponentsOf
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1CollectionNode >> printOn: aStream [
 	elements ifNotNil: [
 		(elements isCollection) 
@@ -52,7 +54,7 @@ ASN1CollectionNode >> printOn: aStream [
 				elements printElementsOn: aStream ]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1CollectionNode >> size [
 	^ elements isNil
 		ifTrue: [ 0 ]

@@ -2,25 +2,27 @@
 I'm a visitor that annotates all tokens of an import statement with their definition modules and assignments.   
 "
 Class {
-	#name : #ASN1ImportSymbolVisitor,
-	#superclass : #ASN1ASTVisitor,
+	#name : 'ASN1ImportSymbolVisitor',
+	#superclass : 'ASN1ASTVisitor',
 	#instVars : [
 		'root'
 	],
-	#category : 'ASN1-AST-Visitor'
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ImportSymbolVisitor >> root [
 	^ root
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ImportSymbolVisitor >> root: anObject [
 	root := anObject
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ImportSymbolVisitor >> visitImportNode: anImport [
 	| importModule |
 	importModule := root moduleWithIdentifier: anImport moduleIdentifier.
@@ -29,7 +31,7 @@ ASN1ImportSymbolVisitor >> visitImportNode: anImport [
 		each propertyAt: #definition put: (importModule localNames at: each label) ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ImportSymbolVisitor >> visitModuleDefinitionNode: aModule [
 	self visitAll: aModule imports
 ]

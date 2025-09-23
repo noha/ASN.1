@@ -1,23 +1,24 @@
 Class {
-	#name : #ASN1MissingModule,
-	#superclass : #Error,
+	#name : 'ASN1MissingModule',
+	#superclass : 'Error',
 	#instVars : [
 		'identifier'
 	],
-	#category : 'ASN1-AST'
+	#category : 'ASN1-AST',
+	#package : 'ASN1-AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1MissingModule >> identifier [
 	^ identifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1MissingModule >> identifier: anIdentifier [
 	identifier := anIdentifier 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1MissingModule >> isResumable [ 
 	^ true
 ]

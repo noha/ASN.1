@@ -1,23 +1,25 @@
 Class {
-	#name : #ASN1AnyTypeNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1AnyTypeNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'id'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AnyTypeNode >> accept: aVisitor [ 
 	^ aVisitor visitAnyTypeNode: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AnyTypeNode >> id [
 	^ id
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AnyTypeNode >> id: anObject [
 	id := anObject
 ]

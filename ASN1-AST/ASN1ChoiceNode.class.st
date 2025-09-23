@@ -1,44 +1,46 @@
 Class {
-	#name : #ASN1ChoiceNode,
-	#superclass : #ASN1CollectionNode,
+	#name : 'ASN1ChoiceNode',
+	#superclass : 'ASN1CollectionNode',
 	#instVars : [
 		'rest'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ChoiceNode >> accept: aVisitor [ 
 	^ aVisitor visitChoiceNode: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ChoiceNode >> createInstance: aNode [
 	| type |
 	type := (self elementAt: aNode choice) type.
 	^ type createInstance: aNode value
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ChoiceNode >> elementAt: aString [
 	^ elements 
 		detect: [:each| each name = aString ]
 		ifNone: [ nil ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ChoiceNode >> printOn: aStream [
 	aStream nextPutAll: 'CHOICE{'.
 	super printOn: aStream.
 	aStream nextPut: $}
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ChoiceNode >> rest [
 	^ rest
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ChoiceNode >> rest: anObject [
 	rest := anObject
 ]

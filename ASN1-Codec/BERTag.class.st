@@ -2,59 +2,61 @@
 I am a TAG as of X.690
 "
 Class {
-	#name : #BERTag,
-	#superclass : #Object,
+	#name : 'BERTag',
+	#superclass : 'Object',
 	#instVars : [
 		'classType',
 		'tagValue',
 		'constructed'
 	],
-	#category : 'ASN1-Codec-BER'
+	#category : 'ASN1-Codec-BER',
+	#package : 'ASN1-Codec',
+	#tag : 'BER'
 }
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> boolean [
         ^ self fromTuple: #(0 false 1)
 
 ]
 
-{ #category : #class }
+{ #category : 'class' }
 BERTag class >> classApplication [
         ^ 1
 
 ]
 
-{ #category : #class }
+{ #category : 'class' }
 BERTag class >> classContext [
         ^ 2
 
 ]
 
-{ #category : #class }
+{ #category : 'class' }
 BERTag class >> classPrivate [
         ^ 3
 
 ]
 
-{ #category : #class }
+{ #category : 'class' }
 BERTag class >> classUniversal [
         ^ 0
 
 ]
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> endOfContents [
         ^ self fromTuple: #(0 false 0)
 
 ]
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> enumerated [
         ^ self fromTuple: #(0 false 10)
 
 ]
 
-{ #category : #creation }
+{ #category : 'creation' }
 BERTag class >> fromTuple: aTuple [
         ^ self new
             fromTuple: aTuple;
@@ -62,31 +64,31 @@ BERTag class >> fromTuple: aTuple [
 
 ]
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> integer [
         ^ self fromTuple: #(0 false 2)
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 BERTag class >> new [
         ^ super new initialize
 
 ]
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> null [
         ^ self fromTuple: #(0 false 5)
 
 ]
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> octetString [
         ^ self fromTuple: #(0 false 4)
 
 ]
 
-{ #category : #creation }
+{ #category : 'creation' }
 BERTag class >> parseFrom: aStream [
         ^ self new
             parseFrom: aStream;
@@ -94,38 +96,38 @@ BERTag class >> parseFrom: aStream [
 
 ]
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> sequence [
         ^ self fromTuple: #(0 true 16)
 
 ]
 
-{ #category : #'x690 types' }
+{ #category : 'x690 types' }
 BERTag class >> set [
         ^ self fromTuple: #(0 true 17)
 
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 BERTag >> = aOther [
         (aOther isKindOf: self class) ifTrue: [^self asTuple = aOther asTuple].
         ^ self asTuple = aOther.
 
 ]
 
-{ #category : #conversion }
+{ #category : 'conversion' }
 BERTag >> asTuple [
         ^ Array with: self classType with: self isConstructed with: self tagValue.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTag >> classType [
         ^ classType
 
 ]
 
-{ #category : #decoding }
+{ #category : 'decoding' }
 BERTag >> fromTuple: aTuple [
         classType := aTuple first bitAnd: 16r3.
         constructed := aTuple second.
@@ -133,7 +135,7 @@ BERTag >> fromTuple: aTuple [
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 BERTag >> initialize [
         classType := self class classUniversal.
         tagValue := 0.
@@ -141,25 +143,25 @@ BERTag >> initialize [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTag >> isConstructed [
         ^ constructed
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTag >> isPrimitive [
         ^ self isConstructed not
 
 ]
 
-{ #category : #decoding }
+{ #category : 'decoding' }
 BERTag >> parseExtendedTag: aStream [
         ^ self error: 'Extended tags are not implemented yet'.
 
 ]
 
-{ #category : #decoding }
+{ #category : 'decoding' }
 BERTag >> parseFrom: aStream [
 	| tmp |
         tmp := aStream next asInteger.
@@ -174,7 +176,7 @@ BERTag >> parseFrom: aStream [
 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 BERTag >> printOn: aStream [
         ^ aStream 
 			nextPutAll: self class printString;
@@ -182,19 +184,19 @@ BERTag >> printOn: aStream [
 			nextPutAll: self asTuple printString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTag >> tagValue [
         ^ tagValue
 
 ]
 
-{ #category : #encoding }
+{ #category : 'encoding' }
 BERTag >> writeExtendedTag: aStream [
         self error: 'Cannot encode extended tag.'
 
 ]
 
-{ #category : #encoding }
+{ #category : 'encoding' }
 BERTag >> writeOn: aStream [
         tagValue >= 16r1F
             ifTrue:  [self writeExtendedTag: aStream.]

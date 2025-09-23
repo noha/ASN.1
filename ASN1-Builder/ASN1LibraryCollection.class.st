@@ -1,18 +1,19 @@
 Class {
-	#name : #ASN1LibraryCollection,
-	#superclass : #Object,
+	#name : 'ASN1LibraryCollection',
+	#superclass : 'Object',
 	#instVars : [
 		'libraries'
 	],
-	#category : 'ASN1-Builder'
+	#category : 'ASN1-Builder',
+	#package : 'ASN1-Builder'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1LibraryCollection >> add: aModuleLibrary [ 
 	libraries add: aModuleLibrary 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LibraryCollection >> checkDependencies [
 	libraries do: [ :library |
 		library dependencies do: [ :dependency |
@@ -23,24 +24,24 @@ ASN1LibraryCollection >> checkDependencies [
 						ifTrue: [ Error signal: 'cyclic dependency between ', library asString,' and ', dependency asString ] ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LibraryCollection >> includesLibrary: aString [ 
 	^ libraries anySatisfy: [ :each | each name = aString ]
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 ASN1LibraryCollection >> initialize [
 	super initialize.
 	libraries := OrderedCollection new.
 	self add: ASN1DefaultModuleLibrary new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1LibraryCollection >> libraryNamed: aString [ 
 	^ libraries detect: [ :each | each name = aString ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LibraryCollection >> moduleNamed: aString [ 
 	libraries do: [ :library |
 		(library includesModuleNamed: aString) ifTrue: [ 
@@ -48,7 +49,7 @@ ASN1LibraryCollection >> moduleNamed: aString [
 	NotFound signal: 'Cannot find module named ', aString asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LibraryCollection >> rootModulesDo: aBlock [
 
 	self sortedLibraries do: [ :library |
@@ -56,7 +57,7 @@ ASN1LibraryCollection >> rootModulesDo: aBlock [
 			aBlock value: (library moduleNamed: moduleName ) ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LibraryCollection >> sortedLibraries [
 	^ libraries sort: [ :a :b |  
 		(b dependencies includes: a name) ]

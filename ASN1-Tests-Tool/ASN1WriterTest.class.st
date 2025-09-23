@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1WriterTest,
-	#superclass : #ASN1ToolTest,
-	#category : 'ASN1-Tests-Tool'
+	#name : 'ASN1WriterTest',
+	#superclass : 'ASN1ToolTest',
+	#category : 'ASN1-Tests-Tool',
+	#package : 'ASN1-Tests-Tool'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriterTest >> testComplexChoiceExplicit [
 	| data array  |
 	data := (self bindingAt: 'ComplexChoice') newValue beSelfExpanding.
@@ -18,7 +19,7 @@ ASN1WriterTest >> testComplexChoiceExplicit [
 	self assert: (array = #[97 15 48 13 2 1 13 4 8 68 69 65 68 66 69 69 70]).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriterTest >> testComplexChoiceImplicit [
 	| data array |
 	data := (self bindingAt: 'ComplexChoice') newValue beSelfExpanding.
@@ -32,7 +33,7 @@ ASN1WriterTest >> testComplexChoiceImplicit [
 	self assert: (array = #[97 13 2 1 13 4 8 68 69 65 68 66 69 69 70]).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriterTest >> testConstructedComplexChoice [
 	| data array |
 	data := (self bindingAt: 'SequenceWithConstruction') newValue.
@@ -46,7 +47,7 @@ ASN1WriterTest >> testConstructedComplexChoice [
 	self assert: (array = #[164 6 165 4 131 2 49 49]).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriterTest >> testEmptySequence [
 	|  array  |
 	array := self 
@@ -56,7 +57,7 @@ ASN1WriterTest >> testEmptySequence [
 	self assert: (array = #[48 0]).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriterTest >> testExplicitModeChoiceWithCustomTags [
 	| array data |
 	data := (self bindingAt: 'SimpleChoice') newValue.
@@ -69,7 +70,7 @@ ASN1WriterTest >> testExplicitModeChoiceWithCustomTags [
 	self assert: (array = #[ 160 3 2 1 24 ]).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriterTest >> testSimpleSequence [
 	| data array   |
 	data := (self bindingAt: 'SimpleSequence') newValue.
@@ -83,7 +84,7 @@ ASN1WriterTest >> testSimpleSequence [
 	self assert: (array = #[48 13 2 1 13 4 8 68 69 65 68 66 69 69 70]).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriterTest >> testTypedSetGenericNumbers [
 	|  array  value |
 	value := self valueFor: 'ConnectArgV1'.

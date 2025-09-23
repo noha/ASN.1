@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1EncodedError,
-	#superclass : #ASN1StreamValue,
-	#category : 'ASN1-Codec'
+	#name : 'ASN1EncodedError',
+	#superclass : 'ASN1StreamValue',
+	#category : 'ASN1-Codec',
+	#package : 'ASN1-Codec'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1EncodedError >> hasError [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1EncodedError >> isError [
 	^ true
 ]

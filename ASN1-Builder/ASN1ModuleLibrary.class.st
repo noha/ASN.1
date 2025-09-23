@@ -1,16 +1,17 @@
 Class {
-	#name : #ASN1ModuleLibrary,
-	#superclass : #Object,
-	#category : 'ASN1-Builder'
+	#name : 'ASN1ModuleLibrary',
+	#superclass : 'Object',
+	#category : 'ASN1-Builder',
+	#package : 'ASN1-Builder'
 }
 
-{ #category : #copying }
+{ #category : 'copying' }
 ASN1ModuleLibrary >> copyModulesTo: aModuleLibrary [
 	self allModuleNames do: [ :moduleName |
 		aModuleLibrary storeModule: (self moduleNamed: moduleName) named: moduleName ]
 ]
 
-{ #category : #copying }
+{ #category : 'copying' }
 ASN1ModuleLibrary >> copyTo: aModuleLibrary [
 	self copyModulesTo: aModuleLibrary.
 	aModuleLibrary 
@@ -19,29 +20,29 @@ ASN1ModuleLibrary >> copyTo: aModuleLibrary [
 		rootModules: self rootModules.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleLibrary >> dependencies [
 	self subclassResponsibility 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleLibrary >> name [
 	self subclassResponsibility 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ModuleLibrary >> printOn: aStream [
 	aStream
 		nextPutAll: self name;
 		nextPutAll: ' module library'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleLibrary >> rootModuleNames [
 	^ self rootModules 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleLibrary >> rootModules [
 	self subclassResponsibility 
 ]

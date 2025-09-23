@@ -1,15 +1,17 @@
 Class {
-	#name : #ASN1SequenceNode,
-	#superclass : #ASN1CollectionNode,
-	#category : 'ASN1-AST-Nodes'
+	#name : 'ASN1SequenceNode',
+	#superclass : 'ASN1CollectionNode',
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SequenceNode >> accept: aVisitor [ 
 	^ aVisitor visitSequenceNode: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1SequenceNode >> bindingOf: aString [ 
 	elements do: [  :each |
 		(each bindingOf: aString) ifNotNil: [ :val |
@@ -17,7 +19,7 @@ ASN1SequenceNode >> bindingOf: aString [
 	^ nil
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1SequenceNode >> printOn: aStream [
 	aStream nextPutAll: 'SEQUENCE{'.
 	super printOn: aStream.

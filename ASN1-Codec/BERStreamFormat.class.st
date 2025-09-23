@@ -1,16 +1,18 @@
 Class {
-	#name : #BERStreamFormat,
-	#superclass : #Object,
-	#category : 'ASN1-Codec-BER'
+	#name : 'BERStreamFormat',
+	#superclass : 'Object',
+	#category : 'ASN1-Codec-BER',
+	#package : 'ASN1-Codec',
+	#tag : 'BER'
 }
 
-{ #category : #reading }
+{ #category : 'reading' }
 BERStreamFormat class >> nextFrom: aStream [
 	^ aStream next ifNil: [ 
 		ASN1PrematureEndOfStream signal ]
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 BERStreamFormat class >> readMultipleOctets: aNumber from: aStream [
 	| value |
 	value := 0.
@@ -19,7 +21,7 @@ BERStreamFormat class >> readMultipleOctets: aNumber from: aStream [
 	^ value
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 BERStreamFormat class >> readMultipleOctetsWithHighBitSet: aStream [	
 	| octet val |
 	val := 0.

@@ -1,28 +1,30 @@
 Class {
-	#name : #ASN1ValueCollectionNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1ValueCollectionNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ValueCollectionNode >> accept: aVisitor [
 	aVisitor visitValueCollectionNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueCollectionNode >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueCollectionNode >> elements: anObject [
 	elements := anObject
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 ASN1ValueCollectionNode >> parse: aStream into: aDictionary [
 	| pos |
 	elements do: [:each|
@@ -35,12 +37,12 @@ ASN1ValueCollectionNode >> parse: aStream into: aDictionary [
 					ifFalse: [ err pass ]]]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ValueCollectionNode >> size [ 
 	^ elements size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueCollectionNode >> stream [
 	^ elements readStream 
 ]

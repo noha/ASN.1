@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1ReadWriteTest,
-	#superclass : #ASN1ToolTest,
-	#category : 'ASN1-Tests-Tool'
+	#name : 'ASN1ReadWriteTest',
+	#superclass : 'ASN1ToolTest',
+	#category : 'ASN1-Tests-Tool',
+	#package : 'ASN1-Tests-Tool'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadWriteTest >> testExplicitModeChoiceWithCustomTagsExplicit [
 	|  result  array |
 	result := self 
@@ -18,7 +19,7 @@ ASN1ReadWriteTest >> testExplicitModeChoiceWithCustomTagsExplicit [
 	self assert: (array = #[ 160 3 2 1 24 ] ).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadWriteTest >> testImplicitModeChoiceWithCustomTags [
 	| result array |
 	result := self 

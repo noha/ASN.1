@@ -1,41 +1,43 @@
 Class {
-	#name : #ASN1ValueNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1ValueNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'type'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ValueNode class >> new [
 	(self class = ASN1ValueNode) ifTrue: [
 		Error signal: 'abstract'].
 	^ super new 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueNode >> basicTypeLabel [
 	^ #value
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ValueNode >> canBeAssignedTo: aType [
 	^ aType matchesTypeOf: self
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueNode >> defaultTypeClass [
 	self shouldBeImplemented 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ValueNode >> isValueNode [
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ValueNode >> printOn: aStream [
 	aStream
 		nextPut: $[;
@@ -43,23 +45,23 @@ ASN1ValueNode >> printOn: aStream [
 		nextPut: $].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueNode >> resolvedValue [
 	^ self propertyAt: #resolvedValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueNode >> resolvedValue: anObject [ 
 	self propertyAt: #resolvedValue put: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueNode >> type [
 	^ type ifNil: [ 
 		type := self defaultTypeClass new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueNode >> type: aTypeNode [ 
 	type := aTypeNode
 ]

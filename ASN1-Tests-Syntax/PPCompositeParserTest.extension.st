@@ -1,6 +1,6 @@
-Extension { #name : #PPCompositeParserTest }
+Extension { #name : 'PPCompositeParserTest' }
 
-{ #category : #'*asn1-tests-syntax' }
+{ #category : '*asn1-tests-syntax' }
 PPCompositeParserTest >> parse: aString ruleSelector: aSymbol [
 	| production |
 	production := self parserInstance.

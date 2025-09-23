@@ -1,46 +1,48 @@
 Class {
-	#name : #ASN1AmbiguousNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1AmbiguousNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'name',
 		'alternatives',
 		'type'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguousNode >> accept: aVisitor [ 
 	^ aVisitor visitAmbiguousNode: self
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 ASN1AmbiguousNode >> addAlternative: anObject [
 	self alternatives add: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguousNode >> alternatives [
 	^ alternatives ifNil: [
 		alternatives := OrderedCollection new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguousNode >> alternatives: anObject [
 	alternatives := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguousNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguousNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1AmbiguousNode >> printOn: aStream [
 	aStream nextPutAll: 'ambiguous<'.
 	self alternatives 
@@ -49,7 +51,7 @@ ASN1AmbiguousNode >> printOn: aStream [
 	aStream nextPut: $>
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguousNode >> type: anObject [
 	type := anObject
 ]

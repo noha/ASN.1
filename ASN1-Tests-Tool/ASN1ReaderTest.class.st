@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1ReaderTest,
-	#superclass : #ASN1ToolTest,
-	#category : 'ASN1-Tests-Tool'
+	#name : 'ASN1ReaderTest',
+	#superclass : 'ASN1ToolTest',
+	#category : 'ASN1-Tests-Tool',
+	#package : 'ASN1-Tests-Tool'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> simpleChoice [
 	^ ASN1ExampleGrammarTestResource new modelBindingValue: 'SimpleChoice'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testConstructedComplexChoiceExplicit [
 	| result |
 	result := self
@@ -20,7 +21,7 @@ ASN1ReaderTest >> testConstructedComplexChoiceExplicit [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testConstructedComplexChoiceImplicit [
 	| result |
 	result := self
@@ -32,7 +33,7 @@ ASN1ReaderTest >> testConstructedComplexChoiceImplicit [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testExplicitModeChoiceWithCustomTags [
 	| result |
 	result := self
@@ -42,7 +43,7 @@ ASN1ReaderTest >> testExplicitModeChoiceWithCustomTags [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testExplicitModeSequenceWithCustomTags [
 	| result |
 	result := self 
@@ -52,7 +53,7 @@ ASN1ReaderTest >> testExplicitModeSequenceWithCustomTags [
 	self assert: result othernumber = 34
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testExtensionExtendedValue [
 	"at the location of the extension two tags have been injected:[3] and [4]. The code should skip those
 	but don't abort the processing"
@@ -70,7 +71,7 @@ ASN1ReaderTest >> testExtensionExtendedValue [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testExtensionFirstMandatory [
 	"simple test to read the first mandatory field of a sequence with extension"
 	| result |
@@ -87,7 +88,7 @@ ASN1ReaderTest >> testExtensionFirstMandatory [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testExtensionMissingFirstMandatory [
 
 	self 
@@ -99,7 +100,7 @@ ASN1ReaderTest >> testExtensionMissingFirstMandatory [
 		raise: ASN1MandatoryElementNotFound 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testExtensionMissingSecondMandatory [
 
 	self 
@@ -111,7 +112,7 @@ ASN1ReaderTest >> testExtensionMissingSecondMandatory [
 		raise: ASN1MandatoryElementNotFound 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testExtensionSecondOverwriteDefault [
 	"simple test to read the first mandatory field of a sequence with extension"
 	| result |
@@ -128,7 +129,7 @@ ASN1ReaderTest >> testExtensionSecondOverwriteDefault [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReaderTest >> testImplicitModeSequenceWithCustomTags [
 	| result |
 	result := self

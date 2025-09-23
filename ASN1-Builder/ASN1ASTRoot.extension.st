@@ -1,6 +1,6 @@
-Extension { #name : #ASN1ASTRoot }
+Extension { #name : 'ASN1ASTRoot' }
 
-{ #category : #'*asn1-builder' }
+{ #category : '*asn1-builder' }
 ASN1ASTRoot >> buildModel: aClass [
 	| visitor |
 	self annotateAsts.

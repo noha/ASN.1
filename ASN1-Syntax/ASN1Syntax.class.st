@@ -1,6 +1,6 @@
 Class {
-	#name : #ASN1Syntax,
-	#superclass : #PPCompositeParser,
+	#name : 'ASN1Syntax',
+	#superclass : 'PPCompositeParser',
 	#instVars : [
 		'type',
 		'builtinType',
@@ -254,10 +254,11 @@ Class {
 		'usefulType',
 		'anyType'
 	],
-	#category : 'ASN1-Syntax'
+	#category : 'ASN1-Syntax',
+	#package : 'ASN1-Syntax'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Syntax class >> abstractSyntax [
 	^ 
 	'ABSTRACT-SYNTAX ::= CLASS {
@@ -269,7 +270,7 @@ ASN1Syntax class >> abstractSyntax [
                    [HAS PROPERTY &property] }'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Syntax class >> reservedLiteralWords [
 	^ #('BIT' 'BOOLEAN' 'CHARACTER' 'CHOICE' 'DATE' 'DATE-TIME' 'DURATION' 'EMBEDDED'
 		'END' 'ENUMERATED' 'EXTERNAL' 'FALSE' 'INSTANCE' 'INTEGER' 'INTERSECTION' 'MINUS-INFINITY' 
@@ -277,7 +278,7 @@ ASN1Syntax class >> reservedLiteralWords [
 		'TIME' 'TIME-OF-DAY' 'TRUE' 'UNION')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Syntax class >> reservedWords [
 	^ #('ABSENT' 'ABSTRACT-SYNTAX' 'ALL' 'APPLICATION' 'AUTOMATIC' 'BEGIN' 'BIT' 'BMPString' 
 		'BOOLEAN' 'BY' 'CHARACTER' 'CHOICE' 'CLASS' 'COMPONENT' 'COMPONENTS' 'CONSTRAINED' 
@@ -293,7 +294,7 @@ ASN1Syntax class >> reservedWords [
 		'UTCTime' 'UTF8String' 'VideotexString' 'VisibleString' 'WITH')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Syntax class >> typeIdentifier [
 	^ 
 	'TYPE-IDENTIFIER ::= CLASS {
@@ -304,7 +305,7 @@ ASN1Syntax class >> typeIdentifier [
 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> actualParameterList [
 	|  actualParameter |
 	"Spec:
@@ -317,7 +318,7 @@ ASN1Syntax >> actualParameterList [
 		$} asParser trim ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> alternativeTypeList [
 	"Spec:
 		AlternativeTypeList ::= 
@@ -326,14 +327,14 @@ ASN1Syntax >> alternativeTypeList [
 	^ (namedType separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'x.680 grammer 1998' }
+{ #category : 'x.680 grammer 1998' }
 ASN1Syntax >> anyType [
 	"spec 1994"
 	"AnyType ::= ANY | ANY DEFINED BY identifier"
 	^ 'ANY' asParser trim, ('DEFINED' asParser trim, 'BY' asParser trim, identifier) optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> assignedIdentifier [
 	"spec: 
 		AssignedIdentifier ::=
@@ -343,7 +344,7 @@ ASN1Syntax >> assignedIdentifier [
 	^ (objectIdentifierValue / definedValue) optional 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> assignmentList [
 	"spec:
 		AssignmentList ::=
@@ -362,7 +363,7 @@ ASN1Syntax >> assignmentList [
 		parameterizedAssignment ) trim plus optional
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> atNotation [ 
 	"Spec: 
 		AtNotation ::= '@' ComponentIdList | '@.' Level ComponentIdList
@@ -372,7 +373,7 @@ ASN1Syntax >> atNotation [
 		/ ('@.' asParser, $. asParser star, (identifier separatedBy: $. asParser))
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> bString [
 	"Spec:
 		A 'bstring'  shall consist of an arbitrary number (possibly zero) of the characters:
@@ -383,7 +384,7 @@ ASN1Syntax >> bString [
 		($' asParser, $B asParser ) ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> bitStringType [
 	"Spec:
 		BitStringType ::=
@@ -395,7 +396,7 @@ ASN1Syntax >> bitStringType [
 			$} asParser trim) optional) 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> bitStringValue [
 	"Spec:
 		BitStringValue ::= 
@@ -410,21 +411,21 @@ ASN1Syntax >> bitStringValue [
 		('CONTAINING' asParser trim, value)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> booleanType [
 	"Spec:
 		BooleanType ::=BOOLEAN"
 	^ 'BOOLEAN' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> booleanValue [
 	"Spec:
 		BooleanValue::= TRUE|FALSE"
 	^ ('TRUE' asParser / 'FALSE' asParser) trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> builtinType [
 	"Reordered parsers in way that the generic character string type is parsed at last"
 	"BuiltinType ::=
@@ -448,7 +449,7 @@ ASN1Syntax >> builtinType [
 		timeOfDayType
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> builtinValue [
 	"spec:
 		BuiltinValue ::=
@@ -467,7 +468,7 @@ ASN1Syntax >> builtinValue [
 		setValue setOfValue timeValue "enumeratedValue")
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> cString [
 	"allow any character between double quotes. Double quotes are escaped by using a double double quote"
 	^(($" asParser, 
@@ -475,7 +476,7 @@ ASN1Syntax >> cString [
 		$" asParser))  ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> charSyms [
 	"spec:
 		CharSyms ::= 
@@ -484,14 +485,14 @@ ASN1Syntax >> charSyms [
 	^ charsDefn separatedBy: $, asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> characterStringList [
 	"spec:
 		CharacterStringList ::= '{' CharSyms '}'"
 	^ ${ asParser trim, charSyms, $} asParser trim ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> characterStringType [
 	"spec:
 		CharacterStringType ::= 
@@ -501,7 +502,7 @@ ASN1Syntax >> characterStringType [
 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> characterStringValue [
 	"Spec:
 		CharacterStringValue ::= 
@@ -512,7 +513,7 @@ ASN1Syntax >> characterStringValue [
 	^ restrictedCharacterStringValue / sequenceValue 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> charsDefn [
 	"spec:
 		CharsDefn ::= 
@@ -523,14 +524,14 @@ ASN1Syntax >> charsDefn [
 	^ cString / quadruple / tuple / definedValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Syntax >> choiceOf: aCollection [
 	^ aCollection allButFirst 
 		inject: (self perform: aCollection first) 
 		into: [: p : rule| p / (self perform: rule ) ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> choiceType [
 	"Spec:
 		ChoiceType	::= CHOICE '{' AlternativeTypeLists '}' "
@@ -547,7 +548,7 @@ ASN1Syntax >> choiceType [
 			$} asParser trim) ==> #third
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> choiceValue [
 	"Spec:
 		ChoiceValue ::= 
@@ -555,14 +556,14 @@ ASN1Syntax >> choiceValue [
 	^ identifier , $: asParser trim , value
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> componentRelationConstraint [
 	"ComponentRelationConstraint ::= '{' DefinedObjectSet '}' '{' AtNotation ',' + '}' "
 	^ ${ asParser trim, definedObjectSet, $} asParser trim, 
 		${ asParser trim, (atNotation separatedBy: $, asParser), $} asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> componentType [
 	"spec:
 		ComponentType ::=
@@ -576,7 +577,7 @@ ASN1Syntax >> componentType [
 	  ('COMPONENTS OF' asParser trim, type)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> componentTypeList [
 	"spec:
 		ComponentTypeList ::=
@@ -585,7 +586,7 @@ ASN1Syntax >> componentTypeList [
 	^ (componentType separatedBy: $, asParser asn1Token) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> componentTypeLists [
 	"spec:
 		ComponentTypeLists ::=
@@ -606,7 +607,7 @@ ASN1Syntax >> componentTypeLists [
 		
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> componentValueList [
 	"spec:
 		ComponentValueList ::=
@@ -615,7 +616,7 @@ ASN1Syntax >> componentValueList [
 	^ (namedValue separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> constraint [
 	"Spec:
 		Constraint ::= '(' ConstraintSpec ExceptionSpec ')' "
@@ -631,14 +632,14 @@ ASN1Syntax >> constraint [
 		$) asParser trim ==> [:nodes|  Array with: nodes second with: nodes third ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> containedSubtype [
 	"Spec:
 		ContainedSubtype ::= Includes Type"
 	^ includes, type ==> #second
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> contentsConstraint [
 	"Spec:
 		ContentsConstraint ::= CONTAINING Type
@@ -650,21 +651,21 @@ ASN1Syntax >> contentsConstraint [
 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> dateTimeType [
 	"Spec:
 		DateTimeType ::= DATE-TIME"
 	^ 'DATE-TIME' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> dateType [
 	"Spec:
 		DateType ::= DATE"
 	^ 'DATE' asParser trim
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> defaultSyntax [ 
 	"Spec:
 		DefaultSyntax ::= '{' FieldSetting ',' * '}' "
@@ -673,7 +674,7 @@ ASN1Syntax >> defaultSyntax [
 		$} asParser trim ) ==> #second
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> definedObject [
 	"Spec:
 		DefinedObject ::= 
@@ -682,7 +683,7 @@ ASN1Syntax >> definedObject [
 	^ externalObjectReference / objectReference
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> definedObjectClass [
 	"Spec:
 		DefinedObjectClass ::= 
@@ -695,7 +696,7 @@ ASN1Syntax >> definedObjectClass [
 		
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> definedObjectSet [
 	"Spec:
 		DefinedObjectSet ::= 
@@ -704,7 +705,7 @@ ASN1Syntax >> definedObjectSet [
 	^ externalObjectSetReference / objectSetReference 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> definedSyntax [
 	"Spec:
 		DefinedSyntax ::= '{' DefinedSyntaxToken empty * '}' "
@@ -713,14 +714,14 @@ ASN1Syntax >> definedSyntax [
 		$} asParser asn1Token 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> definedSyntaxToken [
 	"Spec:
 		DefinedSyntaxToken ::= Literal | Setting"
 	^ (literal / setting) trim 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> definedType [
 	"spec:
 		DefinedType ::= 
@@ -733,7 +734,7 @@ ASN1Syntax >> definedType [
 		
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> definedValue [
 	"spec:
 		DefinedValue ::=
@@ -743,7 +744,7 @@ ASN1Syntax >> definedValue [
 	^ parameterizedValue / externalValueReference / valueReference
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> definitiveIdentification [
 	"Spec:
 		DefinitiveIdentification ::= 
@@ -758,7 +759,7 @@ ASN1Syntax >> definitiveIdentification [
 	
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> definitiveNameAndNumberForm [
 	"Spec: 
 		DefinitiveNameAndNumberForm ::= identifier '(' DefinitiveNumberForm ')' "
@@ -768,7 +769,7 @@ ASN1Syntax >> definitiveNameAndNumberForm [
 		==> [:nodes| Array with: nodes first with: nodes third]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> definitiveObjIdComponent [
 	"Spec:
 		DefinitiveObjIdComponent ::= 
@@ -783,7 +784,7 @@ ASN1Syntax >> definitiveObjIdComponent [
 		
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> definitiveOid [
 	"Spec:
 		DefinitiveOID ::= '{' DefinitiveObjIdComponentList '}' "
@@ -796,21 +797,21 @@ ASN1Syntax >> definitiveOid [
 		$} asParser trim) ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> durationType [
 	"Spec:
 		DurationType ::= DURATION"
 	^ 'DURATION' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> elementSetSpec [
 	"Spec:
 		ElementSetSpec ::= Unions |	ALL Exclusions"
 	^ unions / ('ALL' asParser trim, exclusions)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> elementSetSpecs [
 	"Spec:
 		ElementSetSpecs ::= 
@@ -824,7 +825,7 @@ ASN1Syntax >> elementSetSpecs [
 			($, asParser trim, elementSetSpec) optional) optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> elements [
 	"Spec:
 		Elements ::= 
@@ -836,21 +837,21 @@ ASN1Syntax >> elements [
 		(( $( asParser trim, elementSetSpec, $) asParser trim ) ==> #second)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> embeddedPDVType [
 	"Spec:
 		EmbeddedPDVType ::= EMBEDDED PDV"
 	^ 'EMBEDDED PDV' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> embeddedPdvValue [
 	"Spec: 
 		EmbeddedPDVValue ::= SequenceValue"
 	^ sequenceValue
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> encodingControlSection [
 	"Spec:
 		EncodingControlSection ::=
@@ -865,7 +866,7 @@ ASN1Syntax >> encodingControlSection [
 		encodingInstructionsAssignmentList
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> encodingControlSections [
 	"Spec:
 		EncodingControlSections ::= 
@@ -875,14 +876,14 @@ ASN1Syntax >> encodingControlSections [
 	^ (encodingControlSection separatedBy: $, asParser trim) withoutSeparators optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> encodingInstructionsAssignmentList [
 	self flag: #incomplete.
 	self flag: #nottested.
 	^ 'encodingInstructionsAssignmentList' asParser star ==> [:n| n ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> encodingPrefixedType [
 	"spec:
 		EncodingPrefixedType ::=
@@ -897,7 +898,7 @@ ASN1Syntax >> encodingPrefixedType [
 			$] asParser) , type 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> encodingReference [
 	"spec:
 		EncodingReference ::=
@@ -913,7 +914,7 @@ ASN1Syntax >> encodingReference [
 		)) flatten), $: asParser) optional 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> encodingReferenceDefault [
 	"Spec:
 		EncodingReferenceDefault ::= 
@@ -922,7 +923,7 @@ ASN1Syntax >> encodingReferenceDefault [
 	^ (encodingReference , 'INSTRUCTIONS' asParser trim) optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> enumeratedType [
 	"Spec:
 		EnumeratedType ::= ENUMERATED '{' Enumerations '}' "
@@ -930,14 +931,14 @@ ASN1Syntax >> enumeratedType [
 		==> #third
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> enumeratedValue [
 	"Spec:
 		 EnumeratedValue ::= identifier"
 	^ identifier
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> enumeration [
 	"Spec:
 		Enumeration ::= 
@@ -950,7 +951,7 @@ ASN1Syntax >> enumeration [
 	^ ((namedNumber / identifier) separatedBy: $, asParser asn1Token) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> enumerations [
 	"Spec:
 		Enumerations ::= 
@@ -968,7 +969,7 @@ ASN1Syntax >> enumerations [
 		
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> exceptionIdentification [
 	"spec:
 	ExceptionIdentification ::=
@@ -978,7 +979,7 @@ ASN1Syntax >> exceptionIdentification [
 	^ signedNumber / definedValue / ( type , $: asParser, value)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> exceptionSpec [
 	"spec:
 	ExceptionSpec ::= '!' ExceptionIdentification | empty"
@@ -986,14 +987,14 @@ ASN1Syntax >> exceptionSpec [
 	^ ('!' asParser trim, exceptionIdentification) optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> exclusions [
 	"Spec:
 		Exclusions ::= EXCEPT Elements"
 	^ 'EXCEPT' asParser trim, elements ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> exports [
 	"spec: 
 		Exports ::=
@@ -1009,7 +1010,7 @@ ASN1Syntax >> exports [
 			nodes ifNotNil: [ nodes second ] ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAddition [
 	"spec:
 		ExtensionAddition ::=
@@ -1018,7 +1019,7 @@ ASN1Syntax >> extensionAddition [
 	^ componentType / extensionAdditionGroup
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAdditionAlternative [
 	"Spec:
 		ExtensionAdditionAlternative ::= 
@@ -1027,7 +1028,7 @@ ASN1Syntax >> extensionAdditionAlternative [
 	^ extensionAdditionAlternativesGroup / namedType 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAdditionAlternatives [
 	"Spec:
 		ExtensionAdditionAlternatives ::= 
@@ -1036,7 +1037,7 @@ ASN1Syntax >> extensionAdditionAlternatives [
 	^ ($, asParser trim, extensionAdditionAlternativesList ) optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAdditionAlternativesGroup [
 	"Spec:
 		ExtensionAdditionAlternativesGroup ::=
@@ -1046,7 +1047,7 @@ ASN1Syntax >> extensionAdditionAlternativesGroup [
 			alternativeTypeList, ']]' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAdditionAlternativesList [
 	"Spec:
 		ExtensionAdditionAlternativesList ::= 
@@ -1055,7 +1056,7 @@ ASN1Syntax >> extensionAdditionAlternativesList [
 	^(extensionAdditionAlternative separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAdditionGroup [
 	"spec:
 		ExtensionAdditionGroup ::= '[[' VersionNumber ComponentTypeList ']]'"
@@ -1065,7 +1066,7 @@ ASN1Syntax >> extensionAdditionGroup [
 			']]' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAdditionList [
 	"spec:
 		ExtensionAdditionList ::=
@@ -1074,7 +1075,7 @@ ASN1Syntax >> extensionAdditionList [
 	^ (extensionAddition separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAdditions [
 	"spec:
 		ExtensionAdditions ::=
@@ -1084,14 +1085,14 @@ ASN1Syntax >> extensionAdditions [
 		nodes ifNotNil: [ nodes second ]]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionAndException [
 	"spec:
 		ExtensionAndException ::= '...' | '...' ExceptionSpec"
 	^ '...' asParser asn1Token, (exceptionSpec optional)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionDefault [
 	"Spec:
 		ExtensionDefault ::=
@@ -1100,21 +1101,21 @@ ASN1Syntax >> extensionDefault [
 	^ ('EXTENSIBILITY IMPLIED' asParser trim) optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> extensionEndMarker [
 	"spec:
 		ExtensionEndMarker ::= ',' '..'"
 	^ $, asParser trim, '...' asParser trim
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> externalObjectClassReference [
 	"Spec:
 		ExternalObjectClassReference ::= modulereference '.' objectclassreference"
 	^  moduleReference, $. asParser,  objectClassReference  
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> externalObjectReference [
 	"Spec:
 		ExternalObjectReference ::= 
@@ -1122,21 +1123,21 @@ ASN1Syntax >> externalObjectReference [
 	^ moduleReference, $. asParser, objectReference
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> externalObjectSetReference [
 	"Spec:
 		ExternalObjectSetReference ::= modulereference '.' objectsetreference"
 	^ moduleReference, $. asParser, objectSetReference 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> externalType [
 	"Spec:
 		ExternalType ::= EXTERNAL"
 	^ 'EXTERNAL' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> externalTypeReference [ 
 	"spec:
 		ExternalTypeReference ::= 
@@ -1146,14 +1147,14 @@ ASN1Syntax >> externalTypeReference [
 	^ moduleReference , $. asParser, typeReference
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> externalValue [
 	"Spec: 
 		ExternalValue ::= SequenceValue"
 	^ sequenceValue
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> externalValueReference [
 	"spec:
 		ExternalValueReference ::=
@@ -1163,7 +1164,7 @@ ASN1Syntax >> externalValueReference [
 	^ moduleReference , $. asParser, valueReference
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1Syntax >> failOnReservedLiteralWords: aParser [
 	^ aParser >=> [:stream :cc| | string position |
 			position := stream position.
@@ -1175,7 +1176,7 @@ ASN1Syntax >> failOnReservedLiteralWords: aParser [
 				ifFalse: [ string]]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1Syntax >> failOnReservedWords: aParser [
 	^ ASN1Configuration default failOnReservedWords
 		ifTrue: [
@@ -1190,14 +1191,14 @@ ASN1Syntax >> failOnReservedWords: aParser [
 		ifFalse: [ aParser ]
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> fieldName [
 	"Spec:
 		FieldName ::= PrimitiveFieldName '.' +"
 	^ (primitiveFieldName separatedBy: $. asParser) withoutSeparators 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> fieldSetting [
 	"Spec:
 		FieldSetting ::= 
@@ -1205,7 +1206,7 @@ ASN1Syntax >> fieldSetting [
 	^ primitiveFieldName trim, setting
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> fieldSpec [
 	"Spec:
 		FieldSpec ::=
@@ -1222,21 +1223,21 @@ ASN1Syntax >> fieldSpec [
 		typeFieldSpec 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> fixedTypeValueFieldSpec [
 	"Spec:
 		FixedTypeValueFieldSpec ::= valuefieldreference Type UNIQUE ? ValueOptionalitySpec ?"
 	^ valueFieldReference, type trim, 'UNIQUE' asParser optional trim, valueOptionalitySpec optional trim
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> fixedTypeValueSetFieldSpec [
 	"Spec:
 		FixedTypeValueSetFieldSpec ::= valuesetfieldreference Type ValueSetOptionalitySpec ?"
 	^ valueSetFieldReference, type trim, valueSetOptionalitySpec optional trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> fullSpecification [
 	"Spec:
 		FullSpecification	::= '{' TypeConstraints '}' "
@@ -1245,14 +1246,14 @@ ASN1Syntax >> fullSpecification [
 		$} asParser trim) ==> #second
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> generalConstraint [
 	"Spec:
 		GeneralConstraint ::= UserDefinedConstraint | TableConstraint | ContentsConstraint"
 	^ userDefinedConstraint / tableConstraint / contentsConstraint
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> globalModuleReference [
 	"spec: 
 		GlobalModuleReference ::=
@@ -1260,14 +1261,14 @@ ASN1Syntax >> globalModuleReference [
 	^ (moduleReference trim, assignedIdentifier)
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> governor [
 	"Spec:
 		Governor ::= Type | DefinedObjectClass"
 	^ type / definedObjectClass 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> hString [
 	"Spec:
 		An 'hstring' shall consist of an arbitrary number (possibly zero) of the characters:
@@ -1278,7 +1279,7 @@ ASN1Syntax >> hString [
 		($' asParser, $H asParser) trim ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> identifier [
 	"spec:
 		An 'identifier' shall consist of an arbitrary number (one or more) of letters, digits, 
@@ -1290,7 +1291,7 @@ ASN1Syntax >> identifier [
 		)) flatten asn1Token
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> identifierList [ 
 	"Spec: 
 		IdentifierList ::= 
@@ -1299,7 +1300,7 @@ ASN1Syntax >> identifierList [
 	^ (identifier separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> imports [
 	"spec: 
 		Imports ::=
@@ -1318,14 +1319,14 @@ ASN1Syntax >> imports [
 		$; asParser asn1Token) optional ==> [:nodes| nodes ifNotNil: [ nodes second ]]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> includes [
 	"Spec:
 		Includes ::= INCLUDES | empty"
 	^ 'INCLUDES' asParser trim optional 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> innerTypeConstraints [
 	"Spec:
 		InnerTypeConstraints ::=
@@ -1336,20 +1337,20 @@ ASN1Syntax >> innerTypeConstraints [
 	^ 'WITH COMPONENTS' asParser trim, (multipleTypeConstraint / constraint ) 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> instanceOfType [ 
 	"Spec:
 		InstanceOfType ::= INSTANCE OF DefinedObjectClass"
 	^ 'INSTANCE OF' asParser trim, definedObjectClass 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> instanceOfValue [
 	self flag: #notimplemented.
 	^ 'INSTANCE OF NOT FOUND' asParser
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> integerType [
 	"spec:
 		IntegerType ::=
@@ -1363,14 +1364,14 @@ ASN1Syntax >> integerType [
 			 ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> integerUnicodeLabel [
 	self flag: #incomplete.
 	self flag: #nottested.
 	^ #digit asParser optional ==> [:n| self notYetImplemented  ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> integerValue [
 	"Spec:
 		IntegerValue ::= 
@@ -1380,7 +1381,7 @@ ASN1Syntax >> integerValue [
 		/ identifier trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> intersections [
 	"Spec:
 		Intersections ::= 
@@ -1398,7 +1399,7 @@ ASN1Syntax >> intersections [
 	^ ((elements, exclusions optional) separatedBy: ( $^ asParser trim / 'INTERSECTION' asParser trim)) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> iriType [
 	"Spec:
 		IRIType ::= OID-IRI"
@@ -1406,7 +1407,7 @@ ASN1Syntax >> iriType [
 	^ 'OID-IRI' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> iriValue [
 	"Spec:
 		IRIValue ::= '""'
@@ -1424,7 +1425,7 @@ ASN1Syntax >> iriValue [
 		$" asParser trim
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> literal [
 	"Spec:
 		Literal ::= word |
@@ -1439,7 +1440,7 @@ ASN1Syntax >> literal [
 		/ ',' asParser) 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> lowerEndPoint [
 	"Spec:
 		LowerEndpoint ::= LowerEndValue | LowerEndValue '<' "
@@ -1448,7 +1449,7 @@ ASN1Syntax >> lowerEndPoint [
 	^ (value / 'MIN' asParser trim), $< asParser trim optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> moduleBody [
 	"spec:
 		ModuleBody ::=
@@ -1457,7 +1458,7 @@ ASN1Syntax >> moduleBody [
 	^ exports, imports, assignmentList  
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> moduleDefinition [
 	"Spec:
 		ModuleDefinition ::= 
@@ -1482,7 +1483,7 @@ ASN1Syntax >> moduleDefinition [
 			Array with: n first with: n third with: n fourth with: n fifth with: n eighth with: n ninth ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> moduleIdentifier [
 	"Spec:
 		ModuleIdentifier ::= 
@@ -1490,13 +1491,13 @@ ASN1Syntax >> moduleIdentifier [
 	^ moduleReference asn1Token, definitiveIdentification
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> moduleReference [
 	"spec says it is the same as type reference. Difference is in the used context"
 	^ typeReference
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> multipleTypeConstraint [
 	"Spec:
 		MultipleTypeConstraints ::= 
@@ -1505,7 +1506,7 @@ ASN1Syntax >> multipleTypeConstraint [
 	^ fullSpecification / partialSpecification
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> nameAndNumberForm [
 	"spec:
 		NameAndNumberForm ::= identifier '(' NumberForm ')'"
@@ -1513,7 +1514,7 @@ ASN1Syntax >> nameAndNumberForm [
 		==> [:nodes| Array with: nodes first with: nodes third ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedBit [
 	"Spec:
 		NamedBit ::= 
@@ -1525,7 +1526,7 @@ ASN1Syntax >> namedBit [
 		$) asParser trim) ==> [:nodes| Array with: nodes first with: nodes third]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedBitList [
 	"Spec:
 		NamedBitList ::= 
@@ -1534,7 +1535,7 @@ ASN1Syntax >> namedBitList [
 	^ (namedBit separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedConstraint [
 	"Spec:
 		NamedConstraint ::= identifier ComponentConstraint"
@@ -1545,7 +1546,7 @@ ASN1Syntax >> namedConstraint [
 	^ identifier, (constraint optional, presenceConstraint)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedNumber [
 	"spec:
 		NamedNumber ::=
@@ -1555,7 +1556,7 @@ ASN1Syntax >> namedNumber [
 		==> [:nodes| Array with: nodes first with: nodes third ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedNumberList [
 	"spec:
 		NamedNumberList ::=
@@ -1564,21 +1565,21 @@ ASN1Syntax >> namedNumberList [
 	^ (namedNumber separatedBy:  $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedType [
 	"spec:
 		NamedType ::= identifier Type"
 	^ identifier, type
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedValue [
 	"spec:
 		NamedValue ::= identifier Value"
 	^ identifier , value 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> namedValueList [
 	"spec:
 		NamedValueList ::=
@@ -1587,19 +1588,19 @@ ASN1Syntax >> namedValueList [
 	^ (namedValue separatedBy:  $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> nonIntegerUnicodeLabel [
 	self flag: #incomplete.
 	^ 'imnotparable' asParser optional ==> [:n| self notYetImplemented  ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> nullType [
 	"Spec: NullType ::= NULL"
 	^ 'NULL' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> nullValue [
 	"Spec:
 		 NullValue ::= NULL"
@@ -1607,19 +1608,19 @@ ASN1Syntax >> nullValue [
 	^ 'NULL' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> number [
 	^ #digit asParser plus flatten
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> numberForm [
 	"spec:
 		NumberForm ::= number | DefinedValue"
 	^ (number / definedValue) flatten trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> numericRealValue [
 	"Spec: 
 		NumericRealValue ::= 
@@ -1631,7 +1632,7 @@ ASN1Syntax >> numericRealValue [
 		sequenceValue 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> objIdComponents [
 	"spec: 
 		ObjIdComponents ::= 
@@ -1644,7 +1645,7 @@ ASN1Syntax >> objIdComponents [
 	^ nameAndNumberForm / identifier /  numberForm / definedValue
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> object [
 	"Spec:
 		Object ::= 
@@ -1655,7 +1656,7 @@ ASN1Syntax >> object [
 	^  parameterizedObject / objectDefn / objectFromObject  / definedObject   
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectAssignment [
 	"Spec:
 		ObjectAssignment ::= objectreference DefinedObjectClass '::=' Object"
@@ -1663,21 +1664,21 @@ ASN1Syntax >> objectAssignment [
 		'::=' asParser trim, object 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectClass [
 	"Spec:
 		ObjectClass ::= DefinedObjectClass | ObjectClassDefn | ParameterizedObjectClass"
 	^ objectClassDefn / definedObjectClass / parameterizedObjectClass
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectClassAssignment [
 	"Spec:
 		ObjectClassAssignment ::= objectclassreference '::=' ObjectClass "
 	^ objectClassReference , '::=' asParser trim, objectClass
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectClassDefn [
 	"Spec:
 		ObjectClassDefn ::= CLASS '{' FieldSpec ',' + '}' WithSyntaxSpec?"
@@ -1688,14 +1689,14 @@ ASN1Syntax >> objectClassDefn [
 		withSyntaxSpec optional trim) ==> [:nodes| Array with: nodes third with: nodes fifth ]
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectClassFieldType [
 	"Spec:
 		ObjectClassFieldType ::= DefinedObjectClass '.' FieldName"
 	^ definedObjectClass, $. asParser, fieldName 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectClassReference [
 	"spec:
 		An 'objectclassreference'  shall consist of a sequence of characters as 
@@ -1705,7 +1706,7 @@ ASN1Syntax >> objectClassReference [
 		(#uppercase asParser plus separatedBy: $- asParser), (#lowercase asParser not)) asn1Token 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectDefn [
 	"Spec:
 		ObjectDefn ::= 
@@ -1714,7 +1715,7 @@ ASN1Syntax >> objectDefn [
 	^ defaultSyntax / definedSyntax 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectFieldReference [
 	"Spec:
 		An 'objectfieldreference' shall consist of an ampersand ('&') immediately followed by a sequence of 
@@ -1722,21 +1723,21 @@ ASN1Syntax >> objectFieldReference [
 	^ $& asParser, objectReference 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectFieldSpec [
 	"Spec:
 		ObjectFieldSpec ::= objectfieldreference DefinedObjectClass ObjectOptionalitySpec?"
  	^ objectFieldReference trim, definedObjectClass, objectOptionalitySpec optional
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectFromObject [
 	"Spec:
 		ObjectFromObject ::= ReferencedObjects '.' FieldName"
 	^ referencedObjects, $. asParser, fieldName
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> objectIdentifierType [
 	"Spec:
 		ObjectIdentifierType ::=
@@ -1744,7 +1745,7 @@ ASN1Syntax >> objectIdentifierType [
 	^ 'OBJECT IDENTIFIER' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> objectIdentifierValue [ 
 	"spec: 
 		ObjectIdentifierValue ::= 
@@ -1760,14 +1761,14 @@ ASN1Syntax >> objectIdentifierValue [
 		$} asParser trim ==> #second
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectOptionalitySpec [
 	"Spec:
 		ObjectOptionalitySpec ::= OPTIONAL | DEFAULT Object"
 	^ 'OPTIONAL' asParser trim / ('DEFAULT' asParser trim , object)
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectReference [
 	"spec:
 		An 'objectreference' shall consist of a sequence of characters as 
@@ -1775,7 +1776,7 @@ ASN1Syntax >> objectReference [
 	^ valueReference
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSet [
 	"Spec:
 		ObjectSet ::= '{' ObjectSetSpec '}' "
@@ -1784,7 +1785,7 @@ ASN1Syntax >> objectSet [
 		$} asParser asn1Token ==> [:nodes| nodes second ]
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetAssignment [
 	"Spec:
 		ObjectSetAssignment ::= objectsetreference DefinedObjectClass '::=' ObjectSet"
@@ -1792,7 +1793,7 @@ ASN1Syntax >> objectSetAssignment [
 		==> [:nodes| Array with: nodes first with: nodes second with: nodes fourth ]
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetElements [
 	"Spec:
 		ObjectSetElements ::= 
@@ -1803,7 +1804,7 @@ ASN1Syntax >> objectSetElements [
 	^ object / parameterizedObjectSet / definedObjectSet / objectSetFromObjects 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetFieldReference [
 	"Spec:
 		An objectsetfieldreference shall consist of an ampersand (&) immediately followed by a sequence of 
@@ -1811,28 +1812,28 @@ ASN1Syntax >> objectSetFieldReference [
 	^ $& asParser, objectSetReference ==> #second
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetFieldSpec [
 	"Spec:
 		ObjectSetFieldSpec ::= objectsetfieldreference DefinedObjectClass ObjectSetOptionalitySpec ?"
 	^ (objectSetFieldReference, definedObjectClass, objectSetOptionality optional) 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetFromObjects [
 	"Spec:
 		ObjectSetFromObjects ::= ReferencedObjects '.' FieldName"
 	^ referencedObjects, $. asParser, fieldName
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetOptionality [
 	"Spec:
 		ObjectSetOptionalitySpec ::= OPTIONAL | DEFAULT ObjectSet"
 	^ 'OPTIONAL' asParser trim / ('DEFAULT' asParser trim, objectSet)
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetReference [
 	"spec:
 		An 'objectsetreference' shall consist of a sequence of characters as 
@@ -1840,7 +1841,7 @@ ASN1Syntax >> objectSetReference [
 	^ typeReferenceToken
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> objectSetSpec [
 	"Spec:
 		ObjectSetSpec ::= 
@@ -1867,14 +1868,14 @@ ASN1Syntax >> objectSetSpec [
 			
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> octetStringType [
 	"Spec:
 		OctetStringType ::= OCTET STRING"
 	^ 'OCTET STRING' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> octetStringValue [
 	"Spec:
 		OctetStringValue ::=
@@ -1884,14 +1885,14 @@ ASN1Syntax >> octetStringValue [
 	^ bString / hString / ('CONTAINING' asParser trim, value)
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> openTypeFieldVal [
 	"Spec:
 		OpenTypeFieldVal ::= Type ':' Value"
 	^ type, $: asParser, value
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> optionalExtensionMarker [
 	"spec:
 		OptionalExtensionMarker ::= ',' '...' | empty"
@@ -1899,14 +1900,14 @@ ASN1Syntax >> optionalExtensionMarker [
 		nodes second ]) optional
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> optionalGroup [
 	"Spec:
 		OptionalGroup ::= '[' TokenOrGroupSpec empty + ']' "
 	^ ($[ asParser trim, tokenOrGroupSpec trim plus, $] asParser trim) ==> #second
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> paramGovernor [
 	"Spec:
 		ParamGovernor ::= Governor | DummyGovernor"
@@ -1917,7 +1918,7 @@ ASN1Syntax >> paramGovernor [
 	^ governor / reference
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameter [
 	"Spec:
 		Parameter ::= ParamGovernor ':' DummyReference | DummyReference"
@@ -1926,7 +1927,7 @@ ASN1Syntax >> parameter [
 	^ (paramGovernor, $: asParser) optional, reference 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterList [
 	"Spec:
 		ParameterList ::= '{' Parameter ',' + '}' "
@@ -1935,7 +1936,7 @@ ASN1Syntax >> parameterList [
 		$} asParser asn1Token ==> #second
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedAssignment [
 	"Spec:
 		ParameterizedAssignment ::= 
@@ -1953,7 +1954,7 @@ ASN1Syntax >> parameterizedAssignment [
 		parameterizedObjectSetAssignment 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedObject [
 	"Spec:
 		ParameterizedObject ::= 
@@ -1961,7 +1962,7 @@ ASN1Syntax >> parameterizedObject [
 	^ definedObject, actualParameterList 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedObjectAssignment [
 	"Spec:
 		ParameterizedObjectAssignment ::=
@@ -1969,7 +1970,7 @@ ASN1Syntax >> parameterizedObjectAssignment [
 	^ objectReference, parameterList trim, definedObjectClass, '::=' asParser trim, object 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedObjectClass [
 	"Spec:
 		ParameterizedObjectClass ::= 
@@ -1977,21 +1978,21 @@ ASN1Syntax >> parameterizedObjectClass [
 	^definedObjectClass, actualParameterList 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedObjectClassAssignment [
 	"Spec:
 		ParameterizedObjectClassAssignment ::= objectclassreference ParameterList '::=' ObjectClass"
 	^ objectClassReference, parameterList trim, '::=' asParser trim, objectClass 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedObjectSet [
 	"Spec:
 		ParameterizedObjectSet ::= DefinedObjectSet ActualParameterList"
 	^ definedObjectSet trim, actualParameterList
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedObjectSetAssignment [
 	"Spec:
 		ParameterizedObjectSetAssignment ::=
@@ -1999,7 +2000,7 @@ ASN1Syntax >> parameterizedObjectSetAssignment [
 	^ objectSetReference, parameterList trim, definedObjectClass, '::=' asParser trim, objectSet 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedReference [
 	"Spec:
 		ParameterizedReference ::=
@@ -2008,14 +2009,14 @@ ASN1Syntax >> parameterizedReference [
 	^ reference, (${ asParser trim, $} asParser trim) optional 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedType [
 	"Spec:
 		ParameterizedType ::= SimpleDefinedType ActualParameterList"
 	^ simpleDefinedType, actualParameterList 
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedTypeAssignment [
 	"Spec:
 		ParameterizedTypeAssignment ::= 
@@ -2023,49 +2024,49 @@ ASN1Syntax >> parameterizedTypeAssignment [
 	^ typeReferenceToken, parameterList , '::=' asParser trim, type
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedValue [
 	"Spec:
 		ParameterizedValue ::= SimpleDefinedValue ActualParameterList"
 	^ simpleDefinedValue, actualParameterList
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedValueAssignment [
 	"Spec:
 		ParameterizedValueAssignment ::= valuereference ParameterList Type '::=' Value"
 	^ valueReference trim, parameterList trim, type, '::=' asParser trim, value
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedValueSetType [
 	"Spec:
 		ParameterizedValueSetType ::= SimpleDefinedType ActualParameterList"
 	^ simpleDefinedType, actualParameterList trim
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> parameterizedValueSetTypeAssignment [
 	"Spec:
 		ParameterizedValueSetTypeAssignment ::= typereference ParameterList Type '::=' ValueSet"
 	^ typeReferenceToken, parameterList trim, type, '::=' asParser trim, valueSet 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> partialSpecification [
 	"Spec:
 		PartialSpecification ::= '{' '...' ',' TypeConstraints '}' "
 	^ ${ asParser trim, '...' asParser trim, $, asParser trim, typeConstraints, $} asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> patternConstraint [
 	"Spec:
 		PatternConstraint ::= PATTERN Value"
 	^ 'PATTERN' asParser trim, value
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> prefixedType [
 	"spec:
 		PrefixedType ::=
@@ -2075,14 +2076,14 @@ ASN1Syntax >> prefixedType [
 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> presenceConstraint [
 	"Spec:
 		PresenceConstraint ::=PRESENT|ABSENT|OPTIONAL|empty"
 	^ ( 'PRESENT' asParser / 'ABSENT' asParser / 'OPTIONAL' asParser) trim optional
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> primitiveFieldName [
 	"Spec:
 		PrimitiveFieldName ::= 
@@ -2094,7 +2095,7 @@ ASN1Syntax >> primitiveFieldName [
 	^ typeFieldReference / valueFieldReference / valueSetFieldReference / objectFieldReference / objectSetFieldReference
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> propertySettings [
 	"Spec:
 		PropertySettings ::= SETTINGS simplestring"
@@ -2108,7 +2109,7 @@ ASN1Syntax >> propertySettings [
 	^ 'SETTINGS' asParser trim, cString
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> quadruple [
 	"spec: Quadruple ::= '{' Group ',' Plane ',' Row ',' Cell '}'"
 	"spec: Group ::= number"
@@ -2123,7 +2124,7 @@ ASN1Syntax >> quadruple [
 		$} asParser trim 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> realNumber [
 	"Spec:
 		A 'realnumber' shall consist of an integer part that is a series of one or more digits, and optionally 
@@ -2136,14 +2137,14 @@ ASN1Syntax >> realNumber [
 		(($e asParser / $E asParser), signedNumber) optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> realType [
 	"Spec:
 		RealType ::= REAL"
 	^ 'REAL' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> realValue [
 	"Spec:
 		RealValue ::=
@@ -2152,7 +2153,7 @@ ASN1Syntax >> realValue [
 	^ numericRealValue / specialRealValue
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> reference [
 	"spec:
 		Reference ::=
@@ -2165,7 +2166,7 @@ ASN1Syntax >> reference [
 	  	objectClassReference / objectReference / objectSetReference
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> referencedObjects [
 	"Spec:
 		ReferencedObjects ::= 
@@ -2176,7 +2177,7 @@ ASN1Syntax >> referencedObjects [
 	^ parameterizedObject / parameterizedObjectSet / definedObject / definedObjectSet 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> referencedType [
 	"spec:
 		ReferencedType ::= 
@@ -2188,7 +2189,7 @@ ASN1Syntax >> referencedType [
 	^ selectionType / typeFromObject / valueSetFromObjects / definedType / usefulType
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> referencedValue [
 	"spec: 
 		ReferencedValue ::= 
@@ -2197,21 +2198,21 @@ ASN1Syntax >> referencedValue [
 	^  valueFromObject / definedValue
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> relativeIriType [
 	"Spec:
 		RelativeIRIType ::= RELATIVE-OID-IRI"
 	^ 'RELATIVE-OID-IRI' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> relativeIriValue [
 	"Spec:
 		RelativeIRIType ::= RELATIVE-OID-IRI"
 	^ 'RELATIVE-OID-IRI' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> relativeOidComponents [
 	"Spec:
 		RelativeOIDComponents ::= 
@@ -2221,14 +2222,14 @@ ASN1Syntax >> relativeOidComponents [
 	^ nameAndNumberForm / numberForm / definedValue 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> relativeOidType [
 	"Spec:
 		RelativeOIDType ::= RELATIVE-OID"
 	^ 'RELATIVE-OID' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> relativeOidValue [
 	"Spec:
 		RelativeOIDValue ::= '{' RelativeOIDComponentsList '}'"
@@ -2241,19 +2242,19 @@ ASN1Syntax >> relativeOidValue [
 		$} asParser trim) ==> #second
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> requiredToken [
 	"Spec:
 		RequiredToken ::= Literal | PrimitiveFieldName"
 	^ literal / primitiveFieldName
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> reservedWords [
 	^ (PPChoiceParser new setParsers: (self class reservedWords collect: [:each| each asParser])) trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> restrictedCharacterStringType [
 	"spec:
 		RestrictedCharacterStringType ::=
@@ -2268,7 +2269,7 @@ ASN1Syntax >> restrictedCharacterStringType [
 		'VideotexString' asParser / 'VisibleString' asParser) asn1Token
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> restrictedCharacterStringValue [
 	"Spec:
 		RestrictedCharacterStringValue ::= 
@@ -2279,21 +2280,21 @@ ASN1Syntax >> restrictedCharacterStringValue [
 	^ cString / characterStringList / quadruple / tuple 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> selectionType [
 	"Spec:
 		SelectionType ::= identifier '<' Type"
 	^ identifier, $< asParser trim, type
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> sequenceOfType [
 	"spec:
 		SequenceOfType ::= SEQUENCE OF Type | SEQUENCE OF NamedType"
 	^ 'SEQUENCE' asParser trim, 'OF' asParser trim, (type / namedType) ==> #third
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> sequenceOfValue [
 	"Spec:
 		SequenceOfValue ::= 
@@ -2305,7 +2306,7 @@ ASN1Syntax >> sequenceOfValue [
 		$} asParser trim ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> sequenceType [
 	"spec:
 		SequenceType ::=
@@ -2320,7 +2321,7 @@ ASN1Syntax >> sequenceType [
 		$} asParser asn1Token ==> #third
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> sequenceValue [
 	"Spec: 
 		SequenceValue ::= 
@@ -2331,7 +2332,7 @@ ASN1Syntax >> sequenceValue [
 		$} asParser trim) ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> setOfType [
 	"Spec:
 		SetOfType ::= 
@@ -2340,7 +2341,7 @@ ASN1Syntax >> setOfType [
 	^ 'SET' asParser trim, 'OF' asParser trim, (type / namedType) ==> #third
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> setOfValue [
 	"Spec:
 		SetOfValue ::= 
@@ -2352,7 +2353,7 @@ ASN1Syntax >> setOfValue [
 		$} asParser trim ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> setType [
 	"spec:
 		SetType ::=
@@ -2366,7 +2367,7 @@ ASN1Syntax >> setType [
 		$} asParser trim ==> #third
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> setValue [
 	"spec: 
 		SetValue ::=
@@ -2377,7 +2378,7 @@ ASN1Syntax >> setValue [
 		$} asParser ==> #second
 ]
 
-{ #category : #grammar }
+{ #category : 'grammar' }
 ASN1Syntax >> setting [
 	"Spec:
 		Setting ::= 
@@ -2385,7 +2386,7 @@ ASN1Syntax >> setting [
 	^  type / valueSet / objectSet  / value / object
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> signedNumber [
 	"spec:
 		SignedNumber ::=
@@ -2394,27 +2395,27 @@ ASN1Syntax >> signedNumber [
 	^ $- asParser optional, number
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> simpleDefinedType [
 	"Spec:
 		SimpleDefinedType ::= ExternalTypeReference | typereference"
 	^ externalTypeReference / typeReferenceToken
 ]
 
-{ #category : #'X.683 grammar' }
+{ #category : 'X.683 grammar' }
 ASN1Syntax >> simpleDefinedValue [
 	"Spec:
 		SimpleDefinedValue ::= ExternalValueReference | valuereference"
 	^ externalValueReference / valueReference 
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> sizeConstraint [
 	"Spec: SizeConstraint ::= SIZE Constraint"
 	^ 'SIZE' asParser asn1Token, constraint
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> specialRealValue [
 	"Spec:
 		SpecialRealValue ::=
@@ -2426,12 +2427,12 @@ ASN1Syntax >> specialRealValue [
 		'NOT-A-NUMBER' asParser trim
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Syntax >> start [
 	^ moduleDefinition end
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> subTypeElements [
 	| permittedAlphabet |
 	"Spec:
@@ -2452,7 +2453,7 @@ ASN1Syntax >> subTypeElements [
 		valueRange "durationRange" / valueRange "timePointRange" / valueRange "recurrenceRange"  /  value "singleValue" / type "typeConstraint"
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> symbol [
 	"spec:
 		Symbol ::=
@@ -2461,7 +2462,7 @@ ASN1Syntax >> symbol [
 	^ parameterizedReference / reference  
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> symbolList [
 	"spec:
 		SymbolList ::=
@@ -2470,7 +2471,7 @@ ASN1Syntax >> symbolList [
 	^ (symbol separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> symbolsFromModule [
 	"spec:
 		SymbolsFromModule ::=
@@ -2479,7 +2480,7 @@ ASN1Syntax >> symbolsFromModule [
 		==> [:nodes| Array with: nodes first with: nodes third]
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> syntaxList [
 	"Spec:
 		SyntaxList ::= '{' TokenOrGroupSpec empty + '}'"
@@ -2487,7 +2488,7 @@ ASN1Syntax >> syntaxList [
 		==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> tString [
 	"Spec:
 		A 'tstring' shall consist of one or more of the characters:
@@ -2500,7 +2501,7 @@ ASN1Syntax >> tString [
 		$" asParser ==> #second
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> tableConstraint [
 	"Spec:
 		TableConstraint ::= SimpleTableConstraint | ComponentRelationConstraint
@@ -2508,7 +2509,7 @@ ASN1Syntax >> tableConstraint [
 	^ componentRelationConstraint / objectSet 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> tag [
 	"spec:
 		Tag ::= '[' EncodingReference Class ClassNumber ']' "
@@ -2519,7 +2520,7 @@ ASN1Syntax >> tag [
 		$] asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> tagClass [
 	"spec:
 		Class ::=
@@ -2530,7 +2531,7 @@ ASN1Syntax >> tagClass [
 	^ ('UNIVERSAL' asParser / 'APPLICATION' asParser / 'PRIVATE' asParser) optional 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> tagDefault [
 	"Spec:
 		TagDefault ::=
@@ -2541,7 +2542,7 @@ ASN1Syntax >> tagDefault [
 	^ ('EXPLICIT TAGS' asParser / 'IMPLICIT TAGS' asParser / 'AUTOMATIC TAGS' asParser ) trim optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> tagNumber [
 	"spec:
 		ClassNumber ::=
@@ -2550,7 +2551,7 @@ ASN1Syntax >> tagNumber [
 	^ number / definedValue
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> taggedType [
 	"spec:
 		TaggedType ::=
@@ -2562,35 +2563,35 @@ ASN1Syntax >> taggedType [
 		type 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> timeOfDayType [
 	"Spec: 
 		TimeOfDayType ::= TIME-OF-DAY"
 	^ 'TIME-OF-DAY' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> timeType [
 	"Spec:
 		TimeType ::= TIME"
 	^ 'TIME' asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> timeValue [
 	"Spec:
 		 TimeValue ::= tstring."
 	^ tString
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> tokenOrGroupSpec [
 	"Spec:
 		TokenOrGroupSpec ::= RequiredToken | OptionalGroup"
 	^ requiredToken / optionalGroup
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> tuple [
 	"spec:
 		Tuple ::= '{' TableColumns ',' TableRow '}' "
@@ -2599,7 +2600,7 @@ ASN1Syntax >> tuple [
 	^ ${ asParser trim, number, $, asParser trim, number, $} asParser trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> type [
 	"spec:
 		Type ::= BuiltinType | ReferencedType | ConstrainedType
@@ -2610,7 +2611,7 @@ ASN1Syntax >> type [
 	^ (typeWithConstraint / builtinType / anyType / referencedType  ) , (constraint star)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> typeAssignment [
 	"spec:
 		TypeAssignment ::=
@@ -2620,7 +2621,7 @@ ASN1Syntax >> typeAssignment [
 	^ typeReferenceToken, '::=' asParser trim , type ==> [:nodes| Array with: nodes first with: nodes third ] 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> typeConstraints [
 	"Spec:
 		TypeConstraints ::= 
@@ -2629,7 +2630,7 @@ ASN1Syntax >> typeConstraints [
 	^ (namedConstraint separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> typeFieldReference [
 	"Spec:
 		A 'typefieldreference' shall consist of an ampersand ('&') immediately followed by a sequence of 
@@ -2637,33 +2638,33 @@ ASN1Syntax >> typeFieldReference [
 	^ $& asParser, typeReference ==> #second
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> typeFieldSpec [
 	"Spec:
 		TypeFieldSpec ::= typefieldreference TypeOptionalitySpec?"
 	^ (typeFieldReference, typeOptionalitySpec optional)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> typeFromObject [
 	"SPec:
 		TypeFromObject ::= ReferencedObjects '.' FieldName"
 	^ referencedObjects, $. asParser, fieldName 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> typeOptionalitySpec [
 	"Spec:
 		TypeOptionalitySpec ::= OPTIONAL | DEFAULT Type"
 	^ 'OPTIONAL' asParser trim / ('DEFAULT' asParser trim, type)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> typeReference [
 	^self typeReferenceRule 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> typeReferenceRule [
 	"spec:
 		12.2.1	A 'typereference' shall consist of an arbitrary number (one or more) of letters, 
@@ -2674,12 +2675,12 @@ ASN1Syntax >> typeReferenceRule [
 		)) flatten 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> typeReferenceToken [
 	^ self typeReferenceRule asn1Token
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> typeWithConstraint [
 	"Spec:
 		TypeWithConstraint ::= 
@@ -2699,7 +2700,7 @@ ASN1Syntax >> typeWithConstraint [
 		(namedType / type)
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> unions [
 	"Spec:
 		Unions ::= 
@@ -2711,7 +2712,7 @@ ASN1Syntax >> unions [
 	^ (intersections separatedBy: (($| asParser / 'UNION' asParser) asn1Token )) withoutSeparators 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> upperEndPoint [
 	"Spec:
 		UpperEndpoint ::= UpperEndValue | '<' UpperEndValue"
@@ -2720,7 +2721,7 @@ ASN1Syntax >> upperEndPoint [
 	^ $< asParser trim optional,  (value / 'MAX' asParser trim)
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> usefulObjectClassReference [
 	"Spec:
 		UsefulObjectClassReference ::=
@@ -2729,14 +2730,14 @@ ASN1Syntax >> usefulObjectClassReference [
 	^ ('TYPE-IDENTIFIER' asParser / 'ABSTRACT-SYNTAX' asParser) trim
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> usefulType [
 	"spec: UsefulType	::= typereference"
 	"Usefultypes are further specified as the following types"
 	^ 'GeneralizedTime' asParser / 'UTCTime' asParser / 'ObjectDescriptior' asParser
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> userDefinedConstraint [
 	"Spec:
 		UserDefinedConstraint ::= CONSTRAINED BY '{' UserDefinedConstraintParameter ',' * '}' "
@@ -2746,7 +2747,7 @@ ASN1Syntax >> userDefinedConstraint [
 		$} asParser asn1Token trim
 ]
 
-{ #category : #'X.682 grammar' }
+{ #category : 'X.682 grammar' }
 ASN1Syntax >> userDefinedConstraintParameter [
 	"Spec:
 		UserDefinedConstraintParameter ::= Governor ':' Value
@@ -2760,7 +2761,7 @@ ASN1Syntax >> userDefinedConstraintParameter [
 		/ definedObjectClass 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> value [
 	"spec:
 		Value ::=
@@ -2775,7 +2776,7 @@ ASN1Syntax >> value [
 	^   openTypeFieldVal /  builtinValue /> referencedValue
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueAssignment [
 	"Spec:
 		ValueAssignment ::= 
@@ -2783,7 +2784,7 @@ ASN1Syntax >> valueAssignment [
 	^ valueReferenceToken, type, '::=' asParser trim, value ==> [:nodes|  Array with: nodes first with: nodes second with: nodes fourth ]
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> valueFieldReference [
 	"Spec:
 		A 'valuefieldreference' shall consist of an ampersand ('&') immediately followed by a sequence of 
@@ -2791,7 +2792,7 @@ ASN1Syntax >> valueFieldReference [
 	^ $& asParser, valueReference ==> #second
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueFromObject [
 	"Spec:
 		ValueFromObject ::= ReferencedObjects '.' FieldName"
@@ -2799,7 +2800,7 @@ ASN1Syntax >> valueFromObject [
 		==> [:nodes| Array with: nodes first with: nodes third. ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueList [
 	"Spec:
 		ValueList ::= 
@@ -2808,21 +2809,21 @@ ASN1Syntax >> valueList [
 	^ (value separatedBy: $, asParser trim) withoutSeparators 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> valueOptionalitySpec [
 	"Spec:
 		ValueOptionalitySpec ::= OPTIONAL | DEFAULT Value"
 	^ 'OPTIONAL' asParser trim / ('DEFAULT' asParser trim, value )
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueRange [
 	"Spec:
 		ValueRange ::= LowerEndpoint '..' UpperEndpoint"
 	^ lowerEndPoint, '..' asParser trim, upperEndPoint ==> [:nodes| nodes copyWithout: nodes second ]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueReference [
 	"spec:
 		A 'valuereference' shall consist of the sequence of characters specified for 
@@ -2831,12 +2832,12 @@ ASN1Syntax >> valueReference [
 	^ identifier
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueReferenceToken [
 	^ valueReference ==> [:node| node value]
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueSet [
 	"Spec:
 		ValueSet ::= '{' ElementSetSpecs '}' "
@@ -2844,7 +2845,7 @@ ASN1Syntax >> valueSet [
 	
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> valueSetFieldReference [
 	"Spec:
 		A 'valuesetfieldreference' shall consist of an ampersand ('&') immediately followed by a sequence of 
@@ -2852,21 +2853,21 @@ ASN1Syntax >> valueSetFieldReference [
 	^ $& asParser, typeReference ==> #second
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> valueSetFromObjects [
 	"Spec:
 		ValueSetFromObjects ::= ReferencedObjects '.' FieldName"
 	^ referencedObjects, $. asParser,  fieldName
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> valueSetOptionalitySpec [ 
 	"Spec:
 		ValueSetOptionalitySpec ::= OPTIONAL | DEFAULT ValueSet"
 	^ 'OPTIONAL' asParser  / ('DEFAULT' asParser, valueSet) 
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> valueSetTypeAssignment [
 	"Spec:
 		ValueSetTypeAssignment ::= 
@@ -2875,28 +2876,28 @@ ASN1Syntax >> valueSetTypeAssignment [
 		==> [:nodes|  Array with: nodes first with: nodes second with: nodes fourth ]
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> variableTypeValueFieldSpec [
 	"Spec:
 		VariableTypeValueFieldSpec ::= valuefieldreference FieldName ValueOptionalitySpec ?"
 	^ (valueFieldReference, fieldName, valueOptionalitySpec optional ) 
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> variableTypeValueSetFieldSpec [
 	"Spec:
 		VariableTypeValueSetFieldSpec ::= valuesetfieldreference FieldName ValueSetOptionalitySpec?"
 	^ valueSetFieldReference, fieldName trim , valueSetOptionalitySpec optional
 ]
 
-{ #category : #'X.680 grammar' }
+{ #category : 'X.680 grammar' }
 ASN1Syntax >> versionNumber [
 	"spec:
 		VersionNumber ::= empty | number ':'"
 	^ (number, $: asParser) optional
 ]
 
-{ #category : #'X.681 grammar' }
+{ #category : 'X.681 grammar' }
 ASN1Syntax >> withSyntaxSpec [
 	"Spec:
 		WithSyntaxSpec ::= WITH SYNTAX SyntaxList"

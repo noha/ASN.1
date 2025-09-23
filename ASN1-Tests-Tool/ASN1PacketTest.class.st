@@ -1,23 +1,24 @@
 Class {
-	#name : #ASN1PacketTest,
-	#superclass : #TestCase,
+	#name : 'ASN1PacketTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'asn1'
 	],
-	#category : 'ASN1-Tests-Tool'
+	#category : 'ASN1-Tests-Tool',
+	#package : 'ASN1-Tests-Tool'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PacketTest >> readFrom: anObject [
 	^ self tcapModule readFrom: anObject readStream inContext: self asn1Model
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PacketTest >> readResolvedFrom: anObject [
 	^ self tcapModule readFrom: anObject readStream inContext: self asn1Model
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1PacketTest >> roundTripTestFor: anObject [
 	| object data  |
 	self asn1Model resolveOidsWhile: [

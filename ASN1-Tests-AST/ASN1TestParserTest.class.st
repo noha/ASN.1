@@ -1,26 +1,27 @@
 Class {
-	#name : #ASN1TestParserTest,
-	#superclass : #PPCompositeParserTest,
-	#category : 'ASN1-Tests-AST'
+	#name : 'ASN1TestParserTest',
+	#superclass : 'PPCompositeParserTest',
+	#category : 'ASN1-Tests-AST',
+	#package : 'ASN1-Tests-AST'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TestParserTest >> expectedFailures [ 
 	^ #( testFooDoubleToken )
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TestParserTest >> parserClass [ 
 	^ ASN1TestParser 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1TestParserTest >> testFoo [
 	self parse: 'foo' rule: #foo.
 	self fail: 'foo ' rule: #foo
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1TestParserTest >> testFooDoubleToken [
 	"double token invokes two times the token parser. Double usage of token parser leads 
 	to a space character at the end of the token"
@@ -28,7 +29,7 @@ ASN1TestParserTest >> testFooDoubleToken [
 	self assert: (self parse: 'foo ' rule: #fooDoubleToken) value = 'foo'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1TestParserTest >> testFooToken [
 	self parse: 'foo' rule: #fooToken.
 	self assert: (self parse: 'foo ' rule: #fooToken) value = 'foo'

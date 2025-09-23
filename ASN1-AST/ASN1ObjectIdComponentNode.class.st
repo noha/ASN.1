@@ -1,21 +1,23 @@
 Class {
-	#name : #ASN1ObjectIdComponentNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1ObjectIdComponentNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'name',
 		'number'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1ObjectIdComponentNode class >> definedName: aString [
 	^ self new
 		name: aString;
 		number: (self definedNumbers at: aString)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdComponentNode class >> definedNumbers [
 	self flag: #needsredesign.
 	^ Dictionary new
@@ -30,7 +32,7 @@ ASN1ObjectIdComponentNode class >> definedNumbers [
 		yourself
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ObjectIdComponentNode class >> isDefinedName: aString [
 	self definedNumbers 
 		at: aString
@@ -38,20 +40,20 @@ ASN1ObjectIdComponentNode class >> isDefinedName: aString [
 	^ false
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1ObjectIdComponentNode class >> name: aString [
 	^ self new
 		name: aString
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1ObjectIdComponentNode class >> name: aString number: aNumber [
 	^ self new
 		name: aString;
 		number: aNumber
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1ObjectIdComponentNode class >> nodes: anObject [
 	anObject isAsn1Node ifTrue: [ ^ anObject ].
 	anObject isNumber ifTrue: [
@@ -65,42 +67,42 @@ ASN1ObjectIdComponentNode class >> nodes: anObject [
 	^ anObject asn1Reference 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1ObjectIdComponentNode class >> number: aNumber [
 	^ self new
 		number: aNumber
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1ObjectIdComponentNode >> = aObjectIdComponent [
 	(self name notNil and: [ aObjectIdComponent name notNil ]) ifTrue: [
 		^ self name = aObjectIdComponent name ].
 	^ self number = aObjectIdComponent number
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ObjectIdComponentNode >> accept: aVisitor [ 
 	^ aVisitor visitObjectIdComponentNode: self
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1ObjectIdComponentNode >> hash [
 	(self name notNil) ifTrue: [
 		^ self name hash].
 	^ self number hash
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdComponentNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdComponentNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdComponentNode >> nodes: aCollectionOrString [
 	(aCollectionOrString isString or: [aCollectionOrString isAsn1Node ]) ifTrue: [
 		name := aCollectionOrString.
@@ -111,18 +113,18 @@ ASN1ObjectIdComponentNode >> nodes: aCollectionOrString [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdComponentNode >> number [
 	^ number ifNil: [
 		number :=  self resolveOidName: name asString ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdComponentNode >> number: anObject [
 	number := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ObjectIdComponentNode >> printNumberOn: aStream [
 	self flag: #needsRedesign.
 	self number 
@@ -130,7 +132,7 @@ ASN1ObjectIdComponentNode >> printNumberOn: aStream [
 		ifNil: [ aStream nextPutAll: 'N/A' ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ObjectIdComponentNode >> printOn: aStream [
 	aStream 
 		nextPutAll: self name printString;
@@ -139,7 +141,7 @@ ASN1ObjectIdComponentNode >> printOn: aStream [
 		nextPut: $)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ObjectIdComponentNode >> resolveOidName: aString [
 	^ self class definedNumbers 
 		at: aString 

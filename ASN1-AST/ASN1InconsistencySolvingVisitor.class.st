@@ -1,10 +1,12 @@
 Class {
-	#name : #ASN1InconsistencySolvingVisitor,
-	#superclass : #ASN1RewriteVisitor,
-	#category : 'ASN1-AST-Visitor'
+	#name : 'ASN1InconsistencySolvingVisitor',
+	#superclass : 'ASN1RewriteVisitor',
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1InconsistencySolvingVisitor >> visitDefinedSyntaxObjectNode: aNode [ 
 	"Another ambiguity to solve. A literal node that consists only of uppercase letters
 	takes precedence of a type reference. So we have a few literal nodes where there

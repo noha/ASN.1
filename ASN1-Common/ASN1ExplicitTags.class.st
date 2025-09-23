@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1ExplicitTags,
-	#superclass : #ASN1TagEnvironment,
-	#category : 'ASN1-Common'
+	#name : 'ASN1ExplicitTags',
+	#superclass : 'ASN1TagEnvironment',
+	#category : 'ASN1-Common',
+	#package : 'ASN1-Common'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ExplicitTags class >> isExplicit [ 
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExplicitTags class >> label [
 	^ 'EXPLICIT'
 ]

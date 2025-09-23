@@ -1,1 +1,1 @@
-Package { #name : #'ASN1-Syntax' }
+Package { #name : 'ASN1-Syntax' }

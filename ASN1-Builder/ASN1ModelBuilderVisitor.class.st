@@ -1,22 +1,23 @@
 Class {
-	#name : #ASN1ModelBuilderVisitor,
-	#superclass : #ASN1RewriteVisitor,
+	#name : 'ASN1ModelBuilderVisitor',
+	#superclass : 'ASN1RewriteVisitor',
 	#instVars : [
 		'module',
 		'objects',
 		'hits'
 	],
-	#category : 'ASN1-Builder'
+	#category : 'ASN1-Builder',
+	#package : 'ASN1-Builder'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ASN1ModelBuilderVisitor >> initialize [ 
 	super initialize.
 	objects := IdentityDictionary new.
 	hits := IdentityDictionary new.
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> useModule: aModule during: aBlock [
 	| previousModule |
 	previousModule := module.
@@ -26,7 +27,7 @@ ASN1ModelBuilderVisitor >> useModule: aModule during: aBlock [
 	
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visit: aNode [
 	| object |
 	aNode isNil ifTrue: [ ^ nil ].
@@ -43,19 +44,19 @@ ASN1ModelBuilderVisitor >> visit: aNode [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitAmbiguousNode: aNode [
 	self inform: 'there shouldnt be any ambiguous nodes at this stage'.
 	^ self visitNode: aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitAnyTypeNode: aNode [
 	^ ASN1AnyType new
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitAssignmentNode: anAssignment [
 	| right |
 	right := (self visit: anAssignment right).
@@ -63,7 +64,7 @@ ASN1ModelBuilderVisitor >> visitAssignmentNode: anAssignment [
 		
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitBinaryBitStringValueNode: aBitStringValueNode [ 
 
 	^ ASN1BinaryBitStringValue new
@@ -72,14 +73,14 @@ ASN1ModelBuilderVisitor >> visitBinaryBitStringValueNode: aBitStringValueNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitBitStringNode: aBitString [ 
 	^ ASN1BitStringType new
 		namedBits: (self visitAll: aBitString bits);
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitBitStringValueNode: aBitStringValueNode [ 
 	^ ASN1BitStringValue new
 		type: (self visit: aBitStringValueNode type) value;
@@ -87,7 +88,7 @@ ASN1ModelBuilderVisitor >> visitBitStringValueNode: aBitStringValueNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitChoiceNode: aNode [
 	"If a choice has a choice as element all elements if the child choice are copied into this instance. This resolves context 
 	specific tagged elements to the location where they are resolved from an encoding"
@@ -105,7 +106,7 @@ ASN1ModelBuilderVisitor >> visitChoiceNode: aNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitChoiceValueNode: aChoiceValueNode [ 
 	^ ASN1ChoiceValue new
 		type: aChoiceValueNode choice;
@@ -113,7 +114,7 @@ ASN1ModelBuilderVisitor >> visitChoiceValueNode: aChoiceValueNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitComponentTypeNode: aComponentTypeNode [
 	"assign the type of the node to its default value if there is any. Convert
 	the component type to a association holding key and value of the 
@@ -131,25 +132,25 @@ ASN1ModelBuilderVisitor >> visitComponentTypeNode: aComponentTypeNode [
 			yourself)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitComponentsOfNode: aComponentsOf [ 
 	Error signal: 'this method should not be called. '
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitConstraintNode: aNode [
 	^ ASN1Constraint new
 		constraint: (self visit: aNode constraint );
 		exception: (self visit: aNode exception)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitDefaultSyntaxClassNode: aNode [ 
 	^ ASN1ClassType new
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitDefinedSyntaxClassNode: aNode [
 	"classes should not be needed beyond this point. Classes just help
 	instantiating objects"
@@ -158,7 +159,7 @@ ASN1ModelBuilderVisitor >> visitDefinedSyntaxClassNode: aNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitDefinedSyntaxObjectNode: aNode [
 	|  dict |
 	dict := aNode parseSyntax.
@@ -176,7 +177,7 @@ ASN1ModelBuilderVisitor >> visitDefinedSyntaxObjectNode: aNode [
 		initializeFromDict: dict
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitElementsNode: aNode [
 	^ ASN1ElementComplement new
 		included: (self visit: aNode entity);
@@ -184,7 +185,7 @@ ASN1ModelBuilderVisitor >> visitElementsNode: aNode [
 		
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitEnumeratedNode: aNode [
 	^ ASN1EnumeratedType new
 		elements: (self visitAll: aNode elements);
@@ -192,25 +193,25 @@ ASN1ModelBuilderVisitor >> visitEnumeratedNode: aNode [
 		sanitizeValues
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitExtensionAndExceptionNode: anExtensionNode [ 
 	"ignoring the exception for now"
 	self flag: #needsRedesign.
 	^ ASN1Extension new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitExtensionNode: anExtensionNode [ 
 	^ ASN1Extension new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitExternalNode: aNode [
 	^ ASN1ExternalType new 
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitHexBitStringValueNode: aBitStringValueNode [ 
 
 	^ ASN1HexBitStringValue new
@@ -219,14 +220,14 @@ ASN1ModelBuilderVisitor >> visitHexBitStringValueNode: aBitStringValueNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitIntegerNode: aNode [
  	^ ASN1IntegerType new
 		namedNumbers: (self visitAll: aNode namedNumbers);
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitIntegerValueNode: aIntegerValueNode [ 
 
 	^ ASN1IntegerValue new
@@ -234,28 +235,28 @@ ASN1ModelBuilderVisitor >> visitIntegerValueNode: aIntegerValueNode [
 		contents: aIntegerValueNode value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitIntersectionNode: aNode [
 	
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitLiteralNode: aNode [
 	^ aNode string
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitModifierDefaultValueNode: aNode [ 
 	^ ASN1ModifierDefaultValue  new 
 		value: (self visit: aNode value)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitModifierOptionalNode: aNode [ 
 	^ ASN1ModifierOptional new
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitModuleDefinitionNode: aModuleDefinition [ 
 	| m |
 	m := ASN1Module new
@@ -275,7 +276,7 @@ ASN1ModelBuilderVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 			^ module ]	
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitNamedBitNode: aNamedBitNode [ 
 	^ ASN1NamedValue new
 		name: aNamedBitNode name;
@@ -283,14 +284,14 @@ ASN1ModelBuilderVisitor >> visitNamedBitNode: aNamedBitNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitNamedNumberNode: aNode [
 	^ ASN1NamedNumber new
 		name: aNode name;
 		number: aNode number
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitNamedTypeNode: aNode [
 	| assoc |
 	assoc := Association new
@@ -299,25 +300,25 @@ ASN1ModelBuilderVisitor >> visitNamedTypeNode: aNode [
 	^ assoc
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitNullTypeNode: aNode [
 	^ ASN1NullType new
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitObjectIdentifierNode: anObjectId [
 	^ (ASN1ObjectIdentifier contents: anObjectId oidString)
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitObjectIdentifierTypeNode: aNode [
 	^ ASN1ObjectIdentifierType new 
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitObjectSetNode: anObjectSetNode [
 	^ ASN1SetType new
 		elements: (self visit: anObjectSetNode elementsSpec);
@@ -325,13 +326,13 @@ ASN1ModelBuilderVisitor >> visitObjectSetNode: anObjectSetNode [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitOpenTypeNode: aNode [
 	^ ASN1OpenType new
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitPrimitiveNode: aNode [
 	"resolve the name of the node to a implementation class
 	of the primitive"
@@ -339,12 +340,12 @@ ASN1ModelBuilderVisitor >> visitPrimitiveNode: aNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitPrimitiveValueNode: aPrimitiveValueNode [ 
 	Error signal: 'this method should never be called'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitReferenceNode: aReferenceNode [
 
 	^ aReferenceNode isDeclaration 
@@ -355,7 +356,7 @@ ASN1ModelBuilderVisitor >> visitReferenceNode: aReferenceNode [
 				during: [ self visit: aReferenceNode definition ] ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitRoot: aRoot [
 	"the default module containing the implicit classes object identifier and abstract
 	syntax is always on first place so we take the second module which is the first
@@ -363,7 +364,7 @@ ASN1ModelBuilderVisitor >> visitRoot: aRoot [
 	^ self visitAll: (aRoot modules reject: [ :each | each identifier name = 'default' ])
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitSelectionTypeNode: aNode [
 	"a selection type selects one slot of a collection type. We need to resolve the type first
 	and then find the the element with corresponding name"
@@ -373,7 +374,7 @@ ASN1ModelBuilderVisitor >> visitSelectionTypeNode: aNode [
 	^ element value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitSequenceNode: aNode [
 	| node |
 	node := aNode normalized.
@@ -387,7 +388,7 @@ ASN1ModelBuilderVisitor >> visitSequenceNode: aNode [
 				dict ] ])
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitSequenceValueNode: aNode [
 	^ ASN1SequenceValue new
 		module: module;
@@ -395,7 +396,7 @@ ASN1ModelBuilderVisitor >> visitSequenceValueNode: aNode [
 			resolved key -> (self visit: resolved value) ])
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitSetNode: aNode [
 	| node |
 	node := aNode normalized.
@@ -404,7 +405,7 @@ ASN1ModelBuilderVisitor >> visitSetNode: aNode [
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitTagNode: aTag [
 	^ ASN1Tag new
 		clazz: aTag tagClass;
@@ -412,7 +413,7 @@ ASN1ModelBuilderVisitor >> visitTagNode: aTag [
 	
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitTaggedTypeNode: aNode [
 	^ ASN1TaggedType new
 		module: module;
@@ -421,7 +422,7 @@ ASN1ModelBuilderVisitor >> visitTaggedTypeNode: aNode [
 		tagEnvironment: aNode tagEnvironment
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitTypeFieldNode: aNode [
 	| result |
 	result := aNode resolveType.
@@ -431,7 +432,7 @@ ASN1ModelBuilderVisitor >> visitTypeFieldNode: aNode [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitTypeFromObjectNode: aTypeFromObject [ 
 	| object |
 	object := aTypeFromObject object dereferenced.
@@ -440,27 +441,27 @@ ASN1ModelBuilderVisitor >> visitTypeFromObjectNode: aTypeFromObject [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitTypedSequenceNode: aNode [
 	^ ASN1TypedSequenceType new
 		type: (self visit: aNode type);
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitTypedSetNode: aNode [
 	^ ASN1TypedSetType new
 		type: (self visit: aNode type);
 		module: module
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitUnionNode: aNode [
 	^ ASN1Union new
 		elements: (self visitAll: aNode elements )
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModelBuilderVisitor >> visitValueSetNode: aNode [
 	^ ASN1SetType new
 		elements: (self visit: aNode elementsSpec );

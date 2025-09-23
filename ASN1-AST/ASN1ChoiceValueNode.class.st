@@ -1,34 +1,36 @@
 Class {
-	#name : #ASN1ChoiceValueNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1ChoiceValueNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'choice',
 		'value'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ChoiceValueNode >> accept: aVisitor [ 
 	^ aVisitor visitChoiceValueNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ChoiceValueNode >> choice [
 	^ choice
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ChoiceValueNode >> choice: anObject [
 	choice := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ChoiceValueNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ChoiceValueNode >> value: anObject [
 	value := anObject
 ]

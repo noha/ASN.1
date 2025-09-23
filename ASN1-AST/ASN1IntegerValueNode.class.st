@@ -1,35 +1,37 @@
 Class {
-	#name : #ASN1IntegerValueNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1IntegerValueNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'value'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1IntegerValueNode >> accept: aVisitor [ 
 	^ aVisitor visitIntegerValueNode: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerValueNode >> defaultTypeClass [
 	^ ASN1IntegerTypeNode 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1IntegerValueNode >> printOn: aStream [
 	aStream
 		nextPutAll: 'integer '.
 	value printOn: aStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerValueNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerValueNode >> value: anObject [
 	value := anObject
 ]

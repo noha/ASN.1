@@ -3,16 +3,18 @@ I am a Tag Value Length (TLV) Stream for Basic Encoding Rules (BER)
 of X.690 and provide very basic reading of a stream.
 "
 Class {
-	#name : #BERTLVStream,
-	#superclass : #Object,
+	#name : 'BERTLVStream',
+	#superclass : 'Object',
 	#instVars : [
 		'stream',
 		'definiteForm'
 	],
-	#category : 'ASN1-Codec-BER'
+	#category : 'ASN1-Codec-BER',
+	#package : 'ASN1-Codec',
+	#tag : 'BER'
 }
 
-{ #category : #creation }
+{ #category : 'creation' }
 BERTLVStream class >> on: aStream [
         ^ self new
             stream: aStream;
@@ -20,36 +22,36 @@ BERTLVStream class >> on: aStream [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> atEnd [
         ^ stream atEnd
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> beIndefinite [
 	definiteForm := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> flush [
 	stream flush
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 BERTLVStream >> initialize [ 
 	super initialize.
 	definiteForm := true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> next [
 	^ [ self nextTaggedValue ]
 		on: ASN1PrematureEndOfStream 
 		do: [ :error | ASN1EncodedError new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> nextAll [
 	| ret |
         ret := OrderedCollection new.
@@ -60,12 +62,12 @@ BERTLVStream >> nextAll [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> nextByte [
 	^ stream next
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> nextPut: anEncodedType [
 	| length array |
 	(BERIdentifier new
@@ -83,19 +85,19 @@ BERTLVStream >> nextPut: anEncodedType [
 	stream nextPutAll: array
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> nextPutConstructed: aConstructedTaggedValue [
 	aConstructedTaggedValue do: [:each|
 		self nextPut: each ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> nextPutPrimitive: aPrimitiveTaggedValue [
 	aPrimitiveTaggedValue hasContent ifTrue: [
 		stream nextPutAll: aPrimitiveTaggedValue contents asByteArray ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> nextTaggedValue [
 	| identifier length clazz source |
 	identifier := self readIdentifier.
@@ -116,22 +118,22 @@ BERTLVStream >> nextTaggedValue [
 		tag: identifier tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> peek [
 	^ stream peek
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> readIdentifier [
 	^ BERIdentifier parseFrom: stream.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> readLength [
 	^ BERLength parseFrom: stream.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERTLVStream >> stream: aStream [
         stream := aStream.
 

@@ -1,34 +1,36 @@
 Class {
-	#name : #ASN1AmbiguitySolvingVisitor,
-	#superclass : #ASN1RewriteVisitor,
+	#name : 'ASN1AmbiguitySolvingVisitor',
+	#superclass : 'ASN1RewriteVisitor',
 	#instVars : [
 		'root',
 		'module'
 	],
-	#category : 'ASN1-AST-Visitor'
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguitySolvingVisitor >> module [
 	^ module
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguitySolvingVisitor >> module: anObject [
 	module := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguitySolvingVisitor >> root [
 	^ root
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AmbiguitySolvingVisitor >> root: anObject [
 	root := anObject
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguitySolvingVisitor >> visit: anObject [
 	anObject isNil ifTrue: [ ^ nil ].
 	^ anObject isAsn1Node 
@@ -36,7 +38,7 @@ ASN1AmbiguitySolvingVisitor >> visit: anObject [
 		ifFalse: [ anObject ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguitySolvingVisitor >> visitAmbiguousNode: anAmbiguousType [
 	"^ (anAmbiguousType alternatives detect: [:each| | type |
 		type := each properties at: #definition ifAbsent: [ nil ].
@@ -47,28 +49,28 @@ ASN1AmbiguitySolvingVisitor >> visitAmbiguousNode: anAmbiguousType [
 		detect: [:each| each canBeAssignedTo: type ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguitySolvingVisitor >> visitAssignmentNode: aNode [
 	^ self 
 		provideType: aNode left type
 		during: [  super visitAssignmentNode: aNode ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguitySolvingVisitor >> visitComponentTypeNode: aNode [
 	^ self 
 		provideType: aNode
 		during: [  super visitComponentTypeNode: aNode ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguitySolvingVisitor >> visitImportNode: aNode [ 
 		^ self 
 		provideType: ASN1ObjectIdentifierTypeNode  new
 		during: [ super visitImportNode: aNode  ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguitySolvingVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 	module := aModuleDefinition.
 	^ self 
@@ -76,7 +78,7 @@ ASN1AmbiguitySolvingVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 		during: [ super visitModuleDefinitionNode: aModuleDefinition  ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AmbiguitySolvingVisitor >> visitReferenceNode: aReferenceNode [
 	aReferenceNode type ifNotNil: [
 		self visit: aReferenceNode type].

@@ -1,20 +1,22 @@
 Class {
-	#name : #ASN1DefaultSyntaxClassNode,
-	#superclass : #ASN1ScopeNode,
+	#name : 'ASN1DefaultSyntaxClassNode',
+	#superclass : 'ASN1ScopeNode',
 	#instVars : [
 		'fields'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultSyntaxClassNode class >> name: aString fields: aCollection [
 	^ self new
 		name: aString;
 		fields: aCollection 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultSyntaxClassNode class >> name: aString fields: aCollection syntax: aSyntaxCollection [
 	^ self new
 		name: aString;
@@ -22,12 +24,12 @@ ASN1DefaultSyntaxClassNode class >> name: aString fields: aCollection syntax: aS
 		syntax: aSyntaxCollection  
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1DefaultSyntaxClassNode >> accept: aVisitor [ 
 	^ aVisitor visitDefaultSyntaxClassNode: self
 ]
 
-{ #category : #binding }
+{ #category : 'binding' }
 ASN1DefaultSyntaxClassNode >> bindingOf: aString [
 	self flag: #incomplete.
 	^ self fields 
@@ -35,47 +37,47 @@ ASN1DefaultSyntaxClassNode >> bindingOf: aString [
 		ifNone: [ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultSyntaxClassNode >> createInstance: aNode [
 	^ aNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefaultSyntaxClassNode >> fieldAt: aString [
 	^ (fields detect: [:each|
 		each name label = aString ]) type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefaultSyntaxClassNode >> fields [
 	^ fields
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefaultSyntaxClassNode >> fields: anObject [
 	fields := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultSyntaxClassNode >> instantiateFieldAt: aString value: anObject [
 	^ (self fieldAt: aString) 
 		dereferenced createInstance: anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1DefaultSyntaxClassNode >> matchesTypeOf: anObject [ 
 	anObject type ifNil: [ Error signal: 'cannot  find type for ', anObject printString ].
 	^ anObject type class = self class.
 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1DefaultSyntaxClassNode >> printOn: aStream [
 	aStream
 		nextPutAll: self class name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefaultSyntaxClassNode >> typeOf: aString [
 	| binding |
 	binding := (self bindingOf: aString).

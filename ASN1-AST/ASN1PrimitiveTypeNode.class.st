@@ -1,46 +1,48 @@
 Class {
-	#name : #ASN1PrimitiveTypeNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1PrimitiveTypeNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'name'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ASN1PrimitiveTypeNode class >> name: aString [
 	^ self new
 		name: aString 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1PrimitiveTypeNode >> accept: aVisitor [ 
 	^ aVisitor visitPrimitiveNode: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1PrimitiveTypeNode >> isPrimitiveNode [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1PrimitiveTypeNode >> isSameType: aType [
 	aType isPrimitiveNode ifFalse: [
 		^ false ].
 	^ name = aType name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveTypeNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveTypeNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1PrimitiveTypeNode >> printOn: aStream [
 	aStream 
 		nextPutAll: 'primitive [';

@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1StreamValue,
-	#superclass : #Object,
-	#category : 'ASN1-Codec'
+	#name : 'ASN1StreamValue',
+	#superclass : 'Object',
+	#category : 'ASN1-Codec',
+	#package : 'ASN1-Codec'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1StreamValue >> isError [
 	^ false
 ]

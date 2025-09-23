@@ -1,20 +1,21 @@
 Class {
-	#name : #ASN1CustomSyntaxTest,
-	#superclass : #PPCompositeParserTest,
-	#category : 'ASN1-Tests-Syntax'
+	#name : 'ASN1CustomSyntaxTest',
+	#superclass : 'PPCompositeParserTest',
+	#category : 'ASN1-Tests-Syntax',
+	#package : 'ASN1-Tests-Syntax'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1CustomSyntaxTest >> parserClass [ 
 	^ ASN1Syntax 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1CustomSyntaxTest >> testBuiltinTypeWithReservedWord [
 	self  parse: 'TeletexString' rule: #builtinType
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1CustomSyntaxTest >> testExampleAssignment [
 	self parse: '-- Start - Added by Eranga
 
@@ -24,7 +25,7 @@ mapSpecificAS ABSTRACT-SYNTAX ::= {
 }' rule: #assignmentList
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1CustomSyntaxTest >> testExampleImports [
 	self parse: '-- EXPORTS everything
 -- Transaction Portion fields.
@@ -65,18 +66,18 @@ IMPORTS
 ;' rule: #imports
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1CustomSyntaxTest >> testNamedTypeUsingReservedWord [
 	self  parse: 'teletexString     TeletexString   (SIZE (1..ub-name))' rule: #namedType
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1CustomSyntaxTest >> testSingleCommentBefore [
 	self  parse: '-- hello
 	TCAPMessages {itu-t recommendation q 773 modules(2) messages(1) version3(3)}' rule: #moduleIdentifier
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1CustomSyntaxTest >> testValueWithSpaceAppended [
 	|  pattern |
 	pattern := self parse: 'dialogue-as-id OBJECT IDENTIFIER ::=

@@ -1,34 +1,36 @@
 Class {
-	#name : #ASN1LiteralNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1LiteralNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'string'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LiteralNode >> = aLiteral [
 	(self class = aLiteral class) ifFalse: [ ^ false ].
 	^ string = aLiteral string
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LiteralNode >> accept: aVisitor [
 	aVisitor visitLiteralNode: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LiteralNode >> hash [
 	^ string hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1LiteralNode >> isLiteralNode [
 	^ true
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 ASN1LiteralNode >> parse: aStream into: aDictionary [
 	| streamToken |
 	streamToken := aStream next.
@@ -37,19 +39,19 @@ ASN1LiteralNode >> parse: aStream into: aDictionary [
 		^ ASN1ParseError signal: 'literals do not match' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LiteralNode >> printOn: aStream [
 	aStream 
 		nextPut: $#;
 		nextPutAll: string
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1LiteralNode >> string [
 	^ string
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1LiteralNode >> string: anObject [
 	string := anObject
 ]

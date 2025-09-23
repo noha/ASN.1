@@ -1,19 +1,21 @@
 Class {
-	#name : #ASN1AssignmentNode,
-	#superclass : #ASN1ScopeNode,
+	#name : 'ASN1AssignmentNode',
+	#superclass : 'ASN1ScopeNode',
 	#instVars : [
 		'left',
 		'right'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1AssignmentNode >> accept: aVisitor [ 
 	^ aVisitor visitAssignmentNode: self
 ]
 
-{ #category : #binding }
+{ #category : 'binding' }
 ASN1AssignmentNode >> bindingOf: aString [
 	right parameters ifNil: [ ^ nil ].
 	^ (right parameters anySatisfy: [:each| each contains: aString ])
@@ -21,17 +23,17 @@ ASN1AssignmentNode >> bindingOf: aString [
 		ifFalse: [ nil ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AssignmentNode >> left [
 	^ left
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AssignmentNode >> left: anObject [
 	left := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1AssignmentNode >> printOn: aStream [
 	aStream 
 		nextPutAll: 'assignment ';
@@ -47,12 +49,12 @@ ASN1AssignmentNode >> printOn: aStream [
 		nextPut: Character cr
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AssignmentNode >> right [
 	^ right
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AssignmentNode >> right: anObject [
 	right := anObject
 ]

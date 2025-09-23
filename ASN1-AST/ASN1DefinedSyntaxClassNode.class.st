@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1DefinedSyntaxClassNode,
-	#superclass : #ASN1DefaultSyntaxClassNode,
+	#name : 'ASN1DefinedSyntaxClassNode',
+	#superclass : 'ASN1DefaultSyntaxClassNode',
 	#instVars : [
 		'syntax'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1DefinedSyntaxClassNode >> accept: aVisitor [ 
 	^ aVisitor visitDefinedSyntaxClassNode: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxClassNode >> assignDefaultTypes [
 	"default values should have type information. It is safe to set it to the fields type if
 	not already set otherwise"
@@ -22,7 +24,7 @@ ASN1DefinedSyntaxClassNode >> assignDefaultTypes [
 				field defaultValue type: field type ] ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxClassNode >> matchesSyntax: aCollection [
 	[ self parseSyntax: aCollection ]
 		on: Error
@@ -30,7 +32,7 @@ ASN1DefinedSyntaxClassNode >> matchesSyntax: aCollection [
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxClassNode >> parseSyntax: aSyntax [
 	| dict |
 	dict := Dictionary new.
@@ -40,17 +42,17 @@ ASN1DefinedSyntaxClassNode >> parseSyntax: aSyntax [
 	^ dict
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinedSyntaxClassNode >> syntax [
 	^ syntax
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinedSyntaxClassNode >> syntax: anObject [
 	syntax := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxClassNode >> validateFields: aDictionary [
 	self fields do: [:field| | value |
 		aDictionary at: field name label ifAbsent: [.
