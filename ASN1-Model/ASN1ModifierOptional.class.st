@@ -1,25 +1,26 @@
 Class {
-	#name : #ASN1ModifierOptional,
-	#superclass : #ASN1BasicObject,
-	#category : 'ASN1-Model'
+	#name : 'ASN1ModifierOptional',
+	#superclass : 'ASN1BasicObject',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ModifierOptional >> isDefaultValue [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ModifierOptional >> isOptional [
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ModifierOptional >> printOn: aStream [
 	aStream nextPutAll: 'optional'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModifierOptional >> type: aType [ 
 	
 ]

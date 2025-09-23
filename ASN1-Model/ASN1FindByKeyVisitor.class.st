@@ -1,25 +1,27 @@
 Class {
-	#name : #ASN1FindByKeyVisitor,
-	#superclass : #ASN1ModelVisitor,
+	#name : 'ASN1FindByKeyVisitor',
+	#superclass : 'ASN1ModelVisitor',
 	#instVars : [
 		'key',
 		'objects'
 	],
-	#category : 'ASN1-Model-Visitor'
+	#category : 'ASN1-Model-Visitor',
+	#package : 'ASN1-Model',
+	#tag : 'Visitor'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ASN1FindByKeyVisitor >> initialize [
 	super initialize.
 	objects := OrderedCollection new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1FindByKeyVisitor >> key: aString [
 	key := aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1FindByKeyVisitor >> object [
 	(objects size > 1) ifTrue: [ 
 		self error: 'multiple objects found with key ', key asString ].
@@ -28,12 +30,12 @@ ASN1FindByKeyVisitor >> object [
 		ifEmpty: [ nil ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1FindByKeyVisitor >> objects [ 
 	  ^ objects
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1FindByKeyVisitor >> visitCollection: aCollection [ 
 
 	^ aCollection elements associations collect: [:each|

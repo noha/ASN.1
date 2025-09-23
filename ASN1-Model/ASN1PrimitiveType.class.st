@@ -1,59 +1,60 @@
 Class {
-	#name : #ASN1PrimitiveType,
-	#superclass : #ASN1EncodedType,
+	#name : 'ASN1PrimitiveType',
+	#superclass : 'ASN1EncodedType',
 	#instVars : [
 		'tag'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1PrimitiveType class >> decode: aByteArray [
 	self notYetImplemented 
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1PrimitiveType class >> encode: anObject [
 	self notYetImplemented 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveType class >> withUniversalType: aString [ 
 	^ self allSubclasses 
 		detect: [ :cls | cls universalType = aString ]
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveType >> asn1ValueClass [
 	^ ASN1PrimitiveValue 
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1PrimitiveType >> isAsn1Primitive [ 
 	^ true
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1PrimitiveType >> newBaseValue: aPrimitiveValue [ 
 	(aPrimitiveValue type class = self class) ifFalse: [ Error signal: 'mismatch in type for existing base value' ].
 	^ aPrimitiveValue 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1PrimitiveType >> newValue: anObject [
 	^ self newValue 
 		contents: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveType >> tag [
 	^ tag ifNil: [
 		tag := self universalTag ]
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1PrimitiveType >> validate: anObject [
 	super validate: anObject
 ]

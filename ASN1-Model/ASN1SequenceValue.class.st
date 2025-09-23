@@ -1,18 +1,19 @@
 Class {
-	#name : #ASN1SequenceValue,
-	#superclass : #ASN1ValueObject,
+	#name : 'ASN1SequenceValue',
+	#superclass : 'ASN1ValueObject',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1SequenceValue >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1SequenceValue >> elements: anObject [
 	elements := anObject
 ]

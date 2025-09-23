@@ -1,6 +1,6 @@
 Class {
-	#name : #ASN1EncodedType,
-	#superclass : #ASN1TypeObject,
+	#name : 'ASN1EncodedType',
+	#superclass : 'ASN1TypeObject',
 	#instVars : [
 		'tagEnvironment'
 	],
@@ -10,10 +10,11 @@ Class {
 	#classInstVars : [
 		'universalTag'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedType class >> buildUniversalTag [
 
 	^ ASN1Tag new
@@ -21,7 +22,7 @@ ASN1EncodedType class >> buildUniversalTag [
 		number: self tagNumber
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedType class >> createUniversalTagNumberMap [
 	^ (Dictionary new)
 		at: 'BOOLEAN' put: 1;
@@ -44,45 +45,45 @@ ASN1EncodedType class >> createUniversalTagNumberMap [
 		yourself.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedType class >> resetUniversalTagNumbers [
 	tagNumbers := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EncodedType class >> tagNumber [
 	^ self universalTagNumbers at: self universalType 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedType class >> universalTag [
 	^ universalTag ifNil: [
 		universalTag := self buildUniversalTag ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedType class >> universalTagNumbers [
 	^  tagNumbers ifNil: [
 		tagNumbers := self createUniversalTagNumberMap ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1EncodedType >> includesTag: aTag [
 	^ self tag = aTag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EncodedType >> tagEnvironment [
 	^ tagEnvironment ifNil: [
 		tagEnvironment := self module tagEnvironment ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EncodedType >> tagEnvironment: anObject [
 	tagEnvironment := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EncodedType >> universalTag [
 	^ self class universalTag 
 ]

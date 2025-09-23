@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1ClassType,
-	#superclass : #ASN1TypeObject,
-	#category : 'ASN1-Model'
+	#name : 'ASN1ClassType',
+	#superclass : 'ASN1TypeObject',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ClassType >> accept: aVisitor [ 
 	^ aVisitor visitClass: self
 ]

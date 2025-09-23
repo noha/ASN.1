@@ -1,32 +1,33 @@
 Class {
-	#name : #ASN1BooleanType,
-	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1BooleanType',
+	#superclass : 'ASN1PrimitiveType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1BooleanType class >> decode: aByteArray [
 	^ aByteArray first ~= 0
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1BooleanType class >> encode: aBoolean [
 	^ aBoolean
 		ifTrue: #[ 16rff ]
 		ifFalse: #[ 16r00 ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BooleanType class >> universalType [
 	^ 'BOOLEAN'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1BooleanType >> accept: aVisitor [ 
 	^ aVisitor visitBooleanType: self
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1BooleanType >> acceptsValue: anObject [
 	^ anObject isKindOf: Boolean
 ]

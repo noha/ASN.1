@@ -1,6 +1,6 @@
-Extension { #name : #Magnitude }
+Extension { #name : 'Magnitude' }
 
-{ #category : #'*asn1-model' }
+{ #category : '*asn1-model' }
 Magnitude >> isAsn1Object [ 
 	^ false
 ]

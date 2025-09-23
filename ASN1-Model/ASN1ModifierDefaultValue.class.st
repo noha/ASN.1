@@ -1,34 +1,35 @@
 Class {
-	#name : #ASN1ModifierDefaultValue,
-	#superclass : #ASN1ModifierOptional,
+	#name : 'ASN1ModifierDefaultValue',
+	#superclass : 'ASN1ModifierOptional',
 	#instVars : [
 		'value'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModifierDefaultValue >> contains: anObject [
 	^ value contains: anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ModifierDefaultValue >> isDefaultValue [
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ModifierDefaultValue >> printOn: aStream [
 	aStream nextPutAll: 'defaultvalue: '.
 	value printOn: aStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModifierDefaultValue >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModifierDefaultValue >> value: anObject [
 	value := anObject
 ]

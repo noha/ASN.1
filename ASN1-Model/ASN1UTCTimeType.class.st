@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1UTCTimeType,
-	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1UTCTimeType',
+	#superclass : 'ASN1PrimitiveType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1UTCTimeType class >> decode: anObject [
 	| stream year |
 	stream := anObject asString readStream.
@@ -22,7 +23,7 @@ ASN1UTCTimeType class >> decode: anObject [
 
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1UTCTimeType class >> encode: aDateAndTime [
 	| date |
 	date := aDateAndTime asUTC.
@@ -37,7 +38,7 @@ ASN1UTCTimeType class >> encode: aDateAndTime [
 		stream nextPut: $Z ]
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 ASN1UTCTimeType class >> readNumberDigits: aNumber from: aStream [
 	| value |
 	value := 0.
@@ -46,12 +47,12 @@ ASN1UTCTimeType class >> readNumberDigits: aNumber from: aStream [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1UTCTimeType class >> universalType [
 	^ 'UTCTime'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeType >> accept: aVisitor [
 	^ aVisitor visitUTCTimeType: self
 ]

@@ -1,25 +1,26 @@
 Class {
-	#name : #ASN1Composite,
-	#superclass : #ASN1ValueObject,
-	#category : 'ASN1-Model'
+	#name : 'ASN1Composite',
+	#superclass : 'ASN1ValueObject',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #associating }
+{ #category : 'associating' }
 ASN1Composite >> -> aSymbol [
 	^ self find: aSymbol asString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Composite >> basicFind: aKey [
 	self subclassResponsibility 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Composite >> find: aKey [
 	^ self basicFind: aKey
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Composite >> find: aKey in: aCollection [
 	aCollection do: [:each|
 		each isAsn1Composite ifTrue: [
@@ -28,7 +29,7 @@ ASN1Composite >> find: aKey in: aCollection [
 	^ nil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1Composite >> isAsn1Composite [ 
 	^ true
 ]

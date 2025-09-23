@@ -1,29 +1,30 @@
 Class {
-	#name : #ASN1Parameter,
-	#superclass : #ASN1BasicObject,
+	#name : 'ASN1Parameter',
+	#superclass : 'ASN1BasicObject',
 	#instVars : [
 		'name',
 		'type'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Parameter >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Parameter >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Parameter >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Parameter >> type: anObject [
 	type := anObject
 ]

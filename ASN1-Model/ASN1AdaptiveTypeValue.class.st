@@ -1,36 +1,37 @@
 Class {
-	#name : #ASN1AdaptiveTypeValue,
-	#superclass : #ASN1ValueObject,
-	#category : 'ASN1-Model'
+	#name : 'ASN1AdaptiveTypeValue',
+	#superclass : 'ASN1ValueObject',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ASN1AdaptiveTypeValue class >> asAsn1TypeIn: aContext [
 	^  (aContext bindingNamed: self asn1TypeName) value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeValue class >> asn1TypeName [
 	self subclassResponsibility 
 ]
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ASN1AdaptiveTypeValue class >> type: aType [
 	^ self new
 		type: aType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeValue >> baseValue [
 	^ self
 ]
 
-{ #category : #finding }
+{ #category : 'finding' }
 ASN1AdaptiveTypeValue >> find: aKey [
 	^ self basicFind: aKey
 ]
 
-{ #category : #finding }
+{ #category : 'finding' }
 ASN1AdaptiveTypeValue >> find: aKey in: aCollection [
 	aCollection do: [:each|
 		each isAsn1Composite ifTrue: [
@@ -39,21 +40,21 @@ ASN1AdaptiveTypeValue >> find: aKey in: aCollection [
 	^ nil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1AdaptiveTypeValue >> isAsn1Composite [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeValue >> mapKeyForMessage: aMessage [
 	^ aMessage selector asString asn1Denormalized
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeValue >> selfExpanding: aBoolean [
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1AdaptiveTypeValue >> validate [
 	type ifNil: [ Error signal: 'type is nil' ].
 	type validate: self

@@ -1,28 +1,29 @@
 Class {
-	#name : #ASN1ExternalValue,
-	#superclass : #ASN1PrimitiveValue,
+	#name : 'ASN1ExternalValue',
+	#superclass : 'ASN1PrimitiveValue',
 	#instVars : [
 		'oid'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ExternalValue >> accept: aVisitor [
 	^ aVisitor visitExternalValue: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExternalValue >> externalValue [
 	^ contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExternalValue >> oid [
 	^ oid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExternalValue >> oid: anObject [
 	oid := anObject
 ]

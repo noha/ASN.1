@@ -1,54 +1,55 @@
 Class {
-	#name : #ASN1ObjectIdentifier,
-	#superclass : #ASN1PrimitiveValue,
-	#category : 'ASN1-Model'
+	#name : 'ASN1ObjectIdentifier',
+	#superclass : 'ASN1PrimitiveValue',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ASN1ObjectIdentifier class >> string: aString [
 	^ self new
 		string: aString
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1ObjectIdentifier >> = anOid [
 	(anOid class = self class) ifFalse: [  ^ false ].
 	^ anOid hasSameValue: contents
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ObjectIdentifier >> accept: aVisitor [ 
 	^ aVisitor visitObjectIdentifier: self
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 ASN1ObjectIdentifier >> asAsn1Oid [
 	^ self 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ObjectIdentifier >> definesOid: aString [
 	^ contents = aString
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ObjectIdentifier >> hasSameValue: anObject [
 	^ contents = anObject
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1ObjectIdentifier >> hash [
 	^ contents hash
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ObjectIdentifier >> printOn: aStream [
 	aStream
 		nextPutAll: 'oid '; 
 		nextPutAll: contents asString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdentifier >> type [
 	^ type ifNil: [ 
 		type := ASN1ObjectIdentifierType new ]
