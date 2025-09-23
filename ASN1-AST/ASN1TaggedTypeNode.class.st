@@ -1,35 +1,37 @@
 Class {
-	#name : #ASN1TaggedTypeNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1TaggedTypeNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'tag',
 		'type',
 		'tagEnvironment'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1TaggedTypeNode >> accept: aVisitor [ 
 	^ aVisitor visitTaggedTypeNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedTypeNode >> basicType [
 	^ self type basicType
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TaggedTypeNode >> bindingOf: aString [
 	^ type bindingOf: aString
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TaggedTypeNode >> matchesTypeOf: aTypeNodeClass [ 
 	^ type matchesTypeOf: aTypeNodeClass 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1TaggedTypeNode >> printOn: aStream [
 	aStream 
 		nextPutAll: type printString.
@@ -39,32 +41,32 @@ ASN1TaggedTypeNode >> printOn: aStream [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedTypeNode >> tag [
 	^ self propertyAt: #tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedTypeNode >> tag: anObject [
 	self propertyAt: #tag put: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedTypeNode >> tagEnvironment [
 	^ tagEnvironment
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedTypeNode >> tagEnvironment: aTagEnvironment [
 	tagEnvironment := aTagEnvironment
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedTypeNode >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedTypeNode >> type: anObject [
 	type := anObject
 ]

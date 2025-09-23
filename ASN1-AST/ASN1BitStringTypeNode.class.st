@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1BitStringTypeNode,
-	#superclass : #ASN1PrimitiveTypeNode,
+	#name : 'ASN1BitStringTypeNode',
+	#superclass : 'ASN1PrimitiveTypeNode',
 	#instVars : [
 		'bits'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1BitStringTypeNode >> accept: aVisitor [ 
 	^ aVisitor visitBitStringNode: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1BitStringTypeNode >> bindingOf: aString [
 	"a bit string consists of a collection of named bits. Resolve the named bit and 
 	return its value"
@@ -22,28 +24,28 @@ ASN1BitStringTypeNode >> bindingOf: aString [
 			ifNotNil: [ :namedBit | namedBit value ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringTypeNode >> bits [
 	^ bits ifNil: [ 
 		bits := Set new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringTypeNode >> bits: anObject [
 	bits := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1BitStringTypeNode >> matchesType: aTypeNodeClass [ 
 	^ self class = aTypeNodeClass 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1BitStringTypeNode >> matchesTypeOf: aTypeNodeClass [ 
 	^ self class = aTypeNodeClass 
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1BitStringTypeNode >> printOn: aStream [
 	aStream nextPutAll: 'BitString('.
 	bits ifNotNil: [

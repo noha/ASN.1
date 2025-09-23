@@ -1,19 +1,20 @@
 Class {
-	#name : #ASN1ToolModelTest,
-	#superclass : #ASN1ToolTest,
+	#name : 'ASN1ToolModelTest',
+	#superclass : 'ASN1ToolTest',
 	#instVars : [
 		'type'
 	],
-	#category : 'ASN1-Tests-Tool'
+	#category : 'ASN1-Tests-Tool',
+	#package : 'ASN1-Tests-Tool'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ToolModelTest >> object [ 
 	^ ASN1AdaptiveTypeObject type: (self bindingAt: 'ComplexSequence')
 		
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ToolModelTest >> testAddElementToTypedCollection [
 	| col |
 	col := self typedCollection.
@@ -22,7 +23,7 @@ ASN1ToolModelTest >> testAddElementToTypedCollection [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ToolModelTest >> testReadExistingFieldNoValue [
 	| object |
 	object := self object.
@@ -30,7 +31,7 @@ ASN1ToolModelTest >> testReadExistingFieldNoValue [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ToolModelTest >> testReadExistingFieldWithValue [
 	| object |
 	object := self object.
@@ -39,7 +40,7 @@ ASN1ToolModelTest >> testReadExistingFieldWithValue [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ToolModelTest >> testReadNonExistingField [
 	| object |
 	object := self object.
@@ -48,21 +49,21 @@ ASN1ToolModelTest >> testReadNonExistingField [
 		raise: ASN1InvalidFieldName 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ToolModelTest >> testWriteExpandingExistingMultiNestedField [
 	| object |
 	object := self object.
 	object beSelfExpanding sub sub3 first: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ToolModelTest >> testWriteExpandingExistingNestedField [
 	| object |
 	object := self object.
 	object beSelfExpanding sub sub1: 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ToolModelTest >> testWriteNonExistingField [
 	| object |
 	object := self object.
@@ -72,7 +73,7 @@ ASN1ToolModelTest >> testWriteNonExistingField [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ToolModelTest >> typedCollection [ 
 	^ ASN1AdaptiveTypeCollection type: (self bindingAt: 'TypedComplexSequence')
 		

@@ -1,6 +1,6 @@
 Class {
-	#name : #ASN1ModuleDefinitionNode,
-	#superclass : #ASN1ScopeNode,
+	#name : 'ASN1ModuleDefinitionNode',
+	#superclass : 'ASN1ScopeNode',
 	#instVars : [
 		'identifier',
 		'encodingReferenceDefault',
@@ -11,111 +11,113 @@ Class {
 		'assignments',
 		'encodingControlSections'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ModuleDefinitionNode >> accept: aVisitor [ 
 	^ aVisitor visitModuleDefinitionNode: self
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 ASN1ModuleDefinitionNode >> addAsModuleTo: anASTRoot [ 
 	anASTRoot addModule: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> assignments [
 	^ assignments ifNil: [
 		assignments := OrderedCollection new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> assignments: anObject [
 	assignments := anObject
 ]
 
-{ #category : #binding }
+{ #category : 'binding' }
 ASN1ModuleDefinitionNode >> bindingOf: aString [
 	[ ^ self resolveName: aString ]
 	on: Error
 	do: [:err| ^ nil ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> encodingControlSections [
 	^ encodingControlSections
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> encodingControlSections: anObject [
 	encodingControlSections := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> encodingReferenceDefault [
 	^ encodingReferenceDefault ifNil: [
 		encodingReferenceDefault := ASN1TagEncodingReference new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> encodingReferenceDefault: anObject [
 	encodingReferenceDefault := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> exports [
 	^ exports ifNil: [
 		exports := OrderedCollection new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> exports: anObject [
 	exports := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> extensionDefault [
 	^ extensionDefault
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> extensionDefault: anObject [
 	extensionDefault := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> identifier [
 	^ identifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> identifier: anObject [
 	identifier := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> importIdentifiers [
 	^ self imports collect: #moduleIdentifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> imports [
 	^ imports ifNil: [
 		imports := OrderedCollection new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> imports: anObject [
 	imports := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ModuleDefinitionNode >> isAsn1ModuleDefinitionNode [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> localNames [
 	^ (self assignments 
 		collect: [:each| 
@@ -123,17 +125,17 @@ ASN1ModuleDefinitionNode >> localNames [
 
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ASN1ModuleDefinitionNode >> matches: aModuleIdentifier [
 	^ self identifier = aModuleIdentifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> moduleName [
 	^ self identifier name
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ModuleDefinitionNode >> printOn: aStream [
 	"identifier encodingReferenceDefault tagDefault extensionDefault exports imports assignments encodingControlSections"
 	identifier printOn: aStream.
@@ -155,12 +157,12 @@ ASN1ModuleDefinitionNode >> printOn: aStream [
 		aStream nextPut: Character cr ]."
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ModuleDefinitionNode >> providesScope [ 
 	^ true
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModuleDefinitionNode >> resolveImportedName: aString [
 	self imports do: [:import|
 		import symbols do: [:symbol|
@@ -169,7 +171,7 @@ ASN1ModuleDefinitionNode >> resolveImportedName: aString [
 	^ nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModuleDefinitionNode >> resolveLocalName: aString [
 	^ self localNames 
 		at: aString
@@ -177,7 +179,7 @@ ASN1ModuleDefinitionNode >> resolveLocalName: aString [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModuleDefinitionNode >> resolveName: aString [
 	^ (self resolveLocalName: aString) ifNil: [
 		(self resolveImportedName: aString)
@@ -185,13 +187,13 @@ ASN1ModuleDefinitionNode >> resolveName: aString [
 			ifNil: [ Error signal: 'could not resolve name ', aString ]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> tagDefault [
 	^ tagDefault ifNil: [
 		tagDefault := ASN1ExplicitTags  ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ModuleDefinitionNode >> tagDefault: anObject [
 	tagDefault := anObject
 ]

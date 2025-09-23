@@ -1,14 +1,15 @@
 Class {
-	#name : #ASN1Tag,
-	#superclass : #Object,
+	#name : 'ASN1Tag',
+	#superclass : 'Object',
 	#instVars : [
 		'clazz',
 		'number'
 	],
-	#category : 'ASN1-Common'
+	#category : 'ASN1-Common',
+	#package : 'ASN1-Common'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Tag class >> classLabelOf:  aNumber [
 	| label |
 	label := aNumber bitAnd: 3.
@@ -23,7 +24,7 @@ ASN1Tag class >> classLabelOf:  aNumber [
 	Error signal: 'invalid tag class number'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Tag class >> classNumberOf: aString [
 	(aString = 'UNIVERSAL') ifTrue: [
 		^ 0 ].
@@ -36,60 +37,60 @@ ASN1Tag class >> classNumberOf: aString [
 	Error signal: 'class identifier cannot be found'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Tag class >> clazz: aString number: aNumber [
 	^ self new
 		clazz: aString;
 		number: aNumber
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1Tag >> = aTag [
 	^ (clazz = aTag clazz) and: [ number = aTag number ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Tag >> clazz [
 	^ clazz
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Tag >> clazz: anObject [
 	clazz := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Tag >> clazzIdentifier [
 	^ self class classNumberOf: clazz
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Tag >> clazzString [
 	^ clazz ifNil: [ 'CONTEXT' ]
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1Tag >> hash [
 	^ clazz hash bitXor: number hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1Tag >> isLabelled: aString [
 	 ^ ($: split: aString) asArray = { self clazzString  . number asString }
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Tag >> number [
 	^ number
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Tag >> number: anObject [
 	number := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1Tag >> printOn: aStream [
 	aStream
 		nextPutAll: (self clazz ifNil: [ 'CONTEXT' ]);
@@ -97,7 +98,7 @@ ASN1Tag >> printOn: aStream [
 		nextPutAll: self number printString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1Tag >> writeOn: aStream constructed: constructed [
 	| byte |
 	byte := self clazzIdentifier bitShift: 6.

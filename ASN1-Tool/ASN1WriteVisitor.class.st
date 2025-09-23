@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1WriteVisitor,
-	#superclass : #ASN1ModelVisitor,
+	#name : 'ASN1WriteVisitor',
+	#superclass : 'ASN1ModelVisitor',
 	#instVars : [
 		'currentValue'
 	],
-	#category : 'ASN1-Tool-Visitor'
+	#category : 'ASN1-Tool-Visitor',
+	#package : 'ASN1-Tool',
+	#tag : 'Visitor'
 }
 
-{ #category : #exceptions }
+{ #category : 'exceptions' }
 ASN1WriteVisitor >> mandatoryElementNotFound [
 	ASN1MandatoryElementNotFound signal
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1WriteVisitor >> push: anObject during: aBlock [
 	|  formerValue |
 	anObject ifNil: [  Error signal: 'cannot push nil onto stack' ].
@@ -21,7 +23,7 @@ ASN1WriteVisitor >> push: anObject during: aBlock [
 	^aBlock ensure: [ currentValue := formerValue ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visit: aType [
 	(aType isNil ifTrue: [ Error signal: 'type cannot be nil' ]).
 	"we need either a ASN.1 value object or an already encoded value"
@@ -32,7 +34,7 @@ ASN1WriteVisitor >> visit: aType [
 	^ super visit: aType
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitChoiceType: aChoice [
 	| key type  |
 	key := currentValue keys first.
@@ -42,13 +44,13 @@ ASN1WriteVisitor >> visitChoiceType: aChoice [
 		during: [ self visit: type ].
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitEnumeratedType: anEnumerated [
 	
 	^ currentValue encodedValue
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitExternalType: anExternalType [
 	| encoded module   |
 	encoded := ASN1EncodedConstructedValue new
@@ -67,13 +69,13 @@ ASN1WriteVisitor >> visitExternalType: anExternalType [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitObjectIdentifierType: anObjectIdentifier [ 	
 	^ anObjectIdentifier encodedValue: currentValue contents.
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitOpenType: anOpenType [
 	self flag: #hack.
 	"oid := ASN1OpenTypeDefinition signal."
@@ -84,13 +86,13 @@ ASN1WriteVisitor >> visitOpenType: anOpenType [
 			during: [self visit: currentValue type ] ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitPrimitiveType: aPrimitiveType [
 	(currentValue type class = aPrimitiveType class) ifFalse: [ Error signal: 'primitive types do not match' ].
 	^ currentValue encodedValue "aPrimitive encodedValue: currentValue value"
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitSequenceType: aSequence [ 
 	|  encoded object |
 	encoded := ASN1EncodedConstructedValue new
@@ -114,7 +116,7 @@ ASN1WriteVisitor >> visitSequenceType: aSequence [
 	^ encoded
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitTaggedType: aTaggedType [ 
 	"tag the type based on the existance of an explicit tag and itsaTaggedType
 	tag environment"
@@ -124,7 +126,7 @@ ASN1WriteVisitor >> visitTaggedType: aTaggedType [
 			during: [ self visit: aTaggedType type ])
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1WriteVisitor >> visitTypedCollection: aTypedSequence [ 
 	"All elements that are on the top of the stack are encoded with the type
 	of the typed sequence"
@@ -138,14 +140,14 @@ ASN1WriteVisitor >> visitTypedCollection: aTypedSequence [
 	^ encoded
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 ASN1WriteVisitor >> write: anObject using: anAsn1Type [
 	currentValue := anObject.
 	^ self visit: anAsn1Type
 
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 ASN1WriteVisitor >> write: anObject usingModule: aModule [
 	currentValue := anObject.
 	^ self visit: aModule pdu

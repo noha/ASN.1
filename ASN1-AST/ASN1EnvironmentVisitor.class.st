@@ -1,25 +1,27 @@
 Class {
-	#name : #ASN1EnvironmentVisitor,
-	#superclass : #ASN1ASTVisitor,
+	#name : 'ASN1EnvironmentVisitor',
+	#superclass : 'ASN1ASTVisitor',
 	#instVars : [
 		'errors',
 		'scope'
 	],
-	#category : 'ASN1-AST-Visitor'
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EnvironmentVisitor >> errors [
 	^ errors ifNil: [
 		errors := OrderedCollection new ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1EnvironmentVisitor >> popScope [
 	scope := scope parent 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1EnvironmentVisitor >> pushScope: aScopeObject [
 	"bring aScopeObject to the front of the scope chain"
 	| currentScope |
@@ -29,24 +31,24 @@ ASN1EnvironmentVisitor >> pushScope: aScopeObject [
 	scope := currentScope
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> pushScope: aScopeObject during: aBlock [
 	self pushScope: aScopeObject.
 	aBlock value.
 	self popScope 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EnvironmentVisitor >> root: anObject [
 	self pushScope: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EnvironmentVisitor >> scope [
 	^ scope
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> visit: aNode [
 	aNode ifNil: [ ^ self  ].
 	aNode providesScope 
@@ -57,7 +59,7 @@ ASN1EnvironmentVisitor >> visit: aNode [
 		ifFalse: [  super visit: aNode ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> visitAssignmentNode: anAssignmentNode [
 	"resolve left side of assignment and its type to add the left side type as scope 
 	object when resolving the right side of the assignment. A right side value
@@ -72,7 +74,7 @@ ASN1EnvironmentVisitor >> visitAssignmentNode: anAssignmentNode [
 	self visit: anAssignmentNode right
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> visitComponentTypeNode: aNode [ 
 	self 
 		pushScope: aNode 
@@ -80,7 +82,7 @@ ASN1EnvironmentVisitor >> visitComponentTypeNode: aNode [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> visitDefaultSyntaxClassNode: aDefaultSyntaxClassNode [ 
 	self 
 		pushScope: aDefaultSyntaxClassNode 
@@ -88,21 +90,21 @@ ASN1EnvironmentVisitor >> visitDefaultSyntaxClassNode: aDefaultSyntaxClassNode [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> visitDefinedSyntaxClassNode: aDefinedSyntaxClassNode [ 
 	self
 		pushScope: aDefinedSyntaxClassNode
 		during: [  super visitDefinedSyntaxClassNode: aDefinedSyntaxClassNode ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> visitReferenceNode: aReferenceNode [
 	self 
 		pushScope: aReferenceNode 
 		during: [ super visitReferenceNode: aReferenceNode ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnvironmentVisitor >> visitTypeFieldNode: aTypeFieldNode [
 	self visit: aTypeFieldNode type.
 	self 

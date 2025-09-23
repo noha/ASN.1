@@ -1,61 +1,63 @@
 Class {
-	#name : #ASN1RewriteVisitor,
-	#superclass : #ASN1ASTVisitor,
-	#category : 'ASN1-AST-Visitor'
+	#name : 'ASN1RewriteVisitor',
+	#superclass : 'ASN1ASTVisitor',
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> provideType: aNode during: aBlock [
 	^ ASN1ClosestTypeDefinition 
 		use: aNode
 		during: aBlock
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visit: anObject [
 	anObject isNil ifTrue: [ ^ nil ].
 	^ anObject accept: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitAll: aCollection [
 	aCollection isNil ifTrue: [ ^ aCollection ].
 	^ aCollection collect: [:each|
 		self visit: each ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitAmbiguousNode: anAmbiguousNode [ 
 	^ anAmbiguousNode alternatives: (self visitAll: anAmbiguousNode alternatives)
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitAssignmentNode: anAssignmentNode [ 
 	anAssignmentNode left: (self visit: anAssignmentNode left).
 	anAssignmentNode right: (self visit: anAssignmentNode right).
 	^ anAssignmentNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitCollectionNode: aCollection [ 
 	^ aCollection elements: (self visitAll: aCollection elements)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitComponentTypeListNode: aComponentTypeList [ 
 	aComponentTypeList components: (self visitAll: aComponentTypeList components).
 	^ aComponentTypeList 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitComponentTypeNode: aComponentTypeNode [ 
 	aComponentTypeNode type type: (self visit: aComponentTypeNode type type).
 	aComponentTypeNode modifiers: (self visit: aComponentTypeNode modifiers).
 	^ aComponentTypeNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitConstraintNode: aNode [
 	self flag: #disabledForNow.
 	"aNode constraint: (self visit: aNode constraint)."
@@ -63,20 +65,20 @@ ASN1RewriteVisitor >> visitConstraintNode: aNode [
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitDefaultSyntaxClassNode: aDefaultSyntaxClassNode [
 	^ aDefaultSyntaxClassNode fields: (self visitAll: aDefaultSyntaxClassNode fields).
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitDefinedSyntaxClassNode: aDefinedSyntaxClass [ 
 	aDefinedSyntaxClass fields: (self visitAll: aDefinedSyntaxClass fields).
 	aDefinedSyntaxClass syntax: (self visit: aDefinedSyntaxClass syntax).
 	^ aDefinedSyntaxClass 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitDefinedSyntaxObjectNode: aDefinedSyntaxObjectNode [
 	| parsed objectClass |
 	"Process syntax for possible rewrites. For defined syntax objects the type information
@@ -97,40 +99,40 @@ ASN1RewriteVisitor >> visitDefinedSyntaxObjectNode: aDefinedSyntaxObjectNode [
 	^ aDefinedSyntaxObjectNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitElementsNode: anElements [
 	anElements entity: (self visit: anElements entity).
 	anElements exclusions: (self visitAll: anElements exclusions).
 	^ anElements
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitFieldSpecNode: aFieldSpec [ 
 	aFieldSpec type: (self visit: aFieldSpec type).
 	^ aFieldSpec 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitImportNode: anImport [
 	anImport moduleIdentifier: (self visit: anImport moduleIdentifier).
 	anImport symbols: (self visitAll: anImport symbols).
 	^ anImport
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitIntegerNode: anInteger [
 	^ (self visitTypeNode: anInteger)
 		namedNumbers: (self visitAll: anInteger namedNumbers).
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitModifierDefaultValueNode: aNode [ 
 	aNode value: (self visit: aNode value).
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 	self flag: #incomplete.
 	aModuleDefinition identifier: (self visit: aModuleDefinition identifier).
@@ -140,18 +142,18 @@ ASN1RewriteVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 	^ aModuleDefinition 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitModuleIdentifierNode: aModuleIdentifierNode [ 
 	^ aModuleIdentifierNode oid: (self visit: aModuleIdentifierNode oid)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitNamedTypeNode: aNamedType [ 
 	aNamedType type: (self visit: aNamedType type).
 	^ aNamedType 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitObjectIdentifierNode: anObjectId [
 	self 
 		provideType: anObjectId type 
@@ -160,25 +162,25 @@ ASN1RewriteVisitor >> visitObjectIdentifierNode: anObjectId [
 			^ anObjectId ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitObjectSetNode: anObjectSetNode [
 	^ anObjectSetNode elementsSpec: (self visit: anObjectSetNode elementsSpec)
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitParameterNode: aParameterNode [ 
 	^ ASN1Parameter new
 		name: aParameterNode reference label;
 		type: (self visit: aParameterNode type)
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitPrimitiveValueNode: aPrimitiveValueNode [
 	^ aPrimitiveValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitReferenceNode: aReferenceNode [
 	aReferenceNode type ifNotNil: [
 		aReferenceNode type: (self visit: aReferenceNode type)].
@@ -187,19 +189,19 @@ ASN1RewriteVisitor >> visitReferenceNode: aReferenceNode [
 	^ aReferenceNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitRoot: aRoot [
 	aRoot modules: (self visitAll: aRoot modules).
 	^ aRoot
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitSelectionTypeNode: aSelectionTypeNode [ 
 	^ aSelectionTypeNode type: (self visit: aSelectionTypeNode type)
 	
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitTaggedTypeNode: aNode [
 	| type |
 	aNode tag: (self visit: aNode tag).
@@ -208,32 +210,32 @@ ASN1RewriteVisitor >> visitTaggedTypeNode: aNode [
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitTypeFieldNode: aTypeFieldNode [ 
 	aTypeFieldNode type: (self visit: aTypeFieldNode type).
 	aTypeFieldNode fields: (self visitAll: aTypeFieldNode fields).
 	^ aTypeFieldNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitTypeFromObjectNode: aTypeFromObject [ 
 	aTypeFromObject object: (self visit: aTypeFromObject object).
 	^ aTypeFromObject 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitTypeNode: aTypeNode [
 	^ aTypeNode constraints: (self visitAll: aTypeNode constraints)
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitUnionNode: aUnion [
 	aUnion elements: (self visitAll: aUnion elements).
 	^ aUnion
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RewriteVisitor >> visitValueSetNode: aValueSet [ 
 	^ aValueSet elementsSpec: (self visit: aValueSet elementsSpec)
 ]

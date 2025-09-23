@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1DefaultModuleLibrary,
-	#superclass : #ASN1ClassModuleLibrary,
-	#category : 'ASN1-Builder'
+	#name : 'ASN1DefaultModuleLibrary',
+	#superclass : 'ASN1ClassModuleLibrary',
+	#category : 'ASN1-Builder',
+	#package : 'ASN1-Builder'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary class >> globalDeclarations [ 
 	^'
 	itu-t OBJECT IDENTIFIER ::= { itu-t (0) }
@@ -12,7 +13,7 @@ ASN1DefaultModuleLibrary class >> globalDeclarations [
 	joint-iso-itu-t OBJECT IDENTIFIER ::= { joint-iso-itu-t (2) }'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> abstractSyntaxClass [
 	 ^ (ASN1ASTParser 
 		parse: ASN1Syntax abstractSyntax 
@@ -20,34 +21,34 @@ ASN1DefaultModuleLibrary >> abstractSyntaxClass [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> dependencies [
 	^ #()
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> globalDeclarations [
 	^ ASN1ASTParser 
 		parse: self class globalDeclarations 
 		startingAt: #assignmentList
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1DefaultModuleLibrary >> includesModuleNamed: aString [ 
 	^ false
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> moduleNamed: aString [ 
 	^ self newDefaultModule 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> name [
 	^ 'default'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> newDefaultModule [
 	| module |
 	ASN1Configuration default failOnReservedWords: false.
@@ -65,12 +66,12 @@ ASN1DefaultModuleLibrary >> newDefaultModule [
 	^ module
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> rootModules [
 	^ #( default )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefaultModuleLibrary >> typeIdentifierClass [
 	^ (ASN1ASTParser 
 		parse: ASN1Syntax typeIdentifier 

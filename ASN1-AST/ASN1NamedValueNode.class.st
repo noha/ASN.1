@@ -1,34 +1,36 @@
 Class {
-	#name : #ASN1NamedValueNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1NamedValueNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'name',
 		'value'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1NamedValueNode >> accept: aVisitor [ 
 	^ aVisitor visitNamedValueNode: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedValueNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedValueNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedValueNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedValueNode >> value: anObject [
 	value := anObject
 ]

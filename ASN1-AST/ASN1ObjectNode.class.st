@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1ObjectNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1ObjectNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'attributes'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectNode >> attributes [
 	^ attributes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectNode >> attributes: anObject [
 	attributes := anObject
 ]

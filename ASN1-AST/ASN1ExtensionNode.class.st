@@ -1,26 +1,28 @@
 Class {
-	#name : #ASN1ExtensionNode,
-	#superclass : #ASN1ASTNode,
-	#category : 'ASN1-AST-Nodes'
+	#name : 'ASN1ExtensionNode',
+	#superclass : 'ASN1ASTNode',
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ExtensionNode >> accept: aVisitor [ 	
 	^ aVisitor visitExtensionNode: self 
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 ASN1ExtensionNode >> asUnion [
 	^ ASN1UnionNode new 
 		elements: (Array with: self )
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ExtensionNode >> printOn: aStream [
 	aStream nextPutAll: 'EXTENSION'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExtensionNode >> type: anObject [
 	
 ]

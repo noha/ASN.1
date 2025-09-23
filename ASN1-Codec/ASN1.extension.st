@@ -1,11 +1,11 @@
-Extension { #name : #ASN1 }
+Extension { #name : 'ASN1' }
 
-{ #category : #'*asn1-codec' }
+{ #category : '*asn1-codec' }
 ASN1 class >> codecStreamClass [
 	^ BERTLVStream 
 ]
 
-{ #category : #'*asn1-codec' }
+{ #category : '*asn1-codec' }
 ASN1 class >> readEncodedValuesFrom: aStream [
 	| encodedValue |
 	encodedValue := self 
@@ -16,7 +16,7 @@ ASN1 class >> readEncodedValuesFrom: aStream [
 	^ encodedValue
 ]
 
-{ #category : #'*asn1-codec' }
+{ #category : '*asn1-codec' }
 ASN1 class >> readEncodedValuesFrom: aStream usingCodecStream: aClass [
 	^ (aClass on: aStream) next
 ]

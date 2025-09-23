@@ -1,23 +1,25 @@
 Class {
-	#name : #ASN1IntegerTypeNode,
-	#superclass : #ASN1PrimitiveTypeNode,
+	#name : 'ASN1IntegerTypeNode',
+	#superclass : 'ASN1PrimitiveTypeNode',
 	#instVars : [
 		'namedNumbers'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1IntegerTypeNode >> accept: aVisitor [ 
 	^ aVisitor visitIntegerNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerTypeNode >> addNamedNumber: aNamedNumber [
 	self namedNumbers add: aNamedNumber
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1IntegerTypeNode >> bindingOf: aString [
 	^ namedNumbers ifNotNil: [ 
 		 namedNumbers
@@ -25,7 +27,7 @@ ASN1IntegerTypeNode >> bindingOf: aString [
 			ifNone: [ nil ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1IntegerTypeNode >> createInstance: aNode [
 	^ (aNode class = ASN1IntegerValueNode )
 		ifTrue: [ aNode ]
@@ -33,19 +35,19 @@ ASN1IntegerTypeNode >> createInstance: aNode [
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ASN1IntegerTypeNode >> initialize [ 
 	super initialize.
 	name := 'INTEGER'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerTypeNode >> namedNumbers [
 	^ namedNumbers ifNil: [
 		namedNumbers := OrderedCollection new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerTypeNode >> namedNumbers: anObject [
 	namedNumbers := anObject
 ]

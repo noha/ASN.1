@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1TagEnvironment,
-	#superclass : #Object,
-	#category : 'ASN1-Common'
+	#name : 'ASN1TagEnvironment',
+	#superclass : 'Object',
+	#category : 'ASN1-Common',
+	#package : 'ASN1-Common'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TagEnvironment class >> labelled: aString [
 	^ self subclasses 
 		detect: [:cls| cls label = aString ]

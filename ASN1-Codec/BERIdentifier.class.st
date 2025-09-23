@@ -1,19 +1,21 @@
 Class {
-	#name : #BERIdentifier,
-	#superclass : #BERStreamFormat,
+	#name : 'BERIdentifier',
+	#superclass : 'BERStreamFormat',
 	#instVars : [
 		'tag',
 		'constructed'
 	],
-	#category : 'ASN1-Codec-BER'
+	#category : 'ASN1-Codec-BER',
+	#package : 'ASN1-Codec',
+	#tag : 'BER'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifier class >> isConstructed: anOctet [
 	^ (anOctet bitAnd: 16r20) > 0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifier class >> parseFrom: aStream [
 	| octet |
 	octet := (self nextFrom: aStream) asInteger.
@@ -26,12 +28,12 @@ BERIdentifier class >> parseFrom: aStream [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifier class >> readHighTagNumber: aStream [
 	^ self readMultipleOctetsWithHighBitSet: aStream
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifier class >> readNumberFrom: anOctet stream: aStream [
 	| number |
 	number := anOctet bitAnd: 16r1F.
@@ -40,22 +42,22 @@ BERIdentifier class >> readNumberFrom: anOctet stream: aStream [
 	^ number
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERIdentifier >> constructed [
 	^ constructed
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERIdentifier >> constructed: anObject [
 	constructed := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BERIdentifier >> isConstructed [
 	^ constructed
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 BERIdentifier >> printOn: aStream [
 	tag printOn: aStream.
 	aStream 
@@ -65,17 +67,17 @@ BERIdentifier >> printOn: aStream [
 			ifFalse: [ ' primitive' ])		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERIdentifier >> tag [
 	^ tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERIdentifier >> tag: anObject [
 	tag := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifier >> writeOn: aStream [
 	self tag writeOn: aStream constructed: constructed
 ]

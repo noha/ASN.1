@@ -1,39 +1,41 @@
 Class {
-	#name : #ASN1TypeFromObjectNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1TypeFromObjectNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'object',
 		'field'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1TypeFromObjectNode >> accept: aVisitor [ 
 	^ aVisitor visitTypeFromObjectNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFromObjectNode >> field [
 	^ field
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFromObjectNode >> field: anObject [
 	field := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFromObjectNode >> object [
 	^ object
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFromObjectNode >> object: anObject [
 	object := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1TypeFromObjectNode >> printOn: aStream [
 	aStream
 		nextPutAll: self object printString;

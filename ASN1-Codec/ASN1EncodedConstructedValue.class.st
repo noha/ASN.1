@@ -1,33 +1,34 @@
 Class {
-	#name : #ASN1EncodedConstructedValue,
-	#superclass : #ASN1EncodedValue,
+	#name : 'ASN1EncodedConstructedValue',
+	#superclass : 'ASN1EncodedValue',
 	#instVars : [
 		'collection'
 	],
-	#category : 'ASN1-Codec'
+	#category : 'ASN1-Codec',
+	#package : 'ASN1-Codec'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedConstructedValue >> add: aType [
 	self elements add: aType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EncodedConstructedValue >> contents [
 	^ self 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedConstructedValue >> do: aBlock [
 	^ collection do: aBlock
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedConstructedValue >> elements [
 	^ collection
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedConstructedValue >> findValueWithTag: aTag [ 
 	(self tag = aTag) ifTrue: [  ^ self ].
 	collection do: [ :each|
@@ -35,23 +36,23 @@ ASN1EncodedConstructedValue >> findValueWithTag: aTag [
 			^ value ] ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedConstructedValue >> firstElement [
 	^ collection first
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1EncodedConstructedValue >> hasError [
 	^ collection anySatisfy: [ :each | each hasError ]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ASN1EncodedConstructedValue >> initialize [ 
 	super initialize.
 	collection := OrderedCollection new 
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ASN1EncodedConstructedValue >> initializeFrom: anObject [
 	| stream |
 	stream := BERTLVStream on: anObject readStream.
@@ -63,24 +64,24 @@ ASN1EncodedConstructedValue >> initializeFrom: anObject [
 		collection add: stream next]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1EncodedConstructedValue >> isConstructed [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EncodedConstructedValue >> size [
 	^ (self elements collect: [ :elem| elem size ]) sum
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedConstructedValue >> valueWithTag: aTag [ 
 	^ collection 
 		detect: [ :each| each tag = aTag ]
 		ifNone: [  nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EncodedConstructedValue >> writeOn: aStream [
 	aStream nextPutConstructed: self
 ]

@@ -1,18 +1,19 @@
 Class {
-	#name : #ASN1ASTRoot,
-	#superclass : #Object,
+	#name : 'ASN1ASTRoot',
+	#superclass : 'Object',
 	#instVars : [
 		'modules'
 	],
-	#category : 'ASN1-AST'
+	#category : 'ASN1-AST',
+	#package : 'ASN1-AST'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTRoot >> accept: aVisitor [
 	^ aVisitor visitRoot: self
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1ASTRoot >> addImportedModules [
 	"load modules that are imported by existing modules recursively"
 	| list seen |
@@ -26,12 +27,12 @@ ASN1ASTRoot >> addImportedModules [
 				list addLast: (self moduleWithIdentifier: identifier) ]]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ASTRoot >> addModule: aModule [
 	^ self modules add: aModule
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1ASTRoot >> addModuleFrom: aString [
 	"add module from a text source. Prevent modules being added if parsing has gone
 	wrong"
@@ -39,7 +40,7 @@ ASN1ASTRoot >> addModuleFrom: aString [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1ASTRoot >> annotateAsts [
 	self
 		resolveImportSymbols;
@@ -52,7 +53,7 @@ ASN1ASTRoot >> annotateAsts [
 		detectPDUs
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ASTRoot >> bindingNamed: aString [
 	self modules do: [:module|
 		module assignments associationsDo: [:assignment|
@@ -61,31 +62,31 @@ ASN1ASTRoot >> bindingNamed: aString [
 	^ nil
 ]
 
-{ #category : #binding }
+{ #category : 'binding' }
 ASN1ASTRoot >> bindingOf: aString [
 	^ self resolveName: aString
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> defaultModule [
 	^ self modules 
 		detect: [ :each | each moduleName = 'default' ]
 		ifNone: [  ^ nil ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1ASTRoot >> detectPDUs [ 
 	"annotate a module with the definition of a PDU"
 	self modules allButFirst do: [:each| | a |
 		a := self pduForModule: each. ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ASTRoot >> includesModuleNamed: aModuleName [
 	^ (self moduleIdentifierNamed: aModuleName) notNil
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> inquireModuleWithIdentifier: aModuleIdentifier [
 	"raise resumable exception to inquire a module or module source string"
 	^ (ASN1MissingModule new identifier: aModuleIdentifier; signal)
@@ -96,14 +97,14 @@ ASN1ASTRoot >> inquireModuleWithIdentifier: aModuleIdentifier [
 		ifNil: [ Error signal: 'cannot resolve module with identifier ', aModuleIdentifier asString ]
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> moduleIdentifierNamed: aModuleName [
 	^ (self modules
 		detect: [:each| each identifier name = aModuleName ]
 		ifNone: [ ^ nil ]) identifier
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> moduleWithIdentifier: aModuleIdentifier [
 	"resolve a module by its identifier. If the identifier cannot be found resolve the module
 	with its name. If no module is found throw a resumable exception so someelse can provide
@@ -121,32 +122,32 @@ ASN1ASTRoot >> moduleWithIdentifier: aModuleIdentifier [
 				ifNil: [ self inquireModuleWithIdentifier: aModuleIdentifier  ]]
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> moduleWithName: aModuleName [
 	^ self modules 
 		detect: [:each| each identifier name = aModuleName ]
 		ifNone: [ nil ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ASTRoot >> modules [
 	^ modules ifNil: [
 		modules := OrderedCollection new ] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ASTRoot >> modules: aCollection [
 	modules := aCollection
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ASTRoot >> optimizeModuleOrder [
 	modules := modules copy sort: [ :a :b |
 		a imports anySatisfy: [:import| import moduleIdentifier name label= b identifier name ] ] 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 ASN1ASTRoot >> parseModuleFrom: aString [
 	| module |
 	module := ASN1ASTParser parse: aString.
@@ -155,7 +156,7 @@ ASN1ASTRoot >> parseModuleFrom: aString [
 	^ module
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> pduForModule: aModule [
 	| visitor  pdu |
 	visitor := ASN1PDUFindingVisitor new.
@@ -175,13 +176,13 @@ ASN1ASTRoot >> pduForModule: aModule [
 	
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> resolveAllSymbols [
 	"annotate all names in the grammar with their definition"	
 	self accept: (ASN1SymbolResolvingVisitor new root: self)
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> resolveAmbiguities [
 	"rewrite ambiguous nodes to real nodes using  their context"
 	| visitor newRoot |
@@ -189,19 +190,19 @@ ASN1ASTRoot >> resolveAmbiguities [
 	newRoot := self accept: visitor
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> resolveImportSymbols [
 	"annotate all imported modules and names with their definitions"
 	self accept: (ASN1ImportSymbolVisitor new root: self)
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> resolveInconsistencies [
 	"check the AST finally for incosistencies before we convert it to the model"
 	self accept: (ASN1InconsistencySolvingVisitor new)
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> resolveName: aString [
 	self defaultModule localNames 
 		at: aString
@@ -214,7 +215,7 @@ ASN1ASTRoot >> resolveName: aString [
 	Error signal: 'couldn''t resolve name ', aString printString, String cr
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1ASTRoot >> resolveRelativeOids [
 	"resolve OIDs defined by reference"
 	self accept: (ASN1RelativeOidResolvingVisitor new)

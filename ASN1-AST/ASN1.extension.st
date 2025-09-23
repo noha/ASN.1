@@ -1,6 +1,6 @@
-Extension { #name : #ASN1 }
+Extension { #name : 'ASN1' }
 
-{ #category : #'*asn1-ast' }
+{ #category : '*asn1-ast' }
 ASN1 >> buildAst [
 	"read configured root modules, then load all imported modules
 	recursively"

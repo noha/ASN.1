@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1ModelTest,
-	#superclass : #TestCase,
-	#category : 'ASN1-Tests-Model'
+	#name : 'ASN1ModelTest',
+	#superclass : 'TestCase',
+	#category : 'ASN1-Tests-Model',
+	#package : 'ASN1-Tests-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> bitStringType [	
 	^ ASN1BitStringType new 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> bitStringTypeWithNamedBits [
 	^ ASN1BitStringType new 
 		namedBits: { 
@@ -19,7 +20,7 @@ ASN1ModelTest >> bitStringTypeWithNamedBits [
 			ASN1NamedValue name: 'four' value: 3 }
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testBitStringAddNamedBitNoContents [
 	|  bitStringValue |
 
@@ -31,7 +32,7 @@ ASN1ModelTest >> testBitStringAddNamedBitNoContents [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testBitStringAddNamedBitWithContents [
 	|  bitStringValue |
 	bitStringValue := self bitStringTypeWithNamedBits newValue.
@@ -44,7 +45,7 @@ ASN1ModelTest >> testBitStringAddNamedBitWithContents [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testBitStringValueCollection [
 	|  bitStringValue |
 	
@@ -56,7 +57,7 @@ ASN1ModelTest >> testBitStringValueCollection [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testBitStringValueCollectionBogusBits [
 	|  bitStringValue |
 	
@@ -67,7 +68,7 @@ ASN1ModelTest >> testBitStringValueCollectionBogusBits [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testBitStringValueString [
 	|  bitStringValue |
 	
@@ -78,7 +79,7 @@ ASN1ModelTest >> testBitStringValueString [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testBitStringValueStringAdding [
 	|  bitStringValue |
 	
@@ -91,7 +92,7 @@ ASN1ModelTest >> testBitStringValueStringAdding [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testEnumeratedValue [
 	| type value encoded |
 
@@ -112,7 +113,7 @@ ASN1ModelTest >> testEnumeratedValue [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testEnumeratedWithExtension [
 	"constrcut a enumerated type containing an extension and try to read it. The enumerated type should
 	skip the extension "
@@ -129,7 +130,7 @@ ASN1ModelTest >> testEnumeratedWithExtension [
 	self assert: result contents equals: 'bar'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ModelTest >> testNumericString [
 	self assert: (ASN1NumericStringType decode: #[48 48 48 48]) equals: '0000'.
 	self assert: (ASN1NumericStringType encode: '0000') equals: #[48 48 48 48].

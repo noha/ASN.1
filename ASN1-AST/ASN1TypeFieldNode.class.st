@@ -1,29 +1,31 @@
 Class {
-	#name : #ASN1TypeFieldNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1TypeFieldNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'type',
 		'fields'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1TypeFieldNode >> accept: aVisitor [ 
 	^ aVisitor visitTypeFieldNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFieldNode >> fields [
 	^ fields
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFieldNode >> fields: anObject [
 	fields := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1TypeFieldNode >> printOn: aStream [
 	aStream
 		nextPutAll: self type printString.
@@ -34,7 +36,7 @@ ASN1TypeFieldNode >> printOn: aStream [
 			separatedBy: [ aStream nextPut: $. ]]
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1TypeFieldNode >> resolveType [
 	| fieldType |
 	fieldType := self type.
@@ -44,12 +46,12 @@ ASN1TypeFieldNode >> resolveType [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFieldNode >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeFieldNode >> type: anObject [
 	type := anObject
 ]

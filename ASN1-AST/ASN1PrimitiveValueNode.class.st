@@ -1,28 +1,30 @@
 Class {
-	#name : #ASN1PrimitiveValueNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1PrimitiveValueNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'value'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1PrimitiveValueNode >> accept: aVisitor [ 
 	^ aVisitor visitPrimitiveValueNode: self
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1PrimitiveValueNode >> hasSameType: aTypeNode [ 
 	^ type name = aTypeNode name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveValueNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveValueNode >> value: anObject [
 	value := anObject
 ]

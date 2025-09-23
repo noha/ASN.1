@@ -1,38 +1,40 @@
 Class {
-	#name : #ASN1DefinedSyntaxObjectNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1DefinedSyntaxObjectNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'syntax'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1DefinedSyntaxObjectNode >> accept: aVisitor [ 
 	^ aVisitor visitDefinedSyntaxObjectNode: self
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxObjectNode >> basicTypeLabel [
 	^ #object
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinedSyntaxObjectNode >> fieldNamed: aString [
 	^ (self type definition bindingOf: aString) definition
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxObjectNode >> isValid [
 	^ self type definition matchesSyntax: syntax
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxObjectNode >> parseSyntax [
 	^ self  type definition parseSyntax: syntax
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1DefinedSyntaxObjectNode >> printOn: aStream [
 	aStream 
 		nextPutAll: 'object from defined syntax [ ';
@@ -40,22 +42,22 @@ ASN1DefinedSyntaxObjectNode >> printOn: aStream [
 		nextPutAll: ' ]'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinedSyntaxObjectNode >> syntax [
 	^ syntax
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinedSyntaxObjectNode >> syntax: anObject [
 	syntax := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxObjectNode >> type [
 	^ self propertyAt: #type
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1DefinedSyntaxObjectNode >> type: anObject [
 	self propertyAt: #type put: anObject
 ]

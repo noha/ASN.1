@@ -1,6 +1,6 @@
 Class {
-	#name : #ASN1UTCTimeParser,
-	#superclass : #PPCompositeParser,
+	#name : 'ASN1UTCTimeParser',
+	#superclass : 'PPCompositeParser',
 	#instVars : [
 		'utctime',
 		'year',
@@ -11,34 +11,35 @@ Class {
 		'second',
 		'offset'
 	],
-	#category : 'ASN1-Codec'
+	#category : 'ASN1-Codec',
+	#package : 'ASN1-Codec'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> day [
 	^ (#digit asParser, #digit asParser) flatten ==> [:node|
 		node asNumber ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> hour [
 	^  (#digit asParser, #digit asParser) flatten ==> [:node|
 		node asNumber ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> minute [
 	^  (#digit asParser, #digit asParser) flatten ==> [:node|
 		node asNumber ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> month [
 	^  (#digit asParser, #digit asParser) flatten ==> [:node|
 		node asNumber ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> offset [
 	^ ($+ asParser / $- asParser), hour, minute ==> [:nodes| | duration |
 		duration := Duration minutes: (60 * (nodes at: 2) asNumber) + (nodes at: 3) asNumber.
@@ -47,18 +48,18 @@ ASN1UTCTimeParser >> offset [
 			ifFalse: [ duration ]]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> second [
 	^  (#digit asParser, #digit asParser) flatten ==> [:node|
 		node asNumber ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> start [
 	^ utctime end
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> utctime [
 	^ year, month, day, hour, minute,  second optional, ( $Z asParser / offset ) ==> [:nodes|
 		DateAndTime 
@@ -73,7 +74,7 @@ ASN1UTCTimeParser >> utctime [
  ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UTCTimeParser >> year [
 	^  (#digit asParser, #digit asParser) flatten ==> [:node| | y |
 		y := node asNumber.

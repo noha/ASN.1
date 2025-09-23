@@ -1,45 +1,47 @@
 Class {
-	#name : #ASN1NamedTypeNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1NamedTypeNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'name',
 		'type'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1NamedTypeNode >> accept: aVisitor [ 
 	^ aVisitor visitNamedTypeNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedTypeNode >> basicType [
 	^ type basicType
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1NamedTypeNode >> bindingOf: aString [
 	(name = aString) ifTrue: [ ^ self ].
 	^ type bindingOf: aString
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1NamedTypeNode >> matchesTypeOf: aTypeNodeClass [ 
 	^ type matchesTypeOf: aTypeNodeClass 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedTypeNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedTypeNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1NamedTypeNode >> printOn: aStream [
 	aStream 
 		nextPutAll: '[named type] ';
@@ -49,12 +51,12 @@ ASN1NamedTypeNode >> printOn: aStream [
 		nextPut: $.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedTypeNode >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedTypeNode >> type: anObject [
 	type := anObject
 ]

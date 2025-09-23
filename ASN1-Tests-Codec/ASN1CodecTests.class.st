@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1CodecTests,
-	#superclass : #TestCase,
-	#category : 'ASN1-Tests-Codec'
+	#name : 'ASN1CodecTests',
+	#superclass : 'TestCase',
+	#category : 'ASN1-Tests-Codec',
+	#package : 'ASN1-Tests-Codec'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1CodecTests >> testReadMultipleOctetsWithHighBitSet [
 	| array result |
 	array := ByteArray streamContents: [:stream|

@@ -1,26 +1,28 @@
 Class {
-	#name : #ASN1ParameterNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1ParameterNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'type',
 		'reference'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ParameterNode >> accept: aVisitor [ 
 	aVisitor visitParameterNode: self
 ]
 
-{ #category : #binding }
+{ #category : 'binding' }
 ASN1ParameterNode >> bindingOf: aString [
 	^ (reference label = aString) 
 		ifTrue: [ type ]
 		ifFalse: [ nil ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ParameterNode >> printOn: aStream [
 	aStream 
 		nextPutAll: reference printString.
@@ -31,22 +33,22 @@ ASN1ParameterNode >> printOn: aStream [
 			nextPut: $) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ParameterNode >> reference [
 	^ reference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ParameterNode >> reference: anObject [
 	reference := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ParameterNode >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ParameterNode >> type: anObject [
 	type := anObject
 ]

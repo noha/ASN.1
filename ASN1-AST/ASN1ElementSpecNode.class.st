@@ -1,23 +1,25 @@
 Class {
-	#name : #ASN1ElementSpecNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1ElementSpecNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'elementsSpec'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementSpecNode >> elementsSpec [
 	^ elementsSpec
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementSpecNode >> elementsSpec: anObject [
 	elementsSpec := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ElementSpecNode >> printOn: aStream [
 	aStream
 		nextPut: $(;
@@ -25,7 +27,7 @@ ASN1ElementSpecNode >> printOn: aStream [
 		nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementSpecNode >> type: anObject [
 	elementsSpec type: anObject
 ]

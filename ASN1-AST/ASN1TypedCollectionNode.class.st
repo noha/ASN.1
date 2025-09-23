@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1TypedCollectionNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1TypedCollectionNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'type'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypedCollectionNode >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypedCollectionNode >> type: anObject [
 	type := anObject
 ]

@@ -1,57 +1,59 @@
 Class {
-	#name : #ASN1ObjectIdNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1ObjectIdNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'components'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ObjectIdNode class >> components: aCollection [
 	^ self new
 		components: aCollection
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ObjectIdNode class >> fromString: aString [
 	^ self new
 		components: (($. split: aString) 
 			collect: [ :each| ASN1ObjectIdComponentNode number: each  ])
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1ObjectIdNode >> = aObjectIdNode [
 	(self class = aObjectIdNode class) ifFalse: [ ^ false ].
 	^ self components = aObjectIdNode components
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ObjectIdNode >> accept: aVisitor [ 
 	^ aVisitor visitObjectIdentifierNode: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdNode >> components [
 	^ components
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdNode >> components: aCollection [
 	components := aCollection
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdNode >> defaultTypeClass [
 	^ ASN1ObjectIdentifierTypeNode 
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 ASN1ObjectIdNode >> hash [
 	^ self components hash
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdNode >> oidString [
 	^ String streamContents: [:stream|
 		self components
@@ -62,7 +64,7 @@ ASN1ObjectIdNode >> oidString [
 			separatedBy: [ stream nextPut: $. ]]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ObjectIdNode >> printOn: aStream [
 	aStream 
 		nextPutAll: self class name; 

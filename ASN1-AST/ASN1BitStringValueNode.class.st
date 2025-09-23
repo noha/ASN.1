@@ -1,33 +1,35 @@
 Class {
-	#name : #ASN1BitStringValueNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1BitStringValueNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'value'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1BitStringValueNode >> accept: aVisitor [ 
 	^ aVisitor visitBitStringValueNode: self 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1BitStringValueNode >> canBeAssignedTo: aTypeNode [ 
 	^ aTypeNode matchesTypeOf: ASN1BitStringTypeNode 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValueNode >> defaultTypeClass [
 	^ ASN1BitStringTypeNode 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1BitStringValueNode >> hasSameType: aTypeInstance [
 	^ self type class = aTypeInstance class 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValueNode >> setBitValues: aCollection [
 	| number |
 	number := 0.
@@ -37,12 +39,12 @@ ASN1BitStringValueNode >> setBitValues: aCollection [
 	self resolvedValue: (number printStringBase: 2)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValueNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValueNode >> value: anObject [
 	value := anObject
 ]

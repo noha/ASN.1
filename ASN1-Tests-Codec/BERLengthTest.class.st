@@ -1,10 +1,11 @@
 Class {
-	#name : #BERLengthTest,
-	#superclass : #TestCase,
-	#category : 'ASN1-Tests-Codec'
+	#name : 'BERLengthTest',
+	#superclass : 'TestCase',
+	#category : 'ASN1-Tests-Codec',
+	#package : 'ASN1-Tests-Codec'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 BERLengthTest >> testReadLongDefiniteForm [
 	| length |
 	length := (BERLength parseFrom: { 130 . 1 . 2 } readStream).
@@ -20,7 +21,7 @@ BERLengthTest >> testReadLongDefiniteForm [
 	self assert: length contentLength = 128.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BERLengthTest >> testReadLongIndefiniteForm [
 	| length |
 
@@ -35,7 +36,7 @@ BERLengthTest >> testReadLongIndefiniteForm [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BERLengthTest >> testReadLongIndefiniteFormContent [
 	| length value |
 	length := (BERLength parseFrom: { 128 } readStream).
@@ -43,7 +44,7 @@ BERLengthTest >> testReadLongIndefiniteFormContent [
 	self assert: value = #[ 1  2  3 ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BERLengthTest >> testReadShortForm [
 	| length |
 	length := (BERLength parseFrom: { 38 } readStream).
@@ -51,7 +52,7 @@ BERLengthTest >> testReadShortForm [
 	self assert: length contentLength = 38. 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BERLengthTest >> testWriteLongDefiniteForm [
 	| array |
 	array := ByteArray streamContents: [ :stream|
@@ -67,7 +68,7 @@ BERLengthTest >> testWriteLongDefiniteForm [
 	self assert: array = #[129 128]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 BERLengthTest >> testWriteOn [
 	| stream |
 	"Test writing definitive form with a single byte and multi byte"
