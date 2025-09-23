@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1Intersection,
-	#superclass : #ASN1ElementCollection,
-	#category : 'ASN1-Model'
+	#name : 'ASN1Intersection',
+	#superclass : 'ASN1ElementCollection',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1Intersection >> includes: aType [
 	^ elements allSatisfy: [ :each| each includes: aType ]
 ]

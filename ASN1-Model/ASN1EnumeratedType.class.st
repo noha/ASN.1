@@ -1,77 +1,78 @@
 Class {
-	#name : #ASN1EnumeratedType,
-	#superclass : #ASN1PrimitiveType,
+	#name : 'ASN1EnumeratedType',
+	#superclass : 'ASN1PrimitiveType',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1EnumeratedType class >> decode: aCollection [
 	^ aCollection first 
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1EnumeratedType class >> encode: anInteger [
 	^ ASN1IntegerType encode: anInteger
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EnumeratedType class >> universalType [
 	^ 'ENUMERATED'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1EnumeratedType >> accept: aVisitor [ 
 	^ aVisitor visitEnumeratedType: self
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1EnumeratedType >> acceptsValue: aString [ 
 	^ aString isString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EnumeratedType >> asn1ValueClass [
 	^ ASN1EnumeratedValue 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EnumeratedType >> atName: aString [
 	^ elements
 		detect: [:each| each name = aString ]
 		ifNone: [ nil ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EnumeratedType >> atNumber: aNumber [
 	^ self namedElements
 		detect: [:each| each number = aNumber ]
 		ifNone: [ ASN1ElementNotFound signal: 'no entry for number ', aNumber asString, ' found' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EnumeratedType >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EnumeratedType >> elements: anObject [
 	elements := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1EnumeratedType >> namedElements [
 	^ self elements reject: #isExtension
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1EnumeratedType >> printOn: aStream [ 
 	aStream nextPutAll: 'ENUMERATED'
 ]
 
-{ #category : #sanitizing }
+{ #category : 'sanitizing' }
 ASN1EnumeratedType >> sanitizeValues [
 	"enumerated values can be a mix of named numbers and identifiers. In case of identifiers we need
 	to automatically assign numbers. We count from zero on upwards. For every number that has not 

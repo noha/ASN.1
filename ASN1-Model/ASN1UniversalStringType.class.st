@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1UniversalStringType,
-	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1UniversalStringType',
+	#superclass : 'ASN1PrimitiveType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1UniversalStringType class >> decode: aByteArray [
 	| byteStream |
 	byteStream := aByteArray readStream.
@@ -13,7 +14,7 @@ ASN1UniversalStringType class >> decode: aByteArray [
 			stream nextPut: (Character value: (byteStream next: 4) asInteger) ] ]
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1UniversalStringType class >> encode: aString [
 	^ ByteArray streamContents: [ :stream |
 		 aString do: [ :character |
@@ -24,12 +25,12 @@ ASN1UniversalStringType class >> encode: aString [
 			
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1UniversalStringType class >> universalType [
 	^ 'UniversalString'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1UniversalStringType >> accept: aVisitor [
 	^ aVisitor visitPrintableString: self
 ]

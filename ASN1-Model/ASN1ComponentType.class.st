@@ -1,34 +1,35 @@
 Class {
-	#name : #ASN1ComponentType,
-	#superclass : #ASN1TypeObject,
+	#name : 'ASN1ComponentType',
+	#superclass : 'ASN1TypeObject',
 	#instVars : [
 		'type',
 		'modifier'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ComponentType >> accept: aVisitor [
 	^ aVisitor visitComponentType: self  
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> asn1ValueClass [
 	^ type asn1ValueClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> basicType [
 	^ type basicType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> defaultValue [
 	^ modifier value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> doesNotUnderstand: aMessage [
 	[ ^  aMessage sendTo: type ]
 		on: Error 
@@ -36,72 +37,72 @@ ASN1ComponentType >> doesNotUnderstand: aMessage [
 	^ super doesNotUnderstand: aMessage
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ComponentType >> hasDefaultValue [
 	^ modifier notNil and: [ modifier isDefaultValue  ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ComponentType >> includesTag: aTag [
 	^ self type includesTag: aTag
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ComponentType >> isOptional [
 	^ modifier notNil and: [ modifier isOptional ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ComponentType >> matchesValue: aValue [
 	^ type matchesValue: aValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> modifier [
 	^ modifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> modifier: aModifier [
 	modifier := aModifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> newBaseValue: anObject [
 	^ type newBaseValue: anObject
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1ComponentType >> newValue [ 
 	^ type newValue
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1ComponentType >> newValue: anObject [
 	^ type newValue: anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ComponentType >> providesScope [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> tag [
 	^ type tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentType >> type: anObject [
 	type := anObject
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1ComponentType >> validate: anObject [
 	type validate: anObject
 ]

@@ -1,30 +1,31 @@
 Class {
-	#name : #ASN1NullType,
-	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1NullType',
+	#superclass : 'ASN1PrimitiveType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1NullType class >> decode: anArray [ 
 	^ #null
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1NullType class >> encode: aSymbol [ 
 	^ nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NullType class >> universalType [
 	^ 'NULL'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1NullType >> accept: aVisitor [ 
 	^ aVisitor visitNullType: self
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1NullType >> acceptsValue: anObject [ 
 	^ (anObject value asn1TypeClass = self class) and: [ anObject value isNil ]
 ]

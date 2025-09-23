@@ -1,44 +1,45 @@
 Class {
-	#name : #ASN1ElementComplement,
-	#superclass : #ASN1ElementSet,
+	#name : 'ASN1ElementComplement',
+	#superclass : 'ASN1ElementSet',
 	#instVars : [
 		'included',
 		'excluded'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ElementComplement >> accept: anASN1ModelBuilderVisitor [ 
 	self shouldBeImplemented.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementComplement >> excluded [
 	^ excluded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementComplement >> excluded: anObject [
 	excluded := anObject
 ]
 
-{ #category : #finding }
+{ #category : 'finding' }
 ASN1ElementComplement >> findElement: aBlock [
 	^ included findElement: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementComplement >> included [
 	^ included
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementComplement >> included: anObject [
 	included := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ElementComplement >> includes: aType [ 
 	^ (included includes: aType) 
 		and: [ excluded isNil or: [ (excluded includes: aType) not ]  ] 

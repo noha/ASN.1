@@ -1,6 +1,6 @@
-Extension { #name : #HashedCollection }
+Extension { #name : 'HashedCollection' }
 
-{ #category : #'*asn1-model' }
+{ #category : '*asn1-model' }
 HashedCollection >> asn1TypeClass [
 	^ ASN1AdaptiveTypeObject 
 ]

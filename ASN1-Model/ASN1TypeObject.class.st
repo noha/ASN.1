@@ -1,48 +1,49 @@
 Class {
-	#name : #ASN1TypeObject,
-	#superclass : #ASN1DefinitionObject,
+	#name : 'ASN1TypeObject',
+	#superclass : 'ASN1DefinitionObject',
 	#instVars : [
 		'valueFactory'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TypeObject class >> defaultValueFactory [
 	^ [ :type | type asn1ValueClass new ]
 ]
 
-{ #category : #creating }
+{ #category : 'creating' }
 ASN1TypeObject class >> newValue [
 	^ self new newValue
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1TypeObject >> acceptsType: anObject [
 	^ self class = anObject class
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeObject >> asAsn1Type [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeObject >> asAsn1TypeIn: aContext [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeObject >> asn1ValueClass [
 	self shouldBeImplemented 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeObject >> basicType [
 	^ self
 ]
 
-{ #category : #finding }
+{ #category : 'finding' }
 ASN1TypeObject >> findTypeWithKey: aString [
 	^ ASN1FindByKeyVisitor new 
 		key: aString;
@@ -50,27 +51,27 @@ ASN1TypeObject >> findTypeWithKey: aString [
 		object
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TypeObject >> isAsn1ExternalType [
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TypeObject >> isAsn1Type [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TypeObject >> isOptional [ 
 	^ false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TypeObject >> matchesValue: aValue [
 	^ aValue matchesType: self 
 ]
 
-{ #category : #'instance-creation' }
+{ #category : 'instance-creation' }
 ASN1TypeObject >> newValue [
 	valueFactory ifNil: [ 
 		^ (self class defaultValueFactory value: self)
@@ -84,18 +85,18 @@ ASN1TypeObject >> newValue [
 	Error signal: 'only Class and BlockClosure are supported as valueFactory'
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1TypeObject >> validate: anObject [
 	(self acceptsValue: anObject) ifFalse: [ 
 		Error signal: 'type classes do not match' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeObject >> valueFactory [
 	^ valueFactory
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeObject >> valueFactory: anObject [
 	valueFactory := anObject
 ]

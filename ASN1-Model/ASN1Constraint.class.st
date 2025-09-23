@@ -1,34 +1,35 @@
 Class {
-	#name : #ASN1Constraint,
-	#superclass : #ASN1BasicObject,
+	#name : 'ASN1Constraint',
+	#superclass : 'ASN1BasicObject',
 	#instVars : [
 		'constraint',
 		'exception'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Constraint >> constraint [
 	^ constraint
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Constraint >> constraint: anObject [
 	constraint := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Constraint >> exception [
 	^ exception
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Constraint >> exception: anObject [
 	exception := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1Constraint >> includes: anObject [
 	^ (constraint includes: anObject) and: [ 
 		exception notNil and: [ (exception includes: anObject) not ] ]

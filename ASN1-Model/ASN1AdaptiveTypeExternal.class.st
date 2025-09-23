@@ -1,65 +1,66 @@
 Class {
-	#name : #ASN1AdaptiveTypeExternal,
-	#superclass : #ASN1AdaptiveTypeValue,
+	#name : 'ASN1AdaptiveTypeExternal',
+	#superclass : 'ASN1AdaptiveTypeValue',
 	#instVars : [
 		'oid',
 		'value',
 		'encoded'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> at: aKey [
 	^ value at: aKey
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> decoded: anObject [ 
 	value := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveTypeExternal >> doesNotUnderstand: aMessage [
 	^ aMessage sendTo: value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> encoded [
 	^ encoded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> encoded: anObject [
 	encoded := anObject
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveTypeExternal >> externalValue [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> oid [
 	^ oid
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> oid: anObject [
 	oid := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> value: anObject [
 	value := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeExternal >> valueClass [
 	^ nil
 ]

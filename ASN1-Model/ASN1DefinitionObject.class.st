@@ -1,33 +1,34 @@
 Class {
-	#name : #ASN1DefinitionObject,
-	#superclass : #ASN1BasicObject,
+	#name : 'ASN1DefinitionObject',
+	#superclass : 'ASN1BasicObject',
 	#instVars : [
 		'module'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinitionObject >> asn1TypeNamed: aString [
 	^ self modelRoot typeNamed: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinitionObject >> modelRoot [
 	^ self module modelRoot
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinitionObject >> module [
 	^ module
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinitionObject >> module: anObject [
 	module := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1DefinitionObject >> originalBindingName [
 	"finds the left value of the assignment in the module where the type has been
 	originally defined. Mostly useful for convenience and debugging purposes. 

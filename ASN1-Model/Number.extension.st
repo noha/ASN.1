@@ -1,6 +1,6 @@
-Extension { #name : #Number }
+Extension { #name : 'Number' }
 
-{ #category : #'*asn1-model' }
+{ #category : '*asn1-model' }
 Number >> asn1TypeClass [
 	^  ASN1IntegerType 
 ]

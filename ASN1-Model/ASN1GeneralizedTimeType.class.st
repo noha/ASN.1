@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1GeneralizedTimeType,
-	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1GeneralizedTimeType',
+	#superclass : 'ASN1PrimitiveType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1GeneralizedTimeType class >> decode: anObject [
 	| stream year month day hour minute second nanoSecond offset |
 	stream := anObject readStream.
@@ -40,7 +41,7 @@ ASN1GeneralizedTimeType class >> decode: anObject [
 
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1GeneralizedTimeType class >> encode: aDateAndTime [
 	^ String streamContents: [ :stream |
 		stream
@@ -64,12 +65,12 @@ ASN1GeneralizedTimeType class >> encode: aDateAndTime [
 					stream nextPutAll: (aDateAndTime offset minutes printPaddedWith: $0 to: 2 ). ] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1GeneralizedTimeType class >> universalType [
 	^ 'GeneralizedTime'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1GeneralizedTimeType >> accept: aVisitor [
 	^ aVisitor visitPrintableString: self
 ]

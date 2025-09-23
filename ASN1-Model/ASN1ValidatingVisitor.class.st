@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1ValidatingVisitor,
-	#superclass : #ASN1ModelVisitor,
+	#name : 'ASN1ValidatingVisitor',
+	#superclass : 'ASN1ModelVisitor',
 	#instVars : [
 		'value'
 	],
-	#category : 'ASN1-Model-Visitor'
+	#category : 'ASN1-Model-Visitor',
+	#package : 'ASN1-Model',
+	#tag : 'Visitor'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ValidatingVisitor >> validate: anObject [
 	self validateType: anObject type value: anObject
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1ValidatingVisitor >> validateType: aType value: aValue [
 	| oldValue |
 	oldValue := value.
@@ -21,7 +23,7 @@ ASN1ValidatingVisitor >> validateType: aType value: aValue [
 		ensure: [ value := oldValue ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ValidatingVisitor >> visitChoiceType: aChoice [
 	
 	(value size = 1) ifFalse: [ 
@@ -34,12 +36,12 @@ ASN1ValidatingVisitor >> visitChoiceType: aChoice [
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ValidatingVisitor >> visitPrimitiveType: aPrimitive [
 	aPrimitive validate: value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ValidatingVisitor >> visitSequenceType: aSequence [
 	aSequence elements do: [ :binding | | fieldType |
 		binding isExtension ifFalse: [  

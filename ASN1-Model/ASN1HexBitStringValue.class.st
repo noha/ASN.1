@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1HexBitStringValue,
-	#superclass : #ASN1BitStringValue,
-	#category : 'ASN1-Model'
+	#name : 'ASN1HexBitStringValue',
+	#superclass : 'ASN1BitStringValue',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1HexBitStringValue >> contents: aString [
 	| hexString |
 	hexString := aString size odd

@@ -1,23 +1,24 @@
 Class {
-	#name : #ASN1ElementCollection,
-	#superclass : #ASN1ElementSet,
+	#name : 'ASN1ElementCollection',
+	#superclass : 'ASN1ElementSet',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementCollection >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementCollection >> elements: anObject [
 	elements := anObject
 ]
 
-{ #category : #finding }
+{ #category : 'finding' }
 ASN1ElementCollection >> findElement: aBlock [
 	elements do: [ :each |
 			(each findElement: aBlock) ifNotNil: [ :result| ^ result ]  ].
