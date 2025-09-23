@@ -1,33 +1,34 @@
 Class {
-	#name : #ASN1SetType,
-	#superclass : #ASN1ConstructedType,
+	#name : 'ASN1SetType',
+	#superclass : 'ASN1ConstructedType',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SetType >> accept: aVisitor [ 
 	aVisitor visitSet: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1SetType >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1SetType >> elements: anElementsSpec [ 	
 	elements := anElementsSpec 
 ]
 
-{ #category : #finding }
+{ #category : 'finding' }
 ASN1SetType >> findElement: aBlock [
 	^ elements findElement: aBlock
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1SetType >> includes: aType [
 	^ elements notNil and: [ elements includes: aType ]
 ]

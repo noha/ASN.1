@@ -1,71 +1,72 @@
 Class {
-	#name : #ASN1TaggedType,
-	#superclass : #ASN1EncodedType,
+	#name : 'ASN1TaggedType',
+	#superclass : 'ASN1EncodedType',
 	#instVars : [
 		'type',
 		'tag'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1TaggedType >> accept: aVisitor [ 
 	^aVisitor visitTaggedType: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedType >> asn1ValueClass [
 	^ ASN1TaggedValue 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedType >> basicType [
 	^ type basicType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedType >> elementAt: aString ifNone: aBlock [
 	^ type elementAt: aString ifNone: aBlock
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1TaggedType >> newBaseValue: anObject [
 	^ self newValue: anObject
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1TaggedType >> newValue [ 
 	^ super newValue
 		value: type newValue
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1TaggedType >> newValue: anObject [
 	^ super newValue 
 		value: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedType >> tag [
 	^ tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedType >> tag: anObject [
 	tag := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedType >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TaggedType >> type: anObject [
 	type := anObject
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1TaggedType >> validate: anObject [ 
 	type validate: anObject
 ]

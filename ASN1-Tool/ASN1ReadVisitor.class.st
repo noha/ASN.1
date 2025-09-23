@@ -1,15 +1,17 @@
 Class {
-	#name : #ASN1ReadVisitor,
-	#superclass : #ASN1ModelVisitor,
+	#name : 'ASN1ReadVisitor',
+	#superclass : 'ASN1ModelVisitor',
 	#instVars : [
 		'skipErrors',
 		'currentTaggedValue',
 		'objectFactory'
 	],
-	#category : 'ASN1-Tool-Visitor'
+	#category : 'ASN1-Tool-Visitor',
+	#package : 'ASN1-Tool',
+	#tag : 'Visitor'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadVisitor >> checkOptionalAndDefault: anElement with: aCollection [
 	"check if the element is optional and add default value if available"
 	anElement value isOptional ifFalse: [ 
@@ -24,50 +26,50 @@ ASN1ReadVisitor >> checkOptionalAndDefault: anElement with: aCollection [
 		aCollection privAt: anElement key put: anElement value defaultValue value ] 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadVisitor >> collectionClass [
 	^ ASN1AdaptiveTypeCollection 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ReadVisitor >> defaultObjectFactory [
 	^ ASN1ObjectFactory new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ReadVisitor >> defaultValueClass [
 	^ ASN1AdaptiveTypeObject 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadVisitor >> error: anError on: anObject [
 	skipErrors 
 		ifTrue: [  ^ anObject ]
 		ifFalse: [ anError signal ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadVisitor >> externalClass [
 	^ ASN1AdaptiveTypeExternal 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 ASN1ReadVisitor >> initialize [ 
 	super initialize.
 	skipErrors := false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ReadVisitor >> objectFactory [
 	^ objectFactory
 ]
 
-{ #category : #acessing }
+{ #category : 'acessing' }
 ASN1ReadVisitor >> objectFactory: anObjectFactory [ 
 	objectFactory := anObjectFactory
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> push: taggedValue during: aBlock [
 	| formerTaggedValue result |
 	taggedValue ifNil: [  Error signal: 'cannot use nil as taggedValue' ].
@@ -78,12 +80,12 @@ ASN1ReadVisitor >> push: taggedValue during: aBlock [
 	^ result
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadVisitor >> read: anEncodedType using: aType [
 	^ self read: anEncodedType using: aType as: nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadVisitor >> read: anEncodedValue using: aType as: aClass [
 
 	^ self 
@@ -91,27 +93,27 @@ ASN1ReadVisitor >> read: anEncodedValue using: aType as: aClass [
 		during: [ self visit: aType ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> read: anEncodedType usingModule: aModule [
 	^ self read: anEncodedType using: aModule pdu as: nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ReadVisitor >> read: anEncodedType usingModule: aModule as: aClass [
 	^ self read: anEncodedType using: aModule pdu as: aClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ReadVisitor >> skipErrors: aBoolean [
 	skipErrors := aBoolean
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitAnyType: anAnyType [ 
 	^ currentTaggedValue contents
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitChoiceType: aChoice [
 	| slot result value |
 	value := aChoice newValue.
@@ -129,7 +131,7 @@ ASN1ReadVisitor >> visitChoiceType: aChoice [
 		yourself
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitCollection: aCollection [
 	| value  contentStream elementStream isExtended |
 	isExtended := false.
@@ -192,7 +194,7 @@ ASN1ReadVisitor >> visitCollection: aCollection [
 	^ value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitEnumeratedType: anEnumerated [
 	| number namedNumber |
 	self flag: #hack.
@@ -208,7 +210,7 @@ ASN1ReadVisitor >> visitEnumeratedType: anEnumerated [
 	^ anEnumerated newValue contents: namedNumber name
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitExternalType: anExternalType [
 	| oid  value |
 	value := anExternalType newValue.
@@ -235,24 +237,24 @@ ASN1ReadVisitor >> visitExternalType: anExternalType [
 	^ value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitObjectIdentifierType: anObjectIdentifier [ 	
 	^ self visitPrimitiveType: anObjectIdentifier 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitOpenType: anOpenType [ 
 	"an open type does not specify its kind. So we return the anonymous data. The data needs to be parsed
 	in a second pass"
 	^ currentTaggedValue
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitPrimitiveType: aPrimitive [
 	^ aPrimitive decodedValue: currentTaggedValue contents
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitTaggedType: aTaggedType [ 
 	"resolve the tagging environment over the tagged type because it is defined in the module
 	defining the tagging environment (the type of the tagged type might be imported from another
@@ -268,7 +270,7 @@ ASN1ReadVisitor >> visitTaggedType: aTaggedType [
 		value: basicValue
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ReadVisitor >> visitTypedCollection: aCollection [
 	| seq  |
 	seq := self collectionClass new

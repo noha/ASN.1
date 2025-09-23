@@ -1,36 +1,37 @@
 Class {
-	#name : #ASN1ExternalType,
-	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1ExternalType',
+	#superclass : 'ASN1PrimitiveType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExternalType class >> universalType [
 	^ 'EXTERNAL TYPE'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ExternalType >> accept: aVisitor [ 
 	^ aVisitor visitExternalType: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExternalType >> asn1ValueClass [
 	^ ASN1AdaptiveTypeExternal 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ExternalType >> isAsn1ExternalType [
 	^ true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ExternalType >> printOn: aStream [
 	aStream
 		nextPutAll: 'external'
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1ExternalType >> validate: anObject [
 	super validate: anObject 
 	

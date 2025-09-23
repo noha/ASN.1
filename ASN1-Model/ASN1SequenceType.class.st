@@ -1,30 +1,31 @@
 Class {
-	#name : #ASN1SequenceType,
-	#superclass : #ASN1CollectionType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1SequenceType',
+	#superclass : 'ASN1CollectionType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1SequenceType class >> universalType [ 
 	^ 'SEQUENCE'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SequenceType >> accept: aVisitor [ 
 	^ aVisitor visitSequenceType: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1SequenceType >> keys [
 	^ elements keys reject: [ :each | each = #extensionMarker ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1SequenceType >> tag [
 	^ self universalTag
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1SequenceType >> validate: anObject [
 	elements associations do: [ :binding | | fieldType |
 		binding isExtension ifFalse: [  

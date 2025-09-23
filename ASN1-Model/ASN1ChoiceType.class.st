@@ -1,27 +1,28 @@
 Class {
-	#name : #ASN1ChoiceType,
-	#superclass : #ASN1CollectionType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1ChoiceType',
+	#superclass : 'ASN1CollectionType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ChoiceType >> accept: aVisitor [ 
 	^ aVisitor visitChoiceType: self 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ChoiceType >> includesTag: aTag [
 	^ (self elements 
 		detect: [:each| each value includesTag: aTag ]
 		ifNone: [ nil ]) notNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ChoiceType >> tagEnvironment [ 
 	^ ASN1ExplicitTags 
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1ChoiceType >> validate: aValue [ 
 
 	(aValue size = 1) ifFalse: [ 

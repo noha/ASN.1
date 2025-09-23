@@ -1,23 +1,24 @@
 Class {
-	#name : #ASN1AdaptiveTypeCollection,
-	#superclass : #ASN1AdaptiveTypeValue,
+	#name : 'ASN1AdaptiveTypeCollection',
+	#superclass : 'ASN1AdaptiveTypeValue',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeCollection >> add: anObject [
 	elements add: anObject. 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveTypeCollection >> addAll: aCollection [
 	elements addAll: aCollection. 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeCollection >> addUsing: aBlock [
 	"create a new object of the nested type and hand it over
 	to the given block for initialization. Add the return value in
@@ -28,53 +29,53 @@ ASN1AdaptiveTypeCollection >> addUsing: aBlock [
 	^ self add: newValue
 ]
 
-{ #category : #finding }
+{ #category : 'finding' }
 ASN1AdaptiveTypeCollection >> basicFind: aKey [
 	^ self find: aKey in: elements
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 ASN1AdaptiveTypeCollection >> collect: aBlock [
 	^ elements collect: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeCollection >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeCollection >> first [
 	^ elements first
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ASN1AdaptiveTypeCollection >> initialize [
 	super initialize.
 	elements := OrderedCollection new
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 ASN1AdaptiveTypeCollection >> initializeFrom: anObject [ 
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1AdaptiveTypeCollection >> isEmpty [
 	^ elements isEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1AdaptiveTypeCollection >> isEmptyOrNil [
 	^ elements isEmptyOrNil 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeCollection >> size [
 	^ elements size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1AdaptiveTypeCollection >> value: aCollection [
 	elements := aCollection asOrderedCollection
 ]

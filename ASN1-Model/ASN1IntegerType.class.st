@@ -1,13 +1,14 @@
 Class {
-	#name : #ASN1IntegerType,
-	#superclass : #ASN1PrimitiveType,
+	#name : 'ASN1IntegerType',
+	#superclass : 'ASN1PrimitiveType',
 	#instVars : [
 		'namedNumbers'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1IntegerType class >> decode: aCollection [
 	| value |
 	"Decode a ByteArray to a two's complement value. The first byte has the
@@ -29,7 +30,7 @@ ASN1IntegerType class >> decode: aCollection [
 	^ value
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1IntegerType class >> encode: anInteger [
 	| value bytesNeeded highBitValue |
 	"Encode a signed value to a two's complement byte representation. As we don't know
@@ -53,32 +54,32 @@ ASN1IntegerType class >> encode: anInteger [
 	^ value asByteArrayOfSize: bytesNeeded
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerType class >> universalType [
 	^ 'INTEGER'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1IntegerType >> accept: aVisitor [ 
 	^ aVisitor visitIntegerType: self
 ]
 
-{ #category : #validating }
+{ #category : 'validating' }
 ASN1IntegerType >> acceptsValue: anObject [ 
 	^ anObject isNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerType >> asn1ValueClass [
 	^ ASN1IntegerValue 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerType >> namedNumbers [
 	^ namedNumbers
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntegerType >> namedNumbers: aCollection [
 	namedNumbers := aCollection
 ]

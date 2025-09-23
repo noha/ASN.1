@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1ObjectIdentifierType,
-	#superclass : #ASN1PrimitiveType,
-	#category : 'ASN1-Model'
+	#name : 'ASN1ObjectIdentifierType',
+	#superclass : 'ASN1PrimitiveType',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1ObjectIdentifierType class >> decode: anArray [
 	| objId next val |
 	objId := OrderedCollection new.
@@ -26,7 +27,7 @@ ASN1ObjectIdentifierType class >> decode: anArray [
 	
 ]
 
-{ #category : #codec }
+{ #category : 'codec' }
 ASN1ObjectIdentifierType class >> encode: anOidOrString [
 	| components stream octets |
 	octets := OrderedCollection new.
@@ -44,22 +45,22 @@ ASN1ObjectIdentifierType class >> encode: anOidOrString [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdentifierType class >> universalType [
 	^ 'OBJECT IDENTIFIER'
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ObjectIdentifierType >> accept: aVisitor [ 
 	^ aVisitor visitObjectIdentifierType: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ObjectIdentifierType >> asn1ValueClass [
 	^ ASN1ObjectIdentifier
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ObjectIdentifierType >> printOn: aStream [
 	aStream nextPutAll: 'OID'
 ]

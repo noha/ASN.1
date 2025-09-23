@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1BitStringValue,
-	#superclass : #ASN1PrimitiveValue,
-	#category : 'ASN1-Model'
+	#name : 'ASN1BitStringValue',
+	#superclass : 'ASN1PrimitiveValue',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1BitStringValue >> accept: aVisitor [
 	^ aVisitor visitBitStringValue: self
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 ASN1BitStringValue >> addNamedBit: aString [
 	"add a single named bit to the binary string representation. "
 	| index |
@@ -23,7 +24,7 @@ ASN1BitStringValue >> addNamedBit: aString [
 	contents at: index put: $1 	
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 ASN1BitStringValue >> adjustContentsSize [
 	"adjust the size of the binary string representation to the amount of named
 	bits available"
@@ -34,7 +35,7 @@ ASN1BitStringValue >> adjustContentsSize [
 				stream nextPut: $0 ] ] ]
 ]
 
-{ #category : #converting }
+{ #category : 'converting' }
 ASN1BitStringValue >> adjustContentsSize: aNumber [
 	"adjust the size of the binary string representation to aNumber size"
 	contents := String streamContents: [ :stream | 
@@ -42,23 +43,23 @@ ASN1BitStringValue >> adjustContentsSize: aNumber [
 		aNumber timesRepeat: [ stream nextPut: $0 ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1BitStringValue >> allBitsAreSet [
 	^ (self namedBits difference: self type bitNames ) isEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1BitStringValue >> bitEquals: anArray [ 
 	^ (self namedBits difference: anArray) isEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValue >> contents [
 	^ contents ifNil: [ 
 		contents := '' ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValue >> contents: aCollectionOrString [
 	"enable the setting for the bit string either as binary string or as collection of
 	bit names."
@@ -70,17 +71,17 @@ ASN1BitStringValue >> contents: aCollectionOrString [
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1BitStringValue >> includesBit: aString [ 
 	^ self namedBits includes: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValue >> indexOfBitNamed: aByteString [ 
 	self shouldBeImplemented.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValue >> namedBits [
 	"decode binary contents into there named counterparts"
 	| namedBits |
@@ -92,7 +93,7 @@ ASN1BitStringValue >> namedBits [
 	^ namedBits
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1BitStringValue >> namedBits: aCollection [
 	"encode aCollection of named bits into there binary string representation. Bits need to be
 	kept in binary form because there can be bit strings without named bits"
@@ -106,7 +107,7 @@ ASN1BitStringValue >> namedBits: aCollection [
 	contents := (number printStringBase: 2 length: type namedBits size padded: true) reversed
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1BitStringValue >> printOn: aStream [
 	self type numberOfBits isZero
 		ifTrue: [ aStream nextPutAll: '(no named bits)' ]

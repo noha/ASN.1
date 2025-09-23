@@ -1,21 +1,22 @@
 Class {
-	#name : #ASN1CachedModelRoot,
-	#superclass : #ASN1ModelRoot,
+	#name : 'ASN1CachedModelRoot',
+	#superclass : 'ASN1ModelRoot',
 	#instVars : [
 		'types',
 		'modulesByOid',
 		'moduleByName'
 	],
-	#category : 'ASN1-Model'
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ASN1CachedModelRoot class >> on: anASN1ModelRoot [ 
 	^ self new
 		initializeFromModelRoot: anASN1ModelRoot 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1CachedModelRoot >> bindingNamed: aString [
 	types
 		at: aString
@@ -23,7 +24,7 @@ ASN1CachedModelRoot >> bindingNamed: aString [
 	^ super bindingNamed: aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1CachedModelRoot >> initialize [
 	super initialize.
 	types := IdentityDictionary new.
@@ -31,33 +32,33 @@ ASN1CachedModelRoot >> initialize [
 	moduleByName := IdentityDictionary new
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ASN1CachedModelRoot >> initializeFromModelRoot: aModelRoot [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1CachedModelRoot >> moduleDefiningOid: anOid [ 
 	^ modulesByOid 
 		at: anOid
 		ifAbsentPut: [ super moduleDefiningOid: anOid ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1CachedModelRoot >> moduleNamed: aString [ 
 	^ moduleByName 
 		at: aString asSymbol
 		ifAbsentPut: [ super moduleNamed: aString ] 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1CachedModelRoot >> reset [
 	types := IdentityDictionary new.
 	modulesByOid := Dictionary new.
 	moduleByName := IdentityDictionary new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1CachedModelRoot >> typeNamed: aString [ 
 	| type |
 	type := types at: aString asSymbol ifPresent: [ :v | ^ v ].

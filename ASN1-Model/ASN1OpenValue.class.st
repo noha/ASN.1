@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1OpenValue,
-	#superclass : #ASN1PrimitiveValue,
-	#category : 'ASN1-Model'
+	#name : 'ASN1OpenValue',
+	#superclass : 'ASN1PrimitiveValue',
+	#category : 'ASN1-Model',
+	#package : 'ASN1-Model'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1OpenValue >> accept: aVisitor [
 	^ aVisitor visitOpenValue: self 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1OpenValue >> contents: anObject [
 	"we support setting encoded values as open types. This way both modi should be possible
 	either it structured data that needs to be encoded or it is already encoded data"
