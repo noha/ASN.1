@@ -6,7 +6,8 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"currentValue"
+		"currentValue",
+		"skipAddedDefaults"
 	],
 	"name" : "ASN1WriteVisitor",
 	"type" : "normal"

@@ -1,3 +1,1 @@
-SystemOrganization addCategory: #'ASN1-Model'!
-SystemOrganization addCategory: #'ASN1-Model-Exception'!
-SystemOrganization addCategory: #'ASN1-Model-Visitor'!
+self packageOrganizer ensurePackage: #'ASN1-Model' withTags: #(#Exception #Visitor)!

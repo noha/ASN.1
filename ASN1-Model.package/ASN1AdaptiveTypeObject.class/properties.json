@@ -7,7 +7,8 @@
 	"classvars" : [ ],
 	"instvars" : [
 		"map",
-		"selfExpanding"
+		"selfExpanding",
+		"addedByDefault"
 	],
 	"name" : "ASN1AdaptiveTypeObject",
 	"type" : "normal"

@@ -1,3 +1,1 @@
-SystemOrganization addCategory: #'ASN1-Tool'!
-SystemOrganization addCategory: 'ASN1-Tool-Exception'!
-SystemOrganization addCategory: 'ASN1-Tool-Visitor'!
+self packageOrganizer ensurePackage: #'ASN1-Tool' withTags: #(#Exception #Visitor)!

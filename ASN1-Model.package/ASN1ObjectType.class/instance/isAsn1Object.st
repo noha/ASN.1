@@ -1,3 +1,3 @@
-*asn1-model
+as yet unclassified
 isAsn1Object
 	^ true
