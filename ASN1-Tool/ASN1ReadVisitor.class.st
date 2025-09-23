@@ -166,7 +166,8 @@ ASN1ReadVisitor >> visitCollection: aCollection [
 								"write the default value in the result"
 								element value defaultValue isAsn1 
 									ifTrue: [ value baseValueAt: element key put: element value defaultValue ]
-									ifFalse: [ value at: element key put: element value defaultValue ] ].
+									ifFalse: [ value at: element key put: element value defaultValue ].
+								value addedByDefault: element key ].
 							elementStream next  ]						
 						ifFalse: [ isExtended ifTrue: [ 
 							(aCollection hasElementWithTag: content tag) ifFalse: [

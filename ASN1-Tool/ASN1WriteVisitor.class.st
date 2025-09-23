@@ -2,12 +2,19 @@ Class {
 	#name : 'ASN1WriteVisitor',
 	#superclass : 'ASN1ModelVisitor',
 	#instVars : [
-		'currentValue'
+		'currentValue',
+		'skipAddedDefaults'
 	],
 	#category : 'ASN1-Tool-Visitor',
 	#package : 'ASN1-Tool',
 	#tag : 'Visitor'
 }
+
+{ #category : 'initialization' }
+ASN1WriteVisitor >> initialize [
+	super initialize.
+	skipAddedDefaults := true
+]
 
 { #category : 'exceptions' }
 ASN1WriteVisitor >> mandatoryElementNotFound [
@@ -21,6 +28,11 @@ ASN1WriteVisitor >> push: anObject during: aBlock [
 	formerValue := currentValue.
 	currentValue := anObject.
 	^aBlock ensure: [ currentValue := formerValue ]
+]
+
+{ #category : 'accessing' }
+ASN1WriteVisitor >> skipAddedDefaults [ 
+	skipAddedDefaults := true
 ]
 
 { #category : 'visiting' }
@@ -101,18 +113,19 @@ ASN1WriteVisitor >> visitSequenceType: aSequence [
 	object := currentValue "basicValue".
 	aSequence elements associations do:  [ :each |
 		(each value class = ASN1Extension) ifFalse: [   
-			(object includesKey: each key) 
-				ifTrue: [ 
-					self 
-						push: (object privAt: each key)
-						during: [ encoded elements add: (self visit: (aSequence elementAt: each key)) ]]
-				ifFalse: [
-					each value isOptional
-						ifTrue: [ each value hasDefaultValue ifTrue: [ 
-							self 
-								push: each value defaultValue 
-								during: [ encoded elements add: (self visit: (aSequence elementAt: each key) value) ] ] ]
-						ifFalse: [ self mandatoryElementNotFound ] ] ] ].
+			(skipAddedDefaults and: [ object wasAddedByDefault: each key ]) ifFalse:  [  
+				(object includesKey: each key)
+					ifTrue: [ 
+						self 
+							push: (object privAt: each key)
+							during: [ encoded elements add: (self visit: (aSequence elementAt: each key)) ]]
+					ifFalse: [
+						each value isOptional
+							ifTrue: [ each value hasDefaultValue ifTrue: [ 
+								self 
+									push: each value defaultValue 
+									during: [ encoded elements add: (self visit: (aSequence elementAt: each key) defaultValue type ) ] ] ]
+							ifFalse: [ self mandatoryElementNotFound ] ] ] ] ].
 	^ encoded
 ]
 
