@@ -3,7 +3,8 @@ Class {
 	#superclass : 'ASN1AdaptiveTypeValue',
 	#instVars : [
 		'map',
-		'selfExpanding'
+		'selfExpanding',
+		'addedByDefault'
 	],
 	#category : 'ASN1-Model',
 	#package : 'ASN1-Model'
@@ -17,6 +18,12 @@ ASN1AdaptiveTypeObject class >> asn1TypeName [
 { #category : 'initailize-release' }
 ASN1AdaptiveTypeObject class >> typedCollection [
 	^ ASN1TypedCollectionType type: self
+]
+
+{ #category : 'accessing' }
+ASN1AdaptiveTypeObject >> addedByDefault: aKey [ 
+	addedByDefault ifNil: [ addedByDefault := OrderedCollection new ].
+	addedByDefault add: aKey 
 ]
 
 { #category : 'accessing' }
@@ -281,4 +288,10 @@ ASN1AdaptiveTypeObject >> size [
 { #category : 'accessing' }
 ASN1AdaptiveTypeObject >> soleValue [
 	^ map values first
+]
+
+{ #category : 'as yet unclassified' }
+ASN1AdaptiveTypeObject >> wasAddedByDefault: aKey [ 
+	addedByDefault ifNil: [ ^ false ].
+	^ addedByDefault includes: aKey
 ]
