@@ -1,10 +1,11 @@
 Class {
-	#name : #BERTLVStreamTest,
-	#superclass : #BERStreamTest,
-	#category : 'ASN1-Tests-Codec'
+	#name : 'BERTLVStreamTest',
+	#superclass : 'BERStreamTest',
+	#category : 'ASN1-Tests-Codec',
+	#package : 'ASN1-Tests-Codec'
 }
 
-{ #category : #bla }
+{ #category : 'bla' }
 BERTLVStreamTest >> testMoreGSM [
 	| data |
         data := #(16rA1 16r20 16r02 16r01 16r01 16r02 16r01 16r3B
@@ -16,7 +17,7 @@ BERTLVStreamTest >> testMoreGSM [
 
 ]
 
-{ #category : #bla }
+{ #category : 'bla' }
 BERTLVStreamTest >> testParseLength [
 	| data stream value |
         "I parse a simple example."
@@ -30,7 +31,7 @@ BERTLVStreamTest >> testParseLength [
 
 ]
 
-{ #category : #bla }
+{ #category : 'bla' }
 BERTLVStreamTest >> testParseSequence [
 	| data stream value inner |
         data := #(16r30 16r0A
@@ -47,7 +48,7 @@ BERTLVStreamTest >> testParseSequence [
 	self assert: value elements first contents asString = 'Smith'
 ]
 
-{ #category : #bla }
+{ #category : 'bla' }
 BERTLVStreamTest >> testSimpleGSM [
 	| data stream value |
         "I should parse a simple GSM payload but the test is too basic. We

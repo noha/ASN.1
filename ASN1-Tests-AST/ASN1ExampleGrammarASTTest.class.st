@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1ExampleGrammarASTTest,
-	#superclass : #ASN1ExampleGrammarTest,
-	#category : 'ASN1-Tests-AST'
+	#name : 'ASN1ExampleGrammarASTTest',
+	#superclass : 'ASN1ExampleGrammarTest',
+	#category : 'ASN1-Tests-AST',
+	#package : 'ASN1-Tests-AST'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testComplexChoice [
 	| type |
 	type := self astBindingValue: 'ComplexChoice'.
@@ -12,7 +13,7 @@ ASN1ExampleGrammarASTTest >> testComplexChoice [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testDefinedSyntaxLookup [
 	| ast module |
 	ast := ASN1ASTParser parse: '
@@ -46,7 +47,7 @@ Code ::= CHOICE {local   INTEGER,
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testDefinedSyntaxObject [
 	| obj |
 	obj := self astBindingValue: 'mapSpecificAS' .
@@ -54,28 +55,28 @@ ASN1ExampleGrammarASTTest >> testDefinedSyntaxObject [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testErrorsParameter [
 	| object  |
 	object := self astBindingValue: 'Errors' .
 	self assert: object elementsSpec elements first entity constraint object definition notNil 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testObjectIdentifierOnlyNumbers [
 	| type |
 	type := self astBindingValue: 'id-domainComponent'.
 	self assert: (type oidString = '0.9.2342.19200300.100.1.25')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testOperationDefinition [
 	| class |
 	class := self astBindingValue: 'OPERATION' .
 	self assert: class syntax size = 10
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testOperationInstantiation [
 	| object  |
 	object := self astBindingValue: 'purgeMS' .
@@ -83,7 +84,7 @@ ASN1ExampleGrammarASTTest >> testOperationInstantiation [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarASTTest >> testSimpleChoice [
 	| type |
 	type := self astBindingValue: 'SimpleChoice'.

@@ -1,60 +1,62 @@
 Class {
-	#name : #ASN1TypeNode,
-	#superclass : #ASN1ASTNode,
-	#category : 'ASN1-AST-Nodes'
+	#name : 'ASN1TypeNode',
+	#superclass : 'ASN1ASTNode',
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #adding }
+{ #category : 'adding' }
 ASN1TypeNode >> addConstraint: aConstraintNode [
 	 self constraints add: aConstraintNode
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TypeNode >> basicType [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeNode >> constraints [
 	^ self propertyAt: #constraints ifAbsentPut: [ Set new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeNode >> constraints: aCollection [
 	^ self propertyAt: #constraints put: aCollection
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TypeNode >> createInstance: anObject [
 	^ anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TypeNode >> isSameType: aType [
 	^ self class = aType class
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TypeNode >> isTypeNode [
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1TypeNode >> matchesTypeOf: anObject [
 	^ anObject type class = self class
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeNode >> modifier [
 	^ self propertyAt: #modifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TypeNode >> modifier: anObject [
 	^ self propertyAt: #modifier put: anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1TypeNode >> printOn: aStream [
 	super printOn: aStream.
 	self constraints notNil ifTrue: [
@@ -70,18 +72,18 @@ ASN1TypeNode >> printOn: aStream [
 			nextPutAll: modifier printString ].
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TypeNode >> tagEnvironment [
 	^ self propertyAt: #tagEnvironment
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TypeNode >> tagEnvironment: aTaggingMode [
 	aTaggingMode ifNil: [  ^ self  ].
 	self propertyAt: #tagEnvironment put: aTaggingMode 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TypeNode >> validate: aValueNode [
 	aValueNode isValueNode ifFalse: [
 		Error signal: 'is not a value node'].

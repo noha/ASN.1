@@ -1,29 +1,31 @@
 Class {
-	#name : #ASN1IdentifierNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1IdentifierNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'name'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1IdentifierNode class >> name: aString [
 	^ self new 
 		name: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IdentifierNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IdentifierNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1IdentifierNode >> printOn: aStream [
 	aStream
 		nextPutAll: self class name;

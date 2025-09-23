@@ -1,20 +1,21 @@
 Class {
-	#name : #BERIdentifierTest,
-	#superclass : #TestCase,
-	#category : 'ASN1-Tests-Codec'
+	#name : 'BERIdentifierTest',
+	#superclass : 'TestCase',
+	#category : 'ASN1-Tests-Codec',
+	#package : 'ASN1-Tests-Codec'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifierTest >> testClazzNumber [
 	self assert: (ASN1Tag clazz: 'UNIVERSAL' number: 10) clazzIdentifier = 0
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifierTest >> testClazzNumberBogus [
 	self should: [ (ASN1Tag clazz: 'ABC' number: 10) clazzIdentifier ] raise: Error
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifierTest >> testParse [
 	| identifier |
 	identifier := BERIdentifier parseFrom: { 106 } readStream.
@@ -23,7 +24,7 @@ BERIdentifierTest >> testParse [
 	self assert: identifier tag number = 10.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifierTest >> testParseExtendedNumber [
 	| identifier |
 	identifier := BERIdentifier parseFrom: { 63 . 129 . 3 } readStream.
@@ -32,7 +33,7 @@ BERIdentifierTest >> testParseExtendedNumber [
 	self assert: identifier tag number = 131.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERIdentifierTest >> testRoundTripExtended [
 	| ident |
 

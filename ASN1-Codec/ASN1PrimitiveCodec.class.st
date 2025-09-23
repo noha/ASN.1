@@ -1,24 +1,25 @@
 Class {
-	#name : #ASN1PrimitiveCodec,
-	#superclass : #Object,
+	#name : 'ASN1PrimitiveCodec',
+	#superclass : 'Object',
 	#classInstVars : [
 		'utcTimeParser'
 	],
-	#category : 'ASN1-Codec'
+	#category : 'ASN1-Codec',
+	#package : 'ASN1-Codec'
 }
 
-{ #category : #decoding }
+{ #category : 'decoding' }
 ASN1PrimitiveCodec class >> decodePrintablestring: anOrderedCollection [ 
 	self shouldBeImplemented.
 ]
 
-{ #category : #decoding }
+{ #category : 'decoding' }
 ASN1PrimitiveCodec class >> decodeUtctime: aString [ 
 self halt.
 	^ self utcTimeParser parse: aString.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1PrimitiveCodec class >> utcTimeParser [
 	^ utcTimeParser ifNil: [
 		utcTimeParser := ASN1UTCTimeParser new ]

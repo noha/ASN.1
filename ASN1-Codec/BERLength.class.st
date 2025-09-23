@@ -4,16 +4,18 @@ of myself if I should be class or instance based or even be a SmallInteger or an
 extension to a SmallInteger. Should I have a method called isIndefinite. Time will tell.
 "
 Class {
-	#name : #BERLength,
-	#superclass : #BERStreamFormat,
+	#name : 'BERLength',
+	#superclass : 'BERStreamFormat',
 	#instVars : [
 		'definiteForm',
 		'contentLength'
 	],
-	#category : 'ASN1-Codec-BER'
+	#category : 'ASN1-Codec-BER',
+	#package : 'ASN1-Codec',
+	#tag : 'BER'
 }
 
-{ #category : #decoding }
+{ #category : 'decoding' }
 BERLength class >> parseFrom: aStream [
 	"create a BERLength instance by reading its values from a stream"
 	| berLength octet number |
@@ -29,33 +31,33 @@ BERLength class >> parseFrom: aStream [
 	^ berLength 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERLength >> contentLength [
 	^ contentLength
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERLength >> contentLength: anObject [
 	contentLength := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERLength >> definiteForm: anObject [
 	definiteForm := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BERLength >> hasDefiniteForm [
 	^ definiteForm
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 BERLength >> initialize [ 
 	super initialize.
 	definiteForm := true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 BERLength >> printOn: aStream [
 	self hasDefiniteForm 
 		ifTrue: [ 
@@ -67,7 +69,7 @@ BERLength >> printOn: aStream [
 				nextPutAll: 'indefinite length'] 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 BERLength >> readFrom: aStream [
 	"we are an instance of a length specification. This method reads the computate length
 	of bytes from a stream and returns them"
@@ -84,7 +86,7 @@ BERLength >> readFrom: aStream [
 				aStream next ]]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BERLength >> writeDefiniteLongForm: aStream [
 	| data |
 	data := self contentLength asByteArray.
@@ -95,7 +97,7 @@ BERLength >> writeDefiniteLongForm: aStream [
 	aStream nextPutAll: data.
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 BERLength >> writeOn: aStream [
 	(self hasDefiniteForm) 
 		ifTrue: [(self contentLength <= 16r7f)

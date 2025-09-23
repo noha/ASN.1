@@ -1,13 +1,15 @@
 Class {
-	#name : #ASN1RelativeOidResolvingVisitor,
-	#superclass : #ASN1RewriteVisitor,
+	#name : 'ASN1RelativeOidResolvingVisitor',
+	#superclass : 'ASN1RewriteVisitor',
 	#instVars : [
 		'module'
 	],
-	#category : 'ASN1-AST-Visitor'
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1RelativeOidResolvingVisitor >> resolveReferencesOf: aCollection [
 	"dereferencing values needs improvement"
 	self flag: #hack.
@@ -20,7 +22,7 @@ ASN1RelativeOidResolvingVisitor >> resolveReferencesOf: aCollection [
 			ifFalse: [ each ]]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1RelativeOidResolvingVisitor >> resolveToComponents: aNode [
 	| leadingComponent components |
 	components := aNode components.
@@ -31,14 +33,14 @@ ASN1RelativeOidResolvingVisitor >> resolveToComponents: aNode [
 	^ components
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RelativeOidResolvingVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 	module := aModuleDefinition.
 	[ ^ super visitModuleDefinitionNode: aModuleDefinition ]
 		ensure: [ module := nil ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1RelativeOidResolvingVisitor >> visitObjectIdentifierNode: aNode [
 	| components |
 	components := self resolveToComponents: aNode.

@@ -1,35 +1,37 @@
 Class {
-	#name : #ASN1ImportNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1ImportNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'moduleIdentifier',
 		'symbols'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ImportNode class >> nodes: aCollection [
 	^ self new 
 		nodes: aCollection
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ImportNode >> accept: anASN1Visitor [ 
 	^ anASN1Visitor visitImportNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ImportNode >> moduleIdentifier [
 	^ moduleIdentifier
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ImportNode >> moduleIdentifier: anObject [
 	moduleIdentifier := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ImportNode >> printOn: aStream [
 	self moduleIdentifier printOn: aStream.
 	aStream nextPut: Character cr.
@@ -42,12 +44,12 @@ ASN1ImportNode >> printOn: aStream [
 	aStream nextPut: Character cr.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ImportNode >> symbols [
 	^ symbols
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ImportNode >> symbols: anObject [
 	symbols := anObject
 ]

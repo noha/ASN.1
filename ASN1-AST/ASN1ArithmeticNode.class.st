@@ -1,5 +1,7 @@
 Class {
-	#name : #ASN1ArithmeticNode,
-	#superclass : #ASN1ASTNode,
-	#category : 'ASN1-AST-Nodes'
+	#name : 'ASN1ArithmeticNode',
+	#superclass : 'ASN1ASTNode',
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }

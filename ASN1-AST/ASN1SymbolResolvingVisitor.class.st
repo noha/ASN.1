@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1SymbolResolvingVisitor,
-	#superclass : #ASN1EnvironmentVisitor,
+	#name : 'ASN1SymbolResolvingVisitor',
+	#superclass : 'ASN1EnvironmentVisitor',
 	#instVars : [
 		'module'
 	],
-	#category : 'ASN1-AST-Visitor'
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1SymbolResolvingVisitor >> resolveLabel: aString [
 	^ self scope lookup: aString
 ]
 
-{ #category : #resolving }
+{ #category : 'resolving' }
 ASN1SymbolResolvingVisitor >> resolveReference: aReference [
 	(aReference isUnresolved) ifTrue: [ | def |
  		def := self resolveLabel: aReference label.
@@ -20,7 +22,7 @@ ASN1SymbolResolvingVisitor >> resolveReference: aReference [
 		aReference definition: def ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visit: anObject [
 
 	super visit: anObject.
@@ -32,31 +34,31 @@ ASN1SymbolResolvingVisitor >> visit: anObject [
 			anObject propertyAt: #module put: module ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitAmbiguousNode: anAmbiguousNode [
 	^ anAmbiguousNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitAssignmentNode: aNode [
 	aNode right beAssigned.
 	^ (super visitAssignmentNode: aNode)
 			
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitBitStringValueNode: aNode [
 	super visitBitStringValueNode: aNode.
 	"resolve the values for the named bits"
 	aNode setBitValues: (aNode value collect: [:each| self resolveLabel: each])
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitBooleanValueNode: aBooleanValueNode [ 
 	^ aBooleanValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitDefinedSyntaxObjectNode: aDefinedSyntaxObjectNode [ 
 	"parse defined syntax and build map from field references to values. Resolve field 
 	type references and value references like any other object.
@@ -77,7 +79,7 @@ ASN1SymbolResolvingVisitor >> visitDefinedSyntaxObjectNode: aDefinedSyntaxObject
 	^  aDefinedSyntaxObjectNode  
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 	| previousModule |
 	previousModule := module.
@@ -86,19 +88,19 @@ ASN1SymbolResolvingVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 		ensure: [ module := previousModule  ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitParameterNode: aNode [
 	super visitParameterNode: aNode.
 	aNode reference definition: aNode type
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitReferenceNode: aReferenceNode [
 	super visitReferenceNode: aReferenceNode.
 	self resolveReference: aReferenceNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitSequenceValueNode: aNode [ 
 	"Resolve each named value in the nodes' elements to a sequence type slot
 	value. Each named values 'name' refers to a slot in the sequence type. The
@@ -110,7 +112,7 @@ ASN1SymbolResolvingVisitor >> visitSequenceValueNode: aNode [
 					 type bindingOf: namedValue value label) ] ) 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1SymbolResolvingVisitor >> visitTypeFieldNode: aNode [
 	| type |
 	type := aNode type.

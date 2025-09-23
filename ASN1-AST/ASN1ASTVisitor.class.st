@@ -1,97 +1,99 @@
 Class {
-	#name : #ASN1ASTVisitor,
-	#superclass : #Object,
-	#category : 'ASN1-AST-Visitor'
+	#name : 'ASN1ASTVisitor',
+	#superclass : 'Object',
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visit: anObject [
 	anObject isNil ifTrue: [ ^ nil ].
 	^ anObject accept: self
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitAll: aCollection [
 	aCollection isNil ifTrue: [ ^ aCollection ].
 	^ aCollection collect: [:each|
 		self visit: each ]
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitAmbiguousNode: anAmbiguousNode [ 
 	self visitAll: anAmbiguousNode alternatives.
 	^ anAmbiguousNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitAnyTypeNode: anAnyNode [ 
 	^ anAnyNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitAssignmentNode: anAssignmentNode [
 	self visit: anAssignmentNode left.
 	self visit: anAssignmentNode right.
 	^ anAssignmentNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitBinaryBitStringValueNode: aBitStringValueNode [ 
 	^ self visitValueNode: aBitStringValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitBitStringNode: aBitString [ 
 	^ self visitPrimitiveNode: aBitString
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitBitStringValueNode: aBitStringValueNode [ 
 	^ self visitValueNode: aBitStringValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitBooleanValueNode: aPrimitiveValueNode [ 
 	^ self visitValueNode: aPrimitiveValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitChoiceNode: aChoice [
 	^ self visitCollectionNode: aChoice
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitChoiceValueNode: aChoiceValueNode [ 
 	^ self visitValueNode: aChoiceValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitCollectionNode: aCollection [
 	self visitAll: aCollection elements.
 	^ self visitTypeNode: aCollection
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitComponentTypeListNode: aComponentTypeList [ 
 	self visitAll: aComponentTypeList components.
 	self visitNode: aComponentTypeList.
 	^ aComponentTypeList 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitComponentTypeNode: aComponentTypeNode [ 
 	self visit: aComponentTypeNode type.
 	self visit: aComponentTypeNode modifiers.
 	^ aComponentTypeNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitComponentsOfNode: aComponentsOf [ 
 	self visit: aComponentsOf type.
 	^  aComponentsOf
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitConstraintNode: aConstraint [
 	self visit: aConstraint constraint.
 	self flag: #hack.
@@ -99,26 +101,26 @@ ASN1ASTVisitor >> visitConstraintNode: aConstraint [
 	^ aConstraint
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitCustomStringNode: aCustomString [ 
 	^ aCustomString 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitDefaultSyntaxClassNode: aDefaultSyntaxClassNode [
 	self visitAll: aDefaultSyntaxClassNode fields.
 	^ aDefaultSyntaxClassNode 
 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitDefinedSyntaxClassNode: aDefinedSyntaxClass [ 
 	self visitAll: aDefinedSyntaxClass fields.
 	"self visitAll: aDefinedSyntaxClass syntax."
 	^ aDefinedSyntaxClass 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitElementsNode: anElements [ 
 	self visit: anElements entity.
 	anElements exclusions ifNotNil: [
@@ -126,74 +128,74 @@ ASN1ASTVisitor >> visitElementsNode: anElements [
 	^ anElements
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitEnumeratedNode: anEnumerated [ 
 	^  anEnumerated 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitExtensionAndExceptionNode: aNode [ 
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitExtensionNode: aNode [ 
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitExternalNode: aNode [ 
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitFieldSpecNode: aFieldSpec [ 
 	self visit: aFieldSpec type.
 	self flag: #needsRedesign.
 	^ aFieldSpec 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitHexBitStringValueNode: aBitStringValueNode [ 
 	^ self visitValueNode: aBitStringValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitImportNode: anImport [
 	self visit: anImport moduleIdentifier.
 	self visitAll: anImport symbols.
 	^ anImport
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitIntegerNode: anInteger [
 	self visitAll: anInteger namedNumbers.
 	self visitTypeNode: anInteger.
 	^ anInteger
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitIntegerValueNode: aIntegerValueNode [ 
 	^ aIntegerValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitLiteralNode: aNode [
 	^ aNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitModifierDefaultValueNode: aNode [ 
 	self visit: aNode value.
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitModifierOptionalNode: anOptionalNode [ 
 	^ anOptionalNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 	self flag: #incomplete.
 	self visit: aModuleDefinition identifier.
@@ -203,97 +205,97 @@ ASN1ASTVisitor >> visitModuleDefinitionNode: aModuleDefinition [
 	^ aModuleDefinition 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitModuleIdentifierNode: aModuleIdentifierNode [ 
 	"self visit: aModuleIdentifierNode name."
 	self visit: aModuleIdentifierNode oid.
 	^ aModuleIdentifierNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitNamedNumberNode: aNamedNumberNode [ 
 	^ ASN1NamedNumberNode new
 		name: aNamedNumberNode name;
 		number: aNamedNumberNode number
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitNamedTypeNode: aNamedType [ 
 	self visit: aNamedType type.
 	^ aNamedType 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitNamedValueNode: aNode [ 
 	^ self visit: aNode value
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitNode: aNode [ 
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitNullTypeNode: aNullType [ 
 	^ aNullType
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitObjectIdComponentNode: anObjectIdComponent [ 
 	^ anObjectIdComponent 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitObjectIdNode: anObjectId [
 	self visitAll: anObjectId components.
 	^ anObjectId
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitObjectIdentifierNode: anObjectId [
 	self visitAll: anObjectId components.
 	^ anObjectId
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitObjectIdentifierTypeNode: anObjectIdentifier [
 	^ anObjectIdentifier 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitObjectSetNode: anObjectSetNode [
 	self visit: anObjectSetNode elementsSpec.
 	^ anObjectSetNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitOctetStringNode: aOctetString [
 	^ self visitPrimitiveNode: aOctetString 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitOpenTypeNode: anOpenTypeNode [ 
 	^ anOpenTypeNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitParameterNode: aParameterNode [ 
 	self visit: aParameterNode type.
 	"self visit: aParameterNode reference."
 	^ aParameterNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitPrimitiveNode: aPrimitiveNode [ 
 	^ self visitTypeNode: aPrimitiveNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitPrimitiveValueNode: aPrimitiveValueNode [ 
 	^ self visitValueNode: aPrimitiveValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitReferenceNode: aReferenceNode [
 	aReferenceNode hasParameters ifTrue: [
 		self visitAll: aReferenceNode parameters ].
@@ -302,7 +304,7 @@ ASN1ASTVisitor >> visitReferenceNode: aReferenceNode [
 	^ aReferenceNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitRoot: aRoot [
 	"process all modules. For each module a new visitor is
 	created to avoid side effects or recursive effects"
@@ -312,101 +314,101 @@ ASN1ASTVisitor >> visitRoot: aRoot [
 	^ aRoot
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitSelectionTypeNode: aSelectionTypeNode [ 
 	self visit: aSelectionTypeNode type.
 	^ aSelectionTypeNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitSequenceNode: aNode [
 	^ self visitCollectionNode: aNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitSequenceValueNode: aNode [ 
 	self visitAll: aNode elements.
 	^ aNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitSetNode: aNode [
 	^ self visitCollectionNode: aNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTagNode: aTag [
 	^ aTag
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTaggedTypeNode: aTypeNode [ 
 	self visit: aTypeNode type.
 	self visit: aTypeNode tag.
 	^ aTypeNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTypeFieldNode: aTypeFieldNode [ 
 	self visit: aTypeFieldNode type.
 	self visitAll: aTypeFieldNode fields.
 	^ aTypeFieldNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTypeFromObjectNode: aTypeFromObject [ 
 	self visit: aTypeFromObject object.
 	^ aTypeFromObject 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTypeNode: aTypeNode [
 	^ self visitNode: aTypeNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTypedCollectionNode: aNode [
 	self visit: aNode type.
 	^ self visitNode: aNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTypedSequenceNode: aSequenceNode [
 	^ self visitTypedCollectionNode: aSequenceNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitTypedSetNode: aSetNode [
 	^ self visitTypedCollectionNode: aSetNode
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitUnionNode: aUnion [
 	self visitAll: aUnion elements.
 	^ aUnion
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitValueCollectionNode: aValueCollectionNode [ 
 	^ self visitAll: aValueCollectionNode elements
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitValueFromObject: anASN1ValueFromObject [ 
 	self shouldBeImplemented.
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitValueFromObjectNode: aValueFromObjectNode [
 	self visit: aValueFromObjectNode object
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitValueNode: aValueNode [
 	^ self visitNode: aValueNode 
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ASTVisitor >> visitValueSetNode: aValueSetNode [ 
 	self visit: aValueSetNode elementsSpec.
 	^ aValueSetNode

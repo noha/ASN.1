@@ -1,30 +1,32 @@
 Class {
-	#name : #ASN1TagNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1TagNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'encodingReference',
 		'tagClass',
 		'tagNumber'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1TagNode >> accept: aVisitor [ 
 	^ aVisitor visitTagNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TagNode >> encodingReference [
 	^ encodingReference
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TagNode >> encodingReference: anObject [
 	encodingReference := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1TagNode >> printOn: aStream [
 	aStream nextPut: $[.
 	encodingReference ifNotNil: [
@@ -41,22 +43,22 @@ ASN1TagNode >> printOn: aStream [
 	aStream nextPut: $]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TagNode >> tagClass [
 	^ tagClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TagNode >> tagClass: anObject [
 	tagClass := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TagNode >> tagNumber [
 	^ tagNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1TagNode >> tagNumber: anObject [
 	tagNumber := anObject
 ]

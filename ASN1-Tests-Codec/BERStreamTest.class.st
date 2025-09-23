@@ -1,10 +1,11 @@
 Class {
-	#name : #BERStreamTest,
-	#superclass : #TestCase,
-	#category : 'ASN1-Tests-Codec'
+	#name : 'BERStreamTest',
+	#superclass : 'TestCase',
+	#category : 'ASN1-Tests-Codec',
+	#package : 'ASN1-Tests-Codec'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERStreamTest >> assert: anObject hasTagClass: aClassNumber number: aNumber constructed: aBoolean [
 	self assert: anObject tag clazz = aClassNumber .
 	self assert: anObject tag number = aNumber.
@@ -12,7 +13,7 @@ BERStreamTest >> assert: anObject hasTagClass: aClassNumber number: aNumber cons
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERStreamTest >> assert: anObject hasTagClassNumber: aClassNumber number: aNumber constructed: aBoolean [
 	self assert: anObject tag clazzIdentifier = aClassNumber .
 	self assert: anObject tag number = aNumber.
@@ -20,7 +21,7 @@ BERStreamTest >> assert: anObject hasTagClassNumber: aClassNumber number: aNumbe
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 BERStreamTest >> assertTagClass: aClassNumber number: aNumber constructed: aBoolean [
 	
 ]

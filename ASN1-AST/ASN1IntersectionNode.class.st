@@ -1,28 +1,30 @@
 Class {
-	#name : #ASN1IntersectionNode,
-	#superclass : #ASN1ArithmeticNode,
+	#name : 'ASN1IntersectionNode',
+	#superclass : 'ASN1ArithmeticNode',
 	#instVars : [
 		'elements'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1IntersectionNode >> accept: aVisitor [
 	^ aVisitor visitIntersectionNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntersectionNode >> elements [
 	^ elements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntersectionNode >> elements: anObject [
 	elements := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1IntersectionNode >> printOn: aStream [
 	elements ifNotNil: [
 		aStream nextPut: $(.
@@ -32,7 +34,7 @@ ASN1IntersectionNode >> printOn: aStream [
 		aStream nextPut: $) ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1IntersectionNode >> type: anObject [
 	elements type: anObject
 ]

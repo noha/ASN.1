@@ -1,34 +1,36 @@
 Class {
-	#name : #ASN1ValueFromObjectNode,
-	#superclass : #ASN1ValueNode,
+	#name : 'ASN1ValueFromObjectNode',
+	#superclass : 'ASN1ValueNode',
 	#instVars : [
 		'object',
 		'fields'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ValueFromObjectNode >> accept: aVisitor [
 	aVisitor visitValueFromObjectNode: self 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueFromObjectNode >> fields [
 	^ fields
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueFromObjectNode >> fields: anObject [
 	fields := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueFromObjectNode >> object [
 	^ object
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ValueFromObjectNode >> object: anObject [
 	object := anObject
 ]

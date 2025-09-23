@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1ExampleGrammarTestResource,
-	#superclass : #TestResource,
+	#name : 'ASN1ExampleGrammarTestResource',
+	#superclass : 'TestResource',
 	#instVars : [
 		'modules',
 		'ast',
 		'model'
 	],
-	#category : 'ASN1-Tests-AST'
+	#category : 'ASN1-Tests-AST',
+	#package : 'ASN1-Tests-AST'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> applicationContextClass [
 	<definition: #example>
 	^ 'APPLICATION-CONTEXT ::= CLASS {
@@ -26,7 +27,7 @@ WITH SYNTAX {
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> ast [
 	^ ast ifNil: [ 
 		ast := ASN1ASTRoot new.
@@ -34,14 +35,14 @@ ASN1ExampleGrammarTestResource >> ast [
 		ast ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> choiceWithImplicitTaggedTypes [
 	<definition: #example>
 	^ 'ChoiceWithImplicitTaggedTypes ::= CHOICE {present  [0] IMPLICIT INTEGER,
             absent   [1] IMPLICIT NULL }'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> complexChoice [
 	<definition: #example>
 	^ 'ComplexChoice ::= CHOICE { 
@@ -51,7 +52,7 @@ ASN1ExampleGrammarTestResource >> complexChoice [
 		four [APPLICATION 4] INTEGER }'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> complexSequence [
 	<definition: #example>
 	^ 'ComplexSequence ::= SEQUENCE { 
@@ -65,7 +66,7 @@ ASN1ExampleGrammarTestResource >> complexSequence [
 	TypedComplexSequence ::= SEQUENCE SIZE (1..MAX) OF ComplexSequence '
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> constructedComplexChoice [
 	<definition: #example>
 	^'UnconstructedChoice1 ::= OCTET STRING (SIZE (1..5))
@@ -82,25 +83,25 @@ UnconstructedChoice2 ::= OCTET STRING (SIZE (1..5))
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> definitionsFor: aSymbol [
 	^ ((Pragma allNamed: #definition: in: self class)
 		select: [:each| each arguments first = aSymbol ]) 
 			collect: [:each| self perform: each method selector ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> emptySequence [
 	<definition: #example>
 	^ 'EmptySequence ::= SEQUENCE {}'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> exampleDefinitions [
 	^ self definitionsFor: #example
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> exampleGrammarHead [
 	<head: #example>
 	^ '
@@ -112,13 +113,13 @@ IMPORTS;
 '
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> exampleGrammarTail [
 	<tail: #example>
 	^ 'END'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> grammar: aSymbol [
 	^ String streamContents: [:stream|
 		stream nextPutAll: (self headFor: aSymbol).
@@ -128,25 +129,25 @@ ASN1ExampleGrammarTestResource >> grammar: aSymbol [
 		stream nextPutAll: (self tailFor: aSymbol) ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> gsmMessagingId [
 	<definition: #example>
 	^ 'gsm-MessagingId OBJECT IDENTIFIER ::= 
 	{mobileDomainId gsm-Messaging (4)}'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> headFor: aSymbol [
 	^ self perform: (self methodWithPragma: #head asMutator andArgument: aSymbol).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> implicitTaggedSequence [
 	<definition: #example>
 	^ 'ImplicitTaggedSequence ::= [APPLICATION:0] IMPLICIT SEQUENCE { number [0] INTEGER, othernumber [1] INTEGER }'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> mapSpecificAS [
 	<definition: #example>
 	^ 'mapSpecificAS ABSTRACT-SYNTAX ::= {
@@ -155,14 +156,14 @@ ASN1ExampleGrammarTestResource >> mapSpecificAS [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> methodWithPragma: aSymbol andArgument: anotherSymbol [
 	^ ((Pragma allNamed: aSymbol in: self class)
 		detect: [:pragma| 
 			pragma arguments first = anotherSymbol ]) method selector
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> mobileDomainId [
 	<definition: #example>
 	^ 'mobileDomainId OBJECT IDENTIFIER ::= 
@@ -170,7 +171,7 @@ ASN1ExampleGrammarTestResource >> mobileDomainId [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> objectFromDefinedSyntax [
 	<definition: #example>
 	^ '
@@ -216,7 +217,7 @@ SendAuthenticationInfoRes ::= [3] SEQUENCE {
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> objectIdentifierOnlyNumbers [
 	<definition: #example>
 	^ '
@@ -226,7 +227,7 @@ id-domainComponent   AttributeType ::= { 0 9 2342 19200300 100 1 25 }
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> operationClass [
 	<definition: #example>
 	^ 'OPERATION ::= CLASS {
@@ -280,7 +281,7 @@ Priority ::= INTEGER(0..MAX)
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> operationPackageClass [
 	<definition: #example>
 	^ 'OPERATION-PACKAGE ::= CLASS {
@@ -301,41 +302,41 @@ WITH SYNTAX {
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> parameterizedErrors [
 	<definition: #example>
 	^ 'Errors{OPERATION:Operations} ERROR ::= {Operations.&Errors}'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> parseGrammar: aSymbol [
 	^ self parseGrammar: (self grammar: aSymbol) rule: #start 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> parseGrammar: aString rule: aSymbol [
 	^ self parserClass parse: aString startingAt: aSymbol	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> parseModelFrom: aString [
 	^ ASN1 new ast 
 		addModule: (self parseGrammar: aString);
 		yourself
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> parseModelFrom: aString rule: aSymbol [
 	^ self createModelFromAst: (
 		self parseGrammar: aString rule: aSymbol)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> parserClass [ 
 	^ ASN1ASTParser
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> prepareAst [
 	self  ast modules ifEmpty: [
 		self ast addModule: (ASN1DefaultModuleLibrary new moduleNamed: 'default').
@@ -346,7 +347,7 @@ ASN1ExampleGrammarTestResource >> prepareAst [
 	^ self  ast
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> purgeMS [
 	<definition: #example>
 	^ '
@@ -453,7 +454,7 @@ MAP-EXTENSION  ::= CLASS {
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> referencedGrammarHead [
 	<head: #referenced>
 	^ '
@@ -465,13 +466,13 @@ IMPORTS;
 '
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> referencedGrammarTail [
 	<tail: #referenced>
 	^ 'END'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> relativeOid [
 	<definition: #example>
 	^ 'gsm-NetworkId OBJECT IDENTIFIER ::= 
@@ -484,12 +485,12 @@ ASN1ExampleGrammarTestResource >> relativeOid [
 	as-Id CommonComponentId ::= 1'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> reset [
 	model := nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> resolveableDefinedSyntax [
 	<definition: #example>
 	^ '
@@ -515,7 +516,7 @@ firstExtension EXTENSION ::= {
 '
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> sequenceWithExtension [
 	<definition: #example>
 	^'SequenceWithExtension ::= SEQUENCE {
@@ -530,13 +531,13 @@ ASN1ExampleGrammarTestResource >> sequenceWithExtension [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> simpleChoice [
 	<definition: #example>
 	^ 'SimpleChoice ::= CHOICE { number [0] INTEGER, nothing [1] NULL }'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> simpleSequence [
 	<definition: #example>
 	^ 'SimpleSequence ::= SEQUENCE { 
@@ -544,12 +545,12 @@ ASN1ExampleGrammarTestResource >> simpleSequence [
 		second OCTET STRING }'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> tailFor: aSymbol [
 	^ self perform: (self methodWithPragma: #tail asMutator andArgument: aSymbol).
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ExampleGrammarTestResource >> typedSetFromCamel [
 	<definition: #example>
 	^ '

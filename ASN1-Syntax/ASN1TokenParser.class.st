@@ -1,23 +1,24 @@
 Class {
-	#name : #ASN1TokenParser,
-	#superclass : #PPTokenParser,
+	#name : 'ASN1TokenParser',
+	#superclass : 'PPTokenParser',
 	#classVars : [
 		'SeparatorPredicate'
 	],
-	#category : 'ASN1-Syntax'
+	#category : 'ASN1-Syntax',
+	#package : 'ASN1-Syntax'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 ASN1TokenParser class >> initialize [
 	SeparatorPredicate := PPCharSetPredicate on: [ :char | char isWhiteSpace ]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 ASN1TokenParser >> defaultTokenClass [
 	^ ASN1Token
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1TokenParser >> findSingleLineEndMarkerOn: aStream [
 	|  char |
 	[
@@ -34,7 +35,7 @@ ASN1TokenParser >> findSingleLineEndMarkerOn: aStream [
 
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 ASN1TokenParser >> parseComments: anArray on: aStream [
 	"There are two types of comments:
 	1. single line comment. it starts with -- and ends with a second pair of -- or at the end of line
@@ -58,7 +59,7 @@ ASN1TokenParser >> parseComments: anArray on: aStream [
 	^ comments
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 ASN1TokenParser >> parseOn: aStream [
 	| start comments token |
 	start := aStream position.

@@ -1,18 +1,20 @@
 Class {
-	#name : #ASN1ExtensionEndMarkerNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1ExtensionEndMarkerNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'optional'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExtensionEndMarkerNode >> optional [
 	^ optional
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExtensionEndMarkerNode >> optional: anObject [
 	optional := anObject
 ]

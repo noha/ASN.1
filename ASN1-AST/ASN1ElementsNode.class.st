@@ -1,44 +1,46 @@
 Class {
-	#name : #ASN1ElementsNode,
-	#superclass : #ASN1ArithmeticNode,
+	#name : 'ASN1ElementsNode',
+	#superclass : 'ASN1ArithmeticNode',
 	#instVars : [
 		'entity',
 		'exclusions'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ElementsNode >> accept: aVisitor [ 
 	^ aVisitor visitElementsNode: self 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ElementsNode >> contains: aString [
 	^ self entity label = aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementsNode >> entity [
 	^ entity
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementsNode >> entity: anObject [
 	entity := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementsNode >> exclusions [
 	^ exclusions
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementsNode >> exclusions: anObject [
 	exclusions := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ElementsNode >> printOn: aStream [
 	entity printOn: aStream.
 	exclusions ifNotNil: [
@@ -46,7 +48,7 @@ ASN1ElementsNode >> printOn: aStream [
 		exclusions printOn: aStream ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ElementsNode >> type: anObject [
 	entity type: anObject.
 	exclusions ifNotNil: [ 

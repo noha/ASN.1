@@ -1,10 +1,11 @@
 Class {
-	#name : #UTCTimeParserTest,
-	#superclass : #TestCase,
-	#category : 'ASN1-Tests-Codec'
+	#name : 'UTCTimeParserTest',
+	#superclass : 'TestCase',
+	#category : 'ASN1-Tests-Codec',
+	#package : 'ASN1-Tests-Codec'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTCTimeParserTest >> testYYMMDDHHMM [
 	| dat |
 	dat := ASN1UTCTimeParser parse: '1201021200-0200'.
@@ -13,7 +14,7 @@ UTCTimeParserTest >> testYYMMDDHHMM [
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 UTCTimeParserTest >> testYYMMDDHHMMSS [
 	| dat |
 	dat := ASN1UTCTimeParser parse: '820102120013Z'.

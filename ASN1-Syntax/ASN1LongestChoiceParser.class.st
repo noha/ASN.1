@@ -1,15 +1,16 @@
 Class {
-	#name : #ASN1LongestChoiceParser,
-	#superclass : #PPListParser,
-	#category : 'ASN1-Syntax'
+	#name : 'ASN1LongestChoiceParser',
+	#superclass : 'PPListParser',
+	#category : 'ASN1-Syntax',
+	#package : 'ASN1-Syntax'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LongestChoiceParser >> /> aRule [ 
 	^ self copyWith: aRule
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1LongestChoiceParser >> parseOn: aStream [
  	| start element longestEnd longestElement |
  	start := aStream position.

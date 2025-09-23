@@ -1,29 +1,31 @@
 Class {
-	#name : #ASN1NamedBitNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1NamedBitNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'name',
 		'value'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1NamedBitNode >> accept: aVisitor [ 
 	^ aVisitor visitNamedBitNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedBitNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedBitNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1NamedBitNode >> printOn: aStream [
 	name printOn: aStream.
 	aStream nextPut: $(.
@@ -31,12 +33,12 @@ ASN1NamedBitNode >> printOn: aStream [
 	aStream nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedBitNode >> value [
 	^ value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1NamedBitNode >> value: anObject [
 	value := anObject
 ]

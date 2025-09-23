@@ -1,20 +1,21 @@
 Class {
-	#name : #ASN1ExampleGrammarTest,
-	#superclass : #TestCase,
-	#category : 'ASN1-Tests-AST'
+	#name : 'ASN1ExampleGrammarTest',
+	#superclass : 'TestCase',
+	#category : 'ASN1-Tests-AST',
+	#package : 'ASN1-Tests-AST'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExampleGrammarTest >> ast [
 	^ self resource ast
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExampleGrammarTest >> astBindingValue: aString [
 	^ (self ast bindingNamed: aString) right
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ExampleGrammarTest >> resource [
 	^ ASN1ExampleGrammarTestResource new
 ]

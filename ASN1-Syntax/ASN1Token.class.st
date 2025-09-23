@@ -1,23 +1,24 @@
 Class {
-	#name : #ASN1Token,
-	#superclass : #PPToken,
+	#name : 'ASN1Token',
+	#superclass : 'PPToken',
 	#instVars : [
 		'comments'
 	],
-	#category : 'ASN1-Syntax'
+	#category : 'ASN1-Syntax',
+	#package : 'ASN1-Syntax'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Token >> comments [
 	^ comments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1Token >> comments: anArray [
 	comments := anArray
 ]
 
-{ #category : #compatiblity }
+{ #category : 'compatiblity' }
 ASN1Token >> length [
 	^ self size
 ]

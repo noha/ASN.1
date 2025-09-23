@@ -1,15 +1,17 @@
 Class {
-	#name : #ASN1NullTypeNode,
-	#superclass : #ASN1TypeNode,
-	#category : 'ASN1-AST-Nodes'
+	#name : 'ASN1NullTypeNode',
+	#superclass : 'ASN1TypeNode',
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1NullTypeNode >> accept: aVisitor [ 
 	^ aVisitor visitNullTypeNode: self
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1NullTypeNode >> printOn: aStream [
 	aStream nextPutAll: 'NULL'
 ]

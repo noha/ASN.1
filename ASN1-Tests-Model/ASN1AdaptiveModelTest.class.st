@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1AdaptiveModelTest,
-	#superclass : #Phexample,
-	#category : 'ASN1-Tests-Model'
+	#name : 'ASN1AdaptiveModelTest',
+	#superclass : 'Phexample',
+	#category : 'ASN1-Tests-Model',
+	#package : 'ASN1-Tests-Model'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> model [
 	^ ASN1SequenceType new
 		elements: { 
@@ -16,7 +17,7 @@ ASN1AdaptiveModelTest >> model [
 			'secondElement' -> ASN1OctetStringType new } asDictionary 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldAddBottomPrimitiveString [
 	| val |
 	val := self given: #shouldAddTopPrimitive.
@@ -25,7 +26,7 @@ ASN1AdaptiveModelTest >> shouldAddBottomPrimitiveString [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldAddTopPrimitive [
 	| val |
 	val := self given: #shouldCreateValue.
@@ -33,7 +34,7 @@ ASN1AdaptiveModelTest >> shouldAddTopPrimitive [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldCreateValue [
 	| val |
 	val := self model newValue.
@@ -42,7 +43,7 @@ ASN1AdaptiveModelTest >> shouldCreateValue [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldGetBasicBottomPrimitiveString [
 	| val |
 	val := self given: #shouldProvideValue.
@@ -50,7 +51,7 @@ ASN1AdaptiveModelTest >> shouldGetBasicBottomPrimitiveString [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldGetBasicTopPrimitive [
 	| val |
 	val := self given: #shouldProvideValue.
@@ -58,7 +59,7 @@ ASN1AdaptiveModelTest >> shouldGetBasicTopPrimitive [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldGetBottomPrimitiveInteger [
 	| val |
 	val := self given: #shouldProvideValue.
@@ -66,7 +67,7 @@ ASN1AdaptiveModelTest >> shouldGetBottomPrimitiveInteger [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldGetBottomPrimitiveString [
 	| val |
 	val := self given: #shouldProvideValue.
@@ -74,7 +75,7 @@ ASN1AdaptiveModelTest >> shouldGetBottomPrimitiveString [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldGetTopPrimitive [
 	| val |
 	val := self given: #shouldProvideValue.
@@ -82,7 +83,7 @@ ASN1AdaptiveModelTest >> shouldGetTopPrimitive [
 	^ val
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1AdaptiveModelTest >> shouldProvideValue [
 	| val |
 	val := self given: #shouldAddBottomPrimitiveString.

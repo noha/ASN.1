@@ -1,20 +1,22 @@
 Class {
-	#name : #ASN1ClosestTypeDefinition,
-	#superclass : #Notification,
-	#category : 'ASN1-AST-Visitor'
+	#name : 'ASN1ClosestTypeDefinition',
+	#superclass : 'Notification',
+	#category : 'ASN1-AST-Visitor',
+	#package : 'ASN1-AST',
+	#tag : 'Visitor'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClosestTypeDefinition class >> defaultAction [
 	^ self class defaultValue
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClosestTypeDefinition class >> defaultValue [
 	^ nil
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClosestTypeDefinition class >> use: anObject during: aBlock [
 	
 	^ aBlock 
@@ -22,7 +24,7 @@ ASN1ClosestTypeDefinition class >> use: anObject during: aBlock [
 		do: [ :notification | notification resume: anObject ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClosestTypeDefinition class >> value [
 
 	^ self signal

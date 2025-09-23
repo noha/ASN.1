@@ -1,23 +1,25 @@
 Class {
-	#name : #ASN1OptionalExtensionMarkerNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1OptionalExtensionMarkerNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'optional'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1OptionalExtensionMarkerNode >> optional [
 	^ optional
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1OptionalExtensionMarkerNode >> optional: anObject [
 	optional := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1OptionalExtensionMarkerNode >> printOn: aStream [
 	aStream nextPutAll: self class name
 ]

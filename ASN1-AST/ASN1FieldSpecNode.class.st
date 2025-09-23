@@ -1,29 +1,31 @@
 Class {
-	#name : #ASN1FieldSpecNode,
-	#superclass : #ASN1TypeNode,
+	#name : 'ASN1FieldSpecNode',
+	#superclass : 'ASN1TypeNode',
 	#instVars : [
 		'name',
 		'type'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1FieldSpecNode >> accept: aVisitor [ 
 	^ aVisitor visitFieldSpecNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1FieldSpecNode >> name [
 	^ name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1FieldSpecNode >> name: anObject [
 	name := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1FieldSpecNode >> printOn: aStream [
 	aStream
 		nextPutAll: self class name;
@@ -31,12 +33,12 @@ ASN1FieldSpecNode >> printOn: aStream [
 		nextPutAll: self name printString 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1FieldSpecNode >> type [
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1FieldSpecNode >> type: anObject [
 	self flag: #needsCheck.
 	type := (anObject isNil)

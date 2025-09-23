@@ -1,16 +1,17 @@
 Class {
-	#name : #ASN1ToolTest,
-	#superclass : #ASN1ExampleGrammarTest,
-	#category : 'ASN1-Tests-Tool'
+	#name : 'ASN1ToolTest',
+	#superclass : 'ASN1ExampleGrammarTest',
+	#category : 'ASN1-Tests-Tool',
+	#package : 'ASN1-Tests-Tool'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ToolTest >> bindingAt: aString [
 	^ (ASN1ExampleGrammarTestResource new model bindingNamed: aString) value.
 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ToolTest >> encodeToByteArray: anObject withBinding: aString tagEnvironment: aTagEnvironment [
 	| binding |
 	binding := self bindingAt: aString.
@@ -23,7 +24,7 @@ ASN1ToolTest >> encodeToByteArray: anObject withBinding: aString tagEnvironment:
 				usingType: binding ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ToolTest >> readStream: aStream withBinding: aString [ 
 	^ self 
 		readStream:  aStream 
@@ -31,7 +32,7 @@ ASN1ToolTest >> readStream: aStream withBinding: aString [
 		tagEnvironment: ASN1ExplicitTags 
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ToolTest >> readStream: aStream withBinding: aString tagEnvironment: aTagEnvironment [
 	| binding |
 	binding := self bindingAt: aString.
@@ -44,7 +45,7 @@ ASN1ToolTest >> readStream: aStream withBinding: aString tagEnvironment: aTagEnv
 				usingType: binding ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ToolTest >> useTagEnvironment: aTagEnvironment for: aBinding during: aBlock [
 	| oldTagEnvironment |
 	[
@@ -54,7 +55,7 @@ ASN1ToolTest >> useTagEnvironment: aTagEnvironment for: aBinding during: aBlock 
 			ensure: [ aBinding tagEnvironment: oldTagEnvironment ]
 ]
 
-{ #category : #creating }
+{ #category : 'creating' }
 ASN1ToolTest >> valueFor: aString [ 
 	^ (self bindingAt: aString) newValue
 ]

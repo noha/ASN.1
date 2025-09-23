@@ -1,10 +1,11 @@
 Class {
-	#name : #ASN1ASTParserTest,
-	#superclass : #PPCompositeParserTest,
-	#category : 'ASN1-Tests-AST'
+	#name : 'ASN1ASTParserTest',
+	#superclass : 'PPCompositeParserTest',
+	#category : 'ASN1-Tests-AST',
+	#package : 'ASN1-Tests-AST'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ASTParserTest class >> methodsNotToBeImplemented [
 	^ #(
 		alternativeTypeList
@@ -111,7 +112,7 @@ ASN1ASTParserTest class >> methodsNotToBeImplemented [
 		withSyntaxSpec )
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ASTParserTest class >> methodsToBeImplemented [
 	(self methodsNotToBeImplemented intersection: self methodsToBeImplementedLater) ifNotEmpty: [:col|
 		Error signal: 'methods defined to be not implemented and later at the same time: ', col asString ]. 
@@ -122,7 +123,7 @@ ASN1ASTParserTest class >> methodsToBeImplemented [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ASTParserTest class >> methodsToBeImplementedLater [
 	^ #(
 		atNotation
@@ -188,17 +189,17 @@ ASN1ASTParserTest class >> methodsToBeImplementedLater [
 		 )
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ASTParserTest >> expectedFailures [ 
 	^ #( testNoMethodsToBeImplemented  )
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ASTParserTest >> parserClass [
 	^ ASN1ASTParser
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testAbsoluteOid [
 	| parsed |
 	parsed := self parse: 'mobileDomainId OBJECT IDENTIFIER ::= 
@@ -206,7 +207,7 @@ ASN1ASTParserTest >> testAbsoluteOid [
 	self assert: (parsed first right oidString =  '0.4.0.0')
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testAssignmentList [
 	| parsed |
 	parsed := self parse: 'foo Bar ::= 1
@@ -215,14 +216,14 @@ ASN1ASTParserTest >> testAssignmentList [
 	self assert: (parsed first right value = 1)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testBitStringAssignment [
 	| parsed |
 	parsed := self parse: 'alertingLevel-0   AlertingPattern ::= ''00000000''B' rule: #assignmentList.
 	self assert: (parsed first right type class = ASN1BitStringTypeNode )
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testBitStringType [
 	| parsed |
 	parsed := self parse: 'BIT STRING {
@@ -234,28 +235,28 @@ ASN1ASTParserTest >> testBitStringType [
 	self assert: (parsed bits first name = 'msc-s')
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testBooleanAssignment [
 	| parsed |
 	parsed := self parse: 'foo TestType ::= TRUE' rule: #assignmentList.
 	self assert: (parsed first right type class = ASN1BooleanTypeNode )
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testBooleanType [
 	| parsed |
 	parsed := self parse: 'BOOLEAN' rule: #booleanType.
 	self assert: (parsed name = 'BOOLEAN').
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testBooleanValue [
 	| parsed |
 	parsed := self parse: 'TRUE' rule: #builtinValue.
 	self assert: (parsed value = 'TRUE').
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testChoiceType [
 	| parsed |
 	parsed := self parse: 'CHOICE {
@@ -267,7 +268,7 @@ ASN1ASTParserTest >> testChoiceType [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testChoiceValue [
 	| parsed |
 	parsed := self parse: 'noInvokeId InvokeId ::= absent:NULL' rule: #assignmentList.
@@ -275,7 +276,7 @@ ASN1ASTParserTest >> testChoiceValue [
  
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testChoiceValueAssignment [
 	| parsed |
 	parsed := self parse: 'noInvokeId InvokeId ::= absent:NULL' rule: #assignmentList.
@@ -283,7 +284,7 @@ ASN1ASTParserTest >> testChoiceValueAssignment [
  
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testChoiceWithImplicitContextTags [
 	| nodes |
 	nodes := self parse: ' CHOICE {present  [0] IMPLICIT present < InvokeId,
@@ -293,7 +294,7 @@ ASN1ASTParserTest >> testChoiceWithImplicitContextTags [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testComponentType [
 	| parsed |
 	parsed := self parse: 'reroutingNumber    [0] IMPLICIT IsdnNumber' rule: #componentType.
@@ -301,7 +302,7 @@ ASN1ASTParserTest >> testComponentType [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testComponentTypeComponentsOf [
 	| parsed |
 	parsed := self parse: 'COMPONENTS OF Foodata' rule: #componentType.
@@ -310,7 +311,7 @@ ASN1ASTParserTest >> testComponentTypeComponentsOf [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testComponentTypeLists [
 	| parsed |
 	parsed := self parse: 'one Two, three Four' rule: #componentTypeLists.
@@ -319,12 +320,12 @@ ASN1ASTParserTest >> testComponentTypeLists [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testConstraint [
 	self flag: #todo
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDefaultSyntax [
 	| parsed |
 	parsed := self parse: '{
@@ -336,14 +337,14 @@ ASN1ASTParserTest >> testDefaultSyntax [
 	self assert: (parsed size = 4)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDefinedObjectClass [
 	| parsed |
 	parsed := self parse: 'FOO-BAR' rule: #definedObjectClass.
 	self assert: parsed isAsn1ReferenceNode 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDefinedSyntax [
 	| parsed | 
 	parsed := self parse: 'CLASS {
@@ -359,7 +360,7 @@ WITH SYNTAX {
 	self assert: parsed fields size = 4         
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDefinitiveIdentification [
 	| parsed |
 	parsed := self parse: '{itu-t recommendation q 775 modules(2) examples(2) version1(1)}' rule: #definitiveIdentification.
@@ -368,7 +369,7 @@ ASN1ASTParserTest >> testDefinitiveIdentification [
 		
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDefinitiveNameAndNumberForm [
 	| parsed |
 	parsed := self parse: 'modules(2)' rule: #definitiveNameAndNumberForm.
@@ -377,7 +378,7 @@ ASN1ASTParserTest >> testDefinitiveNameAndNumberForm [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDefinitiveObjIdComponent [
 	| parsed |
 	parsed := self parse: 'itu-t' rule: #definitiveObjIdComponent.
@@ -385,7 +386,7 @@ ASN1ASTParserTest >> testDefinitiveObjIdComponent [
 	self assert: (parsed number = 0)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDefinitiveOid [
 	| parsed |
 	parsed := self parse: '{itu-t recommendation q 775 modules(2) examples(2) version1(1)}' rule: #definitiveOid.
@@ -394,7 +395,7 @@ ASN1ASTParserTest >> testDefinitiveOid [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testDurationType [
 	| parsed |
 	parsed := self parse: 'DURATION' rule: #durationType.
@@ -402,7 +403,7 @@ ASN1ASTParserTest >> testDurationType [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testExternalType [
 	| parsed |
 	parsed := self parse: 'EXTERNAL' rule: #externalType.
@@ -410,7 +411,7 @@ ASN1ASTParserTest >> testExternalType [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testExternalTypeReference [
 	| parsed |
 	parsed := self parse: 'Foo.Bar' rule: #externalTypeReference.
@@ -420,7 +421,7 @@ ASN1ASTParserTest >> testExternalTypeReference [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testExternalValueReference [
 	| parsed |
 	parsed := self parse: 'Foo.bar' rule: #externalValueReference.
@@ -430,7 +431,7 @@ ASN1ASTParserTest >> testExternalValueReference [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testFieldName [
 	| parsed |
 	parsed := self parse: '&Foo.&Far.&Zork' rule: #fieldName.
@@ -438,7 +439,7 @@ ASN1ASTParserTest >> testFieldName [
 	self assert: (parsed allSatisfy: [:each| each isAsn1ReferenceNode ])	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testFieldSetting [
 	| parsed |
 	parsed := self parse: '&Foo Bar' rule: #fieldSetting.
@@ -446,7 +447,7 @@ ASN1ASTParserTest >> testFieldSetting [
 	self assert: (parsed allSatisfy: [:each| each isAsn1ReferenceNode ])	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testFixedTypeValueFieldSpec [
 	| parsed |
 	parsed := self parse: '&componentGrouping    BOOLEAN DEFAULT TRUE' rule: #fixedTypeValueFieldSpec.
@@ -458,7 +459,7 @@ ASN1ASTParserTest >> testFixedTypeValueFieldSpec [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testFixedTypeValueSetFieldSpec [
 	| parsed |
 	parsed := self parse: '&Errors   ERROR OPTIONAL' rule: #fixedTypeValueSetFieldSpec.
@@ -468,7 +469,7 @@ ASN1ASTParserTest >> testFixedTypeValueSetFieldSpec [
 	
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testGlobalDeclarations [
 	| parsed |
 	parsed := self parse: ASN1DefaultModuleLibrary globalDeclarations rule: #assignmentList.
@@ -483,7 +484,7 @@ ASN1ASTParserTest >> testGlobalDeclarations [
 	self assert: parsed third right components first number = 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testHString [
 	| parsed |
 	parsed := self parse: '''DEADBEEF''H' rule: #hString.
@@ -491,14 +492,14 @@ ASN1ASTParserTest >> testHString [
 	self assert: parsed value = 'DEADBEEF'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testIdentifier [
 	| parsed |
 	parsed := self parse: 'foo' rule: #identifier.
 	self assert: parsed = 'foo'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testIdentifierList [
 	| parsed |
 	parsed := self parse: 'foo, bar, zork' rule: #identifierList.
@@ -506,7 +507,7 @@ ASN1ASTParserTest >> testIdentifierList [
 	self assert: parsed = #( 'foo' 'bar' 'zork' )
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testIntegerType [
 	| parsed |
 	parsed := self parse: 'INTEGER { one(1), two(2) }' rule: #integerType.
@@ -514,26 +515,26 @@ ASN1ASTParserTest >> testIntegerType [
 	self assert: parsed namedNumbers size = 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testNoMethodsToBeImplemented [
 	self assert: self class methodsToBeImplementedLater isEmpty 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testObjectIdWithReference [
 	| parsed |
 	parsed := self parse: 'map-ac  OBJECT IDENTIFIER ::= {gsm-NetworkId ac-Id}' rule: #assignmentList.
 	self assert: parsed first right alternatives first components size = 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testObjectIdWithTwoNodes [
 	| parsed |
 	parsed := self parse: 'id-at-name OBJECT IDENTIFIER ::= { id-at 41 }' rule: #assignmentList.
 	self assert: parsed first right alternatives first components size = 2
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testObjectSetResolution [
 	| parsed |
 	parsed := self parse: '{ a | b | c, ..., d | e | f }' rule: #objectSet.
@@ -541,7 +542,7 @@ ASN1ASTParserTest >> testObjectSetResolution [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testRelativeOid [
 	| parsed components |
 	parsed := self parse: 'gsm-MessagingId OBJECT IDENTIFIER ::= 
@@ -551,7 +552,7 @@ ASN1ASTParserTest >> testRelativeOid [
 	self assert: (components second number = 4)
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testSequenceOnlyList [
 	| nodes |
 	
@@ -565,7 +566,7 @@ ASN1ASTParserTest >> testSequenceOnlyList [
 	self assert: nodes size = 6
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testSequenceWithExtensions [
 	| nodes |
 	
@@ -596,12 +597,12 @@ ASN1ASTParserTest >> testSequenceWithExtensions [
 	self assert: nodes size = 23
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testSyntaxMethodInheritance [
 	self assert: self class methodsToBeImplemented isEmpty 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testValueAssignment [
 	| parsed |
 	parsed := self parse: 'noInvokeId InvokeId ::= absent:NULL' rule: #assignmentList.
@@ -609,7 +610,7 @@ ASN1ASTParserTest >> testValueAssignment [
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testValueSetAssignment [
 	| parsed |
 	parsed := self parse: 'Supported-MAP-Operations OPERATION ::= {updateLocation | cancelLocation | purgeMS | 
@@ -620,7 +621,7 @@ processAccessSignalling
 	self assert: parsed first right class = ASN1ValueSetNode  
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 ASN1ASTParserTest >> testValueSetResolution [
 	| parsed |
 	parsed := self parse: '{updateLocation | cancelLocation | purgeMS }' rule: #valueSet.

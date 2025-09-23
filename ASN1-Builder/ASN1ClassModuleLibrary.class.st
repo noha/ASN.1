@@ -1,14 +1,15 @@
 Class {
-	#name : #ASN1ClassModuleLibrary,
-	#superclass : #ASN1ModuleLibrary,
+	#name : 'ASN1ClassModuleLibrary',
+	#superclass : 'ASN1ModuleLibrary',
 	#instVars : [
 		'path',
 		'manifest'
 	],
-	#category : 'ASN1-Builder'
+	#category : 'ASN1-Builder',
+	#package : 'ASN1-Builder'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClassModuleLibrary >> compile: aString selector: aSelector [
 	self class compile: (String streamContents: [:stream| 
 		stream 
@@ -19,42 +20,42 @@ ASN1ClassModuleLibrary >> compile: aString selector: aSelector [
 			nextPutAll: aString  storeString ]) 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ClassModuleLibrary >> dependencies: aCollection [ 
 	self compile: aCollection selector: #dependencies
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClassModuleLibrary >> escape: aString [
 	^ aString select: [:each| each asciiValue between: 0 and: 127]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ASN1ClassModuleLibrary >> includesModuleNamed: aString [ 
 	^ self respondsTo: (self selectorNameFrom: aString)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ClassModuleLibrary >> moduleNamed: aString [
 	^ (self perform: (self selectorNameFrom: aString) asSymbol )
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ClassModuleLibrary >> name: aString [ 
 	self compile: aString selector: #name
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ClassModuleLibrary >> rootModules: aCollection [ 
 	self compile: aCollection selector: #rootModules
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClassModuleLibrary >> selectorNameFrom: aString [
 	^ ( aString copyWithout: $-  ) uncapitalized asSymbol
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 ASN1ClassModuleLibrary >> storeModule: aString named: moduleName [
 	self 
 		compile: (self escape: aString) 

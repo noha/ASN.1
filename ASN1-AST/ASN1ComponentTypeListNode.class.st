@@ -1,28 +1,30 @@
 Class {
-	#name : #ASN1ComponentTypeListNode,
-	#superclass : #ASN1ASTNode,
+	#name : 'ASN1ComponentTypeListNode',
+	#superclass : 'ASN1ASTNode',
 	#instVars : [
 		'components'
 	],
-	#category : 'ASN1-AST-Nodes'
+	#category : 'ASN1-AST-Nodes',
+	#package : 'ASN1-AST',
+	#tag : 'Nodes'
 }
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 ASN1ComponentTypeListNode >> accept: aVisitor [ 
 	^ aVisitor visitComponentTypeListNode: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentTypeListNode >> components [
 	^ components
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ASN1ComponentTypeListNode >> components: anObject [
 	components := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ASN1ComponentTypeListNode >> printOn: aStream [
 	aStream nextPutAll: 'component type list: '.
 	components 
